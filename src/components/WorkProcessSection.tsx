@@ -32,7 +32,7 @@ const steps = [
 
 export default function WorkProcessSection() {
   return (
-    <section className="py-14 sm:py-20 bg-white border-t border-slate-100">
+    <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -47,20 +47,18 @@ export default function WorkProcessSection() {
             From Idea to Impact.
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
-            A simple and systematic process to ensure your project is delivered with perfection.
+            A clear, step-by-step process that ensures every project is delivered smoothly
           </p>
         </div>
 
-        {/* 4 Process Columns with Subtle Dividers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80 rounded-2xl bg-slate-50/40 sm:bg-transparent border sm:border-0 border-slate-200/70">
+        {/* 4 Process Columns with Subtle Dividers in White Card */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-sky-100 rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-sky-100">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.number}
-                className={`p-6 sm:px-6 sm:py-4 flex flex-col justify-start group hover:bg-slate-50/80 rounded-2xl transition-all duration-300 ${
-                  idx === 0 ? "sm:pl-0" : ""
-                } ${idx === steps.length - 1 ? "sm:pr-0" : ""}`}
+                className="p-6 flex flex-col justify-start group hover:bg-sky-50/50 rounded-2xl transition-all duration-300"
               >
                 {/* Icon in Light Blue Box */}
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-500 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">

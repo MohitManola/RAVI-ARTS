@@ -29,15 +29,15 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     id: 1,
-    image: "/images/HomeHeroBanner.webp",
-    alt: "Ravi Arts Enterprises - Print That Makes Your Design Stand Out",
+    image: "/images/HomeHeroBanner.png",
+    alt: "Where Quality Printing, Signage and Graphics Meet Brand Visibility - Ravi Arts Enterprises",
     primaryCtaText: "Request a Quote",
     secondaryCtaText: "Explore Services",
     secondaryCtaLink: "/services",
   },
   {
     id: 2,
-    image: "/images/HomeHeroBanner.webp",
+    image: "/images/HomeHeroBanner.png",
     alt: "Ravi Arts Enterprises - 3D Acrylic Letters & LED Glow Sign Boards",
     primaryCtaText: "Get Signage Quote",
     quoteService: "Sign Boards & Signage",
@@ -46,7 +46,7 @@ const slides: SlideData[] = [
   },
   {
     id: 3,
-    image: "/images/HomeHeroBanner.webp",
+    image: "/images/HomeHeroBanner.png",
     alt: "Ravi Arts Enterprises - Industrial Flex, Vinyl & Large Format Press",
     primaryCtaText: "Get Flex Quote",
     quoteService: "Flex & Large Format Printing",
@@ -141,7 +141,7 @@ export default function HomeHeroBanner() {
     >
       {/* Accessible semantic heading for SEO & screen readers */}
       <h1 className="sr-only">
-        Ravi Arts Enterprises - Print That Makes Your Design Stand Out | Printing, Signage &amp; Graphic Solutions in Kasna, Greater Noida
+        Where Quality Printing, Signage and Graphics Meet Brand Visibility - Ravi Arts Enterprises Kasna Greater Noida
       </h1>
 
       {/* Main Full-Width Slider Track (Edge-to-Edge with no border, perfectly touching left and right) */}
@@ -159,36 +159,61 @@ export default function HomeHeroBanner() {
             <div
               key={slide.id}
               style={{ width: `${100 / totalSlides}%` }}
-              className="relative shrink-0 w-full aspect-[16/8] sm:aspect-[16/6.5] md:aspect-[1920/550] overflow-hidden bg-white"
+              className="relative shrink-0 w-full aspect-[16/9] sm:aspect-[16/7] md:aspect-[1920/600] min-h-[350px] sm:min-h-[420px] md:min-h-[500px] overflow-hidden bg-white"
             >
-              {/* Full-bleed Banner Image */}
+              {/* Full-bleed Banner Image (Machine on the right, clean white canvas on the left) */}
               <Image
                 src={slide.image}
                 alt={slide.alt}
                 fill
                 priority={idx === 0}
-                className="object-cover object-left md:object-center select-none"
+                className="object-cover object-right select-none"
                 sizes="100vw"
                 quality={95}
               />
 
-              {/* Action Buttons directly in the clean white area under "Stand Out" */}
-              <div className="absolute left-[5%] md:left-[6.2%] top-[54%] md:top-[56%] z-10 flex items-center gap-2 sm:gap-3.5">
-                <button
-                  type="button"
-                  onClick={() => openQuoteModal(slide.quoteService)}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-sky-600 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-sky-600/30 hover:bg-sky-500 hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
-                >
-                  <span>{slide.primaryCtaText}</span>
-                  <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                </button>
+              {/* Content Overlay restricted strictly to the left 38% clean white area */}
+              <div className="absolute left-[5%] md:left-[6%] top-1/2 -translate-y-1/2 z-10 w-full max-w-[85%] sm:max-w-[60%] md:max-w-[42%] lg:max-w-[38%] xl:max-w-[36%] flex flex-col justify-center">
+                {/* Kicker badge */}
+                <div className="inline-flex items-center gap-2 mb-2 sm:mb-2.5">
+                  <span className="text-[10px] sm:text-xs font-bold tracking-widest text-sky-600 uppercase">
+                    RAVI ARTS ENTERPRISES • KASNA
+                  </span>
+                  <span className="cmyk-gradient-bar" />
+                </div>
 
-                <Link
-                  href={slide.secondaryCtaLink}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm hover:bg-white hover:border-slate-400 hover:scale-105 active:scale-95 transition-all"
-                >
-                  {slide.secondaryCtaText}
-                </Link>
+                {/* Main Headline in 3 clear lines */}
+                <h2 className="text-xl sm:text-2xl md:text-[28px] lg:text-[34px] xl:text-[40px] font-black text-slate-900 tracking-tight leading-[1.14]">
+                  <span className="block">Where Quality Printing,</span>
+                  <span className="block">Signage and Graphics Meet</span>
+                  <span className="block bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    Brand Visibility
+                  </span>
+                </h2>
+
+                {/* Compact Subtitle */}
+                <p className="mt-2 sm:mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm hidden sm:block">
+                  Your trusted destination for industrial flex, 3D acrylic signs &amp; precision offset branding in Greater Noida.
+                </p>
+
+                {/* Action Buttons */}
+                <div className="mt-3.5 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+                  <button
+                    type="button"
+                    onClick={() => openQuoteModal(slide.quoteService)}
+                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-sky-600 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-sky-600/30 hover:bg-sky-500 hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>{slide.primaryCtaText}</span>
+                    <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  </button>
+
+                  <Link
+                    href={slide.secondaryCtaLink}
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm hover:bg-white hover:border-slate-400 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    {slide.secondaryCtaText}
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -250,46 +275,46 @@ export default function HomeHeroBanner() {
       </div>
 
       {/* Feature Strip below Hero Banner */}
-      <div className="border-y border-slate-200/80 bg-slate-50/70 py-4">
+      <div className="border-y border-sky-100 bg-white py-4 sm:py-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:gap-6">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
-                <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-50 text-sky-600">
+                <ShieldCheck className="h-5 w-5 stroke-[2]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">Quality Printing</h4>
-                <p className="text-[11px] text-slate-500 hidden sm:block">Sharp, Vibrant &amp; Lasting</p>
+                <h4 className="text-sm font-bold text-slate-900">Quality-Focused Work</h4>
+                <p className="text-xs text-slate-500 mt-0.5">Attention to materials &amp; finishing</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                <PenTool className="h-4 w-4 sm:h-5 sm:w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
+                <PenTool className="h-5 w-5 stroke-[2]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">Custom Design</h4>
-                <p className="text-[11px] text-slate-500 hidden sm:block">Your Vision, Our Creativity</p>
+                <h4 className="text-sm font-bold text-slate-900">Complete Solutions</h4>
+                <p className="text-xs text-slate-500 mt-0.5">Printing &amp; signage under one roof</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
-                <Truck className="h-4 w-4 sm:h-5 sm:w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
+                <Truck className="h-5 w-5 stroke-[2]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">Reliable Delivery</h4>
-                <p className="text-[11px] text-slate-500 hidden sm:block">On Time, Every Time</p>
+                <h4 className="text-sm font-bold text-slate-900">Customised Approach</h4>
+                <p className="text-xs text-slate-500 mt-0.5">Tailored to your specific brand</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-                <Building2 className="h-4 w-4 sm:h-5 sm:w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                <Building2 className="h-5 w-5 stroke-[2]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">Kasna Workshop</h4>
-                <p className="text-[11px] text-slate-500 hidden sm:block">Direct In-House Factory</p>
+                <h4 className="text-sm font-bold text-slate-900">Reliable Communication</h4>
+                <p className="text-xs text-slate-500 mt-0.5">Clear coordination to delivery</p>
               </div>
             </div>
           </div>

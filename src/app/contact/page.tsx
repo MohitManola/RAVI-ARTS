@@ -129,7 +129,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Form & Contact Info */}
-      <section className="py-16 sm:py-24 bg-slate-50">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left Column: Contact Cards */}
@@ -149,7 +149,7 @@ export default function ContactPage() {
               {/* Contact Cards */}
               <div className="space-y-4">
                 {/* Phone */}
-                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-slate-200/80 shadow-xs hover:border-sky-300 hover:shadow-md transition-all group">
+                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs hover:border-sky-300 hover:shadow-md transition-all group">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
                     <Phone className="h-6 w-6" />
                   </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                 </a>
 
                 {/* Address */}
-                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-slate-200/80 shadow-xs">
+                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
                     <MapPin className="h-6 w-6" />
                   </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Timings */}
-                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-slate-200/80 shadow-xs">
+                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
                     <Clock className="h-6 w-6" />
                   </div>
@@ -267,7 +267,7 @@ export default function ContactPage() {
 
             {/* Right Column: Contact & Quote Form */}
             <div className="lg:col-span-7">
-              <div className="rounded-3xl bg-white p-8 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden">
+              <div className="rounded-3xl bg-white p-8 sm:p-10 border border-sky-100 shadow-xl relative overflow-hidden">
                 <div className="h-1.5 w-full cmyk-gradient-line absolute top-0 left-0" />
 
                 <div className="mb-6">
@@ -511,7 +511,7 @@ export default function ContactPage() {
       </section>
 
       {/* Frequently Asked Questions Accordion */}
-      <section className="py-16 sm:py-20 bg-white border-t border-slate-200">
+      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
@@ -526,12 +526,12 @@ export default function ContactPage() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-200 overflow-hidden transition-colors"
+                className="rounded-2xl border border-sky-100 bg-white overflow-hidden shadow-xs transition-colors"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 text-sm sm:text-base hover:bg-slate-50 transition-colors"
+                  className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 text-sm sm:text-base hover:bg-sky-50/50 transition-colors"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
@@ -541,7 +541,7 @@ export default function ContactPage() {
                   />
                 </button>
                 {openFaq === idx && (
-                  <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                  <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/30">
                     {faq.a}
                   </div>
                 )}

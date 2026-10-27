@@ -99,9 +99,9 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Ratings Overview Card */}
-      <section className="bg-slate-50 py-12 border-b border-slate-200">
+      <section className="bg-[#eff7ff] py-12 border-b border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
+          <div className="rounded-3xl bg-white border border-sky-100 p-8 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
               <div>
                 <div className="text-5xl font-black text-slate-900">4.9 / 5.0</div>
@@ -111,7 +111,7 @@ export default function TestimonialsPage() {
                   ))}
                 </div>
                 <div className="text-xs text-slate-500 mt-1">
-                  Based on 500+ projects completed in Greater Noida
+                  Based on 40k+ projects completed in Greater Noida
                 </div>
               </div>
 
@@ -145,13 +145,13 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Reviews Grid */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-[#eff7ff]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((rev) => (
               <div
                 key={rev.id}
-                className="flex flex-col justify-between rounded-3xl bg-slate-50/80 border border-slate-200/80 p-6 sm:p-8 shadow-xs hover:shadow-md transition-shadow"
+                className="flex flex-col justify-between rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-sky-200 transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -170,7 +170,7 @@ export default function TestimonialsPage() {
                   </p>
                 </div>
 
-                <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
+                <div className="border-t border-sky-100 pt-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-sky-500/20 bg-sky-100 flex items-center justify-center font-bold text-sky-700 text-sm">
                       {rev.author.charAt(0)}

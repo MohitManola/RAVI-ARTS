@@ -24,11 +24,9 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useQuote } from "@/context/QuoteContext";
-import WhyChooseSliders from "@/components/WhyChooseSliders";
 import HomeHeroBanner from "@/components/HomeHeroBanner";
 import ServicesInfiniteSlider from "@/components/ServicesInfiniteSlider";
 import MissionVisionSection from "@/components/MissionVisionSection";
-import WhyChooseValuesSection from "@/components/WhyChooseValuesSection";
 import TrustedClientsSlider from "@/components/TrustedClientsSlider";
 import WorkProcessSection from "@/components/WorkProcessSection";
 
@@ -172,7 +170,7 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 2: OUR SERVICES (Directly matching Image 2 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-slate-50/60 border-t border-slate-100">
+      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
@@ -202,14 +200,9 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: WHY CHOOSE RAVI ARTS? DUAL DIRECTION SLIDERS
-         ========================================================================= */}
-      <WhyChooseSliders />
-
-      {/* =========================================================================
           SECTION 4: ABOUT SECTION (Directly matching Image 1 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
             {/* Left Content */}
@@ -228,13 +221,14 @@ export default function HomePage() {
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-                Ravi Arts Enterprises is a Kasna, Greater Noida based printing
-                and signage company committed to delivering high-quality,
-                innovative and cost-effective solutions. With years of
-                experience, we help businesses build a strong identity through
-                creative design and professional printing services.
-              </p>
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+                <p>
+                  <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong> is a trusted printing and signage company in Kasna, Greater Noida, established in 2005. With over 20 years of experience, we provide high-quality, cost-effective solutions for businesses of all sizes.
+                </p>
+                <p>
+                  Our reliable service, quality workmanship and attention to detail help your brand get noticed. We believe in delivering practical, creative work that meets your needs and helps your business stand out.
+                </p>
+              </div>
 
               {/* 4 Feature Badges 2x2 grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
@@ -307,27 +301,27 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Visual with building photo and script accent */}
+            {/* Right Visual with Official Ravi Arts Logo */}
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md">
-                {/* Yellow and Pink graphic decor elements matching Image 1 */}
-                <div className="absolute -top-4 -left-4 h-16 w-16 rounded-xl bg-amber-400 -z-10" />
-                <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-xl bg-rose-500 -z-10" />
+                {/* Yellow and Pink graphic decor accents matching branding */}
+                <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
+                <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
 
-                <div className="overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200">
-                  <div className="relative aspect-[16/11] w-full">
+                <div className="overflow-hidden rounded-3xl bg-white p-8 sm:p-10 shadow-2xl border border-sky-100 flex flex-col items-center justify-center">
+                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 hover:scale-105">
                     <Image
-                      src="/images/about-building.webp"
-                      alt="Ravi Arts Enterprises Building & Signboard"
+                      src="/images/logo.png"
+                      alt="Ravi Arts Enterprises Official Logo"
                       fill
-                      className="object-cover"
-                      loading="lazy"
+                      className="object-contain"
+                      priority
                     />
                   </div>
                 </div>
 
                 {/* Script commitment tag */}
-                <div className="absolute -bottom-6 left-6 rounded-xl bg-white/95 backdrop-blur-sm px-4 py-2.5 shadow-lg border border-slate-100">
+                <div className="absolute -bottom-6 left-6 rounded-xl bg-white/95 backdrop-blur-sm px-4 py-2.5 shadow-lg border border-sky-100">
                   <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                     Our Promise
                   </span>
@@ -347,11 +341,6 @@ export default function HomePage() {
       <MissionVisionSection />
 
       {/* =========================================================================
-          SECTION 5: WHY CHOOSE RAVI ARTS ENTERPRISES? (5 Core Values Matching Mockup)
-         ========================================================================= */}
-      <WhyChooseValuesSection />
-
-      {/* =========================================================================
           SECTION 6: TRUSTED BY BUSINESSES ACROSS INDUSTRIES (Clients Logo Slider)
          ========================================================================= */}
       <TrustedClientsSlider />
@@ -364,7 +353,7 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 5: OUR PORTFOLIO / RECENT WORK (Matching Image 1 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-slate-50/70 border-t border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
@@ -433,7 +422,7 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 6: TESTIMONIALS & STATS (Matching Image 1 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-t border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left side: Testimonials */}
@@ -454,7 +443,7 @@ export default function HomePage() {
               </div>
 
               {/* Single Active Testimonial Card */}
-              <div className="relative rounded-3xl bg-slate-50 border border-slate-200/80 p-6 sm:p-8 transition-all">
+              <div className="relative rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-sm transition-all">
                 {/* Large Decorative Quote Icon */}
                 <div className="text-sky-500 font-serif text-5xl leading-none select-none mb-2">
                   “
@@ -531,13 +520,13 @@ export default function HomePage() {
 
             {/* Right side: Stats */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
                     <Users className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">500+</div>
+                    <div className="text-3xl font-extrabold text-slate-900">25k+</div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Happy Clients
                     </div>
@@ -545,13 +534,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
                     <FolderCheck className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">1000+</div>
+                    <div className="text-3xl font-extrabold text-slate-900">40k+</div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Projects Completed
                     </div>
@@ -559,13 +548,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
                     <Star className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">3+</div>
+                    <div className="text-3xl font-extrabold text-slate-900">20+</div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Years of Experience
                     </div>

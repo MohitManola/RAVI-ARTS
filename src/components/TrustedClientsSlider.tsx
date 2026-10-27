@@ -174,7 +174,7 @@ export default function TrustedClientsSlider() {
   }, [isPaused, handleNext]);
 
   return (
-    <section className="py-14 sm:py-20 bg-slate-50/70 border-t border-slate-100 select-none">
+    <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100 select-none">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

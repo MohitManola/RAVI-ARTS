@@ -196,13 +196,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Services List */}
-      <section className="py-16 sm:py-20 bg-slate-50">
+      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           {filteredServices.map((svc, index) => (
             <div
               key={svc.id}
               id={svc.id}
-              className={`rounded-3xl bg-white border border-slate-200/80 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-xl ${
+              className={`rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-sky-200 ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
             >

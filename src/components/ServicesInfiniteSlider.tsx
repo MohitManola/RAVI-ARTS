@@ -167,7 +167,7 @@ export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSli
           {extendedServices.map((svc, idx) => (
             <div
               key={`${svc.title}-${idx}`}
-              className="w-[280px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-32px)/3)] lg:w-[calc((100%-48px)/4)] xl:w-[calc((100%-64px)/5)] shrink-0 flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 group"
+              className="w-[280px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-32px)/3)] lg:w-[calc((100%-48px)/4)] xl:w-[calc((100%-64px)/5)] shrink-0 flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-sky-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 group"
             >
               <div>
                 {/* Thumbnail */}

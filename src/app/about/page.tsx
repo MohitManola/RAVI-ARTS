@@ -95,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* Main Story & Facility Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Image & Badge */}
@@ -152,21 +152,21 @@ export default function AboutPage() {
 
               <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-100">
                 <div>
-                  <div className="text-3xl font-extrabold text-sky-600">500+</div>
+                  <div className="text-3xl font-extrabold text-sky-600">25k+</div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
                     Happy Clients
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-rose-600">1000+</div>
+                  <div className="text-3xl font-extrabold text-rose-600">40k+</div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
                     Projects Delivered
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-amber-500">100%</div>
+                  <div className="text-3xl font-extrabold text-amber-500">20+</div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                    Quality Satisfaction
+                    Years of Experience
                   </div>
                 </div>
               </div>
@@ -176,7 +176,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12">
             <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
@@ -193,7 +193,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={val.title}
-                  className="rounded-2xl bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow"
+                  className="rounded-2xl bg-white p-6 border border-sky-100 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${val.color} mb-4`}>
                     <Icon className="h-6 w-6" />
@@ -212,7 +212,7 @@ export default function AboutPage() {
       </section>
 
       {/* Machinery & Technology Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
@@ -233,7 +233,7 @@ export default function AboutPage() {
 
               <div className="space-y-4 pt-2">
                 {machines.map((mach) => (
-                  <div key={mach.title} className="flex items-start gap-3 rounded-xl border border-slate-100 p-4 hover:border-sky-200 transition-colors">
+                  <div key={mach.title} className="flex items-start gap-3 rounded-xl bg-white border border-sky-100 p-4 hover:border-sky-300 shadow-xs transition-colors">
                     <CheckCircle2 className="h-5 w-5 text-sky-600 shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-sm font-bold text-slate-900">

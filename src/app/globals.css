@@ -9,7 +9,7 @@
     --accent-yellow: #facc15;
     --accent-green: #22c55e;
     --surface: #ffffff;
-    --surface-alt: #f8fafc;
+    --surface-alt: #eff7ff;
     --text-primary: #0f172a;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
@@ -21,7 +21,7 @@
   }
 
   body {
-    background-color: #ffffff;
+    background-color: #eff7ff;
     color: #0f172a;
     font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;

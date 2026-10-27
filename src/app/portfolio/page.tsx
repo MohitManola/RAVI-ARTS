@@ -137,13 +137,13 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 sm:py-24 bg-slate-50">
+      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProjects.map((item) => (
               <div
                 key={item.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-sky-100 shadow-sm hover:shadow-xl hover:border-sky-200 hover:-translate-y-1 transition-all duration-300"
               >
                 <div>
                   {/* Photo */}

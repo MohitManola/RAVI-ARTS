@@ -5,7 +5,7 @@ import { Target, Eye } from "lucide-react";
 
 export default function MissionVisionSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-t border-slate-100">
+    <section className="relative overflow-hidden bg-[#eff7ff] py-12 sm:py-16 border-t border-sky-100">
       {/* Decorative CMYK pastel artistic corner flares matching mockup */}
       <div className="pointer-events-none absolute -top-12 -left-12 h-44 w-44 rounded-full bg-gradient-to-br from-rose-200/40 via-amber-200/30 to-sky-200/40 blur-2xl -rotate-12" />
       <div className="pointer-events-none absolute -top-8 -right-8 h-40 w-40 rounded-full bg-gradient-to-bl from-sky-200/40 via-cyan-100/30 to-transparent blur-2xl" />
@@ -26,7 +26,7 @@ export default function MissionVisionSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           
           {/* Card 1: Our Mission */}
-          <div className="group relative rounded-3xl bg-white p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-md shadow-slate-100 transition-all duration-300 hover:shadow-xl hover:border-sky-300 hover:-translate-y-0.5">
+          <div className="group relative rounded-3xl bg-white p-6 sm:p-8 md:p-10 border border-sky-100 shadow-md shadow-sky-100/50 transition-all duration-300 hover:shadow-xl hover:border-sky-300 hover:-translate-y-0.5">
             <div className="flex flex-col sm:flex-row items-start gap-5">
               {/* Target / Bullseye Icon in Sky Blue Ring */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-sky-50 text-sky-500 border border-sky-100 ring-4 ring-sky-50/50 group-hover:scale-105 transition-transform">
@@ -38,15 +38,14 @@ export default function MissionVisionSection() {
                   Our Mission
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                  To provide dependable printing, signage, and design solutions that help
-                  businesses communicate their ideas clearly and professionally.
+                  To deliver reliable printing, signage and design solutions that help businesses present their message and build a strong brand.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Card 2: Our Vision */}
-          <div className="group relative rounded-3xl bg-white p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-md shadow-slate-100 transition-all duration-300 hover:shadow-xl hover:border-rose-300 hover:-translate-y-0.5">
+          <div className="group relative rounded-3xl bg-white p-6 sm:p-8 md:p-10 border border-sky-100 shadow-md shadow-sky-100/50 transition-all duration-300 hover:shadow-xl hover:border-rose-300 hover:-translate-y-0.5">
             <div className="flex flex-col sm:flex-row items-start gap-5">
               {/* Eye Icon in Pink / Magenta Ring */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-rose-50 text-rose-500 border border-rose-100 ring-4 ring-rose-50/50 group-hover:scale-105 transition-transform">
@@ -58,8 +57,7 @@ export default function MissionVisionSection() {
                   Our Vision
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                  To build lasting client relationships and become a trusted name for
-                  creative printing, signage, and branding solutions.
+                  To build long-term client relationships and become a reliable name in creative printing, signage and branding solutions
                 </p>
               </div>
             </div>

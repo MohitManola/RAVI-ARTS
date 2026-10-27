@@ -78,7 +78,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-1.5 rounded-full bg-slate-900 border border-slate-800 px-3 py-1 text-xs text-amber-400 font-medium">
                 <Award className="h-3.5 w-3.5" />
-                <span>1000+ Projects Delivered</span>
+                <span>40k+ Projects Delivered</span>
               </div>
             </div>
 
