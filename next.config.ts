@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.BASE_PATH !== undefined ? process.env.BASE_PATH : "/ravi-arts";
+
 const nextConfig: NextConfig = {
   output: "export",
+  ...(basePath ? { basePath } : {}),
   images: {
     unoptimized: true,
   },
