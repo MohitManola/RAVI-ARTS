@@ -174,7 +174,7 @@ export default function TrustedClientsSlider() {
   }, [isPaused, handleNext]);
 
   return (
-    <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100 select-none">
+    <section className="py-14 sm:py-20 bg-white border-t border-sky-100/60 select-none">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -233,7 +233,7 @@ export default function TrustedClientsSlider() {
               {extendedLogos.map((client, idx) => (
                 <div
                   key={`${client.id}-${idx}`}
-                  className="w-[calc((100%-16px)/2)] sm:w-[calc((100%-32px)/3)] md:w-[calc((100%-48px)/4)] lg:w-[calc((100%-80px)/6)] shrink-0 h-24 sm:h-28 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-slate-300 flex items-center justify-center p-4 transition-all duration-300 group"
+                  className="w-[calc((100%-16px)/2)] sm:w-[calc((100%-32px)/3)] md:w-[calc((100%-48px)/4)] lg:w-[calc((100%-80px)/6)] shrink-0 h-24 sm:h-28 rounded-2xl bg-[#f8fbff] border border-sky-100/90 shadow-xs hover:bg-white hover:shadow-md hover:border-sky-300 flex items-center justify-center p-4 transition-all duration-300 group"
                 >
                   <div className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all">
                     {client.renderLogo()}

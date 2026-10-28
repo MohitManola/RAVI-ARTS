@@ -88,7 +88,10 @@ export default function TestimonialsPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              What Our Clients Say
+              What Our{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Clients Say
+              </span>
             </h1>
             <p className="mt-4 text-base text-slate-300 leading-relaxed">
               We take immense pride in helping businesses make an impression.

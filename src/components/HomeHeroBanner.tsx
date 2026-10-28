@@ -7,14 +7,15 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
-  ShieldCheck,
-  PenTool,
-  Truck,
-  Building2,
   Pause,
   Play,
 } from "lucide-react";
 import { useQuote } from "@/context/QuoteContext";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import QualityFeaturesSlider, {
+  printingServicesLine,
+  signageServicesLine,
+} from "@/components/QualityFeaturesSlider";
 
 interface SlideData {
   id: number;
@@ -176,8 +177,8 @@ export default function HomeHeroBanner() {
               <div className="absolute left-[5%] md:left-[6%] top-1/2 -translate-y-1/2 z-10 w-full max-w-[85%] sm:max-w-[60%] md:max-w-[42%] lg:max-w-[38%] xl:max-w-[36%] flex flex-col justify-center">
                 {/* Kicker badge */}
                 <div className="inline-flex items-center gap-2 mb-2 sm:mb-2.5">
-                  <span className="text-[10px] sm:text-xs font-bold tracking-widest text-sky-600 uppercase">
-                    RAVI ARTS ENTERPRISES • KASNA
+                  <span className="text-[9px] sm:text-[10px] md:text-xs font-bold tracking-wider sm:tracking-widest text-sky-600 uppercase">
+                    ALL TYPES PRINTING, SIGNAGE &amp; GRAPHIC SOLUTIONS
                   </span>
                   <span className="cmyk-gradient-bar" />
                 </div>
@@ -206,6 +207,16 @@ export default function HomeHeroBanner() {
                     <span>{slide.primaryCtaText}</span>
                     <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </button>
+
+                  <a
+                    href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20printing%20and%20signage."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-emerald-500/30 bg-emerald-50 px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-bold text-emerald-700 shadow-sm hover:bg-[#25D366] hover:text-white hover:border-[#25D366] hover:shadow-md hover:scale-105 active:scale-95 transition-all group"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#25D366] group-hover:text-white transition-colors" />
+                    <span>WhatsApp</span>
+                  </a>
 
                   <Link
                     href={slide.secondaryCtaLink}
@@ -274,51 +285,21 @@ export default function HomeHeroBanner() {
         </div>
       </div>
 
-      {/* Feature Strip below Hero Banner */}
-      <div className="border-y border-sky-100 bg-white py-4 sm:py-5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-50 text-sky-600">
-                <ShieldCheck className="h-5 w-5 stroke-[2]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900">Quality-Focused Work</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Attention to materials &amp; finishing</p>
-              </div>
-            </div>
+      {/* Dual Text Sliders below Hero Banner (End to End Full Width) */}
+      <div className="border-y border-sky-100 bg-slate-50/40 py-2.5 sm:py-3.5 space-y-1.5 sm:space-y-2 w-full overflow-hidden">
+        {/* Track 1: Auto scrolling Left to Right (Printing Services) */}
+        <QualityFeaturesSlider
+          direction="ltr"
+          textItems={printingServicesLine}
+          sliderId="features-track-1"
+        />
 
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
-                <PenTool className="h-5 w-5 stroke-[2]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900">Complete Solutions</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Printing &amp; signage under one roof</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
-                <Truck className="h-5 w-5 stroke-[2]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900">Customised Approach</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Tailored to your specific brand</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
-                <Building2 className="h-5 w-5 stroke-[2]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900">Reliable Communication</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Clear coordination to delivery</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Track 2: Auto scrolling Right to Left (Signage & Branding Solutions) */}
+        <QualityFeaturesSlider
+          direction="rtl"
+          textItems={signageServicesLine}
+          sliderId="features-track-2"
+        />
       </div>
     </section>
   );

@@ -44,7 +44,10 @@ export default function WorkProcessSection() {
             <span className="cmyk-gradient-bar" />
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            From Idea to Impact.
+            From Idea{" "}
+            <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              to Impact.
+            </span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
             A clear, step-by-step process that ensures every project is delivered smoothly

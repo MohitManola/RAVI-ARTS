@@ -155,9 +155,6 @@ export default function PortfolioPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute top-2.5 left-2.5 rounded-md bg-slate-950/80 backdrop-blur-sm px-2.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
-                      {item.category}
-                    </div>
                   </div>
 
                   {/* Body */}

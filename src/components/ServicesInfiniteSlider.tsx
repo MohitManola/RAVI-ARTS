@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuote } from "@/context/QuoteContext";
 
@@ -15,89 +16,86 @@ export interface ServiceItem {
 
 interface ServicesInfiniteSliderProps {
   services: ServiceItem[];
+  kicker?: string;
+  title?: React.ReactNode;
+  viewAllLink?: string;
+  viewAllText?: string;
 }
 
-export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSliderProps) {
+export default function ServicesInfiniteSlider({
+  services,
+  kicker = "OUR SERVICES",
+  title = (
+    <>
+      Everything You Need, Under{" "}
+      <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+        One Roof.
+      </span>
+    </>
+  ),
+  viewAllLink = "/services",
+  viewAllText = "View All Services",
+}: ServicesInfiniteSliderProps) {
   const { openQuoteModal } = useQuote();
 
-  // Create 3 sets of the services array for seamless infinite looping
-  const extendedServices = [...services, ...services, ...services];
-  const totalOriginal = services.length;
-  const initialIndex = totalOriginal; // Start at the beginning of the middle set (index 7)
-
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(5);
   const [stepWidth, setStepWidth] = useState(0);
 
   const trackRef = useRef<HTMLDivElement>(null);
-  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Measure card width + gap accurately from the DOM
-  const measureStep = useCallback(() => {
+  // Update visible items count and measure card step width (card width + 16px gap)
+  const updateLayout = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const width = window.innerWidth;
+    let visible = 5;
+    if (width < 640) visible = 1;
+    else if (width < 768) visible = 2;
+    else if (width < 1024) visible = 3;
+    else if (width < 1280) visible = 4;
+    else visible = 5;
+
+    setItemsPerView(visible);
+
     if (trackRef.current && trackRef.current.children.length > 0) {
       const firstChild = trackRef.current.children[0] as HTMLElement;
-      if (firstChild) {
-        const gap = 16; // 16px (gap-4)
-        setStepWidth(firstChild.offsetWidth + gap);
+      if (firstChild && firstChild.offsetWidth > 0) {
+        setStepWidth(firstChild.offsetWidth + 16);
       }
     }
   }, []);
 
   useEffect(() => {
-    measureStep();
-    window.addEventListener("resize", measureStep);
-    return () => window.removeEventListener("resize", measureStep);
-  }, [measureStep]);
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, [updateLayout]);
 
-  // Handle seamless infinite wrap when crossing boundaries
-  const handleTransitionEnd = () => {
-    if (currentIndex >= totalOriginal * 2) {
-      // Reached the third set -> seamlessly jump back to the identical item in the middle set
-      setIsTransitioning(false);
-      setCurrentIndex((prev) => prev - totalOriginal);
-    } else if (currentIndex < totalOriginal) {
-      // Reached before middle set -> seamlessly jump forward to identical item in the middle set
-      setIsTransitioning(false);
-      setCurrentIndex((prev) => prev + totalOriginal);
-    }
-  };
-
-  // Re-enable smooth transition after silent jump
+  // Observe element resizing directly for instant accuracy
   useEffect(() => {
-    if (!isTransitioning) {
-      const frame = requestAnimationFrame(() => {
-        setIsTransitioning(true);
-      });
-      return () => cancelAnimationFrame(frame);
-    }
-  }, [isTransitioning]);
+    if (!trackRef.current) return;
+    const observer = new ResizeObserver(() => {
+      updateLayout();
+    });
+    observer.observe(trackRef.current);
+    return () => observer.disconnect();
+  }, [updateLayout]);
 
+  const maxIndex = Math.max(0, services.length - itemsPerView);
+
+  // Bound index on resize
+  useEffect(() => {
+    setCurrentIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
+
+  // Manual < and > navigation controls (NO auto-slider)
   const handleNext = useCallback(() => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
-  }, []);
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
 
   const handlePrev = useCallback(() => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  }, []);
-
-  // Autoplay functionality (slides every 3.5 seconds)
-  useEffect(() => {
-    if (isPaused) {
-      if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
-      return;
-    }
-
-    autoPlayTimerRef.current = setInterval(() => {
-      handleNext();
-    }, 3500);
-
-    return () => {
-      if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
-    };
-  }, [isPaused, handleNext]);
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
 
   // Touch Swipe Support for mobile
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -106,7 +104,6 @@ export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSli
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
-    setIsPaused(true);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
@@ -114,7 +111,6 @@ export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSli
   };
 
   const onTouchEnd = () => {
-    setIsPaused(false);
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     if (distance > 40) {
@@ -127,50 +123,72 @@ export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSli
   return (
     <div
       className="relative w-full"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      {/* Navigation Arrow Controls */}
-      <div className="flex items-center justify-end gap-2 mb-4">
-        <button
-          type="button"
-          onClick={handlePrev}
-          aria-label="Previous service"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-sky-500 hover:bg-sky-50 hover:text-sky-600 active:scale-95 transition-all cursor-pointer"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={handleNext}
-          aria-label="Next service"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-sky-500 hover:bg-sky-50 hover:text-sky-600 active:scale-95 transition-all cursor-pointer"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
+      {/* Top Section Header: Title on Left, View All Services & Navigation Arrows on Right */}
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div>
+          <div className="inline-flex items-center gap-2 mb-2">
+            <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+              {kicker}
+            </span>
+            <span className="cmyk-gradient-bar" />
+          </div>
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl lg:text-4xl">
+            {title}
+          </h2>
+        </div>
+
+        <div className="flex items-center gap-3 sm:gap-4 self-start sm:self-end">
+          <Link
+            href={viewAllLink}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors group mr-1"
+          >
+            <span>{viewAllText}</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+
+          {/* Navigation Arrow Controls (< and >) */}
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous service"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-sky-500 hover:bg-sky-50 hover:text-sky-600 active:scale-95 transition-all cursor-pointer"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next service"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-sky-500 hover:bg-sky-50 hover:text-sky-600 active:scale-95 transition-all cursor-pointer"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Overflow Clipping Window */}
       <div className="overflow-hidden w-full pb-2 pt-1">
-        {/* Continuous Track */}
+        {/* Track with 5 cards shown at a time on desktop */}
         <div
           ref={trackRef}
-          onTransitionEnd={handleTransitionEnd}
-          className={`flex gap-4 ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
+          className="flex gap-4 transition-transform duration-500 ease-in-out"
           style={{
-            transform: stepWidth ? `translateX(-${currentIndex * stepWidth}px)` : undefined,
+            transform: stepWidth && currentIndex > 0 ? `translateX(-${currentIndex * stepWidth}px)` : undefined,
           }}
         >
-          {extendedServices.map((svc, idx) => (
+          {services.map((svc, idx) => (
             <div
               key={`${svc.title}-${idx}`}
-              className="w-[280px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-32px)/3)] lg:w-[calc((100%-48px)/4)] xl:w-[calc((100%-64px)/5)] shrink-0 flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-sky-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 group"
+              className="w-[280px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-32px)/3)] lg:w-[calc((100%-48px)/4)] xl:w-[calc((100%-64px)/5)] shrink-0 flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300 group"
             >
               <div>
-                {/* Thumbnail */}
+                {/* Thumbnail (clean without overlay text badge) */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                   <Image
                     src={svc.image}
@@ -179,9 +197,6 @@ export default function ServicesInfiniteSlider({ services }: ServicesInfiniteSli
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 280px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                   />
-                  <div className="absolute top-2.5 left-2.5 rounded-md bg-slate-900/85 backdrop-blur-sm px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-xs">
-                    {svc.category}
-                  </div>
                 </div>
 
                 {/* Body */}

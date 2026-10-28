@@ -95,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* Main Story & Facility Section */}
-      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
+      <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Image & Badge */}
@@ -122,18 +122,19 @@ export default function AboutPage() {
 
             {/* Right Story */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                  OUR BACKGROUND
-                </span>
-                <span className="cmyk-gradient-bar" />
-              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                    OUR BACKGROUND
+                  </span>
+                  <span className="cmyk-gradient-bar" />
+                </div>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Turning Your Ideas into Long-Lasting Impressions
-              </h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Turning Your Ideas into Long-Lasting Impressions
+                </h2>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                <div className="mt-2 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
                 <p>
                   Established with a commitment to uncompromised printing standards,
                   <strong className="text-slate-900"> Ravi Arts Enterprises</strong> has grown into
@@ -149,6 +150,7 @@ export default function AboutPage() {
                   structural durability our clients depend on.
                 </p>
               </div>
+            </div>
 
               <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-100">
                 <div>
@@ -212,28 +214,30 @@ export default function AboutPage() {
       </section>
 
       {/* Machinery & Technology Section */}
-      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
+      <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                  OUR INFRASTRUCTURE
-                </span>
-                <span className="cmyk-gradient-bar" />
+              <div>
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                    OUR INFRASTRUCTURE
+                  </span>
+                  <span className="cmyk-gradient-bar" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Advanced Machinery for High-Precision Output
+                </h2>
+                <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+                  We believe that superior design deserves flawless execution. Our workshop
+                  features calibrated industrial hardware to ensure your branding looks crisp,
+                  radiant, and true to your brand colors.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Advanced Machinery for High-Precision Output
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                We believe that superior design deserves flawless execution. Our workshop
-                features calibrated industrial hardware to ensure your branding looks crisp,
-                radiant, and true to your brand colors.
-              </p>
 
               <div className="space-y-4 pt-2">
                 {machines.map((mach) => (
-                  <div key={mach.title} className="flex items-start gap-3 rounded-xl bg-white border border-sky-100 p-4 hover:border-sky-300 shadow-xs transition-colors">
+                  <div key={mach.title} className="flex items-start gap-3 rounded-xl bg-[#f8fbff] border border-sky-100/90 p-4 hover:border-sky-300 shadow-xs transition-colors">
                     <CheckCircle2 className="h-5 w-5 text-sky-600 shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-sm font-bold text-slate-900">

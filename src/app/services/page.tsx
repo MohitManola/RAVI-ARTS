@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   ArrowRight,
   CheckCircle2,
@@ -11,11 +12,16 @@ import {
   Clock,
   ShieldCheck,
   Send,
+  Search,
+  X,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useQuote } from "@/context/QuoteContext";
 
-export default function ServicesPage() {
+function ServicesContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const rawQ = searchParams?.get("q") || "";
   const { openQuoteModal } = useQuote();
   const [activeCategory, setActiveCategory] = useState("ALL");
 
@@ -27,6 +33,7 @@ export default function ServicesPage() {
     { id: "COMMERCIAL", label: "Offset & Commercial" },
     { id: "VINYL", label: "Vinyl & Eco-Solvent" },
     { id: "BRANDING", label: "Branding & Design" },
+    { id: "GIFTS", label: "Corporate Gifts" },
   ];
 
   const serviceItems = [
@@ -43,7 +50,7 @@ export default function ServicesPage() {
         "Exhibition Backdrops & Roll-up Standees",
       ],
       turnaround: "Same Day / 24 Hours",
-      image: "/images/service-flex-banner.webp",
+      image: "/images/services/flex&LargeFormatePrinting.PNG",
       tag: "Best for Outdoor Visibility",
     },
     {
@@ -59,7 +66,7 @@ export default function ServicesPage() {
         "Complete On-Site Installation in Greater Noida",
       ],
       turnaround: "3 - 5 Business Days",
-      image: "/images/service-sign-boards.webp",
+      image: "/images/services/SignBoards&Signage.PNG",
       tag: "Top Rated for Retail Stores",
     },
     {
@@ -75,7 +82,7 @@ export default function ServicesPage() {
         "Employee Lanyards & Plastic ID Cards",
       ],
       turnaround: "24 - 48 Hours",
-      image: "/images/service-visiting-cards.webp",
+      image: "/images/services/VisitingCards&BusinessStationary.PNG",
       tag: "Corporate Essential",
     },
     {
@@ -91,7 +98,7 @@ export default function ServicesPage() {
         "Packaging Inserts & User Manuals",
       ],
       turnaround: "2 - 3 Business Days",
-      image: "/images/service-offset-printing.webp",
+      image: "/images/services/Offset&DigitalPrinting.PNG",
       tag: "High Volume Savings",
     },
     {
@@ -107,7 +114,7 @@ export default function ServicesPage() {
         "Clean Stud & Standoff Wall Mounting",
       ],
       turnaround: "3 - 4 Business Days",
-      image: "/images/service-acrylic-letters.webp",
+      image: "/images/services/Acrylic&3dLetterBoards.PNG",
       tag: "Premium Corporate Aesthetic",
     },
     {
@@ -123,7 +130,7 @@ export default function ServicesPage() {
         "Removable One-Way Vision Window Film",
       ],
       turnaround: "24 - 48 Hours",
-      image: "/images/service-vinyl-printing.webp",
+      image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
       tag: "Multi-Surface Solution",
     },
     {
@@ -139,15 +146,42 @@ export default function ServicesPage() {
         "Packaging & Label Artwork Formulation",
       ],
       turnaround: "1 - 3 Business Days",
-      image: "/images/service-branding-design.webp",
+      image: "/images/services/branding&GraphicDesign.PNG",
       tag: "Complete Creative Studio",
+    },
+    {
+      id: "corporate-gifts",
+      category: "GIFTS",
+      title: "Corporate Gifts & Promotional Products",
+      subtitle: "Custom Mugs, T-Shirts, Pens, Diaries, Bags & Executive Gift Kits",
+      desc: "Strengthen client relationships and employee appreciation with premium customized promotional merchandise, executive hampers, and branded trade-show give-aways.",
+      features: [
+        "Custom Ceramic & Stainless Steel Insulated Mugs",
+        "Screen Printed & Embroidered Corporate T-Shirts",
+        "Laser Engraved Metal Pens, Executive Diaries & Notebooks",
+        "Eco-Friendly Jute & Canvas Conference Bags",
+      ],
+      turnaround: "3 - 5 Business Days",
+      image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
+      tag: "Popular for Corporate Branding",
     },
   ];
 
-  const filteredServices =
-    activeCategory === "ALL"
-      ? serviceItems
-      : serviceItems.filter((s) => s.category === activeCategory);
+  const queryLower = rawQ.trim().toLowerCase();
+  const filteredServices = serviceItems.filter((svc) => {
+    const matchesCategory =
+      activeCategory === "ALL" || svc.category === activeCategory;
+    if (!matchesCategory) return false;
+    if (!queryLower) return true;
+    const inTitle = svc.title.toLowerCase().includes(queryLower);
+    const inSub = svc.subtitle.toLowerCase().includes(queryLower);
+    const inDesc = svc.desc.toLowerCase().includes(queryLower);
+    const inTag = svc.tag.toLowerCase().includes(queryLower);
+    const inFeatures = svc.features.some((f) =>
+      f.toLowerCase().includes(queryLower)
+    );
+    return inTitle || inSub || inDesc || inTag || inFeatures;
+  });
 
   return (
     <div className="flex flex-col w-full">
@@ -163,7 +197,10 @@ export default function ServicesPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              Everything You Need, Under One Roof.
+              Everything You Need, Under{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                One Roof.
+              </span>
             </h1>
             <p className="mt-4 text-base text-slate-300 leading-relaxed">
               Explore our full range of industrial printing, commercial offset,
@@ -182,7 +219,7 @@ export default function ServicesPage() {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all ${
+                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
                   activeCategory === cat.id
                     ? "bg-slate-900 text-white shadow-sm"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200"
@@ -195,14 +232,71 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Search Query Active Notification */}
+      {rawQ && (
+        <section className="bg-blue-50/80 border-b border-blue-200/70 py-3">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-blue-900">
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4 text-blue-600 shrink-0" />
+                <span>
+                  Showing results for &ldquo;<strong>{rawQ}</strong>&rdquo;{" "}
+                  <span className="text-blue-600 font-bold">
+                    ({filteredServices.length} {filteredServices.length === 1 ? "service" : "services"} found)
+                  </span>
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => router.push("/services")}
+                className="flex items-center gap-1.5 font-bold text-blue-700 hover:text-blue-900 text-xs px-3 py-1.5 rounded-lg bg-white border border-blue-200 hover:bg-blue-100/70 transition-colors cursor-pointer"
+              >
+                <X className="h-3.5 w-3.5" />
+                <span>Clear search filter</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Services List */}
       <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
-          {filteredServices.map((svc, index) => (
-            <div
-              key={svc.id}
-              id={svc.id}
-              className={`rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-sky-200 ${
+          {filteredServices.length === 0 ? (
+            <div className="rounded-3xl bg-white border border-sky-100 p-12 text-center space-y-4">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+                <Search className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">
+                No services matched &ldquo;{rawQ}&rdquo;
+              </h3>
+              <p className="text-sm text-slate-500 max-w-md mx-auto">
+                We custom-fabricate any printing, signage, or promotional requirement.
+                Contact our team for immediate assistance or request a custom estimate.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => router.push("/services")}
+                  className="rounded-full bg-slate-100 px-5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
+                >
+                  View All Services
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openQuoteModal(rawQ)}
+                  className="rounded-full bg-blue-600 px-5 py-2 text-xs font-bold text-white hover:bg-blue-700 transition-colors cursor-pointer"
+                >
+                  Request Quote for &ldquo;{rawQ}&rdquo;
+                </button>
+              </div>
+            </div>
+          ) : (
+            filteredServices.map((svc, index) => (
+              <div
+                key={svc.id}
+                id={svc.id}
+              className={`rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
             >
@@ -216,9 +310,6 @@ export default function ServicesPage() {
                     className="object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 rounded-md bg-slate-950/80 backdrop-blur-sm px-3 py-1 text-xs font-bold text-white uppercase tracking-wider">
-                    {svc.tag}
-                  </div>
                 </div>
               </div>
 
@@ -276,9 +367,10 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          ))
+        )}
+      </div>
+    </section>
 
       {/* Bottom Assistance Banner */}
       <section className="bg-slate-950 py-12 text-white border-t border-slate-800">
@@ -294,7 +386,7 @@ export default function ServicesPage() {
             <button
               type="button"
               onClick={() => openQuoteModal("Custom Requirement")}
-              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-sky-500"
+              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-sky-500 cursor-pointer"
             >
               <Send className="h-4 w-4" />
               <span>Get Custom Estimate</span>
@@ -309,5 +401,13 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#eff7ff]" />}>
+      <ServicesContent />
+    </Suspense>
   );
 }

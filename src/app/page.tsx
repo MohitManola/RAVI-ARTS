@@ -78,56 +78,63 @@ export default function HomePage() {
     );
   };
 
-  // Service Cards Data
+  // Service Cards Data (Using new high-res images from /images/services)
   const services = [
     {
       title: "Flex & Large Format Printing",
       category: "PRINTING",
       desc: "Banners, flex, vinyl & hoardings.",
-      image: "/images/service-flex-banner.webp",
+      image: "/images/services/flex&LargeFormatePrinting.PNG",
       link: "/services#flex-printing",
     },
     {
       title: "Sign Boards & Signage",
       category: "SIGNAGE",
       desc: "Glow sign, acrylic, LED & more.",
-      image: "/images/service-sign-boards.webp",
+      image: "/images/services/SignBoards&Signage.PNG",
       link: "/services#sign-boards",
     },
     {
       title: "Visiting Cards & Stationery",
       category: "PRINTING",
       desc: "Cards, letterheads, envelopes & more.",
-      image: "/images/service-visiting-cards.webp",
+      image: "/images/services/VisitingCards&BusinessStationary.PNG",
       link: "/services#stationery",
     },
     {
       title: "Offset & Digital Printing",
       category: "PRINTING",
       desc: "Brochures, flyers, catalogues & more.",
-      image: "/images/service-offset-printing.webp",
+      image: "/images/services/Offset&DigitalPrinting.PNG",
       link: "/services#offset-printing",
     },
     {
       title: "Acrylic / 3D Letter Boards",
       category: "SIGNAGE",
       desc: "Indoor & outdoor branding solutions.",
-      image: "/images/service-acrylic-letters.webp",
+      image: "/images/services/Acrylic&3dLetterBoards.PNG",
       link: "/services#acrylic-letters",
     },
     {
       title: "Eco-Solvent & Vinyl Printing",
       category: "PRINTING",
       desc: "Stickers, vehicle wraps, vinyl prints & more.",
-      image: "/images/service-vinyl-printing.webp",
+      image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
       link: "/services#vinyl-printing",
     },
     {
       title: "Branding & Graphic Design",
       category: "DESIGN",
       desc: "Logos, social media, packaging & more.",
-      image: "/images/service-branding-design.webp",
+      image: "/images/services/branding&GraphicDesign.PNG",
       link: "/services#graphic-design",
+    },
+    {
+      title: "Corporate Gifts & Promotional Products",
+      category: "GIFTS",
+      desc: "Custom mugs, t-shirts, pens & corporate hampers.",
+      image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
+      link: "/services#corporate-gifts",
     },
   ];
 
@@ -172,29 +179,7 @@ export default function HomePage() {
          ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-            <div>
-              <div className="inline-flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                  OUR SERVICES
-                </span>
-                <span className="cmyk-gradient-bar" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl lg:text-4xl">
-                Everything You Need, Under One Roof.
-              </h2>
-            </div>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors group"
-            >
-              <span>View All Services</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          {/* Infinite Services Slider (5 per row on desktop) */}
+          {/* Infinite Services Slider with integrated top header, View All link & navigation controls */}
           <ServicesInfiniteSlider services={services} />
         </div>
       </section>
@@ -202,32 +187,34 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 4: ABOUT SECTION (Directly matching Image 1 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
+      <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                  ABOUT RAVI ARTS ENTERPRISES
-                </span>
-                <span className="cmyk-gradient-bar" />
-              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                    ABOUT RAVI ARTS ENTERPRISES
+                  </span>
+                  <span className="cmyk-gradient-bar" />
+                </div>
 
-              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight">
-                Turning Your Ideas into{" "}
-                <span className="gradient-text-impressions font-black">
-                  Impressions
-                </span>
-              </h2>
+                <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight">
+                  Turning Your Ideas into{" "}
+                  <span className="gradient-text-impressions font-black">
+                    Impressions
+                  </span>
+                </h2>
 
-              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-                <p>
-                  <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong> is a trusted printing and signage company in Kasna, Greater Noida, established in 2005. With over 20 years of experience, we provide high-quality, cost-effective solutions for businesses of all sizes.
-                </p>
-                <p>
-                  Our reliable service, quality workmanship and attention to detail help your brand get noticed. We believe in delivering practical, creative work that meets your needs and helps your business stand out.
-                </p>
+                <div className="mt-2 space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+                  <p>
+                    <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong> is a trusted printing and signage company in Kasna, Greater Noida, established in 2005. With over 20 years of experience, we provide high-quality, cost-effective solutions for businesses of all sizes.
+                  </p>
+                  <p>
+                    Our reliable service, quality workmanship and attention to detail help your brand get noticed. We believe in delivering practical, creative work that meets your needs and helps your business stand out.
+                  </p>
+                </div>
               </div>
 
               {/* 4 Feature Badges 2x2 grid */}
@@ -319,16 +306,6 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-
-                {/* Script commitment tag */}
-                <div className="absolute -bottom-6 left-6 rounded-xl bg-white/95 backdrop-blur-sm px-4 py-2.5 shadow-lg border border-sky-100">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    Our Promise
-                  </span>
-                  <span className="text-sm font-extrabold text-slate-900 italic">
-                    Your Vision, Our Commitment
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -353,7 +330,7 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 5: OUR PORTFOLIO / RECENT WORK (Matching Image 1 mockup)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#eff7ff] border-t border-sky-100">
+      <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
@@ -386,7 +363,7 @@ export default function HomePage() {
             {portfolio.map((item) => (
               <div
                 key={item.title}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-slate-300"
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                   <Image
@@ -396,9 +373,6 @@ export default function HomePage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-2 left-2 rounded-md bg-slate-900/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
-                    {item.category}
-                  </div>
                 </div>
                 <div className="p-3.5">
                   <h3 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-sky-600 transition-colors">
@@ -435,7 +409,10 @@ export default function HomePage() {
                   <span className="cmyk-gradient-bar" />
                 </div>
                 <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                  What Our Clients <span className="text-sky-600">Say</span>
+                  What Our{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    Clients Say
+                  </span>
                 </h2>
                 <p className="mt-1 text-sm text-slate-600">
                   Trusted by businesses, brands and individuals across Kasna, Greater Noida and beyond.
