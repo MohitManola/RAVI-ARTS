@@ -21,6 +21,7 @@ export default function Footer() {
     { name: "Acrylic & 3D Letter Boards", href: "/services#acrylic-letters" },
     { name: "Eco-Solvent & Vinyl Printing", href: "/services#vinyl-printing" },
     { name: "Branding & Graphic Design", href: "/services#graphic-design" },
+    { name: "Corporate Gifts & Promotional Products", href: "/services#corporate-gifts" },
   ];
 
   const quickLinks = [
@@ -157,15 +158,26 @@ export default function Footer() {
                 </div>
               </a>
 
-              <div className="flex items-start gap-3 text-slate-400">
-                <MapPin className="h-5 w-5 shrink-0 text-amber-400 mt-0.5" />
+              <a
+                href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-slate-300 hover:text-amber-300 transition-colors group cursor-pointer"
+                title="Open location in Google Maps"
+              >
+                <MapPin className="h-5 w-5 shrink-0 text-amber-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <span className="block text-xs text-slate-500">Workshop & Office</span>
+                  <div className="flex items-center gap-2">
+                    <span className="block text-xs text-slate-500">Workshop & Office</span>
+                    <span className="text-[10px] text-amber-400 font-medium group-hover:underline">
+                      View on Map ↗
+                    </span>
+                  </div>
                   <span className="leading-snug block">
                     Near Republic honda showroom, Opp. HDFC Bank main road Kasna, Gr. Noida, U.P 201310
                   </span>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-start gap-3 text-slate-400">
                 <Clock className="h-5 w-5 shrink-0 text-emerald-400 mt-0.5" />
@@ -189,7 +201,15 @@ export default function Footer() {
               Print • Signage • Branding &amp; More
             </span>
             <span className="inline-block h-3 w-px bg-slate-800" />
-            <span className="text-slate-400">Kasna, Greater Noida</span>
+            <a
+              href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
+              title="Kasna, Greater Noida on Google Maps"
+            >
+              Kasna, Greater Noida
+            </a>
           </div>
         </div>
       </div>

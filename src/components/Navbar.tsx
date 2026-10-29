@@ -104,10 +104,16 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 <Mail className="h-3.5 w-3.5 text-rose-400" />
                 <span>raviarts29@gmail.com</span>
               </a>
-              <div className="flex items-center gap-1.5 text-slate-400">
-                <MapPin className="h-3.5 w-3.5 text-amber-400" />
+              <a
+                href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-slate-400 hover:text-amber-300 transition-colors group cursor-pointer"
+                title="View Kasna Workshop on Google Maps"
+              >
+                <MapPin className="h-3.5 w-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
                 <span>Near Republic Honda, Opp. HDFC Bank, Kasna, Gr. Noida</span>
-              </div>
+              </a>
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5 text-slate-400">
@@ -128,7 +134,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           <Link href="/" className="group flex items-center gap-3 shrink-0">
             <div className="relative h-11 w-11 sm:h-12 sm:w-12 overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
-                src="/images/logo.png"
+                src="/images/logo_1.png"
                 alt="Ravi Arts Enterprises Logo"
                 width={48}
                 height={48}

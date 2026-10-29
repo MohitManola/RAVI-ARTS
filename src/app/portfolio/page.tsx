@@ -93,23 +93,38 @@ export default function PortfolioPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
-        <div className="pointer-events-none absolute -top-24 right-1/3 h-96 w-96 rounded-full bg-rose-500/15 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
+        {/* Full Banner Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/our_work_top.png"
+            alt="Our Work & Project Portfolio - Ravi Arts Enterprises"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-right select-none"
+            quality={95}
+          />
+          {/* Subtle gradient to ensure flawless text contrast on all devices */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
+          <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 SHOWCASE OF REALIZED DESIGNS
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
-            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
+            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
               Our Work &amp; Project{" "}
-              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
                 Portfolio
               </span>
             </h1>
-            <p className="mt-4 text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
               Explore a curated selection of signboards, commercial print collateral,
               illuminated displays, and promotional products crafted for businesses across Kasna and Greater Noida.
             </p>

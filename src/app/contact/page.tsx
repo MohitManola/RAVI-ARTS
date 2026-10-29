@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -107,23 +108,38 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
-        <div className="pointer-events-none absolute -top-24 right-1/4 h-96 w-96 rounded-full bg-emerald-500/15 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
+        {/* Full Banner Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/contact_us_top.png"
+            alt="Contact Us & Request a Quote - Ravi Arts Enterprises"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-right select-none"
+            quality={95}
+          />
+          {/* Subtle gradient to ensure flawless text contrast on all devices */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
+          <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 GET IN TOUCH
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
-            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
+            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
               Contact Us &amp; Request{" "}
-              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
                 a Quote
               </span>
             </h1>
-            <p className="mt-4 text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
               Have a question about materials, turnaround times, or need an urgent quotation?
               Our team at Kasna, Greater Noida is ready to assist you.
             </p>
@@ -240,19 +256,30 @@ export default function ContactPage() {
                 </a>
 
                 {/* Address */}
-                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+                <a
+                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs hover:border-amber-400 hover:shadow-md transition-all group cursor-pointer"
+                  title="Open in Google Maps"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                      Workshop Location
-                    </span>
-                    <span className="text-sm font-bold text-slate-900 block leading-snug">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
+                        Workshop Location
+                      </span>
+                      <span className="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200 group-hover:bg-amber-100 transition-colors">
+                        View Map ↗
+                      </span>
+                    </div>
+                    <span className="text-sm font-bold text-slate-900 block leading-snug group-hover:text-sky-600 transition-colors mt-0.5">
                       Near Republic honda showroom, Opp. HDFC Bank main road Kasna, Gr. Noida, U.P 201310
                     </span>
                   </div>
-                </div>
+                </a>
 
                 {/* Timings */}
                 <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs">

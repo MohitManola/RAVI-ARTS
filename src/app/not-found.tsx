@@ -9,7 +9,7 @@ export default function NotFound() {
       <div className="relative mb-6">
         <div className="relative h-20 w-20 overflow-hidden mx-auto">
           <Image
-            src="/images/logo.png"
+            src="/images/logo_1.png"
             alt="Ravi Arts Enterprises Logo"
             width={80}
             height={80}

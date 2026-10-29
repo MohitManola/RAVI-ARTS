@@ -114,13 +114,26 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-3 rounded-2xl bg-slate-900 p-4 text-white shadow-xl">
-                <MapPin className="h-6 w-6 text-sky-400 shrink-0" />
-                <div className="text-xs">
-                  <span className="font-bold block text-sm">Kasna, Greater Noida</span>
-                  <span className="text-slate-400">Gautam Buddha Nagar, UP - 201310</span>
+              <a
+                href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-between rounded-2xl bg-slate-900 p-4 text-white shadow-xl hover:bg-slate-800 transition-colors group cursor-pointer"
+                title="Open workshop location in Google Maps"
+              >
+                <div className="flex items-center gap-3">
+                  <MapPin className="h-6 w-6 text-sky-400 group-hover:text-amber-400 shrink-0 transition-colors" />
+                  <div className="text-xs">
+                    <span className="font-bold block text-sm group-hover:text-sky-300 transition-colors">
+                      Kasna, Greater Noida
+                    </span>
+                    <span className="text-slate-400">Gautam Buddha Nagar, UP - 201310</span>
+                  </div>
                 </div>
-              </div>
+                <span className="text-[11px] font-semibold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-full border border-sky-800 group-hover:border-sky-500 transition-colors">
+                  View Map ↗
+                </span>
+              </a>
             </div>
 
             {/* Right Story */}

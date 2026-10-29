@@ -298,7 +298,7 @@ export default function HomePage() {
                 <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-sky-100 hover:border-slate-800 p-8 sm:p-10 shadow-2xl transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
                   <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logo_1.png"
                       alt="Ravi Arts Enterprises Official Logo"
                       fill
                       className="object-contain transition-opacity duration-500 group-hover:opacity-0"

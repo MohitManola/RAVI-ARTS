@@ -22,10 +22,10 @@ export default function HomeHeroBanner() {
       </h1>
 
       {/* Main Full-Width Single Hero Banner Image (Edge-to-Edge with no border) */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[16/7] md:aspect-[1920/600] min-h-[380px] sm:min-h-[440px] md:min-h-[520px] overflow-hidden bg-white">
+      <div className="relative w-full aspect-[16/9] sm:aspect-[16/7] md:aspect-[1920/600] min-h-[400px] sm:min-h-[460px] md:min-h-[540px] overflow-hidden bg-white">
         {/* Full-bleed Banner Image (Machine on the right, clean white canvas on the left) */}
         <Image
-          src="/images/HomeHeroBanner.png"
+          src="/images/HomeHeroBanner_1.png"
           alt="Where Quality Printing, Signage and Graphics Meet Brand Visibility - Ravi Arts Enterprises"
           fill
           priority
@@ -37,15 +37,15 @@ export default function HomeHeroBanner() {
         {/* Content Overlay restricted strictly to the left clean white area */}
         <div className="absolute left-[5%] md:left-[6%] top-1/2 -translate-y-1/2 z-10 w-full max-w-[90%] sm:max-w-[75%] md:max-w-[55%] lg:max-w-[50%] xl:max-w-[46%] flex flex-col justify-center">
           {/* Kicker badge */}
-          <div className="inline-flex items-center gap-2 mb-2 sm:mb-2.5">
+          <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
             <span className="text-[9px] sm:text-[10px] md:text-xs font-bold tracking-wider sm:tracking-widest text-sky-600 uppercase">
               ALL TYPES PRINTING, SIGNAGE &amp; GRAPHIC SOLUTIONS
             </span>
             <span className="cmyk-gradient-bar" />
           </div>
 
-          {/* Main Headline in 3 clear lines */}
-          <h2 className="text-xl sm:text-2xl md:text-[28px] lg:text-[34px] xl:text-[40px] font-black text-slate-900 tracking-tight leading-[1.14]">
+          {/* Main Headline in 3 clear lines with reduced line gap */}
+          <h2 className="text-xl sm:text-2xl md:text-[28px] lg:text-[34px] xl:text-[40px] font-black text-slate-900 tracking-tight leading-[1.12] sm:leading-[1.14] md:leading-[1.15]">
             <span className="block">Where Quality Printing,</span>
             <span className="block">Signage and Graphics Meet</span>
             <span className="block bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
@@ -54,7 +54,7 @@ export default function HomeHeroBanner() {
           </h2>
 
           {/* Action Buttons: Explore Services, Contact, WhatsApp */}
-          <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="mt-5 sm:mt-6 md:mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3.5">
             <Link
               href="/services"
               className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-sky-600 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-sky-600/30 hover:bg-sky-500 hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
@@ -82,11 +82,11 @@ export default function HomeHeroBanner() {
           </div>
 
           {/* Core Trust Features below Explore Services / Action buttons inside banner area */}
-          <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-x-4 sm:gap-x-5 md:gap-x-6 gap-y-2.5">
+          <div className="mt-5 sm:mt-6 md:mt-7 pt-4 sm:pt-5 border-t border-slate-200/80 flex flex-wrap items-center gap-x-5 sm:gap-x-6 md:gap-x-7 gap-y-3">
             {/* 1. Quality Printing */}
-            <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-slate-900 shrink-0 stroke-[1.8]" />
-              <div>
+              <div className="space-y-0.5">
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                   Quality Printing
                 </h3>
@@ -100,9 +100,9 @@ export default function HomeHeroBanner() {
             <div className="hidden sm:block h-6 w-px bg-slate-300/80" aria-hidden="true" />
 
             {/* 2. Custom Design */}
-            <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               <PenTool className="h-4 w-4 sm:h-5 sm:w-5 text-slate-900 shrink-0 stroke-[1.8]" />
-              <div>
+              <div className="space-y-0.5">
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                   Custom Design
                 </h3>
@@ -116,9 +116,9 @@ export default function HomeHeroBanner() {
             <div className="hidden sm:block h-6 w-px bg-slate-300/80" aria-hidden="true" />
 
             {/* 3. Reliable Delivery */}
-            <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               <Truck className="h-4 w-4 sm:h-5 sm:w-5 text-slate-900 shrink-0 stroke-[1.8]" />
-              <div>
+              <div className="space-y-0.5">
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                   Reliable Delivery
                 </h3>
