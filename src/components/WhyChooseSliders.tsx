@@ -281,7 +281,10 @@ export default function WhyChooseSliders() {
                 <span className="cmyk-gradient-bar" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Precision Engineering. Unmatched Quality.
+                Precision Engineering &amp;{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Unmatched Quality
+                </span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
                 Kasna &amp; Greater Noida&apos;s leading printing &amp; 3D signage manufacturer. Explore our production capabilities across the dual live sliders below.

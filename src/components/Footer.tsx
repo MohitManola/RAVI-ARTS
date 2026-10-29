@@ -7,8 +7,6 @@ import {
   MapPin,
   Clock,
   ArrowUpRight,
-  ShieldCheck,
-  Award,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
@@ -44,46 +42,28 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-white/5 p-1 ring-1 ring-white/10 transition-transform group-hover:scale-105">
+            <Link href="/" className="inline-flex items-center gap-4 group">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-2xl bg-white/5 p-1.5 ring-1 ring-white/10 transition-transform group-hover:scale-105 shrink-0 shadow-lg">
                 <Image
                   src="/images/logo_2.png"
                   alt="Ravi Arts Enterprises Logo"
-                  width={56}
-                  height={56}
-                  className="object-contain"
+                  width={96}
+                  height={96}
+                  className="object-contain w-full h-full"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-lg tracking-tight text-white group-hover:text-sky-400 transition-colors">
+                <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white group-hover:text-sky-400 transition-colors">
                   RAVI ARTS
                 </span>
-                <span className="text-xs font-semibold tracking-widest text-slate-400 uppercase">
+                <span className="text-xs sm:text-sm font-semibold tracking-widest text-slate-400 uppercase">
                   ENTERPRISES
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm leading-relaxed text-slate-400">
-              Kasna, Greater Noida&apos;s trusted printing and signage partner.
-              Delivering high-precision print production, eye-catching architectural
-              signage, and impactful branding solutions that bring your vision to life.
-            </p>
-
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <div className="flex items-center gap-1.5 rounded-full bg-slate-900 border border-slate-800 px-3 py-1 text-xs text-sky-400 font-medium">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                <span>Premium Quality Guaranteed</span>
-              </div>
-              <div className="flex items-center gap-1.5 rounded-full bg-slate-900 border border-slate-800 px-3 py-1 text-xs text-amber-400 font-medium">
-                <Award className="h-3.5 w-3.5" />
-                <span>40k+ Projects Delivered</span>
-              </div>
-            </div>
-
             {/* Direct WhatsApp CTA */}
-            <div className="pt-2">
+            <div className="pt-1">
               <a
                 href="https://wa.me/919350036399"
                 target="_blank"

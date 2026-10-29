@@ -46,7 +46,7 @@ export default function WorkProcessSection() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             From Idea{" "}
             <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-              to Impact.
+              to Impact
             </span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">

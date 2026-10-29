@@ -87,14 +87,14 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                   href="tel:+919350036399"
                   className="hover:text-sky-400 transition-colors"
                 >
-                  +91 93500 36399
+                  +91-9350036399
                 </a>
                 <span className="text-slate-600">/</span>
                 <a
                   href="tel:+919971145089"
                   className="hover:text-sky-400 transition-colors"
                 >
-                  99711 45089
+                  +91-9971145089
                 </a>
               </div>
               <a
@@ -114,15 +114,6 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 <Clock className="h-3.5 w-3.5 text-emerald-400" />
                 <span>9:30 AM - 6:30 PM</span>
               </div>
-              <a
-                href="https://wa.me/919350036399"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
-              >
-                <WhatsAppIcon className="h-3.5 w-3.5" />
-                <span>WhatsApp Us</span>
-              </a>
             </div>
           </div>
         </div>

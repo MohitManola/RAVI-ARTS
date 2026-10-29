@@ -118,7 +118,10 @@ export default function ContactPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              Contact Us &amp; Request a Quote
+              Contact Us &amp; Request{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                a Quote
+              </span>
             </h1>
             <p className="mt-4 text-base text-slate-300 leading-relaxed">
               Have a question about materials, turnaround times, or need an urgent quotation?
@@ -139,7 +142,10 @@ export default function ContactPage() {
                   DIRECT CONTACT
                 </span>
                 <h2 className="text-2xl font-extrabold text-slate-900 mt-1">
-                  We&apos;re Here to Help Your Brand Stand Out
+                  We&apos;re Here to Help Your Brand{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    Stand Out
+                  </span>
                 </h2>
                 <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                   Reach out directly via phone, WhatsApp, or visit our workshop in Kasna.

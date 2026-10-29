@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useQuote } from "@/context/QuoteContext";
 
 export interface ServiceItem {
   title: string;
@@ -29,15 +28,13 @@ export default function ServicesInfiniteSlider({
     <>
       Everything You Need, Under{" "}
       <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-        One Roof.
+        One Roof
       </span>
     </>
   ),
   viewAllLink = "/services",
   viewAllText = "View All Services",
 }: ServicesInfiniteSliderProps) {
-  const { openQuoteModal } = useQuote();
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(5);
   const [stepWidth, setStepWidth] = useState(0);
@@ -212,21 +209,19 @@ export default function ServicesInfiniteSlider({
 
               {/* Footer Action */}
               <div className="border-t border-slate-100 p-3 pt-2.5 flex items-center justify-between bg-slate-50/50">
-                <button
-                  type="button"
-                  onClick={() => openQuoteModal(svc.title)}
+                <Link
+                  href={svc.link || "/services"}
                   className="text-[11px] font-semibold text-slate-600 hover:text-sky-600 transition-colors"
                 >
-                  Quick Quote
-                </button>
-                <button
-                  type="button"
-                  onClick={() => openQuoteModal(svc.title)}
-                  aria-label={`Get quote for ${svc.title}`}
+                  Explore Service
+                </Link>
+                <Link
+                  href={svc.link || "/services"}
+                  aria-label={`Explore ${svc.title}`}
                   className="flex h-7 w-7 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 group-hover:bg-sky-600 group-hover:border-sky-600 group-hover:text-white transition-all duration-300 shadow-xs"
                 >
                   <ArrowRight className="h-3.5 w-3.5" />
-                </button>
+                </Link>
               </div>
             </div>
           ))}

@@ -170,7 +170,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* =========================================================================
-          SECTION 1: HERO BANNER SLIDER (HomeHeroBanner 3x Slider)
+          SECTION 1: HERO BANNER (HomeHeroBanner Single Image)
          ========================================================================= */}
       <HomeHeroBanner />
 
@@ -202,7 +202,7 @@ export default function HomePage() {
 
                 <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight">
                   Turning Your Ideas into{" "}
-                  <span className="gradient-text-impressions font-black">
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent font-black">
                     Impressions
                   </span>
                 </h2>
@@ -295,13 +295,20 @@ export default function HomePage() {
                 <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
                 <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
 
-                <div className="overflow-hidden rounded-3xl bg-white p-8 sm:p-10 shadow-2xl border border-sky-100 flex flex-col items-center justify-center">
-                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 hover:scale-105">
+                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-sky-100 hover:border-slate-800 p-8 sm:p-10 shadow-2xl transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
+                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
                     <Image
                       src="/images/logo.png"
                       alt="Ravi Arts Enterprises Official Logo"
                       fill
-                      className="object-contain"
+                      className="object-contain transition-opacity duration-500 group-hover:opacity-0"
+                      priority
+                    />
+                    <Image
+                      src="/images/logo_2.png"
+                      alt="Ravi Arts Enterprises Official Logo Hover"
+                      fill
+                      className="object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                       priority
                     />
                   </div>
@@ -342,7 +349,9 @@ export default function HomePage() {
                 <span className="cmyk-gradient-bar" />
               </div>
               <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                Recent <span className="gradient-text-work">Work</span>
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Recent Work
+                </span>
               </h2>
               <p className="mt-1 text-sm text-slate-600">
                 A glimpse of some of the projects we&apos;ve delivered for our happy clients.

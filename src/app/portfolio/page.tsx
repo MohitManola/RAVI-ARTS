@@ -104,7 +104,10 @@ export default function PortfolioPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              Our Work &amp; Project Portfolio
+              Our Work &amp; Project{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Portfolio
+              </span>
             </h1>
             <p className="mt-4 text-base text-slate-300 leading-relaxed">
               Explore a curated selection of signboards, commercial print collateral,

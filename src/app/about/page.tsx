@@ -84,7 +84,10 @@ export default function AboutPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              Crafting Visual Excellence in Kasna &amp; Beyond
+              Crafting Visual Excellence in Kasna &amp;{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Beyond
+              </span>
             </h1>
             <p className="mt-4 text-base text-slate-300 leading-relaxed">
               We are a dedicated team of printing technologists, signage fabricators,
@@ -131,7 +134,10 @@ export default function AboutPage() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Turning Your Ideas into Long-Lasting Impressions
+                  Turning Your Ideas into Long-Lasting{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent font-black">
+                    Impressions
+                  </span>
                 </h2>
 
                 <div className="mt-2 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -185,7 +191,10 @@ export default function AboutPage() {
               OUR PILLARS
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-              What Defines Ravi Arts Enterprises
+              What Defines Ravi Arts{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Enterprises
+              </span>
             </h2>
           </div>
 
@@ -226,7 +235,10 @@ export default function AboutPage() {
                   <span className="cmyk-gradient-bar" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Advanced Machinery for High-Precision Output
+                  Advanced Machinery for{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    High-Precision Output
+                  </span>
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
                   We believe that superior design deserves flawless execution. Our workshop

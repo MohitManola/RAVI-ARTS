@@ -43,7 +43,10 @@ export default function TrustedClientsSlider() {
             <span className="cmyk-gradient-bar" />
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Trusted by Industry Leaders &amp; Global Brands
+            Trusted by Industry Leaders &amp;{" "}
+            <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              Global Brands
+            </span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
             Every business has a distinct vision. We work closely with multinational manufacturers,
