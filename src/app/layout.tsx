@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import DisableRightClick from "@/components/DisableRightClick";
 import { QuoteProvider } from "@/context/QuoteContext";
 
@@ -97,6 +98,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
+          <FloatingCallButton />
           <FloatingWhatsApp />
         </QuoteProvider>
       </body>

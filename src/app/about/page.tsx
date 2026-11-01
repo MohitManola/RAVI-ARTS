@@ -75,24 +75,51 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
         <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                ABOUT OUR COMPANY
-              </span>
-              <span className="cmyk-gradient-bar" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
+                  ABOUT OUR COMPANY
+                </span>
+                <span className="cmyk-gradient-bar" />
+              </div>
+              <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
+                Crafting Visual Excellence in Kasna &amp;{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Beyond
+                </span>
+              </h1>
+              <p className="mt-4 text-base text-slate-300 leading-relaxed">
+                We are a dedicated team of printing technologists, signage fabricators,
+                and graphic designers helping businesses build standout brands.
+              </p>
             </div>
-            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-              Crafting Visual Excellence in Kasna &amp;{" "}
-              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                Beyond
-              </span>
-            </h1>
-            <p className="mt-4 text-base text-slate-300 leading-relaxed">
-              We are a dedicated team of printing technologists, signage fabricators,
-              and graphic designers helping businesses build standout brands.
-            </p>
+
+            {/* Official Logo Brand Card */}
+            <div className="flex items-center gap-4 rounded-3xl bg-white/5 border border-white/10 p-5 sm:p-6 backdrop-blur-md shadow-2xl shrink-0 self-start lg:self-auto">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-2xl bg-white/10 p-2 ring-1 ring-white/20 shrink-0">
+                <Image
+                  src="/images/logo_2.png"
+                  alt="Ravi Arts Enterprises Logo"
+                  width={96}
+                  height={96}
+                  className="object-contain w-full h-full"
+                  priority
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-extrabold text-lg sm:text-xl text-white tracking-tight">
+                  RAVI ARTS
+                </span>
+                <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
+                  ENTERPRISES
+                </span>
+                <span className="text-[11px] text-slate-400 mt-1">
+                  Est. 2005 • Kasna, Greater Noida
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -112,6 +139,17 @@ export default function AboutPage() {
                     className="object-cover"
                     priority
                   />
+                  <div className="absolute top-4 left-4 flex items-center gap-2.5 rounded-xl bg-slate-950/85 backdrop-blur-md px-3.5 py-2 text-white border border-white/10 shadow-lg">
+                    <div className="relative h-6 w-6 shrink-0">
+                      <Image
+                        src="/images/logo_2.png"
+                        alt="Logo"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="text-xs font-bold">Kasna Workshop Facility</span>
+                  </div>
                 </div>
               </div>
               <a

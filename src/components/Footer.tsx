@@ -9,6 +9,11 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import {
+  InstagramIcon,
+  FacebookIcon,
+  GoogleIcon,
+} from "@/components/SocialIcons";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -43,21 +48,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-4 group">
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-2xl bg-white/5 p-1.5 ring-1 ring-white/10 transition-transform group-hover:scale-105 shrink-0 shadow-lg">
+            <Link href="/" className="inline-flex items-center gap-4 sm:gap-5 group">
+              <div className="relative h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 overflow-hidden rounded-2xl bg-white/5 p-2 ring-1 ring-white/10 transition-transform group-hover:scale-105 shrink-0 shadow-xl">
                 <Image
                   src="/images/logo_2.png"
                   alt="Ravi Arts Enterprises Logo"
-                  width={96}
-                  height={96}
+                  width={144}
+                  height={144}
                   className="object-contain w-full h-full"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white group-hover:text-sky-400 transition-colors">
+                <span className="font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-white group-hover:text-sky-400 transition-colors leading-tight">
                   RAVI ARTS
                 </span>
-                <span className="text-xs sm:text-sm font-semibold tracking-widest text-slate-400 uppercase">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mt-0.5">
                   ENTERPRISES
                 </span>
               </div>
@@ -74,6 +79,62 @@ export default function Footer() {
                 <WhatsAppIcon className="h-4 w-4 fill-white" />
                 <span>Chat Instantly on WhatsApp</span>
               </a>
+            </div>
+
+            {/* Social Media & Connect Icons (Instagram, Facebook, Google, WhatsApp) */}
+            <div className="pt-2 space-y-2.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                Connect With Us
+              </span>
+              <div className="flex items-center gap-3">
+                {/* 1. Instagram */}
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Ravi Arts Enterprises on Instagram"
+                  title="Follow on Instagram"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-300 transition-all duration-300 hover:scale-110 hover:border-pink-500/50 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:text-white hover:shadow-lg hover:shadow-rose-500/25 cursor-pointer"
+                >
+                  <InstagramIcon className="h-5 w-5" />
+                </a>
+
+                {/* 2. Facebook */}
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Connect with Ravi Arts Enterprises on Facebook"
+                  title="Connect on Facebook"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-300 transition-all duration-300 hover:scale-110 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+                >
+                  <FacebookIcon className="h-5 w-5" />
+                </a>
+
+                {/* 3. Google */}
+                <a
+                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Google Profile & Location on Google Maps"
+                  title="Google Business Profile & Location"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 transition-all duration-300 hover:scale-110 hover:border-slate-300 hover:bg-white hover:shadow-lg hover:shadow-white/20 cursor-pointer"
+                >
+                  <GoogleIcon className="h-5 w-5" />
+                </a>
+
+                {/* 4. WhatsApp */}
+                <a
+                  href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20have%20an%20inquiry%20regarding%20printing%20and%20signage."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat with Ravi Arts Enterprises on WhatsApp"
+                  title="Chat on WhatsApp"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-[#25D366] transition-all duration-300 hover:scale-110 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-5 w-5 fill-current" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -196,7 +257,21 @@ export default function Footer() {
             &copy; {currentYear}{" "}
             <span className="text-slate-300 font-medium">Ravi Arts Enterprises</span>. All rights reserved.
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2">
+            <Link
+              href="/privacy-policy"
+              className="text-slate-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </Link>
+            <span className="inline-block h-3 w-px bg-slate-800" />
+            <Link
+              href="/terms-and-conditions"
+              className="text-slate-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="inline-block h-3 w-px bg-slate-800" />
             <span className="text-slate-400">
               Print • Signage • Branding &amp; More
             </span>

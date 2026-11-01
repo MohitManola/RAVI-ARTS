@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -23,18 +23,23 @@ function ServicesContent() {
   const searchParams = useSearchParams();
   const rawQ = searchParams?.get("q") || "";
   const { openQuoteModal } = useQuote();
-  const [activeCategory, setActiveCategory] = useState("ALL");
 
-  const categories = [
-    { id: "ALL", label: "All Services" },
-    { id: "LARGE_FORMAT", label: "Flex & Large Format" },
-    { id: "SIGNAGE", label: "Sign Boards & LED" },
-    { id: "STATIONERY", label: "Stationery & Cards" },
-    { id: "COMMERCIAL", label: "Offset & Commercial" },
-    { id: "VINYL", label: "Vinyl & Eco-Solvent" },
-    { id: "BRANDING", label: "Branding & Design" },
-    { id: "GIFTS", label: "Corporate Gifts" },
-  ];
+  const scrollToService = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const targetId = window.location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        scrollToService(targetId);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const serviceItems = [
     {
@@ -168,20 +173,18 @@ function ServicesContent() {
   ];
 
   const queryLower = rawQ.trim().toLowerCase();
-  const filteredServices = serviceItems.filter((svc) => {
-    const matchesCategory =
-      activeCategory === "ALL" || svc.category === activeCategory;
-    if (!matchesCategory) return false;
-    if (!queryLower) return true;
-    const inTitle = svc.title.toLowerCase().includes(queryLower);
-    const inSub = svc.subtitle.toLowerCase().includes(queryLower);
-    const inDesc = svc.desc.toLowerCase().includes(queryLower);
-    const inTag = svc.tag.toLowerCase().includes(queryLower);
-    const inFeatures = svc.features.some((f) =>
-      f.toLowerCase().includes(queryLower)
-    );
-    return inTitle || inSub || inDesc || inTag || inFeatures;
-  });
+  const filteredServices = !queryLower
+    ? serviceItems
+    : serviceItems.filter((svc) => {
+        const inTitle = svc.title.toLowerCase().includes(queryLower);
+        const inSub = svc.subtitle.toLowerCase().includes(queryLower);
+        const inDesc = svc.desc.toLowerCase().includes(queryLower);
+        const inTag = svc.tag.toLowerCase().includes(queryLower);
+        const inFeatures = svc.features.some((f) =>
+          f.toLowerCase().includes(queryLower)
+        );
+        return inTitle || inSub || inDesc || inTag || inFeatures;
+      });
 
   return (
     <div className="flex flex-col w-full">
@@ -210,23 +213,27 @@ function ServicesContent() {
         </div>
       </section>
 
-      {/* Filter Tabs */}
-      <section className="sticky top-[69px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 shadow-xs">
+      {/* Top 8 Services Images (4 in a row, 2 lines - Opens dedicated service page) */}
+      <section className="bg-white border-b border-sky-100 py-6 sm:py-8 shadow-xs">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setActiveCategory(cat.id)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
-                  activeCategory === cat.id
-                    ? "bg-slate-900 text-white shadow-sm"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                }`}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
+            {serviceItems.map((svc) => (
+              <Link
+                key={svc.id}
+                href={`/services/${svc.id}`}
+                title={`Open ${svc.title} Page`}
+                aria-label={`Open ${svc.title} Page`}
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 bg-slate-100 shadow-xs transition-all duration-300 hover:border-sky-500 hover:shadow-xl hover:scale-103 active:scale-95 cursor-pointer block focus:outline-hidden focus:ring-2 focus:ring-sky-500"
               >
-                {cat.label}
-              </button>
+                <Image
+                  src={svc.image}
+                  alt={svc.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
+                  priority
+                />
+              </Link>
             ))}
           </div>
         </div>
@@ -296,10 +303,10 @@ function ServicesContent() {
               <div
                 key={svc.id}
                 id={svc.id}
-              className={`rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 ${
-                index % 2 === 1 ? "lg:flex-row-reverse" : ""
-              } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
-            >
+                className={`scroll-mt-28 rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 ${
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
+              >
               {/* Media */}
               <div className="w-full lg:w-5/12">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-md">
@@ -320,7 +327,12 @@ function ServicesContent() {
                     {svc.subtitle}
                   </span>
                   <h2 className="text-2xl font-extrabold text-slate-900 mt-1">
-                    {svc.title}
+                    <Link
+                      href={`/services/${svc.id}`}
+                      className="hover:text-sky-600 transition-colors"
+                    >
+                      {svc.title}
+                    </Link>
                   </h2>
                 </div>
 
@@ -345,20 +357,26 @@ function ServicesContent() {
                     <span>Est. Turnaround: {svc.turnaround}</span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <Link
+                      href={`/services/${svc.id}`}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 hover:text-sky-600 transition-colors"
+                    >
+                      <span>Explore Service</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
                     <button
                       type="button"
                       onClick={() => openQuoteModal(svc.title)}
-                      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition-colors"
+                      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition-colors"
                     >
-                      <span>Request Quote for This</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <span>Request Quote</span>
                     </button>
                     <a
                       href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(svc.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3.5 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"
                     >
                       <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
                       <span>WhatsApp</span>

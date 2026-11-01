@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import ContactAiBot from "@/components/ContactAiBot";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -538,6 +539,63 @@ export default function ContactPage() {
                   </form>
                 )}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 24/7 AI Print Assistant Section */}
+      <section className="py-14 sm:py-20 bg-white border-t border-sky-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left intro copy */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-xs font-bold tracking-widest text-sky-600 uppercase">
+                  INSTANT HELP 24/7
+                </span>
+                <span className="cmyk-gradient-bar" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+                Ask Our AI Print{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Assistant
+                </span>
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Have an urgent question about flex printing rates, signboard turnaround, accepted
+                artwork formats, or Kasna workshop timings?
+              </p>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Our AI assistant is trained on Ravi Arts Enterprises capabilities and can answer your
+                questions immediately. You can also chat directly with our workshop manager anytime.
+              </p>
+
+              <div className="pt-2 flex flex-col gap-2.5">
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
+                    ✓
+                  </span>
+                  <span>Instant price, media &amp; turnaround answers</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
+                    ✓
+                  </span>
+                  <span>Direct WhatsApp escalation with 1-click</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs text-slate-700">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
+                    ✓
+                  </span>
+                  <span>Available 24/7 on desktop &amp; mobile</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Chatbot Widget */}
+            <div className="lg:col-span-7">
+              <ContactAiBot />
             </div>
           </div>
         </div>
