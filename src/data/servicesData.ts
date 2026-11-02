@@ -12,6 +12,7 @@ export interface ServiceItemData {
   image: string;
   turnaround: string;
   tag: string;
+  offerings: string[];
   overview: string[];
   features: string[];
   specifications: { label: string; value: string }[];
@@ -44,6 +45,17 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/flex&LargeFormatePrinting.PNG",
     turnaround: "Same Day / 24 Hours",
     tag: "Best for Outdoor Visibility",
+    offerings: [
+          "Flex Banner Printing",
+          "Frontlit Flex Printing",
+          "Backlit Flex Printing",
+          "Star Flex Printing",
+          "Hoarding Printing",
+          "Event Banner Printing",
+          "Promotional Banner Printing",
+          "Large Format Digital Printing",
+          "Outdoor Advertising Printing"
+    ],
     overview: [
       "Ravi Arts Enterprises is Kasna, Greater Noida's leading industrial flex banner printer. With over 20 years of printing experience, we operate high-performance roll-to-roll solvent and eco-solvent printing presses capable of seamless 10-foot wide printing.",
       "Whether you require high-GSM frontlit flex for local retail advertising, premium Star Flex for corporate trade exhibitions at India Expo Mart Greater Noida, or waterproof backlit films for illuminated signages, our in-house facility guarantees zero middlemen, wholesale factory pricing, and rapid same-day turnaround.",
@@ -131,6 +143,18 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/SignBoards&Signage.PNG",
     turnaround: "3 - 5 Business Days",
     tag: "Top Rated for Retail Stores",
+    offerings: [
+          "Glow Sign Boards",
+          "LED Sign Boards",
+          "ACP Sign Boards",
+          "Flex Sign Boards",
+          "Sunboard Signage",
+          "Indoor Signage",
+          "Outdoor Signage",
+          "Shop & Office Signage",
+          "Safety & Directional Signage",
+          "Night Glow Signage"
+    ],
     overview: [
       "Your signboard is the silent salesman that creates your store's initial impression. At Ravi Arts Enterprises, we fabricate durable commercial signboards tailored to retail outlets, corporate offices, industrial warehouses, and institutional buildings.",
       "Using branded ACP (Aluminium Composite Panels), high-lumen waterproof LED modules, and heavy-gauge MS framing, our signboards combine architectural sophistication with energy efficiency.",
@@ -199,7 +223,7 @@ export const servicesData: ServiceItemData[] = [
   {
     slug: "stationery",
     id: "stationery",
-    title: "Visiting Cards & Stationery",
+    title: "Visiting Cards & Business Stationery",
     subtitle: "Premium Business Cards, Letterheads, Envelopes & ID Cards",
     metaTitle: "Visiting Card Printing Kasna Greater Noida | Business Cards & Stationery",
     metaDescription: "Professional visiting card printing and corporate stationery in Kasna, Greater Noida. Velvet touch, matte lamination, spot UV, letterheads, bill books, and ID cards.",
@@ -218,6 +242,18 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/VisitingCards&BusinessStationary.PNG",
     turnaround: "24 - 48 Hours",
     tag: "Corporate Essential",
+    offerings: [
+          "Standard Visiting Cards",
+          "Premium Visiting Cards",
+          "Matte & Glossy Visiting Cards",
+          "Letterhead Printing",
+          "Envelope Printing",
+          "Bill Book Printing",
+          "Invoice Book Printing",
+          "ID Card Printing",
+          "Company Profile Printing",
+          "Corporate Stationery"
+    ],
     overview: [
       "In corporate networking, physical stationery conveys professionalism and trustworthiness. Ravi Arts Enterprises prints premium visiting cards and office collateral that elevate your executive presence.",
       "We stock over 20+ fine paper varieties ranging from 350 GSM premium art card stock to luxury velvet soft-touch, textured metallic, and recycled linen boards, with specialty finishing including embossed spot UV and hot foil stamping.",
@@ -305,6 +341,19 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/Offset&DigitalPrinting.PNG",
     turnaround: "2 - 3 Business Days",
     tag: "High Volume Savings",
+    offerings: [
+          "Brochure Printing",
+          "Flyer & Leaflet Printing",
+          "Catalogue Printing",
+          "Poster Printing",
+          "Pamphlet Printing",
+          "Booklet Printing",
+          "Magazine Printing",
+          "Invitation Card Printing",
+          "Menu Card Printing",
+          "Calendar Printing",
+          "Custom Document Printing"
+    ],
     overview: [
       "When your business requires commercial-volume marketing collateral, multi-color offset printing delivers unbeatable cost-efficiency per copy alongside unmatched color reproduction.",
       "At Ravi Arts Enterprises, we handle high-speed offset and digital printing for manufacturers, universities, FMCG distributors, real estate developers, and corporate headquarters throughout the Kasna and Greater Noida industrial belts.",
@@ -373,7 +422,7 @@ export const servicesData: ServiceItemData[] = [
   {
     slug: "acrylic-letters",
     id: "acrylic-letters",
-    title: "Acrylic / 3D Letter Boards",
+    title: "Acrylic & 3D Letter Boards",
     subtitle: "Precision Laser Cut Indoor & Outdoor Corporate 3D Letters",
     metaTitle: "Acrylic 3D Letter Board Kasna Greater Noida | Office Reception Signs",
     metaDescription: "Custom 3D acrylic letters and architectural signage in Kasna, Greater Noida. Laser cut cast acrylic, backlit halo letters, brass/titanium finish, and reception wall branding.",
@@ -392,6 +441,18 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/Acrylic&3dLetterBoards.PNG",
     turnaround: "3 - 4 Business Days",
     tag: "Premium Corporate Aesthetic",
+    offerings: [
+          "Acrylic Name Plates",
+          "Acrylic LED Boards",
+          "3D Acrylic Letters",
+          "Acrylic Reception Boards",
+          "LED Backlit Letters",
+          "Frontlit Channel Letters",
+          "SS 3D Letters",
+          "Brass 3D Letters",
+          "Metal Letter Signage",
+          "Custom Office Branding Boards"
+    ],
     overview: [
       "Dimensional 3D signage commands immediate authority. When visitors enter your office or commercial facility, raised 3D acrylic letters deliver an unforgettable impression of corporate strength and precision.",
       "At Ravi Arts Enterprises, we fabricate 3D acrylic and metallic letters using computer-controlled CO2 laser cutting and CNC routers. Choose from high-gloss cast acrylic, brushed titanium gold, satin silver, or dual-layer backlit channel letters.",
@@ -479,6 +540,19 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
     turnaround: "24 - 48 Hours",
     tag: "Multi-Surface Solution",
+    offerings: [
+          "Eco-Solvent Printing",
+          "Vinyl Sticker Printing",
+          "Self-Adhesive Vinyl Printing",
+          "One-Way Vision Printing",
+          "Frosted Film Printing",
+          "Window Graphics",
+          "Wall Graphics",
+          "Vehicle Graphics",
+          "Vehicle Branding",
+          "Product Label Printing",
+          "Custom Sticker Printing"
+    ],
     overview: [
       "Self-adhesive vinyl is one of the most versatile branding mediums in the modern architectural and promotional landscape. From frosted glass films that provide office privacy to vibrant vehicle fleet graphics, vinyl adheres cleanly to any smooth surface.",
       "At Ravi Arts Enterprises, we use Avery Dennison, 3M, and LG grade vinyl media printed on high-resolution eco-solvent plotters. Every graphic is laminated for scratch, fuel, and chemical resistance.",
@@ -566,6 +640,20 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/branding&GraphicDesign.PNG",
     turnaround: "1 - 3 Business Days",
     tag: "Complete Creative Studio",
+    offerings: [
+          "Logo Design",
+          "Brand Identity Design",
+          "Business Card Design",
+          "Brochure Design",
+          "Catalogue Design",
+          "Flyer & Poster Design",
+          "Social Media Creatives",
+          "Flex & Banner Design",
+          "Signage Artwork Design",
+          "Packaging Design",
+          "Print-Ready Artwork",
+          "Corporate Branding"
+    ],
     overview: [
       "A stunning design on a computer screen is only valuable if it translates accurately to print, laser cutting, and large-format fabrication. Many businesses face costly misprints when using freelance designers unfamiliar with physical production constraints.",
       "At Ravi Arts Enterprises, our graphic design department works directly inside our printing facility in Kasna. We engineer logos, marketing materials, and signage concepts built from the ground up for immaculate physical execution.",
@@ -653,6 +741,19 @@ export const servicesData: ServiceItemData[] = [
     image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
     turnaround: "3 - 5 Business Days",
     tag: "Popular for Corporate Branding",
+    offerings: [
+          "Customised T-Shirts",
+          "Printed Mugs",
+          "Corporate Diaries",
+          "Promotional Pens",
+          "Customised Caps",
+          "Keychains",
+          "Corporate Gift Sets",
+          "Promotional Bags",
+          "Branded Merchandise",
+          "Event Giveaways",
+          "Customised Office Gifts"
+    ],
     overview: [
       "Corporate gifting is a powerful branding strategy that keeps your company top-of-mind every day. When your clients and employees use a beautifully branded pen, coffee mug, or notebook, your company earns enduring goodwill.",
       "At Ravi Arts Enterprises, we supply and customize premium promotional products for corporations, industrial plants, universities, and event organizers across Kasna and Greater Noida. We handle laser engraving, screen printing, UV printing, and embroidery in-house.",

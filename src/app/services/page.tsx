@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useQuote } from "@/context/QuoteContext";
+import { WhyChooseRaviArts, HowWeWorkSection } from "@/components/ServiceBottomSections";
 
 function ServicesContent() {
   const router = useRouter();
@@ -54,6 +55,17 @@ function ServicesContent() {
         "Building Wrap & Roadside Hoardings",
         "Exhibition Backdrops & Roll-up Standees",
       ],
+      items: [
+              "Flex Banner Printing",
+              "Frontlit Flex Printing",
+              "Backlit Flex Printing",
+              "Star Flex Printing",
+              "Hoarding Printing",
+              "Event Banner Printing",
+              "Promotional Banner Printing",
+              "Large Format Digital Printing",
+              "Outdoor Advertising Printing"
+      ],
       turnaround: "Same Day / 24 Hours",
       image: "/images/services/flex&LargeFormatePrinting.PNG",
       tag: "Best for Outdoor Visibility",
@@ -70,6 +82,18 @@ function ServicesContent() {
         "ACP Cladding & Router Cut Signs",
         "Complete On-Site Installation in Greater Noida",
       ],
+      items: [
+              "Glow Sign Boards",
+              "LED Sign Boards",
+              "ACP Sign Boards",
+              "Flex Sign Boards",
+              "Sunboard Signage",
+              "Indoor Signage",
+              "Outdoor Signage",
+              "Shop & Office Signage",
+              "Safety & Directional Signage",
+              "Night Glow Signage"
+      ],
       turnaround: "3 - 5 Business Days",
       image: "/images/services/SignBoards&Signage.PNG",
       tag: "Top Rated for Retail Stores",
@@ -77,7 +101,7 @@ function ServicesContent() {
     {
       id: "stationery",
       category: "STATIONERY",
-      title: "Visiting Cards & Stationery",
+      title: "Visiting Cards & Business Stationery",
       subtitle: "Premium Business Cards, Letterheads, Envelopes & ID Cards",
       desc: "Make an unforgettable first impression. We offer an extensive selection of paper stocks from 350 GSM art cards to textured metallic and velvet touch finishes, with options for embossed spot UV and gold/silver foiling.",
       features: [
@@ -85,6 +109,18 @@ function ServicesContent() {
         "Raised Spot UV & Foil Stamping",
         "Corporate Letterheads & Bill Books",
         "Employee Lanyards & Plastic ID Cards",
+      ],
+      items: [
+              "Standard Visiting Cards",
+              "Premium Visiting Cards",
+              "Matte & Glossy Visiting Cards",
+              "Letterhead Printing",
+              "Envelope Printing",
+              "Bill Book Printing",
+              "Invoice Book Printing",
+              "ID Card Printing",
+              "Company Profile Printing",
+              "Corporate Stationery"
       ],
       turnaround: "24 - 48 Hours",
       image: "/images/services/VisitingCards&BusinessStationary.PNG",
@@ -102,6 +138,19 @@ function ServicesContent() {
         "Full-Color Marketing Flyers & Pamphlets",
         "Packaging Inserts & User Manuals",
       ],
+      items: [
+              "Brochure Printing",
+              "Flyer & Leaflet Printing",
+              "Catalogue Printing",
+              "Poster Printing",
+              "Pamphlet Printing",
+              "Booklet Printing",
+              "Magazine Printing",
+              "Invitation Card Printing",
+              "Menu Card Printing",
+              "Calendar Printing",
+              "Custom Document Printing"
+      ],
       turnaround: "2 - 3 Business Days",
       image: "/images/services/Offset&DigitalPrinting.PNG",
       tag: "High Volume Savings",
@@ -109,7 +158,7 @@ function ServicesContent() {
     {
       id: "acrylic-letters",
       category: "SIGNAGE",
-      title: "Acrylic / 3D Letter Boards",
+      title: "Acrylic & 3D Letter Boards",
       subtitle: "Precision Laser Cut Indoor & Outdoor Corporate 3D Letters",
       desc: "Elevate your office reception, corporate building, or showroom with raised 3D acrylic and metal letters. Laser cut with micron precision and finished in crystal gloss, brushed gold, silver, or backlit halo glow.",
       features: [
@@ -117,6 +166,18 @@ function ServicesContent() {
         "Halo-Lit Backlit Illumination Options",
         "Brushed Metallic Titanium & Brass Finishes",
         "Clean Stud & Standoff Wall Mounting",
+      ],
+      items: [
+              "Acrylic Name Plates",
+              "Acrylic LED Boards",
+              "3D Acrylic Letters",
+              "Acrylic Reception Boards",
+              "LED Backlit Letters",
+              "Frontlit Channel Letters",
+              "SS 3D Letters",
+              "Brass 3D Letters",
+              "Metal Letter Signage",
+              "Custom Office Branding Boards"
       ],
       turnaround: "3 - 4 Business Days",
       image: "/images/services/Acrylic&3dLetterBoards.PNG",
@@ -134,6 +195,19 @@ function ServicesContent() {
         "Die-Cut Promotional & Product Stickers",
         "Removable One-Way Vision Window Film",
       ],
+      items: [
+              "Eco-Solvent Printing",
+              "Vinyl Sticker Printing",
+              "Self-Adhesive Vinyl Printing",
+              "One-Way Vision Printing",
+              "Frosted Film Printing",
+              "Window Graphics",
+              "Wall Graphics",
+              "Vehicle Graphics",
+              "Vehicle Branding",
+              "Product Label Printing",
+              "Custom Sticker Printing"
+      ],
       turnaround: "24 - 48 Hours",
       image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
       tag: "Multi-Surface Solution",
@@ -150,6 +224,20 @@ function ServicesContent() {
         "Signage Scale Layouts & 3D Previews",
         "Packaging & Label Artwork Formulation",
       ],
+      items: [
+              "Logo Design",
+              "Brand Identity Design",
+              "Business Card Design",
+              "Brochure Design",
+              "Catalogue Design",
+              "Flyer & Poster Design",
+              "Social Media Creatives",
+              "Flex & Banner Design",
+              "Signage Artwork Design",
+              "Packaging Design",
+              "Print-Ready Artwork",
+              "Corporate Branding"
+      ],
       turnaround: "1 - 3 Business Days",
       image: "/images/services/branding&GraphicDesign.PNG",
       tag: "Complete Creative Studio",
@@ -165,6 +253,19 @@ function ServicesContent() {
         "Screen Printed & Embroidered Corporate T-Shirts",
         "Laser Engraved Metal Pens, Executive Diaries & Notebooks",
         "Eco-Friendly Jute & Canvas Conference Bags",
+      ],
+      items: [
+              "Customised T-Shirts",
+              "Printed Mugs",
+              "Corporate Diaries",
+              "Promotional Pens",
+              "Customised Caps",
+              "Keychains",
+              "Corporate Gift Sets",
+              "Promotional Bags",
+              "Branded Merchandise",
+              "Event Giveaways",
+              "Customised Office Gifts"
       ],
       turnaround: "3 - 5 Business Days",
       image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
@@ -183,7 +284,10 @@ function ServicesContent() {
         const inFeatures = svc.features.some((f) =>
           f.toLowerCase().includes(queryLower)
         );
-        return inTitle || inSub || inDesc || inTag || inFeatures;
+        const inItems = (svc.items || []).some((it) =>
+          it.toLowerCase().includes(queryLower)
+        );
+        return inTitle || inSub || inDesc || inTag || inFeatures || inItems;
       });
 
   return (
@@ -213,17 +317,18 @@ function ServicesContent() {
         </div>
       </section>
 
-      {/* Top 8 Services Images (4 in a row, 2 lines - Opens dedicated service page) */}
+      {/* Top 8 Services Images (4 in a row, 2 lines - Scrolls to service on same page) */}
       <section className="bg-white border-b border-sky-100 py-6 sm:py-8 shadow-xs">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
             {serviceItems.map((svc) => (
-              <Link
+              <button
                 key={svc.id}
-                href={`/services/${svc.id}`}
-                title={`Open ${svc.title} Page`}
-                aria-label={`Open ${svc.title} Page`}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 bg-slate-100 shadow-xs transition-all duration-300 hover:border-sky-500 hover:shadow-xl hover:scale-103 active:scale-95 cursor-pointer block focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+                type="button"
+                onClick={() => scrollToService(svc.id)}
+                title={`Jump down to ${svc.title}`}
+                aria-label={`Jump down to ${svc.title}`}
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 bg-slate-100 shadow-xs transition-all duration-300 hover:border-sky-500 hover:shadow-xl hover:scale-103 active:scale-95 cursor-pointer block focus:outline-hidden focus:ring-2 focus:ring-sky-500 text-left"
               >
                 <Image
                   src={svc.image}
@@ -233,7 +338,14 @@ function ServicesContent() {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
                   priority
                 />
-              </Link>
+                {/* Overlay Hint to scroll down */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2.5 sm:p-3">
+                  <span className="text-[11px] sm:text-xs font-bold text-white flex items-center justify-between w-full drop-shadow-sm">
+                    <span className="truncate">{svc.title}</span>
+                    <span className="text-sky-300 font-extrabold text-sm ml-1 shrink-0">↓</span>
+                  </span>
+                </div>
+              </button>
             ))}
           </div>
         </div>
@@ -340,14 +452,22 @@ function ServicesContent() {
                   {svc.desc}
                 </p>
 
-                {/* Bullet Points */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  {svc.features.map((feat) => (
-                    <div key={feat} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
+                {/* Products & Sub-Services Included */}
+                <div className="space-y-2 pt-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                      Products &amp; Capabilities Included
+                    </span>
+                    <span className="h-px flex-1 bg-slate-200" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {svc.items.map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Turnaround Badge & CTA */}
@@ -390,34 +510,11 @@ function ServicesContent() {
       </div>
     </section>
 
-      {/* Bottom Assistance Banner */}
-      <section className="bg-slate-950 py-12 text-white border-t border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold">
-            Need a Custom Size or Specialized Material?
-          </h2>
-          <p className="text-sm text-slate-400 max-w-xl mx-auto">
-            We handle custom dimensions, architectural metal finishes, and emergency print runs.
-            Contact our production supervisors directly for instant consultation.
-          </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => openQuoteModal("Custom Requirement")}
-              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-sky-500 cursor-pointer"
-            >
-              <Send className="h-4 w-4" />
-              <span>Get Custom Estimate</span>
-            </button>
-            <a
-              href="tel:+919350036399"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              <span>Call +91 93500 36399</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Ravi Arts Enterprises? (Matching exact design) */}
+      <WhyChooseRaviArts />
+
+      {/* How We Work Process (Matching exact design) */}
+      <HowWeWorkSection />
     </div>
   );
 }
