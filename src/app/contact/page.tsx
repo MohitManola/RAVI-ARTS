@@ -14,10 +14,7 @@ import {
   HelpCircle,
   ChevronDown,
   Sparkles,
-  Tag,
-  Palette,
-  Navigation,
-} from "lucide-react";
+  } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import ContactAiBot from "@/components/ContactAiBot";
 
@@ -553,340 +550,117 @@ export default function ContactPage() {
       </section>
 
       {/* =========================================================================
-          INTERACTIVE CHAT ASSISTANT (Guided Decision-Tree Chatbot)
-          User clicks services -> shows in bullet points -> asks which service for price
+          FAQ & AI ASSISTANT SECTION (Left: FAQ, Right: AI Assistant)
+          User Request: "after form put ai assistant in right side and faq in left side"
          ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white border-t border-sky-100">
+      <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left intro copy */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold tracking-widest text-sky-600 uppercase">
-                  INTERACTIVE ASSISTANT
-                </span>
-                <span className="cmyk-gradient-bar" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
-                Ask About Services,{" "}
-                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                  Pricing &amp; Location
-                </span>
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Click any option in the assistant to see all our services in clean bullet points, select any service to view its pricing breakdown, or get our Kasna workshop directions instantly.
-              </p>
-
-              <div className="pt-2 flex flex-col gap-2.5">
-                <div className="flex items-center gap-2.5 text-xs text-slate-700">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
-                    ✓
+            {/* Left Column (FAQ): lg:col-span-6 */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                    GOT QUESTIONS?
                   </span>
-                  <span>View all 8 services in clean bullet points</span>
+                  <span className="cmyk-gradient-bar" />
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-slate-700">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
-                    ✓
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Frequently Asked{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    Questions
                   </span>
-                  <span>Select any service to view transparent factory rate guide</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-slate-700">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold text-[10px]">
-                    ✓
-                  </span>
-                  <span>1-click WhatsApp quote pre-filled with your choice</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Chatbot Widget */}
-            <div className="lg:col-span-7">
-              <ContactAiBot />
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SIMPLE QUICK GUIDE: SERVICES, LOCATION & PRICING
-          Easy to understand for Indian audience: No chatbot, direct clear information!
-         ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white border-t border-sky-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2">
-              <span className="text-xs font-bold tracking-widest text-sky-600 uppercase">
-                QUICK GUIDE FOR CLIENTS
-              </span>
-              <span className="cmyk-gradient-bar" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Pricing, Services &amp; Location{" "}
-              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                Made Simple
-              </span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Everything you need to know about our Kasna printing factory in simple, transparent points.
-            </p>
-          </div>
-
-          {/* 4 Clear Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Card 1: Pricing & Rates */}
-            <div className="rounded-3xl bg-[#eff7ff]/60 border border-sky-100 p-6 flex flex-col justify-between hover:bg-white hover:border-sky-300 hover:shadow-xl transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500 text-white shadow-md shadow-sky-500/20 group-hover:scale-110 transition-transform">
-                  <Tag className="h-6 w-6" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-sky-600 block">
-                    Direct Factory Rates
-                  </span>
-                  <h3 className="text-lg font-bold text-slate-900 mt-0.5">
-                    1. Pricing &amp; Estimates
-                  </h3>
-                </div>
-                <ul className="space-y-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Direct Wholesale:</strong> No agent or broker commissions. 100% factory pricing.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Transparent Rates:</strong> Calculated strictly by square feet, GSM, and quantity.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Instant WhatsApp Quote:</strong> Send size &amp; design, get rates in 5 minutes!</span>
-                  </li>
-                </ul>
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  Common queries about delivery, file formats, turnaround times, and sign installations in Kasna.
+                </p>
               </div>
 
-              <div className="pt-6 border-t border-sky-100/80 mt-6">
-                <a
-                  href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20please%20send%20me%20a%20rate%20quotation."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-2.5 px-4 text-xs font-bold text-white shadow-xs hover:bg-[#20ba59] transition-all cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
-                  <span>Get Rate on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Card 2: Services & Delivery Speed */}
-            <div className="rounded-3xl bg-[#eff7ff]/60 border border-sky-100 p-6 flex flex-col justify-between hover:bg-white hover:border-sky-300 hover:shadow-xl transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-md shadow-emerald-500/20 group-hover:scale-110 transition-transform">
-                  <Clock className="h-6 w-6" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block">
-                    Turnaround Times
-                  </span>
-                  <h3 className="text-lg font-bold text-slate-900 mt-0.5">
-                    2. Services &amp; Speed
-                  </h3>
-                </div>
-                <ul className="space-y-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Flex &amp; Standees:</strong> Same-day or 24 hours express dispatch.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Visiting Cards:</strong> 24 to 48 hours with matte/gloss lamination.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>LED Sign Boards:</strong> 3 to 5 business days with structural testing.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Expo Mart Orders:</strong> Urgent same-day print runs for trade fairs!</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-sky-100/80 mt-6">
-                <a
-                  href="tel:+919350036399"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 px-4 text-xs font-bold text-white shadow-xs hover:bg-slate-800 transition-all cursor-pointer"
-                >
-                  <Phone className="h-3.5 w-3.5 text-sky-400" />
-                  <span>Call 9350036399 for Urgent</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Card 3: Location & Factory Visiting */}
-            <div className="rounded-3xl bg-[#eff7ff]/60 border border-sky-100 p-6 flex flex-col justify-between hover:bg-white hover:border-sky-300 hover:shadow-xl transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500 text-white shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600 block">
-                    Kasna, Greater Noida
-                  </span>
-                  <h3 className="text-lg font-bold text-slate-900 mt-0.5">
-                    3. Workshop Location
-                  </h3>
-                </div>
-                <ul className="space-y-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Landmark:</strong> Near Republic Honda, Opp. HDFC Bank, Main Road Kasna.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Timings:</strong> Open 7 days a week from 9:30 AM to 6:30 PM.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Inspect Physical Samples:</strong> Touch paper swatches, check flex GSM &amp; acrylic.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-sky-100/80 mt-6">
-                <a
-                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 py-2.5 px-4 text-xs font-bold text-slate-950 shadow-xs transition-all cursor-pointer"
-                >
-                  <Navigation className="h-3.5 w-3.5" />
-                  <span>Open in Google Maps</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Card 4: Design, Delivery & Installation */}
-            <div className="rounded-3xl bg-[#eff7ff]/60 border border-sky-100 p-6 flex flex-col justify-between hover:bg-white hover:border-sky-300 hover:shadow-xl transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-500 text-white shadow-md shadow-rose-500/20 group-hover:scale-110 transition-transform">
-                  <Palette className="h-6 w-6" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-rose-600 block">
-                    Complete Support
-                  </span>
-                  <h3 className="text-lg font-bold text-slate-900 mt-0.5">
-                    4. Design &amp; Installation
-                  </h3>
-                </div>
-                <ul className="space-y-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Accepted Files:</strong> PDF, CorelDraw (CDR), AI, JPG, PNG in CMYK mode.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Graphic Design:</strong> No artwork? Our designers create it for you!</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Doorstep Delivery &amp; Mounting:</strong> Complete installation across Greater Noida.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-sky-100/80 mt-6">
-                <a
-                  href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20want%20to%20send%20my%20design%20or%20inquire%20about%20installation."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-slate-100 hover:bg-sky-50 text-slate-800 hover:text-sky-600 border border-slate-200 py-2.5 px-4 text-xs font-bold transition-all cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5 fill-[#25D366]" />
-                  <span>Send Design on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Direct Phone Assistance Banner */}
-          <div className="mt-10 rounded-2xl bg-slate-900 p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-            <div className="space-y-1 text-center md:text-left">
-              <span className="text-xs font-bold text-sky-400 uppercase tracking-wider block">
-                सीधा बात करें (Direct Phone Assistance)
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
-                Have a Question or Urgent Printing Requirement?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300">
-                Call our workshop manager directly. No automated robot menus — speak directly to our expert.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-              <a
-                href="tel:+919350036399"
-                className="inline-flex items-center gap-2 rounded-full bg-[#00a8ff] hover:bg-sky-400 text-slate-950 font-extrabold text-xs sm:text-sm px-6 py-3 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                <Phone className="h-4 w-4" />
-                <span>Call: 9350036399</span>
-              </a>
-              <a
-                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20want%20to%20discuss%20a%20printing%20requirement."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm px-6 py-3 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                <WhatsAppIcon className="h-4 w-4 fill-white" />
-                <span>WhatsApp Us</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Frequently Asked Questions Accordion */}
-      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-              GOT QUESTIONS?
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-              Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="space-y-3">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-sky-100 bg-white overflow-hidden shadow-xs transition-colors"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 text-sm sm:text-base hover:bg-sky-50/50 transition-colors"
-                >
-                  <span>{faq.q}</span>
-                  <ChevronDown
-                    className={`h-5 w-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      openFaq === idx ? "rotate-180 text-sky-600" : ""
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/30">
-                    {faq.a}
+              {/* FAQ Accordion List */}
+              <div className="space-y-3">
+                {faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-2xl border border-sky-100 bg-white overflow-hidden shadow-xs hover:border-sky-300 transition-colors"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                      className="flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-xs sm:text-sm hover:bg-sky-50/50 transition-colors cursor-pointer"
+                    >
+                      <span className="pr-2">{faq.q}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 text-slate-400 shrink-0 transition-transform duration-200 ${
+                          openFaq === idx ? "rotate-180 text-sky-600" : ""
+                        }`}
+                      />
+                    </button>
+                    {openFaq === idx && (
+                      <div className="p-4 sm:p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/30">
+                        {faq.a}
+                      </div>
+                    )}
                   </div>
-                )}
+                ))}
               </div>
-            ))}
+
+              {/* Direct Workshop Assistance Callout */}
+              <div className="rounded-2xl bg-white border border-sky-100 p-4 sm:p-5 shadow-xs flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600 shrink-0">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
+                      Immediate Phone Assistance
+                    </span>
+                    <a
+                      href="tel:+919350036399"
+                      className="text-xs sm:text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors"
+                    >
+                      +91 93500 36399 (Workshop Manager)
+                    </a>
+                  </div>
+                </div>
+                <a
+                  href="https://wa.me/919350036399"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-[#25D366] text-white p-2.5 hover:bg-[#20ba59] transition-colors shadow-xs shrink-0"
+                  title="WhatsApp"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-white" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column (AI Assistant): lg:col-span-6 */}
+            <div className="lg:col-span-6 space-y-4">
+              <div>
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold tracking-widest text-sky-600 uppercase">
+                    INTERACTIVE ASSISTANT
+                  </span>
+                  <span className="cmyk-gradient-bar" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  Ask About Services,{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    Pricing &amp; Location
+                  </span>
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  Click any option to see services in clean bullet points, view pricing guide, or check our Kasna location.
+                </p>
+              </div>
+
+              {/* Bot Widget Container */}
+              <div className="rounded-3xl bg-white border border-sky-100 p-3 sm:p-5 shadow-lg">
+                <ContactAiBot />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -29,42 +29,68 @@ import ServicesInfiniteSlider from "@/components/ServicesInfiniteSlider";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import TrustedClientsSlider from "@/components/TrustedClientsSlider";
 import WorkProcessSection from "@/components/WorkProcessSection";
+import { GoogleIcon } from "@/components/SocialIcons";
 
 export default function HomePage() {
   const { openQuoteModal } = useQuote();
 
-  // Testimonials state for slider
+  // Authentic Google Reviews for slider
   const testimonials = [
     {
       id: 1,
-      quote:
-        "Ravi Arts Enterprises has always delivered excellent quality and on-time service. Their team is professional, creative and very supportive. Highly recommended for all printing and signage needs!",
-      author: "Rahul Verma",
-      role: "Business Owner, Kasna",
-      avatar: "/images/testimonial-rahul.webp",
+      quote: "Best printing services in greater noida",
+      author: "Harshikha Tiwari",
+      role: "Google Review • 3 reviews • 4 months ago",
+      avatarBg: "bg-purple-600 text-white",
       rating: 5,
     },
     {
       id: 2,
-      quote:
-        "The 3D acrylic LED sign board they designed and installed for our Greater Noida showroom exceeded our expectations! Flawless finishing and outstanding brightness.",
-      author: "Amit Sharma",
-      role: "Retail Director, Alpha 1 Greater Noida",
-      avatar: "/images/testimonial-rahul.webp",
+      quote: "Best printing & signage services",
+      author: "Sunil Rajak",
+      role: "Google Review • 1 review • 4 months ago",
+      avatarBg: "bg-blue-600 text-white",
       rating: 5,
     },
     {
       id: 3,
+      quote: "Best work in greater noida",
+      author: "Manoj Kumar",
+      role: "Google Review • 1 review • 3 months ago",
+      avatarBg: "bg-emerald-600 text-white",
+      rating: 5,
+    },
+    {
+      id: 4,
       quote:
-        "Superb flex banners and visiting cards with crisp colors and fast delivery. Ravi Arts is our go-to print partner for all corporate events.",
-      author: "Priya Gupta",
-      role: "Marketing Manager, Ecotech Noida",
-      avatar: "/images/testimonial-rahul.webp",
+        "A good place for signage works and art. And the owner is so good well behavior..",
+      author: "Jyoti Enterprises",
+      role: "Google Review • 2 reviews • 7 years ago",
+      avatarBg: "bg-amber-600 text-white",
+      rating: 5,
+    },
+    {
+      id: 5,
+      quote:
+        "Good signage services in greater noida. Top quality fabrication and quick delivery.",
+      author: "Sunil Rajak",
+      role: "Google Review • 1 review • 4 months ago",
+      avatarBg: "bg-sky-600 text-white",
+      rating: 5,
+    },
+    {
+      id: 6,
+      quote:
+        "5-star rating from Google Local Guide for outstanding printing, glow sign boards, and signage solutions in Kasna & Greater Noida.",
+      author: "Gagan Tyagi",
+      role: "Local Guide • 15 reviews • 12 photos • 5 years ago",
+      avatarBg: "bg-orange-500 text-white",
       rating: 5,
     },
   ];
 
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [isTestimonialHovered, setIsTestimonialHovered] = useState(false);
 
   const prevTestimonial = () => {
     setCurrentTestimonialIndex((prev) =>
@@ -77,6 +103,17 @@ export default function HomePage() {
       prev === testimonials.length - 1 ? 0 : prev + 1
     );
   };
+
+  // Auto-scrolling reviews every 4.5 seconds (pauses on mouse hover)
+  useEffect(() => {
+    if (isTestimonialHovered) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isTestimonialHovered, testimonials.length]);
 
   // Service Cards Data (Using new high-res images from /images/services)
   const services = [
@@ -138,32 +175,31 @@ export default function HomePage() {
     },
   ];
 
-  // Portfolio items
+  // Portfolio items using real project photos from /images/work
   const portfolio = [
     {
-      title: "Acrylic Sign Board",
+      title: "AirTree Signage & Storefront Branding",
       category: "SIGNAGE",
-      image: "/images/portfolio-acrylic-sign.webp",
+      desc: "Architectural 3D board & illuminated storefront banner installation.",
+      image: "/images/work/airtree.jpeg",
     },
     {
-      title: "Brochure Design & Print",
-      category: "PRINTING",
-      image: "/images/portfolio-brochure.webp",
+      title: "Fitness Center Exterior Sign & Banners",
+      category: "LARGE FORMAT",
+      desc: "Heavy-duty outdoor flex & high-impact visual facade branding.",
+      image: "/images/work/fitness.jpeg",
     },
     {
-      title: "Glow Sign Board",
+      title: "Gym 3D Acrylic Letters & Glow Sign",
       category: "SIGNAGE",
-      image: "/images/portfolio-glow-sign.webp",
+      desc: "Waterproof illuminated LED letters with laser-cut acrylic precision.",
+      image: "/images/work/jym.jpeg",
     },
     {
-      title: "T-Shirt Printing",
-      category: "APPAREL",
-      image: "/images/portfolio-tshirt.webp",
-    },
-    {
-      title: "Visiting Cards",
-      category: "PRINTING",
-      image: "/images/portfolio-cards.webp",
+      title: "Modern Kitchen & Interior Visual Branding",
+      category: "BRANDING",
+      desc: "Custom indoor graphics, self-adhesive vinyl & acrylic display.",
+      image: "/images/work/kitchen.jpeg",
     },
   ];
 
@@ -368,7 +404,7 @@ export default function HomePage() {
           </div>
 
           {/* Portfolio Carousel / Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolio.map((item) => (
               <div
                 key={item.title}
@@ -424,12 +460,12 @@ export default function HomePage() {
                   </span>
                 </h2>
                 <p className="mt-1 text-sm text-slate-600">
-                  Trusted by businesses, brands and individuals across Kasna, Greater Noida and beyond.
+                  Trusted by businesses, brands and individuals across Kasna, Greater Noida and beyond. <Link href="/testimonials" className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-700 ml-2 underline">View all Google reviews →</Link>
                 </p>
               </div>
 
               {/* Single Active Testimonial Card */}
-              <div className="relative rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-sm transition-all">
+              <div onMouseEnter={() => setIsTestimonialHovered(true)} onMouseLeave={() => setIsTestimonialHovered(false)} className="relative rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-sm transition-all hover:border-sky-300 hover:shadow-md">
                 {/* Large Decorative Quote Icon */}
                 <div className="text-sky-500 font-serif text-5xl leading-none select-none mb-2">
                   “
@@ -440,20 +476,26 @@ export default function HomePage() {
 
                 <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-200/60 pt-4">
                   <div className="flex items-center gap-3">
-                    <div className="relative h-11 w-11 overflow-hidden rounded-full ring-2 ring-sky-500/30">
-                      <Image
-                        src={testimonials[currentTestimonialIndex].avatar}
-                        alt={testimonials[currentTestimonialIndex].author}
-                        fill
-                        className="object-cover"
-                      />
+                    <div
+                      className={`h-11 w-11 shrink-0 rounded-full flex items-center justify-center font-bold text-base shadow-sm ring-2 ring-sky-500/20 ${testimonials[currentTestimonialIndex].avatarBg}`}
+                    >
+                      {testimonials[currentTestimonialIndex].author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">
-                        {testimonials[currentTestimonialIndex].author}
-                      </h4>
-                      <p className="text-xs text-slate-500">
-                        {testimonials[currentTestimonialIndex].role}
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-sm font-bold text-slate-900">
+                          {testimonials[currentTestimonialIndex].author}
+                        </h4>
+                        <span
+                          title="Verified Google Review"
+                          className="inline-flex items-center text-[10px] text-emerald-600 bg-emerald-50 px-1 rounded font-semibold"
+                        >
+                          ✓
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500 flex items-center gap-1">
+                        <GoogleIcon className="h-3 w-3 inline shrink-0" />
+                        <span>{testimonials[currentTestimonialIndex].role}</span>
                       </p>
                     </div>
                   </div>

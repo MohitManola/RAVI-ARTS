@@ -15,6 +15,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { InstagramIcon, FacebookIcon, LinkedInIcon, YouTubeIcon, GoogleIcon } from "@/components/SocialIcons";
 import YouTubeSearchBar from "@/components/YouTubeSearchBar";
 import { useQuote } from "@/context/QuoteContext";
 
@@ -119,6 +120,27 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               <div className="flex items-center gap-1.5 text-slate-400">
                 <Clock className="h-3.5 w-3.5 text-emerald-400" />
                 <span>9:30 AM - 6:30 PM</span>
+              </div>
+              <div className="h-3 w-px bg-slate-700 hidden lg:block" />
+              <div className="hidden lg:flex items-center gap-2.5 text-slate-400">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="Instagram" className="hover:text-amber-400 transition-colors">
+                  <InstagramIcon className="h-3.5 w-3.5" />
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" title="Facebook" className="hover:text-blue-400 transition-colors">
+                  <FacebookIcon className="h-3.5 w-3.5" />
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="hover:text-sky-400 transition-colors">
+                  <LinkedInIcon className="h-3.5 w-3.5" />
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" title="YouTube" className="hover:text-rose-500 transition-colors">
+                  <YouTubeIcon className="h-3.5 w-3.5" />
+                </a>
+                <a href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw" target="_blank" rel="noopener noreferrer" title="Google Maps" className="hover:text-amber-400 transition-colors">
+                  <GoogleIcon className="h-3.5 w-3.5" />
+                </a>
+                <a href="https://wa.me/919350036399" target="_blank" rel="noopener noreferrer" title="WhatsApp" className="hover:text-[#25D366] transition-colors">
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current text-[#25D366]" />
+                </a>
               </div>
             </div>
           </div>

@@ -14,6 +14,8 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 import {
   InstagramIcon,
   FacebookIcon,
+  LinkedInIcon,
+  YouTubeIcon,
   GoogleIcon,
 } from "@/components/SocialIcons";
 import { CmykBar } from "@/components/CmykCornerRibbon";
@@ -172,15 +174,15 @@ export default function Footer() {
               <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
                 Follow Us
               </h3>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 {/* Instagram */}
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  title="Instagram"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/15 transition-all"
+                  title="Follow Ravi Arts on Instagram"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:to-purple-600 transition-all cursor-pointer"
                 >
                   <InstagramIcon className="h-4 w-4" />
                 </a>
@@ -191,10 +193,34 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  title="Facebook"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/15 transition-all"
+                  title="Follow Ravi Arts on Facebook"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#1877F2] transition-all cursor-pointer"
                 >
                   <FacebookIcon className="h-4 w-4" />
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  title="Connect on LinkedIn"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#0A66C2] transition-all cursor-pointer"
+                >
+                  <LinkedInIcon className="h-4 w-4" />
+                </a>
+
+                {/* YouTube */}
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  title="Subscribe on YouTube"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#FF0000] transition-all cursor-pointer"
+                >
+                  <YouTubeIcon className="h-4 w-4" />
                 </a>
 
                 {/* Google Maps Profile */}
@@ -203,8 +229,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Google Business Profile & Location"
-                  title="Google Business Profile & Location"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/15 transition-all"
+                  title="Google Business Profile & Reviews"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/20 transition-all cursor-pointer"
                 >
                   <GoogleIcon className="h-4 w-4" />
                 </a>
@@ -215,8 +241,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
-                  title="Chat on WhatsApp"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all"
+                  title="Chat with Us on WhatsApp"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all cursor-pointer"
                 >
                   <WhatsAppIcon className="h-4 w-4 fill-current" />
                 </a>

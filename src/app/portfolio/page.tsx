@@ -3,104 +3,175 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, Eye, Filter, X, ZoomIn, Camera } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  Eye,
+  Filter,
+  X,
+  ZoomIn,
+  Camera,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useQuote } from "@/context/QuoteContext";
 
 export default function PortfolioPage() {
   const { openQuoteModal } = useQuote();
   const [activeFilter, setActiveFilter] = useState("ALL");
-  const [previewImage, setPreviewImage] = useState<{ src: string; title: string; client: string } | null>(null);
+  const [previewImage, setPreviewImage] = useState<{
+    src: string;
+    title: string;
+    client: string;
+    specs: string;
+    tag: string;
+  } | null>(null);
 
   const filterOptions = [
-    { id: "ALL", label: "All Real Work" },
+    { id: "ALL", label: "All Project Works" },
+    { id: "INSTALLATIONS", label: "Real Site Installations" },
     { id: "SIGNAGE", label: "Sign Boards & 3D Letters" },
     { id: "FLEX", label: "Flex & Large Format" },
     { id: "STATIONERY", label: "Cards & Stationery" },
     { id: "COMMERCIAL", label: "Offset & Commercial Print" },
-    { id: "GIFTS", label: "Corporate Gifts & Merchandise" },
+    { id: "GIFTS", label: "Gifts & Merchandise" },
   ];
 
+  // Collage projects with authentic work photos from /images/work and fabrication outputs
   const projects = [
     {
       id: 1,
-      title: "3D Acrylic Letters & Reception Board",
-      category: "SIGNAGE",
-      client: "Corporate Headquarters, Kasna",
-      specs: "Precision laser cut cast acrylic letters with warm halo backlit LED illumination mounted on matte black ACP backing.",
-      image: "/images/services/Acrylic&3dLetterBoards.PNG",
-      tag: "Real Workshop Fabrication",
+      title: "AirTree Signage & Storefront Branding",
+      category: "INSTALLATIONS",
+      client: "AirTree Retail Store, Greater Noida",
+      specs: "Complete outdoor architectural signboard with precision illuminated lettering and durable weather-sealed facade.",
+      image: "/images/work/airtree.jpeg",
+      tag: "Real Site Installation",
+      span: "md:col-span-2 md:row-span-2",
+      aspect: "aspect-[4/3] md:aspect-auto md:h-full",
     },
     {
       id: 2,
-      title: "LED Glow Sign Board & Shopfront Facade",
-      category: "SIGNAGE",
-      client: "Commercial Retail Center, Pari Chowk",
-      specs: "Architectural front-lit LED glow signboard with weather-sealed IP67 Samsung modules and heavy-gauge structural iron framing.",
-      image: "/images/services/SignBoards&Signage.PNG",
-      tag: "Real Installed Sign",
+      title: "Fitness Center Exterior Sign & Banners",
+      category: "INSTALLATIONS",
+      client: "Fitness Hub, Greater Noida West",
+      specs: "High-visibility large format outdoor flex banner and structural iron framing engineered for maximum street visual impact.",
+      image: "/images/work/fitness.jpeg",
+      tag: "Real Site Installation",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
     {
       id: 3,
+      title: "Gym 3D Acrylic Letters & Glow Sign",
+      category: "INSTALLATIONS",
+      client: "Premium Gym & Fitness Studio, Kasna",
+      specs: "Cast acrylic 3D channel letters with waterproof high-lumen LED backlight illumination for striking 24/7 night glow.",
+      image: "/images/work/jym.jpeg",
+      tag: "Real Site Installation",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
+    },
+    {
+      id: 4,
+      title: "Modern Kitchen & Interior Visual Branding",
+      category: "INSTALLATIONS",
+      client: "Kitchen Showroom, Greater Noida",
+      specs: "Custom interior graphics, frosted privacy vinyl, and acrylic display panels fabricated with millimeter CNC precision.",
+      image: "/images/work/kitchen.jpeg",
+      tag: "Real Site Installation",
+      span: "md:col-span-2",
+      aspect: "aspect-[16/9]",
+    },
+    {
+      id: 5,
+      title: "3D Acrylic Letters & Reception Board",
+      category: "SIGNAGE",
+      client: "Corporate Headquarters, Kasna",
+      specs: "Laser cut cast acrylic letters with warm halo backlit LED illumination mounted on matte black ACP backing.",
+      image: "/images/services/Acrylic&3dLetterBoards.PNG",
+      tag: "Workshop Fabrication",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
+    },
+    {
+      id: 6,
+      title: "LED Glow Sign Board & Shopfront Facade",
+      category: "SIGNAGE",
+      client: "Commercial Retail Center, Pari Chowk",
+      specs: "Architectural front-lit LED glow signboard with weather-sealed IP67 Samsung modules and heavy-gauge structural framing.",
+      image: "/images/services/SignBoards&Signage.PNG",
+      tag: "Installed Sign",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
+    },
+    {
+      id: 7,
       title: "Heavy-Duty Outdoor Star Flex Hoarding",
       category: "FLEX",
       client: "Township & Industrial Zone, Yamuna Expressway",
       specs: "Seamless 10-foot wide 540 GSM Star Flex printed on high-speed industrial eco-solvent plotter with UV monsoon-proof inks.",
       image: "/images/services/flex&LargeFormatePrinting.PNG",
-      tag: "Real Large Format Print",
+      tag: "Large Format Print",
+      span: "md:col-span-2",
+      aspect: "aspect-[16/9]",
     },
     {
-      id: 4,
+      id: 8,
       title: "Velvet Touch Visiting Cards & Office Stationery",
       category: "STATIONERY",
-      client: "BIMTECH & Corporate Institutes, Knowledge Park",
+      client: "Corporate Institutes, Knowledge Park",
       specs: "350 GSM luxury art cards with velvet soft-touch thermal lamination, embossed spot UV, and branded corporate bill books.",
       image: "/images/services/VisitingCards&BusinessStationary.PNG",
-      tag: "Real Print Samples",
+      tag: "Print Samples",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
     {
-      id: 5,
+      id: 9,
       title: "Multi-Page Product Catalogue & Brochures",
       category: "COMMERCIAL",
-      client: "FlaktGroup & Manufacturing Plants, Ecotech",
+      client: "Manufacturing Plants, Ecotech Greater Noida",
       specs: "Commercial high-volume multi-color offset print, 300 GSM art card covers, perfect binding, and gloss aqueous coating.",
       image: "/images/services/Offset&DigitalPrinting.PNG",
-      tag: "Real Offset Press Output",
+      tag: "Offset Press Output",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
     {
-      id: 6,
+      id: 10,
       title: "Frosted Glass Privacy Film & Vinyl Decals",
       category: "FLEX",
       client: "Tech Zone Corporate Offices, Greater Noida",
       specs: "Die-cut branded frosted privacy film applied with zero bubbles on executive conference room glass partitions.",
       image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
-      tag: "Real Vinyl Installation",
+      tag: "Vinyl Installation",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
     {
-      id: 7,
+      id: 11,
       title: "Complete Brand Identity & Signage Layouts",
       category: "COMMERCIAL",
       client: "Retail Showroom Rebranding, Alpha 1",
-      specs: "100% original vector brand guidelines, architectural 3D signage previews, and print-ready packaging die-line formulations.",
+      specs: "100% original vector brand guidelines, architectural 3D signage previews, and print-ready packaging formulations.",
       image: "/images/services/branding&GraphicDesign.PNG",
-      tag: "Real Studio Design",
+      tag: "Studio Design",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
     {
-      id: 8,
+      id: 12,
       title: "Customized Corporate Gifts & Executive Kits",
       category: "GIFTS",
       client: "Annual Corporate Summit, India Expo Mart",
       specs: "Laser engraved double-wall stainless steel mugs, luxury rollerball pens, executive leather diaries, and custom gift boxes.",
       image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
       tag: "Real Merchandise",
-    },
-    {
-      id: 9,
-      title: "Ravi Arts In-House Manufacturing Workshop",
-      category: "SIGNAGE",
-      client: "Kasna Workshop Facility, Greater Noida",
-      specs: "Our actual in-house fabrication facility equipped with CNC routers, laser cutters, and large-format roll-to-roll presses.",
-      image: "/images/about-building.webp",
-      tag: "Actual Workshop Facility",
+      span: "col-span-1",
+      aspect: "aspect-[4/3]",
     },
   ];
 
@@ -124,7 +195,6 @@ export default function PortfolioPage() {
             className="object-cover object-right select-none"
             quality={95}
           />
-          {/* Subtle gradient to ensure flawless text contrast on all devices */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
         </div>
 
@@ -133,19 +203,19 @@ export default function PortfolioPage() {
           <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                REAL PROJECT PHOTOS
+                PHOTO COLLAGE &amp; PORTFOLIO
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Our Work &amp; Project{" "}
+              Collage of Our{" "}
               <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
-                Portfolio
+                Recent Work
               </span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-              Explore genuine photos of signboards, large format flex banners, illuminated 3D letters,
-              and commercial print collateral manufactured right here in our Kasna workshop.
+              Explore authentic photos of real signboards, 3D acrylic letters, large format flex banners,
+              and storefronts completed for clients in Kasna, Greater Noida.
             </p>
           </div>
         </div>
@@ -173,163 +243,180 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
+      {/* Collage / Bento Grid of Work */}
+      <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 auto-rows-[280px]">
             {filteredProjects.map((item) => (
               <div
                 key={item.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-3xl bg-white border border-sky-100 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1 transition-all duration-300"
+                onClick={() => setPreviewImage({ src: item.image, title: item.title, client: item.client, specs: item.specs, tag: item.tag })}
+                className={`group relative overflow-hidden rounded-3xl bg-slate-950 border border-slate-200 shadow-sm hover:shadow-2xl hover:border-sky-400 transition-all duration-300 cursor-pointer flex flex-col justify-end ${
+                  activeFilter === "ALL" ? item.span : "col-span-1 row-span-1"
+                }`}
               >
-                <div>
-                  {/* Photo with Real Photo Badge & Click-to-Zoom */}
-                  <div
-                    onClick={() =>
-                      setPreviewImage({
-                        src: item.image,
-                        title: item.title,
-                        client: item.client,
-                      })
-                    }
-                    className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900 cursor-pointer"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-108"
-                      loading="lazy"
-                    />
+                {/* Background Image */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-108"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
 
-                    {/* Gradient Overlay on hover */}
-                    <div className="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3.5 py-1.5 text-xs font-bold text-slate-900 shadow-lg">
-                        <ZoomIn className="h-3.5 w-3.5 text-sky-600" />
-                        <span>View Photo</span>
-                      </span>
-                    </div>
-
-                    {/* Real Workshop Photo Badge */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 shadow-md">
-                      <Camera className="h-3 w-3 text-emerald-400" />
-                      <span>{item.tag}</span>
-                    </div>
-                  </div>
-
-                  {/* Body */}
-                  <div className="p-5 sm:p-6 space-y-2.5">
-                    <h3 className="font-extrabold text-slate-900 text-base group-hover:text-sky-600 transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-sky-700 bg-sky-50 inline-block px-2.5 py-0.5 rounded-md border border-sky-100">
-                      {item.client}
-                    </p>
-                    <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                      {item.specs}
-                    </p>
-                  </div>
+                {/* Top Badge */}
+                <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/15 shadow-md">
+                  <Camera className="h-3 w-3 text-sky-400" />
+                  <span>{item.tag}</span>
                 </div>
 
-                {/* Footer action */}
-                <div className="border-t border-slate-100 p-5 pt-3.5 flex items-center justify-between">
-                  <span className="text-[11px] font-medium text-slate-400">Kasna, Greater Noida</span>
-                  <button
-                    type="button"
-                    onClick={() => openQuoteModal(item.title)}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-slate-800 transition-all cursor-pointer"
-                  >
-                    <span>Order Similar</span>
-                    <ArrowRight className="h-3 w-3 text-sky-400" />
-                  </button>
+                {/* Hover Quick Zoom Pill */}
+                <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg">
+                    <ZoomIn className="h-4 w-4 text-sky-600" />
+                  </span>
+                </div>
+
+                {/* Bottom Overlay Gradient with Details */}
+                <div className="relative z-10 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-5 pt-12 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-sky-400 block mb-0.5">
+                    {item.client}
+                  </span>
+                  <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-1 line-clamp-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                    {item.specs}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Bottom Consultation Banner */}
+          <div className="mt-14 rounded-3xl bg-slate-900 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+                WANT SIMILAR QUALITY FOR YOUR BUSINESS?
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black">
+                Have a Signage or Printing Project in Mind?
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300">
+                Share your measurements or concept with our team in Kasna for instant factory estimates.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => openQuoteModal("Our Work Portfolio")}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-xs sm:text-sm font-bold text-slate-900 hover:bg-slate-100 transition-all cursor-pointer shadow-md"
+              >
+                <span>Request Custom Quote</span>
+                <ArrowRight className="h-4 w-4 text-sky-600" />
+              </button>
+              <a
+                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20saw%20your%20work%20collage%20on%20the%20website%20and%20want%20to%20order%20similar%20signage."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-md"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>WhatsApp Us</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Lightbox Photo Preview Modal */}
+      {/* Full-Screen Preview Lightbox Modal */}
       {previewImage && (
         <div
           role="dialog"
           aria-modal="true"
           onClick={() => setPreviewImage(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md transition-all cursor-pointer"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col"
+            className="relative max-w-4xl w-full rounded-3xl bg-slate-900 border border-slate-700 overflow-hidden shadow-2xl cursor-default flex flex-col md:flex-row"
           >
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-slate-800 bg-slate-950/60">
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
-                  {previewImage.title}
-                </h3>
-                <p className="text-xs text-sky-400 mt-0.5">{previewImage.client}</p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setPreviewImage(null)}
-                className="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setPreviewImage(null)}
+              aria-label="Close preview"
+              className="absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-rose-600 transition-colors shadow-lg"
+            >
+              <X className="h-5 w-5" />
+            </button>
 
-            {/* Modal Image */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black">
+            {/* Left: Image */}
+            <div className="relative aspect-[4/3] md:aspect-auto md:w-3/5 min-h-[300px] sm:min-h-[380px] bg-slate-950">
               <Image
                 src={previewImage.src}
                 alt={previewImage.title}
                 fill
-                className="object-contain"
+                className="object-contain p-2"
+                sizes="(max-width: 768px) 100vw, 60vw"
+                priority
               />
+              <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/20">
+                <Camera className="h-3 w-3 text-emerald-400" />
+                <span>{previewImage.tag}</span>
+              </div>
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-4 bg-slate-950/80 flex items-center justify-between">
-              <span className="text-xs text-slate-400">Actual Photography • Ravi Arts Kasna</span>
-              <button
-                type="button"
-                onClick={() => {
-                  const title = previewImage.title;
-                  setPreviewImage(null);
-                  openQuoteModal(title);
-                }}
-                className="inline-flex items-center gap-1.5 rounded-full bg-sky-600 px-4 py-2 text-xs font-bold text-white hover:bg-sky-500 transition-colors cursor-pointer"
-              >
-                <span>Request Quote for This Work</span>
-                <ArrowRight className="h-3 w-3" />
-              </button>
+            {/* Right: Project Details & Action */}
+            <div className="p-6 md:w-2/5 flex flex-col justify-between space-y-4 bg-slate-900 text-white">
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
+                  {previewImage.client}
+                </span>
+                <h3 className="text-xl font-extrabold text-white leading-snug">
+                  {previewImage.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
+                  {previewImage.specs}
+                </p>
+                <div className="pt-2 flex items-center gap-2 text-xs text-slate-400">
+                  <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                  <span>Manufactured at Kasna Workshop, Greater Noida</span>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800 space-y-2.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const title = previewImage.title;
+                    setPreviewImage(null);
+                    openQuoteModal(title);
+                  }}
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-sky-600 hover:bg-sky-500 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-colors cursor-pointer"
+                >
+                  <span>Order Similar Work</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <a
+                  href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20am%20interested%20in%20${encodeURIComponent(
+                    previewImage.title
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs sm:text-sm font-bold text-white transition-colors cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
+                  <span>Inquire on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       )}
-
-      {/* Bottom CTA */}
-      <section className="bg-slate-950 py-14 text-white border-t border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold">
-            Have a Specific Project in Mind?
-          </h2>
-          <p className="text-sm text-slate-400 max-w-xl mx-auto">
-            Send us your artwork, sample photos, or architectural drawings. Our team will prepare
-            a customized 3D mockup and cost proposal free of charge.
-          </p>
-          <div className="pt-2">
-            <button
-              type="button"
-              onClick={() => openQuoteModal("Portfolio Inquired Project")}
-              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-sky-500 transition-all active:scale-95 cursor-pointer"
-            >
-              <span>Discuss Your Project with Us</span>
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

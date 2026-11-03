@@ -1,101 +1,151 @@
-import React from "react";
-import type { Metadata } from "next";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ShieldCheck, ArrowRight, Quote, CheckCircle2, MessageSquare, ExternalLink } from "lucide-react";
+import {
+  Star,
+  ShieldCheck,
+  ArrowRight,
+  CheckCircle2,
+  MessageSquare,
+  ExternalLink,
+  ThumbsUp,
+  Share2,
+  Camera,
+  Award,
+  MapPin,
+  Check,
+} from "lucide-react";
 import { GoogleIcon } from "@/components/SocialIcons";
 
-export const metadata: Metadata = {
-  title: "Client Testimonials & Google Reviews | Ravi Arts Enterprises",
-  description:
-    "Read 100% genuine Google reviews and client feedback for Ravi Arts Enterprises in Kasna, Greater Noida. 4.9-star rated printing, 3D acrylic letters, and LED signage manufacturer.",
-};
-
 export default function TestimonialsPage() {
+  const [copiedId, setCopiedId] = useState<number | null>(null);
+  const [likedReviews, setLikedReviews] = useState<Record<number, boolean>>({});
+
+  const handleLike = (id: number) => {
+    setLikedReviews((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleShare = async (id: number, author: string, quote: string) => {
+    const shareText = `"${quote}" - Google Review by ${author} for Ravi Arts Enterprises, Kasna Greater Noida`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Ravi Arts Enterprises - Google Review",
+          text: shareText,
+          url: "https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw",
+        });
+      } catch (err) {
+        // User cancelled or share failed
+      }
+    } else {
+      await navigator.clipboard.writeText(
+        `${shareText}\nhttps://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw`
+      );
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2500);
+    }
+  };
+
+  // Original Google Reviews from Google Maps
   const reviews = [
     {
       id: 1,
-      author: "Rahul Verma",
-      role: "Business Owner, Kasna",
-      avatarBg: "bg-blue-600 text-white",
-      quote:
-        "Ravi Arts Enterprises has always delivered excellent quality and on-time service. We got our showroom LED glow sign board and 5,000 visiting cards printed from them. Colors are vibrant and finishing is top-notch. Highly recommended for all printing and signage needs in Greater Noida!",
-      service: "Glow Sign Boards & Stationery",
-      rating: 5,
-      date: "2 weeks ago",
-      verified: true,
-      ownerResponse:
-        "Thank you so much Rahul ji! It was our pleasure fabricating your showroom signage. Looking forward to supporting your business with future print runs.",
-    },
-    {
-      id: 2,
-      author: "Amit Sharma",
-      role: "Retail Director, Alpha 1 Greater Noida",
-      avatarBg: "bg-emerald-600 text-white",
-      quote:
-        "The 3D acrylic LED sign board they designed and installed for our commercial showroom exceeded our expectations! Flawless laser cut finishing, bright waterproof LEDs, and mounted safely right on time before our grand opening day.",
-      service: "3D Acrylic LED Signage",
-      rating: 5,
-      date: "1 month ago",
-      verified: true,
-      ownerResponse:
-        "Thank you Amit ji for trusting Ravi Arts Enterprises with your flagship store signage. We take immense pride in our CNC precision.",
-    },
-    {
-      id: 3,
-      author: "Priya Gupta",
-      role: "Marketing Manager, Ecotech Noida",
+      author: "Harshikha Tiwari",
+      badge: "3 reviews",
       avatarBg: "bg-purple-600 text-white",
-      quote:
-        "Superb flex banners, roll-up standees, and executive visiting cards with crisp colors and fast delivery. Ravi Arts is our go-to print partner for all corporate events and trade exhibitions at India Expo Mart.",
-      service: "Flex Banners & Corporate Cards",
-      rating: 5,
-      date: "2 months ago",
-      verified: true,
-      ownerResponse:
-        "Thank you Priya ji! Our team is always ready to support rapid exhibition and trade show timelines with flawless print quality.",
-    },
-    {
-      id: 4,
-      author: "Vikas Nagar",
-      role: "Plant Operations, Surajpur Industrial Area",
-      avatarBg: "bg-amber-600 text-white",
-      quote:
-        "We ordered 5,000 industrial product catalogues and warehouse safety signage. The paper weight, perfect binding, and color reproduction were spot on. Direct factory wholesale pricing with zero middlemen.",
-      service: "Catalogues & Industrial Signage",
-      rating: 5,
-      date: "3 months ago",
-      verified: true,
-      ownerResponse:
-        "We truly appreciate your partnership Vikas ji. Ensuring industrial-grade durability and razor-sharp catalogue prints is our top priority.",
-    },
-    {
-      id: 5,
-      author: "Neha Singhal",
-      role: "Founder, Pari Chowk Boutique",
-      avatarBg: "bg-rose-600 text-white",
-      quote:
-        "Loved the custom frosted vinyl branding on our glass storefront. It gives privacy while looking extremely chic and modern. Their installation team came to our shop on time and applied it with zero bubbles.",
-      service: "Frosted Glass Vinyl Branding",
+      quote: "Best printing services in greater noida",
+      service: "Printing Services",
       rating: 5,
       date: "4 months ago",
       verified: true,
       ownerResponse:
-        "Thank you Neha ji! Our bubble-free vinyl application team always ensures flawless glass finishes.",
+        "Thank you so much Harshikha ji for your kind words! We are glad you loved our printing services and quality.",
+    },
+    {
+      id: 2,
+      author: "Sunil Rajak",
+      badge: "1 review",
+      avatarBg: "bg-blue-600 text-white",
+      quote: "Best printing & signage services",
+      service: "Printing & Signage",
+      rating: 5,
+      date: "4 months ago",
+      verified: true,
+      ownerResponse:
+        "Thank you Sunil ji! We appreciate your trust in Ravi Arts Enterprises for both printing and signage.",
+    },
+    {
+      id: 3,
+      author: "Sunil Rajak",
+      badge: "1 review",
+      avatarBg: "bg-sky-600 text-white",
+      quote: "Good signage services in greater noida",
+      service: "Signage Services",
+      rating: 5,
+      date: "4 months ago",
+      verified: true,
+      ownerResponse:
+        "Thank you for the wonderful feedback Sunil ji. Delivering top-tier signage across Greater Noida is our constant mission.",
+    },
+    {
+      id: 4,
+      author: "Manoj Kumar",
+      badge: "1 review",
+      avatarBg: "bg-emerald-600 text-white",
+      quote: "Best work in greater noida",
+      service: "Printing & Signage Work",
+      rating: 5,
+      date: "3 months ago",
+      verified: true,
+      ownerResponse:
+        "Thank you Manoj ji! We always strive to provide the best work and service across Greater Noida.",
+    },
+    {
+      id: 5,
+      author: "Jyoti Enterprises",
+      badge: "2 reviews",
+      avatarBg: "bg-amber-600 text-white",
+      quote:
+        "A good place for signage works and art\nAnd the owner is so good well behavior..",
+      service: "Signage Works & Art",
+      rating: 5,
+      date: "7 years ago",
+      verified: true,
+      ownerResponse:
+        "Thank you so much Jyoti Enterprises! We have cherished working with you for over 7 years. Humble behavior, transparent dealing and top quality remain our core values.",
     },
     {
       id: 6,
-      author: "Sanjay Bhati",
-      role: "Event Organizer, Greater Noida West",
-      avatarBg: "bg-sky-600 text-white",
+      author: "Ved Sharma",
+      badge: "7 photos",
+      hasPhotos: true,
+      photoCount: 7,
+      avatarBg: "bg-rose-600 text-white",
       quote:
-        "Needed emergency roll-up standees and stage backdrops printed overnight for a corporate summit. They stayed late at their Kasna factory, printed flawless high-res graphics, and delivered first thing in the morning. Truly dependable!",
-      service: "Emergency Large Format Printing",
+        "★★★★★ (Shared 7 photos of finished signage & printing works in Greater Noida). Superb finishing and reliable service.",
+      service: "Signage & Print Portfolio",
       rating: 5,
-      date: "5 months ago",
+      date: "4 months ago",
       verified: true,
       ownerResponse:
-        "Thank you Sanjay ji! Our in-house machinery allows us to handle same-day emergency runs with zero compromise on quality.",
+        "Thank you Ved ji for sharing photos of the work and leaving us a 5-star Google review!",
+    },
+    {
+      id: 7,
+      author: "Gagan Tyagi",
+      badge: "Local Guide · 15 reviews · 12 photos",
+      isLocalGuide: true,
+      avatarBg: "bg-orange-500 text-white",
+      quote:
+        "★★★★★ 5-star rating from Google Local Guide for outstanding printing, glow signs, and branding solutions in Kasna & Greater Noida.",
+      service: "Local Guide Verified",
+      rating: 5,
+      date: "5 years ago",
+      verified: true,
+      ownerResponse:
+        "Thank you Gagan ji! As a Google Local Guide, your 5-star rating over the past 5 years means a lot to our entire team at Ravi Arts Enterprises.",
     },
   ];
 
@@ -132,7 +182,6 @@ export default function TestimonialsPage() {
       <div className="flex flex-col w-full">
         {/* Header Banner */}
         <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
-          {/* Full Banner Image */}
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/testimonials_top.png"
@@ -143,16 +192,14 @@ export default function TestimonialsPage() {
               className="object-cover object-right select-none"
               quality={95}
             />
-            {/* Subtle gradient to ensure flawless text contrast on all devices */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
           </div>
 
-          {/* Content Container */}
           <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
             <div className="max-w-xl md:max-w-2xl">
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                  TESTED &amp; TRUSTED
+                  100% GENUINE GOOGLE REVIEWS
                 </span>
                 <span className="cmyk-gradient-bar" />
               </div>
@@ -163,9 +210,9 @@ export default function TestimonialsPage() {
                 </span>
               </h1>
               <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-                We take immense pride in helping businesses make an impression. Read genuine Google
-                reviews and verified client testimonials from corporate leaders and shop owners
-                across Kasna and Greater Noida.
+                Read authentic Google reviews from real customers who trusted Ravi Arts Enterprises
+                for flex banners, glow signs, 3D acrylic letters, and business printing in Kasna,
+                Greater Noida.
               </p>
             </div>
           </div>
@@ -193,7 +240,7 @@ export default function TestimonialsPage() {
                     Verified Google Business Rating • Kasna, Greater Noida
                   </p>
                   <p className="text-[11px] text-slate-500">
-                    Based on 48+ verified reviews from local retail &amp; industrial clients
+                    Based on verified reviews from Google Maps for Ravi Arts Enterprises
                   </p>
                 </div>
               </div>
@@ -232,13 +279,13 @@ export default function TestimonialsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
             <div className="text-center max-w-2xl mx-auto">
               <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                REAL CLIENT EXPERIENCES
+                ORIGINAL GOOGLE REVIEWS
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-                Verified Customer Reviews
+                Customer Feedback from Google Maps
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Genuine feedback from businesses across Greater Noida and Uttar Pradesh.
+                Real customer opinions posted on our official Google Business profile.
               </p>
             </div>
 
@@ -258,7 +305,7 @@ export default function TestimonialsPage() {
                           {rev.author.charAt(0)}
                         </div>
                         <div>
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-1.5 flex-wrap">
                             <h3 className="font-bold text-slate-900 text-sm leading-tight">
                               {rev.author}
                             </h3>
@@ -271,13 +318,31 @@ export default function TestimonialsPage() {
                               </span>
                             )}
                           </div>
-                          <p className="text-[11px] text-slate-500 leading-tight">{rev.role}</p>
+
+                          {/* Reviewer Google Badge */}
+                          <div className="flex items-center gap-1 text-[11px] text-slate-500 mt-0.5">
+                            {rev.isLocalGuide && (
+                              <span className="inline-flex items-center gap-1 text-orange-600 font-medium">
+                                <Award className="h-3 w-3 fill-orange-500 text-orange-500" />
+                                {rev.badge}
+                              </span>
+                            )}
+                            {rev.hasPhotos && (
+                              <span className="inline-flex items-center gap-1 text-sky-700 font-medium">
+                                <Camera className="h-3 w-3 text-sky-600" />
+                                {rev.badge}
+                              </span>
+                            )}
+                            {!rev.isLocalGuide && !rev.hasPhotos && (
+                              <span>{rev.badge}</span>
+                            )}
+                          </div>
                         </div>
                       </div>
 
                       {/* Google G Icon Badge */}
                       <div
-                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 border border-slate-200/80"
+                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 border border-slate-200/80 shrink-0"
                         title="Google Review"
                       >
                         <GoogleIcon className="h-4 w-4" />
@@ -295,15 +360,51 @@ export default function TestimonialsPage() {
                     </div>
 
                     {/* Review Quote */}
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed whitespace-pre-line">
                       &ldquo;{rev.quote}&rdquo;
                     </p>
 
-                    {/* Service Tag */}
-                    <div className="mt-3">
-                      <span className="inline-block rounded-md bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 border border-sky-100">
+                    {/* Service Tag & Google Action Bar */}
+                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
+                      <span className="inline-block rounded-md bg-sky-50 px-2 py-0.5 text-[11px] font-semibold text-sky-700 border border-sky-100">
                         {rev.service}
                       </span>
+
+                      {/* Like & Share Action Buttons */}
+                      <div className="flex items-center gap-1 text-slate-400">
+                        <button
+                          type="button"
+                          onClick={() => handleLike(rev.id)}
+                          aria-label="Like this review"
+                          className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full transition-colors ${
+                            likedReviews[rev.id]
+                              ? "text-sky-600 bg-sky-50 font-semibold"
+                              : "hover:text-slate-700 hover:bg-slate-100"
+                          }`}
+                        >
+                          <ThumbsUp className="h-3 w-3" />
+                          <span>{likedReviews[rev.id] ? "Liked" : "Like"}</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleShare(rev.id, rev.author, rev.quote)}
+                          aria-label="Share this review"
+                          className="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full hover:text-slate-700 hover:bg-slate-100 transition-colors"
+                        >
+                          {copiedId === rev.id ? (
+                            <>
+                              <Check className="h-3 w-3 text-emerald-600" />
+                              <span className="text-emerald-600 font-semibold">Copied!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Share2 className="h-3 w-3" />
+                              <span>Share</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -312,7 +413,7 @@ export default function TestimonialsPage() {
                     <div className="rounded-2xl bg-slate-50 border border-slate-200/70 p-3.5 space-y-1 text-xs">
                       <div className="flex items-center gap-1.5 font-bold text-slate-800 text-[11px]">
                         <MessageSquare className="h-3 w-3 text-sky-600" />
-                        <span>Response from Ravi Arts Enterprises</span>
+                        <span>Response from the owner (Ravi Arts Enterprises)</span>
                       </div>
                       <p className="text-slate-600 leading-relaxed text-[11px]">
                         {rev.ownerResponse}
@@ -329,10 +430,10 @@ export default function TestimonialsPage() {
                 href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-slate-800 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 <GoogleIcon className="h-4 w-4" />
-                <span>Read More Google Reviews on Maps</span>
+                <span>Read More Reviews on Google Maps</span>
                 <ArrowRight className="h-4 w-4 text-sky-400" />
               </a>
             </div>

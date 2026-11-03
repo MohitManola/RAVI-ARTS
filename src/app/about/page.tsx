@@ -76,50 +76,23 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
         <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                  ABOUT OUR COMPANY
-                </span>
-                <span className="cmyk-gradient-bar" />
-              </div>
-              <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-                Crafting Visual Excellence in Kasna &amp;{" "}
-                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                  Beyond
-                </span>
-              </h1>
-              <p className="mt-4 text-base text-slate-300 leading-relaxed">
-                We are a dedicated team of printing technologists, signage fabricators,
-                and graphic designers helping businesses build standout brands.
-              </p>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
+                ABOUT OUR COMPANY
+              </span>
+              <span className="cmyk-gradient-bar" />
             </div>
-
-            {/* Official Logo Brand Card */}
-            <div className="flex items-center gap-4 rounded-3xl bg-white/5 border border-white/10 p-5 sm:p-6 backdrop-blur-md shadow-2xl shrink-0 self-start lg:self-auto">
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-2xl bg-white/10 p-2 ring-1 ring-white/20 shrink-0">
-                <Image
-                  src="/images/logo_2.png"
-                  alt="Ravi Arts Enterprises Logo"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-lg sm:text-xl text-white tracking-tight">
-                  RAVI ARTS
-                </span>
-                <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                  ENTERPRISES
-                </span>
-                <span className="text-[11px] text-slate-400 mt-1">
-                  Est. 2005 • Kasna, Greater Noida
-                </span>
-              </div>
-            </div>
+            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+              Crafting Visual Excellence in Kasna &amp;{" "}
+              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                Beyond
+              </span>
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+              We are a dedicated team of printing technologists, signage fabricators,
+              and visual branding experts helping businesses build standout identities across Greater Noida since 2005.
+            </p>
           </div>
         </div>
       </section>
@@ -128,50 +101,53 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Image & Badge */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-slate-200">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src="/images/about-building.webp"
-                    alt="Ravi Arts Enterprises Kasna Workshop"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute top-4 left-4 flex items-center gap-2.5 rounded-xl bg-slate-950/85 backdrop-blur-md px-3.5 py-2 text-white border border-white/10 shadow-lg">
-                    <div className="relative h-6 w-6 shrink-0">
-                      <Image
-                        src="/images/logo_2.png"
-                        alt="Logo"
-                        fill
-                        className="object-contain"
-                      />
+            {/* Left: Official Ravi Arts Logo like Home Page */}
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-md">
+                {/* Yellow and Pink graphic decor accents matching branding */}
+                <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
+                <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
+
+                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-sky-100 hover:border-slate-800 p-8 sm:p-10 shadow-2xl transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
+                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
+                    <Image
+                      src="/images/logo_1.png"
+                      alt="Ravi Arts Enterprises Official Logo"
+                      fill
+                      className="object-contain transition-opacity duration-500 group-hover:opacity-0"
+                      priority
+                    />
+                    <Image
+                      src="/images/logo_2.png"
+                      alt="Ravi Arts Enterprises Official Logo Hover"
+                      fill
+                      className="object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 flex items-center justify-between rounded-2xl bg-slate-900 p-4 text-white shadow-xl hover:bg-slate-800 transition-colors group cursor-pointer"
+                  title="Open workshop location in Google Maps"
+                >
+                  <div className="flex items-center gap-3">
+                    <MapPin className="h-6 w-6 text-sky-400 group-hover:text-amber-400 shrink-0 transition-colors" />
+                    <div className="text-xs">
+                      <span className="font-bold block text-sm group-hover:text-sky-300 transition-colors">
+                        Kasna Workshop Facility
+                      </span>
+                      <span className="text-slate-400">Near Republic Honda, Opp. HDFC Bank, Kasna</span>
                     </div>
-                    <span className="text-xs font-bold">Kasna Workshop Facility</span>
                   </div>
-                </div>
+                  <span className="text-[11px] font-semibold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-full border border-sky-800 group-hover:border-sky-500 transition-colors">
+                    View Map ↗
+                  </span>
+                </a>
               </div>
-              <a
-                href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 flex items-center justify-between rounded-2xl bg-slate-900 p-4 text-white shadow-xl hover:bg-slate-800 transition-colors group cursor-pointer"
-                title="Open workshop location in Google Maps"
-              >
-                <div className="flex items-center gap-3">
-                  <MapPin className="h-6 w-6 text-sky-400 group-hover:text-amber-400 shrink-0 transition-colors" />
-                  <div className="text-xs">
-                    <span className="font-bold block text-sm group-hover:text-sky-300 transition-colors">
-                      Kasna, Greater Noida
-                    </span>
-                    <span className="text-slate-400">Gautam Buddha Nagar, UP - 201310</span>
-                  </div>
-                </div>
-                <span className="text-[11px] font-semibold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-full border border-sky-800 group-hover:border-sky-500 transition-colors">
-                  View Map ↗
-                </span>
-              </a>
             </div>
 
             {/* Right Story */}
@@ -319,8 +295,8 @@ export default function AboutPage() {
               <div className="relative overflow-hidden rounded-3xl bg-slate-100 shadow-2xl border border-slate-200">
                 <div className="relative aspect-[16/10] w-full">
                   <Image
-                    src="/images/hero-showcase.webp"
-                    alt="Ravi Arts High Tech Printing Press"
+                    src="/images/services/Offset&DigitalPrinting.PNG"
+                    alt="Ravi Arts High-Tech Industrial Printing Machinery"
                     fill
                     className="object-cover"
                   />
