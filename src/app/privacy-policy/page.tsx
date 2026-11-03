@@ -368,10 +368,10 @@ export default function PrivacyPolicyPage() {
                   <span>
                     Email:{" "}
                     <a
-                      href="mailto:raviarts.ent@gmail.com"
+                      href="mailto:raviarts29@gmail.com"
                       className="text-rose-400 hover:underline"
                     >
-                      raviarts.ent@gmail.com
+                      raviarts29@gmail.com
                     </a>
                   </span>
                 </div>

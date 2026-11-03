@@ -49,7 +49,7 @@ export function WhyChooseRaviArts() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20 border-t border-sky-100">
+    <section className="relative overflow-hidden bg-[#eff7ff]/50 py-16 sm:py-20 border-t border-sky-100">
       {/* Top-Left & Bottom-Right Diagonal CMYK Ribbons */}
       <CmykCornerRibbon position="top-left" />
       <CmykCornerRibbon position="bottom-right" />
@@ -60,7 +60,7 @@ export function WhyChooseRaviArts() {
           {/* Left Column: Heading & Introduction */}
           <div className="lg:col-span-5 space-y-4">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#e6007e] uppercase">
-              <span>WHY CHOOSE US</span>
+              <span>THE RAVI ARTS ADVANTAGE</span>
               <span className="text-slate-400 font-normal">——</span>
             </div>
 
@@ -143,45 +143,45 @@ export function HowWeWorkSection() {
   ];
 
   return (
-    <section className="bg-[#07172d] text-white py-14 sm:py-18 relative overflow-hidden border-t border-sky-900/30">
+    <section className="bg-white text-slate-900 py-16 sm:py-20 relative overflow-hidden border-t border-sky-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Heading & Subtitle */}
           <div className="lg:col-span-4 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-slate-300 uppercase block">
+            <span className="text-xs font-bold tracking-widest text-[#00a8ff] uppercase block">
               OUR WORK PROCESS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#07172d]">
               How We Work
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               A simple and transparent process to bring your ideas to life.
             </p>
             <CmykBar className="h-1.5 w-20 mt-3" />
           </div>
 
-          {/* Right Column: 4 Step Process Horizontal Flow */}
+          {/* Right Column: 4 Step Process Horizontal Flow on White */}
           <div className="lg:col-span-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
               {steps.map((st, idx) => {
                 const Icon = st.icon;
                 return (
-                  <div key={st.num} className="space-y-3 relative group">
+                  <div key={st.num} className="space-y-3 relative group rounded-2xl bg-[#eff7ff]/70 border border-sky-100 p-4 hover:bg-white hover:border-sky-300 hover:shadow-md transition-all">
                     {/* Number Pill & Icon */}
                     <div className="flex items-center gap-2.5">
                       <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#00a8ff] text-white font-extrabold text-xs shadow-md">
                         {st.num}
                       </div>
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-white">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100/80 text-sky-700">
                         <Icon className="h-4 w-4" />
                       </div>
                     </div>
 
-                    <h3 className="text-xs sm:text-sm font-bold text-white group-hover:text-sky-400 transition-colors">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
                       {st.title}
                     </h3>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {st.desc}
                     </p>
                   </div>

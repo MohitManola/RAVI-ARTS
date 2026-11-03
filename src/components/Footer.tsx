@@ -14,12 +14,9 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 import {
   InstagramIcon,
   FacebookIcon,
-  LinkedInIcon,
-  YouTubeIcon,
   GoogleIcon,
 } from "@/components/SocialIcons";
 import { CmykBar } from "@/components/CmykCornerRibbon";
-import { PrintingProjectCtaBanner } from "@/components/ServiceBottomSections";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -44,42 +41,95 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#07172d] text-slate-300">
-      {/* Floating CTA Banner right above the footer columns */}
-      <PrintingProjectCtaBanner />
-
+    <footer className="relative bg-[#07172d] text-slate-300 border-t border-sky-950/60">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-7xl px-4 pt-8 pb-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           
-          {/* Column 1: Brand (Logo + Tagline + CMYK Bar) */}
-          <div className="sm:col-span-2 lg:col-span-3 space-y-3.5">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative h-12 w-12 sm:h-14 sm:w-14 overflow-hidden rounded-xl bg-white/5 p-1 ring-1 ring-white/10 shrink-0 shadow-lg">
+          {/* Column 1: Brand (Colorful Logo + Tagline + CMYK Bar + Follow Us directly underneath) */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
+            <Link href="/" className="inline-flex items-center gap-4 group">
+              <div className="relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-2xl bg-white p-2 ring-2 ring-white/20 shrink-0 shadow-xl transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo_2.png"
+                  src="/images/logo_1.png"
                   alt="Ravi Arts Enterprises Logo"
-                  width={56}
-                  height={56}
-                  className="object-contain w-full h-full"
+                  fill
+                  className="object-contain p-0.5"
+                  sizes="(max-width: 640px) 64px, 80px"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-lg sm:text-xl tracking-tight text-white group-hover:text-sky-400 transition-colors leading-tight">
+                <span className="font-black text-xl sm:text-2xl tracking-tight text-white group-hover:text-sky-400 transition-colors leading-tight">
                   RAVI ARTS
                 </span>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-slate-300 uppercase mt-0.5">
+                <span className="text-xs font-bold tracking-[0.22em] text-sky-400 uppercase mt-0.5">
                   ENTERPRISES
                 </span>
               </div>
             </Link>
 
-            <p className="text-xs text-slate-300 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
               All Types Graphic &amp; Signage Solutions
             </p>
 
             {/* CMYK Accent Line Underneath Tagline */}
             <CmykBar className="h-1.5 w-20" />
+
+            {/* Follow Us Section right below logo and text */}
+            <div className="pt-2 space-y-2.5">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-white block">
+                Follow Us
+              </span>
+              <div className="flex items-center gap-3">
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  title="Follow Ravi Arts on Instagram"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                >
+                  <InstagramIcon className="h-5 w-5" />
+                </a>
+
+                {/* Facebook */}
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  title="Follow Ravi Arts on Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                >
+                  <FacebookIcon className="h-5 w-5" />
+                </a>
+
+                {/* Google Maps Profile */}
+                <a
+                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Google Business Profile & Location"
+                  title="Google Business Profile & Reviews"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                >
+                  <GoogleIcon className="h-5 w-5" />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/919350036399"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat on WhatsApp"
+                  title="Chat with Us on WhatsApp"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-5 w-5 fill-[#25D366] text-[#25D366]" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Column 2: Quick Links */}
@@ -102,12 +152,12 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Our Services */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-3 space-y-3">
             <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
               Our Services
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
-              {services.slice(0, 4).map((item) => (
+              {services.slice(0, 5).map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -128,29 +178,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact Info */}
-          <div className="lg:col-span-3 space-y-3">
+          {/* Column 4: Contact Info & Script Art */}
+          <div className="lg:col-span-3 space-y-4">
             <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
               Contact Info
             </h3>
             <div className="space-y-2.5 text-xs sm:text-sm">
-              <div className="flex items-center gap-2.5 text-slate-200">
-                <Phone className="h-4 w-4 shrink-0 text-sky-400" />
-                <a
-                  href="tel:+919350036399"
-                  className="font-bold text-white hover:text-sky-400 transition-colors"
-                >
-                  +91 93500 36399
-                </a>
+              <div className="flex items-start gap-2.5 text-slate-200">
+                <Phone className="h-4 w-4 shrink-0 text-sky-400 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="tel:+919350036399"
+                    className="font-bold text-white hover:text-sky-400 transition-colors block leading-tight"
+                  >
+                    +91 93500 36399
+                  </a>
+                  <a
+                    href="tel:+919971145089"
+                    className="font-bold text-white hover:text-sky-400 transition-colors block leading-tight"
+                  >
+                    +91 99711 45089
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5 text-slate-200">
                 <Mail className="h-4 w-4 shrink-0 text-rose-400" />
                 <a
-                  href="mailto:raviarts.ent@gmail.com"
+                  href="mailto:raviarts29@gmail.com"
                   className="hover:text-rose-400 transition-colors"
                 >
-                  raviarts.ent@gmail.com
+                  raviarts29@gmail.com
                 </a>
               </div>
 
@@ -166,135 +224,28 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </div>
 
-          {/* Column 5: Follow Us & Right-Side Script Art */}
-          <div className="lg:col-span-2 space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
-                Follow Us
-              </h3>
-              <div className="flex items-center gap-2 flex-wrap">
-                {/* Instagram */}
-                <a
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  title="Follow Ravi Arts on Instagram"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:to-purple-600 transition-all cursor-pointer"
-                >
-                  <InstagramIcon className="h-4 w-4" />
-                </a>
 
-                {/* Facebook */}
-                <a
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  title="Follow Ravi Arts on Facebook"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#1877F2] transition-all cursor-pointer"
-                >
-                  <FacebookIcon className="h-4 w-4" />
-                </a>
-
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  title="Connect on LinkedIn"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#0A66C2] transition-all cursor-pointer"
-                >
-                  <LinkedInIcon className="h-4 w-4" />
-                </a>
-
-                {/* YouTube */}
-                <a
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  title="Subscribe on YouTube"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-[#FF0000] transition-all cursor-pointer"
-                >
-                  <YouTubeIcon className="h-4 w-4" />
-                </a>
-
-                {/* Google Maps Profile */}
-                <a
-                  href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Google Business Profile & Location"
-                  title="Google Business Profile & Reviews"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/20 transition-all cursor-pointer"
-                >
-                  <GoogleIcon className="h-4 w-4" />
-                </a>
-
-                {/* WhatsApp */}
-                <a
-                  href="https://wa.me/919350036399"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Chat on WhatsApp"
-                  title="Chat with Us on WhatsApp"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-current" />
-                </a>
-              </div>
-            </div>
-
-            {/* Script Tagline Artwork: Print Signage Branding & More... */}
-            <div className="pt-2">
-              <span className="font-serif italic text-base sm:text-lg text-white/95 leading-tight block">
-                Print <br />
-                Signage <br />
-                Branding <br />
-                &amp; More...
-              </span>
-              <svg className="h-2 w-20 text-sky-400 mt-1" viewBox="0 0 100 12" fill="none">
-                <path d="M0,8 Q50,0 100,6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
           </div>
 
         </div>
 
-        {/* Bottom Copyright & Legal Line */}
-        <div className="mt-12 border-t border-sky-900/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            &copy; {currentYear}{" "}
-            <span className="text-white font-medium">Ravi Arts Enterprises</span>. All rights reserved.
-          </div>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2">
+        {/* Bottom Legal Copyright Bar */}
+        <div className="mt-12 border-t border-slate-700/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© {currentYear} Ravi Arts Enterprises. All rights reserved.</p>
+          <div className="flex items-center gap-6">
             <Link
               href="/privacy-policy"
-              className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="hover:text-slate-200 transition-colors"
             >
               Privacy Policy
             </Link>
-            <span className="inline-block h-3 w-px bg-slate-700" />
             <Link
               href="/terms-and-conditions"
-              className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="hover:text-slate-200 transition-colors"
             >
               Terms &amp; Conditions
             </Link>
-            <span className="inline-block h-3 w-px bg-slate-700" />
-            <a
-              href="https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 hover:text-amber-400 transition-colors cursor-pointer"
-              title="Kasna, Greater Noida on Google Maps"
-            >
-              Kasna, Greater Noida
-            </a>
           </div>
         </div>
       </div>

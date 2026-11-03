@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import {
   ShieldCheck,
   Zap,
@@ -187,19 +188,19 @@ export default function AboutPage() {
 
               <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-100">
                 <div>
-                  <div className="text-3xl font-extrabold text-sky-600">25k+</div>
+                  <div className="text-3xl font-extrabold text-sky-600"><AnimatedCounter target={25} suffix="k+" /></div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
                     Happy Clients
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-rose-600">40k+</div>
+                  <div className="text-3xl font-extrabold text-rose-600"><AnimatedCounter target={40} suffix="k+" /></div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
                     Projects Delivered
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-amber-500">20+</div>
+                  <div className="text-3xl font-extrabold text-amber-500"><AnimatedCounter target={20} suffix="+" /></div>
                   <div className="text-xs font-semibold text-slate-500 mt-0.5">
                     Years of Experience
                   </div>

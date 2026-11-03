@@ -30,6 +30,7 @@ import MissionVisionSection from "@/components/MissionVisionSection";
 import TrustedClientsSlider from "@/components/TrustedClientsSlider";
 import WorkProcessSection from "@/components/WorkProcessSection";
 import { GoogleIcon } from "@/components/SocialIcons";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function HomePage() {
   const { openQuoteModal } = useQuote();
@@ -554,7 +555,7 @@ export default function HomePage() {
                     <Users className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">25k+</div>
+                    <div className="text-3xl font-extrabold text-slate-900"><AnimatedCounter target={25} suffix="k+" /></div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Happy Clients
                     </div>
@@ -568,7 +569,7 @@ export default function HomePage() {
                     <FolderCheck className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">40k+</div>
+                    <div className="text-3xl font-extrabold text-slate-900"><AnimatedCounter target={40} suffix="k+" /></div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Projects Completed
                     </div>
@@ -582,7 +583,7 @@ export default function HomePage() {
                     <Star className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold text-slate-900">20+</div>
+                    <div className="text-3xl font-extrabold text-slate-900"><AnimatedCounter target={20} suffix="+" /></div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Years of Experience
                     </div>

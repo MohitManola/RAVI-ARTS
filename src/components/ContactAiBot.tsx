@@ -380,7 +380,7 @@ export default function ContactAiBot() {
     const bullets = [
       "Phone Line 1: +91 93500 36399 (WhatsApp available)",
       "Phone Line 2: +91 99711 45089",
-      "Email: raviarts.ent@gmail.com",
+      "Email: raviarts29@gmail.com",
       "Speak directly with our production manager — no automated computer menus!",
     ];
 

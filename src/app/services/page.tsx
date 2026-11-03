@@ -317,39 +317,7 @@ function ServicesContent() {
         </div>
       </section>
 
-      {/* Top 8 Services Images (4 in a row, 2 lines - Scrolls to service on same page) */}
-      <section className="bg-white border-b border-sky-100 py-6 sm:py-8 shadow-xs">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
-            {serviceItems.map((svc) => (
-              <button
-                key={svc.id}
-                type="button"
-                onClick={() => scrollToService(svc.id)}
-                title={`Jump down to ${svc.title}`}
-                aria-label={`Jump down to ${svc.title}`}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 bg-slate-100 shadow-xs transition-all duration-300 hover:border-sky-500 hover:shadow-xl hover:scale-103 active:scale-95 cursor-pointer block focus:outline-hidden focus:ring-2 focus:ring-sky-500 text-left"
-              >
-                <Image
-                  src={svc.image}
-                  alt={svc.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
-                  priority
-                />
-                {/* Overlay Hint to scroll down */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2.5 sm:p-3">
-                  <span className="text-[11px] sm:text-xs font-bold text-white flex items-center justify-between w-full drop-shadow-sm">
-                    <span className="truncate">{svc.title}</span>
-                    <span className="text-sky-300 font-extrabold text-sm ml-1 shrink-0">↓</span>
-                  </span>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Search Query Active Notification */}
       {rawQ && (
@@ -510,11 +478,11 @@ function ServicesContent() {
       </div>
     </section>
 
-      {/* Why Choose Ravi Arts Enterprises? (Matching exact design) */}
-      <WhyChooseRaviArts />
-
-      {/* How We Work Process (Matching exact design) */}
+      {/* How We Work Process (OUR WORK PROCESS shown first) */}
       <HowWeWorkSection />
+
+      {/* Why Choose Ravi Arts Enterprises (Shown after) */}
+      <WhyChooseRaviArts />
     </div>
   );
 }
