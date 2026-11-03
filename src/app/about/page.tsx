@@ -109,7 +109,7 @@ export default function AboutPage() {
                 <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
                 <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
 
-                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-sky-100 hover:border-slate-800 p-8 sm:p-10 shadow-2xl transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
+                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-slate-200/80 hover:border-slate-300 p-8 sm:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center cursor-pointer">
                   <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
                     <Image
                       src="/images/logo_1.png"

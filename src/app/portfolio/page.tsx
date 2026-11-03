@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   Sparkles,
   Eye,
-  Filter,
   X,
   ZoomIn,
   Camera,
@@ -20,7 +19,6 @@ import { useQuote } from "@/context/QuoteContext";
 
 export default function PortfolioPage() {
   const { openQuoteModal } = useQuote();
-  const [activeFilter, setActiveFilter] = useState("ALL");
   const [previewImage, setPreviewImage] = useState<{
     src: string;
     title: string;
@@ -28,16 +26,6 @@ export default function PortfolioPage() {
     specs: string;
     tag: string;
   } | null>(null);
-
-  const filterOptions = [
-    { id: "ALL", label: "All Project Works" },
-    { id: "INSTALLATIONS", label: "Real Site Installations" },
-    { id: "SIGNAGE", label: "Sign Boards & 3D Letters" },
-    { id: "FLEX", label: "Flex & Large Format" },
-    { id: "STATIONERY", label: "Cards & Stationery" },
-    { id: "COMMERCIAL", label: "Offset & Commercial Print" },
-    { id: "GIFTS", label: "Gifts & Merchandise" },
-  ];
 
   // Collage projects with authentic work photos from /images/work and fabrication outputs
   const projects = [
@@ -175,10 +163,7 @@ export default function PortfolioPage() {
     },
   ];
 
-  const filteredProjects =
-    activeFilter === "ALL"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+
 
   return (
     <div className="flex flex-col w-full">
@@ -221,39 +206,19 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Filter Tabs */}
-      <section className="sticky top-[69px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 shadow-xs">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {filterOptions.map((opt) => (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => setActiveFilter(opt.id)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
-                  activeFilter === opt.id
-                    ? "bg-slate-900 text-white shadow-sm"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Collage / Bento Grid of Work */}
       <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 auto-rows-[280px]">
-            {filteredProjects.map((item) => (
+            {projects.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setPreviewImage({ src: item.image, title: item.title, client: item.client, specs: item.specs, tag: item.tag })}
                 className={`group relative overflow-hidden rounded-3xl bg-slate-950 border border-slate-200 shadow-sm hover:shadow-2xl hover:border-sky-400 transition-all duration-300 cursor-pointer flex flex-col justify-end ${
-                  activeFilter === "ALL" ? item.span : "col-span-1 row-span-1"
+                  item.span
                 }`}
               >
                 {/* Background Image */}

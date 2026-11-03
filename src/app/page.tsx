@@ -255,8 +255,8 @@ export default function HomePage() {
               </div>
 
               {/* 4 Feature Badges 2x2 grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-                <div className="flex items-start gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
                     <Award className="h-5 w-5" />
                   </div>
@@ -270,7 +270,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
                     <Zap className="h-5 w-5" />
                   </div>
@@ -284,7 +284,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
                     <Users className="h-5 w-5" />
                   </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                     <Headphones className="h-5 w-5" />
                   </div>
@@ -332,7 +332,7 @@ export default function HomePage() {
                 <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
                 <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
 
-                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-sky-100 hover:border-slate-800 p-8 sm:p-10 shadow-2xl transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
+                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-slate-200/80 hover:border-slate-300 p-8 sm:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center cursor-pointer">
                   <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
                     <Image
                       src="/images/logo_1.png"

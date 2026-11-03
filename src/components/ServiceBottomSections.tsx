@@ -8,6 +8,7 @@ import {
   Layers,
   MessageSquare,
   Users,
+  Lightbulb,
   FileText,
   Printer,
   CheckCircle2,
@@ -16,8 +17,27 @@ import {
 import { CmykCornerRibbon, CmykBar } from "@/components/CmykCornerRibbon";
 import { useQuote } from "@/context/QuoteContext";
 
+function CustomisedApproachIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 6.5C3.2 5.5 3.5 4 4.8 3.5c1.2-.5 2.5 0 2.8 1.2.2.8-.2 1.6-1 2" />
+      <path d="M7.5 17.5L17.5 7.5a2.121 2.121 0 0 1 3 3L10.5 20.5 6 21.5l1.5-4z" />
+      <path d="M15 10l2 2" />
+      <path d="M15.5 19.5c1 1.2 2.2 1.5 3.2.8 1-.7 1.2-2 .5-2.8" />
+    </svg>
+  );
+}
+
 // =========================================================================
-// SECTION 1: WHY CHOOSE RAVI ARTS ENTERPRISES? (White background with CMYK corner ribbons)
+// SECTION 1: WHY CHOOSE RAVI ARTS ENTERPRISES?
 // =========================================================================
 export function WhyChooseRaviArts() {
   const features = [
@@ -28,84 +48,77 @@ export function WhyChooseRaviArts() {
     },
     {
       icon: Settings,
-      title: "Customised Solutions",
+      title: "Complete Solutions",
+      desc: "Printing, signage, and design services under one roof.",
+    },
+    {
+      icon: CustomisedApproachIcon,
+      title: "Customised Approach",
       desc: "Solutions tailored to your project and requirements.",
     },
     {
-      icon: Layers,
-      title: "Complete Service Support",
-      desc: "From design to delivery, we simplify your project.",
-    },
-    {
-      icon: MessageSquare,
-      title: "Reliable Communication",
-      desc: "Stay informed about specs, pricing and timelines.",
-    },
-    {
       icon: Users,
-      title: "Solutions for Every Business",
-      desc: "Whether you're a startup, retailer, office, institution or established company — we've got you covered.",
+      title: "Reliable Communication",
+      desc: "Clear coordination from enquiry to delivery.",
+    },
+    {
+      icon: Lightbulb,
+      title: "Business-Focused Creativity",
+      desc: "Visual solutions designed around your brand.",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#eff7ff]/50 py-16 sm:py-20 border-t border-sky-100">
-      {/* Top-Left & Bottom-Right Diagonal CMYK Ribbons */}
-      <CmykCornerRibbon position="top-left" />
-      <CmykCornerRibbon position="bottom-right" />
+    <section className="relative bg-[#f4f9fd] py-14 sm:py-16 md:py-20 border-t border-sky-100/80">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Left Column: Heading & Introduction */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#e6007e] uppercase">
-              <span>THE RAVI ARTS ADVANTAGE</span>
-              <span className="text-slate-400 font-normal">——</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#07172d] tracking-tight leading-tight">
-              Why Choose <br />
-              Ravi Arts{" "}
-              <span className="bg-gradient-to-r from-[#e6007e] via-[#8b5cf6] to-[#00a8ff] bg-clip-text text-transparent">
-                Enterprises
-              </span>
-              <span className="text-[#ffcc00]">?</span>
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md">
-              We go beyond printing. We deliver quality, creativity and reliable support — every time.
-            </p>
+        {/* Header: Subhead & Title */}
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2">
+            <span className="text-xs font-bold tracking-widest text-[#00a8ff] uppercase">
+              WHY CHOOSE US
+            </span>
+            <span className="cmyk-gradient-bar" />
           </div>
 
-          {/* Right Column: 5 Feature Blocks in 2 Rows / 3 Columns */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-              {features.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.title}
-                    className={`space-y-2.5 ${
-                      idx === 4 ? "sm:col-span-2 lg:col-span-2" : ""
-                    }`}
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-[#00a8ff]">
-                      <Icon className="h-6 w-6 stroke-[1.8]" />
-                    </div>
-                    <h3 className="text-sm sm:text-base font-extrabold text-[#07172d]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-[#07172d] tracking-tight">
+            Why Choose Ravi Arts Enterprises?
+          </h2>
         </div>
+
+        {/* 5 Feature Columns in a horizontal row with vertical dividers */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200">
+          {features.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className={`flex flex-col items-start ${idx === 0
+                    ? "lg:pr-6"
+                    : idx === features.length - 1
+                      ? "lg:pl-6"
+                      : "lg:px-6"
+                  }`}
+              >
+                {/* Bare Cyan/Sky-Blue Icon */}
+                <div className="text-[#00a8ff]">
+                  <Icon className="h-8 w-8 sm:h-9 sm:w-9 stroke-[1.8]" />
+                </div>
+
+                {/* Title */}
+                <h3 className="mt-4 sm:mt-5 text-sm sm:text-base font-extrabold text-[#07172d] leading-snug">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="mt-2 text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );
@@ -146,7 +159,7 @@ export function HowWeWorkSection() {
     <section className="bg-white text-slate-900 py-16 sm:py-20 relative overflow-hidden border-t border-sky-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
+
           {/* Left Column: Heading & Subtitle */}
           <div className="lg:col-span-4 space-y-3">
             <span className="text-xs font-bold tracking-widest text-[#00a8ff] uppercase block">
@@ -210,7 +223,7 @@ export function PrintingProjectCtaBanner() {
         <CmykCornerRibbon position="bottom-right" />
 
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
-          
+
           {/* Left Script Badge & Headline */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="hidden sm:block shrink-0">
