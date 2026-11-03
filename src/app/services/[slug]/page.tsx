@@ -183,7 +183,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
-          className="bg-slate-900 border-b border-slate-800 text-slate-400 py-2.5 px-4 sm:px-6 lg:px-8 text-xs select-none"
+          className="bg-slate-900 border-b border-slate-800 text-slate-400 py-2.5 px-4 sm:px-6 lg:px-8 text-xs"
         >
           <div className="mx-auto max-w-7xl flex items-center gap-2 flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">

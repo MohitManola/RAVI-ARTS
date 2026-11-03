@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingCallButton from "@/components/FloatingCallButton";
-import DisableRightClick from "@/components/DisableRightClick";
 import { QuoteProvider } from "@/context/QuoteContext";
 
 const geistSans = Geist({
@@ -85,15 +84,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.addEventListener('contextmenu',function(e){e.preventDefault();},true);`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col bg-[#eff7ff] text-slate-900 select-none">
-        <DisableRightClick />
+      <body className="min-h-full flex flex-col bg-[#eff7ff] text-slate-900 selection:bg-sky-500 selection:text-white">
         <QuoteProvider>
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
