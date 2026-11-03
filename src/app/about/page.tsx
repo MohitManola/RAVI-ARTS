@@ -1,8 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { WhyChooseRaviArts } from "@/components/ServiceBottomSections";
 import {
   ShieldCheck,
   Zap,
@@ -12,7 +12,6 @@ import {
   Printer,
   Sparkles,
   CheckCircle2,
-  ArrowRight,
   Factory,
   Cpu,
   MapPin,
@@ -308,33 +307,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-slate-950 py-12 text-white border-t border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold">
-            Ready to Discuss Your Printing or Signage Project?
-          </h2>
-          <p className="text-sm text-slate-400 max-w-xl mx-auto">
-            Get in touch with our Kasna workshop today for instant cost estimates,
-            material samples, and professional design advice.
-          </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-sky-500"
-            >
-              <span>Contact Our Team</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="tel:+919350036399"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              <span>Call +91 93500 36399</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Ravi Arts Enterprises */}
+      <WhyChooseRaviArts />
     </div>
   );
 }

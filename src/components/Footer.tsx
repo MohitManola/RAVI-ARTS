@@ -16,7 +16,6 @@ import {
   FacebookIcon,
   GoogleIcon,
 } from "@/components/SocialIcons";
-import { CmykBar } from "@/components/CmykCornerRibbon";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,8 +71,8 @@ export default function Footer() {
               All Types Graphic &amp; Signage Solutions
             </p>
 
-            {/* CMYK Accent Line Underneath Tagline */}
-            <CmykBar className="h-1.5 w-20" />
+            {/* CMYK Brand Gradient Line like Home Page */}
+            <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 shadow-sm" />
 
             {/* Follow Us Section right below logo and text */}
             <div className="pt-2 space-y-2.5">

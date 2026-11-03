@@ -24,7 +24,10 @@ export default function NotFound() {
       </span>
 
       <h1 className="mt-2 text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl">
-        This Page Has Moved or Doesn&apos;t Exist
+        This Page Has Moved or Doesn&apos;t{" "}
+        <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+          Exist
+        </span>
       </h1>
 
       <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed mx-auto">

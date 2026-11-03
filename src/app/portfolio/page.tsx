@@ -168,7 +168,7 @@ export default function PortfolioPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[220px] sm:min-h-[260px] flex items-center">
         {/* Full Banner Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -184,24 +184,20 @@ export default function PortfolioPage() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
-          <div className="max-w-xl md:max-w-2xl">
-            <div className="inline-flex items-center gap-2 mb-3">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 mb-2">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                PHOTO COLLAGE &amp; PORTFOLIO
+                PORTFOLIO
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
             <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Collage of Our{" "}
+              Our Recent{" "}
               <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
-                Recent Work
+                Work
               </span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-              Explore authentic photos of real signboards, 3D acrylic letters, large format flex banners,
-              and storefronts completed for clients in Kasna, Greater Noida.
-            </p>
           </div>
         </div>
       </section>
@@ -244,17 +240,11 @@ export default function PortfolioPage() {
                   </span>
                 </div>
 
-                {/* Bottom Overlay Gradient with Details */}
-                <div className="relative z-10 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-5 pt-12 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-sky-400 block mb-0.5">
-                    {item.client}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-2">
+                {/* Bottom Overlay Gradient with Title */}
+                <div className="relative z-10 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-4 pt-8 text-white">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-1 sm:line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-300 mt-1 line-clamp-2 opacity-90 group-hover:opacity-100 transition-opacity">
-                    {item.specs}
-                  </p>
                 </div>
               </div>
             ))}
@@ -267,7 +257,10 @@ export default function PortfolioPage() {
                 WANT SIMILAR QUALITY FOR YOUR BUSINESS?
               </span>
               <h3 className="text-xl sm:text-2xl font-black">
-                Have a Signage or Printing Project in Mind?
+                Have a Signage or Printing Project in{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                  Mind?
+                </span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300">
                 Share your measurements or concept with our team in Kasna for instant factory estimates.

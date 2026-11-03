@@ -375,7 +375,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   <span className="cmyk-gradient-bar" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  What We Print &amp; Fabricate in {service.title}
+                  What We Print &amp; Fabricate in{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                    {service.title}
+                  </span>
                 </h2>
                 <p className="text-sm text-slate-600 mt-2">
                   Explore our comprehensive in-house manufacturing range with wholesale factory pricing in Kasna, Greater Noida.
@@ -496,7 +499,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <span className="cmyk-gradient-bar" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Precision In-House Printing &amp; Sign Fabrication
+                Precision In-House Printing &amp;{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Sign Fabrication
+                </span>
               </h2>
             </div>
 
@@ -535,7 +541,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 WHY BUSINESSES CHOOSE US
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-                Your Trusted Kasna Printing Partner
+                Your Trusted Kasna{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Printing Partner
+                </span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-2">
                 Delivering reliable quality, manufacturer wholesale rates, and fast local support across Greater Noida.
@@ -574,7 +583,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <span>FREQUENTLY ASKED QUESTIONS</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Questions About {service.title}?
+                Questions About{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  {service.title}?
+                </span>
               </h2>
             </div>
 
@@ -612,7 +624,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <span className="cmyk-gradient-bar" />
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
-                Visit Our Kasna Workshop &amp; Experience Centre
+                Visit Our Kasna Workshop &amp;{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                  Experience Centre
+                </span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-400">
                 Inspect physical paper swatches, acrylic letters, LED samples, and consult directly with our production engineers.

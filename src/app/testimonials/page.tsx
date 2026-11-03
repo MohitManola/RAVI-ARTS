@@ -282,7 +282,10 @@ export default function TestimonialsPage() {
                 ORIGINAL GOOGLE REVIEWS
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-                Customer Feedback from Google Maps
+                Customer Feedback from{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Google Maps
+                </span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 Real customer opinions posted on our official Google Business profile.

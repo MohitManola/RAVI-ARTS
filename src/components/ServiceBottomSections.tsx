@@ -82,7 +82,10 @@ export function WhyChooseRaviArts() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-[#07172d] tracking-tight">
-            Why Choose Ravi Arts Enterprises?
+            Why Choose Ravi Arts{" "}
+            <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              Enterprises?
+            </span>
           </h2>
         </div>
 
@@ -166,7 +169,10 @@ export function HowWeWorkSection() {
               OUR WORK PROCESS
             </span>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#07172d]">
-              How We Work
+              How We{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Work
+              </span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               A simple and transparent process to bring your ideas to life.
@@ -244,7 +250,10 @@ export function PrintingProjectCtaBanner() {
                 <CmykBar className="h-1 w-8" />
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Have a Printing or Signage Project in Mind?
+                Have a Printing or Signage Project in{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                  Mind?
+                </span>
               </h3>
             </div>
           </div>

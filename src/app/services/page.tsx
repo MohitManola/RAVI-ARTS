@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useQuote } from "@/context/QuoteContext";
-import { WhyChooseRaviArts, HowWeWorkSection } from "@/components/ServiceBottomSections";
+import WorkProcessSection from "@/components/WorkProcessSection";
 
 function ServicesContent() {
   const router = useRouter();
@@ -478,11 +478,8 @@ function ServicesContent() {
       </div>
     </section>
 
-      {/* How We Work Process (OUR WORK PROCESS shown first) */}
-      <HowWeWorkSection />
-
-      {/* Why Choose Ravi Arts Enterprises (Shown after) */}
-      <WhyChooseRaviArts />
+      {/* OUR WORK PROCESS (Matching Home Page) */}
+      <WorkProcessSection />
     </div>
   );
 }
