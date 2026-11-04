@@ -232,13 +232,16 @@ export default function Footer() {
         {/* Bottom Legal Copyright Bar */}
         <div className="mt-12 border-t border-slate-700/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {currentYear} Ravi Arts Enterprises. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/privacy-policy"
               className="hover:text-slate-200 transition-colors"
             >
               Privacy Policy
             </Link>
+            <span className="text-slate-600 select-none" aria-hidden="true">
+              |
+            </span>
             <Link
               href="/terms-and-conditions"
               className="hover:text-slate-200 transition-colors"

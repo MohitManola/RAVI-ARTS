@@ -22,8 +22,8 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Printing",
     desc: "Outdoor hoardings, frontlit/backlit flex, star flex, banners & exhibition backdrops.",
-    href: "/services#flex-printing",
-    keywords: ["flex", "banner", "hoarding", "large format", "star flex", "backlit", "backdrop"],
+    href: "/services/flex-printing",
+    keywords: ["flex", "banner", "hoarding", "large format", "star flex", "backlit", "backdrop", "roll up standee", "frontlit"],
   },
   {
     id: "sign-boards",
@@ -31,8 +31,8 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Signage",
     desc: "LED glow signs, acrylic letters, 3D ACP panels, neon letters & retail store boards.",
-    href: "/services#sign-boards",
-    keywords: ["sign", "glow sign", "led", "acrylic", "acp", "neon", "board", "shop board"],
+    href: "/services/sign-boards",
+    keywords: ["sign", "glow sign", "led", "acrylic", "acp", "neon", "board", "shop board", "retail", "signage"],
   },
   {
     id: "visiting-cards",
@@ -40,8 +40,8 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Stationery",
     desc: "Premium matte/gloss visiting cards, letterheads, bill books, envelopes & ID cards.",
-    href: "/services#stationery",
-    keywords: ["visiting card", "business card", "cards", "letterhead", "stationery", "bill book", "id card"],
+    href: "/services/stationery",
+    keywords: ["visiting card", "business card", "cards", "letterhead", "stationery", "bill book", "invoice", "id card", "envelope"],
   },
   {
     id: "offset-printing",
@@ -49,17 +49,17 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Printing",
     desc: "Multi-page brochures, product catalogues, marketing flyers, pamphlets & packaging inserts.",
-    href: "/services#offset-printing",
-    keywords: ["offset", "digital", "brochure", "catalogue", "flyer", "pamphlet", "booklet"],
+    href: "/services/offset-printing",
+    keywords: ["offset", "digital", "brochure", "catalogue", "flyer", "pamphlet", "booklet", "magazine", "calendar", "poster"],
   },
   {
     id: "acrylic-letters",
-    title: "Acrylic / 3D Letter Boards",
+    title: "Acrylic & 3D Letter Boards",
     category: "Services",
     badge: "Signage",
     desc: "Precision laser cut 3D acrylic letters, titanium metallic finishes & halo backlit illumination.",
-    href: "/services#acrylic-letters",
-    keywords: ["3d letter", "acrylic", "laser cut", "metal letters", "titanium", "halo", "reception"],
+    href: "/services/acrylic-letters",
+    keywords: ["3d letter", "acrylic", "laser cut", "metal letters", "titanium", "brass", "halo", "reception", "name plate"],
   },
   {
     id: "vinyl-printing",
@@ -67,8 +67,8 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Vinyl",
     desc: "Die-cut stickers, commercial vehicle wraps, frosted glass partition film & wall decals.",
-    href: "/services#vinyl-printing",
-    keywords: ["vinyl", "sticker", "vehicle wrap", "eco solvent", "frosted", "glass film", "decals"],
+    href: "/services/vinyl-printing",
+    keywords: ["vinyl", "sticker", "vehicle wrap", "eco solvent", "frosted", "glass film", "decals", "one way vision", "car wrap"],
   },
   {
     id: "graphic-design",
@@ -76,8 +76,8 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Design",
     desc: "Custom logo design, brand identity kits, vector artwork & print-ready layout formulation.",
-    href: "/services#graphic-design",
-    keywords: ["logo", "design", "graphic design", "branding", "identity", "artwork", "vector"],
+    href: "/services/graphic-design",
+    keywords: ["logo", "design", "graphic design", "branding", "identity", "artwork", "vector", "layout", "social media"],
   },
   {
     id: "corporate-gifts",
@@ -85,19 +85,46 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Services",
     badge: "Gifts",
     desc: "Custom printed coffee mugs, screen-printed corporate t-shirts, engraved pens, diaries & gift sets.",
-    href: "/services#corporate-gifts",
-    keywords: ["gift", "corporate gift", "mug", "tshirt", "t-shirt", "pen", "diary", "promotional", "hamper"],
+    href: "/services/corporate-gifts",
+    keywords: ["gift", "corporate gift", "mug", "tshirt", "t-shirt", "pen", "diary", "promotional", "hamper", "bottle", "keychain"],
   },
 
   // Popular Specific Products
   {
+    id: "standee-printing",
+    title: "Roll-Up Standees & Exhibition Banners",
+    category: "Products",
+    badge: "Printing",
+    desc: "Portable aluminum roll-up standees with star flex print for trade fairs, exhibitions & office branding.",
+    href: "/services/flex-printing",
+    keywords: ["standee", "roll up", "backdrop", "exhibition", "trade show", "canopy", "event"],
+  },
+  {
     id: "sunboard-printing",
     title: "Sunboard & Foam Sheet Printing",
     category: "Products",
-    badge: "Printing",
+    badge: "Signage",
     desc: "Rigid lightweight display boards for showroom branding, exhibitions & retail point-of-sale.",
-    href: "/services#flex-printing",
-    keywords: ["sunboard", "foam sheet", "rigid board", "display board"],
+    href: "/services/sign-boards",
+    keywords: ["sunboard", "foam sheet", "rigid board", "display board", "sunpack"],
+  },
+  {
+    id: "glow-sign-board",
+    title: "LED Glow Sign Boards & Shop Frontages",
+    category: "Products",
+    badge: "Signage",
+    desc: "Energy-efficient waterproof Samsung LED illuminated frontages and commercial shop boards.",
+    href: "/services/sign-boards",
+    keywords: ["glow sign", "led board", "shop board", "light board", "illuminated"],
+  },
+  {
+    id: "frosted-glass-film",
+    title: "Frosted Glass & Office Privacy Films",
+    category: "Products",
+    badge: "Vinyl",
+    desc: "High-grade frosted vinyl with precision plotter cutout company logos for glass cabins & partitions.",
+    href: "/services/vinyl-printing",
+    keywords: ["frosted", "glass film", "cabin", "privacy", "office partition", "window film"],
   },
   {
     id: "vehicle-graphics",
@@ -105,17 +132,17 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Products",
     badge: "Vinyl",
     desc: "High-grade outdoor vinyl wraps for trucks, delivery vans, commercial autos & cars.",
-    href: "/services#vinyl-printing",
+    href: "/services/vinyl-printing",
     keywords: ["vehicle", "car wrap", "van wrap", "truck wrap", "fleet", "auto"],
   },
   {
-    id: "custom-mugs",
-    title: "Personalized Ceramic & Insulated Mugs",
+    id: "custom-mugs-tshirts",
+    title: "Custom Printed Mugs & Corporate T-Shirts",
     category: "Products",
     badge: "Gifts",
-    desc: "Sublimation full-color photo mugs & laser marked stainless steel travel tumblers.",
-    href: "/services#corporate-gifts",
-    keywords: ["mug", "coffee mug", "water bottle", "tumbler", "sipper"],
+    desc: "Sublimation full-color photo mugs, travel sippers, and screen-printed corporate t-shirts.",
+    href: "/services/corporate-gifts",
+    keywords: ["mug", "coffee mug", "tshirt", "t-shirt", "bottle", "tumbler", "sipper", "cap"],
   },
   {
     id: "safety-signage",
@@ -123,11 +150,29 @@ export const searchCatalog: SearchCatalogItem[] = [
     category: "Products",
     badge: "Signage",
     desc: "Photoluminescent fire emergency exit signs, caution boards & industrial plant markers.",
-    href: "/services#sign-boards",
+    href: "/services/sign-boards",
     keywords: ["safety", "night glow", "fire exit", "glow in dark", "danger", "caution"],
+  },
+  {
+    id: "bill-books-stationery",
+    title: "Bill Books, Letterheads & Invoices",
+    category: "Products",
+    badge: "Stationery",
+    desc: "Carbonless duplicate/triplicate invoice bill books, executive letterheads & company envelopes.",
+    href: "/services/stationery",
+    keywords: ["bill book", "invoice", "letterhead", "envelope", "receipt", "stationery"],
   },
 
   // Site Pages
+  {
+    id: "services-all",
+    title: "All Printing & Signage Services",
+    category: "Pages",
+    badge: "Services",
+    desc: "Explore our full catalog of 8 primary industrial print and signage categories.",
+    href: "/services",
+    keywords: ["services", "all services", "printing", "signage", "capabilities"],
+  },
   {
     id: "about-page",
     title: "About Ravi Arts Enterprises",
@@ -167,12 +212,13 @@ export const searchCatalog: SearchCatalogItem[] = [
 ];
 
 const trendingSearches = [
-  { text: "Flex Printing", href: "/services#flex-printing" },
-  { text: "LED Sign Board", href: "/services#sign-boards" },
-  { text: "Visiting Cards", href: "/services#stationery" },
-  { text: "Acrylic 3D Letters", href: "/services#acrylic-letters" },
-  { text: "Corporate Gifts & Mugs", href: "/services#corporate-gifts" },
-  { text: "Vinyl Stickers & Wraps", href: "/services#vinyl-printing" },
+  { text: "Flex Printing", href: "/services/flex-printing" },
+  { text: "LED Sign Board", href: "/services/sign-boards" },
+  { text: "Visiting Cards", href: "/services/stationery" },
+  { text: "Acrylic 3D Letters", href: "/services/acrylic-letters" },
+  { text: "Corporate Gifts & Mugs", href: "/services/corporate-gifts" },
+  { text: "Vinyl Stickers & Wraps", href: "/services/vinyl-printing" },
+  { text: "Brochures & Catalogues", href: "/services/offset-printing" },
 ];
 
 interface YouTubeSearchBarProps {
@@ -207,6 +253,24 @@ export default function YouTubeSearchBar({
       setQuery("");
     }
   }, [isExpanded, isMobile]);
+
+  // Global Ctrl+K / Cmd+K shortcut listener
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        if (onExpandChange) {
+          onExpandChange(true);
+        }
+        setIsOpen(true);
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 50);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, [onExpandChange]);
 
   // Close dropdown & collapse on outside click
   useEffect(() => {
@@ -249,17 +313,18 @@ export default function YouTubeSearchBar({
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
+    // If the user used keyboard navigation to select a specific suggestion, navigate directly
     if (selectedIndex >= 0 && results[selectedIndex]) {
       handleSelect(results[selectedIndex].href);
       return;
     }
+    // If there is a search term, navigate to the filtered services results page
     if (trimmed) {
-      if (results.length > 0) {
-        handleSelect(results[0].href);
-      } else {
-        handleSelect(`/services?q=${encodeURIComponent(query.trim())}`);
-      }
+      handleSelect(`/services?q=${encodeURIComponent(query.trim())}`);
+      return;
     }
+    // Otherwise open services catalog
+    handleSelect("/services");
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -307,7 +372,7 @@ export default function YouTubeSearchBar({
     );
   };
 
-  // If NOT mobile and NOT expanded, show the compact small search button (takes only ~40px)
+  // If NOT mobile and NOT expanded, show the compact small search button (takes ~40px)
   if (!isMobile && !isExpanded) {
     return (
       <button
@@ -316,7 +381,7 @@ export default function YouTubeSearchBar({
           if (onExpandChange) onExpandChange(true);
         }}
         aria-label="Search services"
-        title="Search printing & signage"
+        title="Search printing & signage (Ctrl+K)"
         className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition-all cursor-pointer"
       >
         <Search className="h-5 w-5 stroke-[2.2]" />
@@ -324,14 +389,14 @@ export default function YouTubeSearchBar({
     );
   }
 
-  // Expanded search bar (replaces WhatsApp and Get a Quote on desktop without breaking UI)
+  // Expanded search bar
   return (
     <div
       ref={containerRef}
       className={`relative ${
         isMobile
           ? "w-full"
-          : "w-72 sm:w-80 md:w-96 max-w-full animate-in fade-in zoom-in-95 duration-150"
+          : "w-52 xs:w-64 sm:w-80 md:w-96 max-w-[calc(100vw-120px)] sm:max-w-full animate-in fade-in zoom-in-95 duration-150"
       }`}
     >
       {/* YouTube Style Search Bar Input Container */}
@@ -382,6 +447,7 @@ export default function YouTubeSearchBar({
           <button
             type="submit"
             aria-label="Submit search"
+            title="Search"
             className="h-9 px-3 sm:px-3.5 flex items-center justify-center bg-slate-100/90 hover:bg-slate-200 border-l border-slate-200 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer shrink-0"
           >
             <Search className="h-4 w-4" />
@@ -406,9 +472,9 @@ export default function YouTubeSearchBar({
         )}
       </div>
 
-      {/* YouTube Style Suggestions Dropdown (anchored directly below the search input) */}
+      {/* YouTube Style Suggestions Dropdown */}
       {isOpen && (
-        <div className="absolute left-0 top-full mt-1.5 w-full min-w-[280px] sm:min-w-[340px] md:min-w-[380px] rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute right-0 top-full mt-2 w-[calc(100vw-24px)] xs:w-[360px] sm:w-[420px] max-w-[440px] rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-[999] overflow-hidden animate-in fade-in zoom-in-95 duration-150">
           {trimmed ? (
             results.length > 0 ? (
               <div className="py-1">
@@ -453,11 +519,11 @@ export default function YouTubeSearchBar({
                   <button
                     type="button"
                     onClick={() => handleSubmit()}
-                    className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                    className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
                   >
                     <span className="flex items-center gap-2">
                       <Search className="h-3.5 w-3.5" />
-                      <span>Search for &ldquo;{query}&rdquo;</span>
+                      <span>Search all services for &ldquo;{query}&rdquo;</span>
                     </span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </button>
@@ -473,13 +539,13 @@ export default function YouTubeSearchBar({
                   onClick={() => handleSubmit()}
                   className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 cursor-pointer"
                 >
-                  <span>Explore in Services catalog</span>
+                  <span>Search across Services catalog</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             )
           ) : (
-            // Popular / Trending suggestions when query is empty (like YouTube)
+            // Popular / Trending suggestions when query is empty
             <div className="py-1">
               <div className="flex items-center gap-1.5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                 <TrendingUp className="h-3 w-3 text-blue-500" />

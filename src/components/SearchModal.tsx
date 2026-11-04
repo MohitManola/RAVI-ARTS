@@ -24,8 +24,8 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Printing",
     desc: "Outdoor hoardings, frontlit/backlit flex, star flex, banners & exhibition backdrops.",
-    href: "/services#flex-printing",
-    keywords: ["flex", "banner", "hoarding", "large format", "star flex", "backlit", "backdrop"],
+    href: "/services/flex-printing",
+    keywords: ["flex", "banner", "hoarding", "large format", "star flex", "backlit", "backdrop", "roll up standee", "frontlit"],
   },
   {
     id: "sign-boards",
@@ -33,8 +33,8 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Signage",
     desc: "LED glow signs, acrylic letters, 3D ACP panels, neon letters & retail store boards.",
-    href: "/services#sign-boards",
-    keywords: ["sign", "glow sign", "led", "acrylic", "acp", "neon", "board", "shop board"],
+    href: "/services/sign-boards",
+    keywords: ["sign", "glow sign", "led", "acrylic", "acp", "neon", "board", "shop board", "retail", "signage"],
   },
   {
     id: "visiting-cards",
@@ -42,8 +42,8 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Stationery",
     desc: "Premium matte/gloss visiting cards, letterheads, bill books, envelopes & ID cards.",
-    href: "/services#stationery",
-    keywords: ["visiting card", "business card", "cards", "letterhead", "stationery", "bill book", "id card"],
+    href: "/services/stationery",
+    keywords: ["visiting card", "business card", "cards", "letterhead", "stationery", "bill book", "invoice", "id card", "envelope"],
   },
   {
     id: "offset-printing",
@@ -51,17 +51,17 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Printing",
     desc: "Multi-page brochures, product catalogues, marketing flyers, pamphlets & packaging inserts.",
-    href: "/services#offset-printing",
-    keywords: ["offset", "digital", "brochure", "catalogue", "flyer", "pamphlet", "booklet"],
+    href: "/services/offset-printing",
+    keywords: ["offset", "digital", "brochure", "catalogue", "flyer", "pamphlet", "booklet", "magazine", "calendar", "poster"],
   },
   {
     id: "acrylic-letters",
-    title: "Acrylic / 3D Letter Boards",
+    title: "Acrylic & 3D Letter Boards",
     category: "Services",
     badge: "Signage",
     desc: "Precision laser cut 3D acrylic letters, titanium metallic finishes & halo backlit illumination.",
-    href: "/services#acrylic-letters",
-    keywords: ["3d letter", "acrylic", "laser cut", "metal letters", "titanium", "halo", "reception"],
+    href: "/services/acrylic-letters",
+    keywords: ["3d letter", "acrylic", "laser cut", "metal letters", "titanium", "brass", "halo", "reception", "name plate"],
   },
   {
     id: "vinyl-printing",
@@ -69,8 +69,8 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Vinyl",
     desc: "Die-cut stickers, commercial vehicle wraps, frosted glass partition film & wall decals.",
-    href: "/services#vinyl-printing",
-    keywords: ["vinyl", "sticker", "vehicle wrap", "eco solvent", "frosted", "glass film", "decals"],
+    href: "/services/vinyl-printing",
+    keywords: ["vinyl", "sticker", "vehicle wrap", "eco solvent", "frosted", "glass film", "decals", "one way vision", "car wrap"],
   },
   {
     id: "graphic-design",
@@ -78,8 +78,8 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Design",
     desc: "Custom logo design, brand identity kits, vector artwork & print-ready layout formulation.",
-    href: "/services#graphic-design",
-    keywords: ["logo", "design", "graphic design", "branding", "identity", "artwork", "vector"],
+    href: "/services/graphic-design",
+    keywords: ["logo", "design", "graphic design", "branding", "identity", "artwork", "vector", "layout", "social media"],
   },
   {
     id: "corporate-gifts",
@@ -87,19 +87,46 @@ export const searchCatalog: SearchItem[] = [
     category: "Services",
     badge: "Gifts",
     desc: "Custom printed coffee mugs, screen-printed corporate t-shirts, engraved pens, diaries & gift sets.",
-    href: "/services#corporate-gifts",
-    keywords: ["gift", "corporate gift", "mug", "tshirt", "t-shirt", "pen", "diary", "promotional", "hamper"],
+    href: "/services/corporate-gifts",
+    keywords: ["gift", "corporate gift", "mug", "tshirt", "t-shirt", "pen", "diary", "promotional", "hamper", "bottle", "keychain"],
   },
 
   // Popular Specific Products
   {
+    id: "standee-printing",
+    title: "Roll-Up Standees & Exhibition Banners",
+    category: "Products",
+    badge: "Printing",
+    desc: "Portable aluminum roll-up standees with star flex print for trade fairs, exhibitions & office branding.",
+    href: "/services/flex-printing",
+    keywords: ["standee", "roll up", "backdrop", "exhibition", "trade show", "canopy", "event"],
+  },
+  {
     id: "sunboard-printing",
     title: "Sunboard & Foam Sheet Printing",
     category: "Products",
-    badge: "Printing",
+    badge: "Signage",
     desc: "Rigid lightweight display boards for showroom branding, exhibitions & retail point-of-sale.",
-    href: "/services#flex-printing",
-    keywords: ["sunboard", "foam sheet", "rigid board", "display board"],
+    href: "/services/sign-boards",
+    keywords: ["sunboard", "foam sheet", "rigid board", "display board", "sunpack"],
+  },
+  {
+    id: "glow-sign-board",
+    title: "LED Glow Sign Boards & Shop Frontages",
+    category: "Products",
+    badge: "Signage",
+    desc: "Energy-efficient waterproof Samsung LED illuminated frontages and commercial shop boards.",
+    href: "/services/sign-boards",
+    keywords: ["glow sign", "led board", "shop board", "light board", "illuminated"],
+  },
+  {
+    id: "frosted-glass-film",
+    title: "Frosted Glass & Office Privacy Films",
+    category: "Products",
+    badge: "Vinyl",
+    desc: "High-grade frosted vinyl with precision plotter cutout company logos for glass cabins & partitions.",
+    href: "/services/vinyl-printing",
+    keywords: ["frosted", "glass film", "cabin", "privacy", "office partition", "window film"],
   },
   {
     id: "vehicle-graphics",
@@ -107,17 +134,17 @@ export const searchCatalog: SearchItem[] = [
     category: "Products",
     badge: "Vinyl",
     desc: "High-grade outdoor vinyl wraps for trucks, delivery vans, commercial autos & cars.",
-    href: "/services#vinyl-printing",
+    href: "/services/vinyl-printing",
     keywords: ["vehicle", "car wrap", "van wrap", "truck wrap", "fleet", "auto"],
   },
   {
-    id: "custom-mugs",
-    title: "Personalized Ceramic & Insulated Mugs",
+    id: "custom-mugs-tshirts",
+    title: "Custom Printed Mugs & Corporate T-Shirts",
     category: "Products",
     badge: "Gifts",
-    desc: "Sublimation full-color photo mugs & laser marked stainless steel travel tumblers.",
-    href: "/services#corporate-gifts",
-    keywords: ["mug", "coffee mug", "water bottle", "tumbler", "sipper"],
+    desc: "Sublimation full-color photo mugs, travel sippers, and screen-printed corporate t-shirts.",
+    href: "/services/corporate-gifts",
+    keywords: ["mug", "coffee mug", "tshirt", "t-shirt", "bottle", "tumbler", "sipper", "cap"],
   },
   {
     id: "safety-signage",
@@ -125,11 +152,29 @@ export const searchCatalog: SearchItem[] = [
     category: "Products",
     badge: "Signage",
     desc: "Photoluminescent fire emergency exit signs, caution boards & industrial plant markers.",
-    href: "/services#sign-boards",
+    href: "/services/sign-boards",
     keywords: ["safety", "night glow", "fire exit", "glow in dark", "danger", "caution"],
+  },
+  {
+    id: "bill-books-stationery",
+    title: "Bill Books, Letterheads & Invoices",
+    category: "Products",
+    badge: "Stationery",
+    desc: "Carbonless duplicate/triplicate invoice bill books, executive letterheads & company envelopes.",
+    href: "/services/stationery",
+    keywords: ["bill book", "invoice", "letterhead", "envelope", "receipt", "stationery"],
   },
 
   // Pages
+  {
+    id: "services-all",
+    title: "All Printing & Signage Services",
+    category: "Pages",
+    badge: "Services",
+    desc: "Explore our full catalog of 8 primary industrial print and signage categories.",
+    href: "/services",
+    keywords: ["services", "all services", "printing", "signage", "capabilities"],
+  },
   {
     id: "about-page",
     title: "About Ravi Arts Enterprises",
@@ -239,13 +284,20 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) => (results.length > 0 ? (prev - 1 + results.length) % results.length : 0));
-    } else if (e.key === "Enter" && results.length > 0) {
+    } else if (e.key === "Enter") {
       e.preventDefault();
-      const target = results[selectedIndex];
-      if (target) {
-        router.push(target.href);
+      if (results.length > 0 && results[selectedIndex]) {
+        router.push(results[selectedIndex].href);
         onClose();
+        return;
       }
+      if (trimmed) {
+        router.push(`/services?q=${encodeURIComponent(query.trim())}`);
+        onClose();
+        return;
+      }
+      router.push("/services");
+      onClose();
     }
   };
 
@@ -405,7 +457,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <Link
-                    href="/services#flex-printing"
+                    href="/services/flex-printing"
                     onClick={onClose}
                     className="flex items-center justify-between rounded-xl p-2.5 border border-slate-100 bg-slate-50/50 hover:bg-sky-50/60 hover:border-sky-200 transition-all group"
                   >
@@ -416,7 +468,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   </Link>
 
                   <Link
-                    href="/services#sign-boards"
+                    href="/services/sign-boards"
                     onClick={onClose}
                     className="flex items-center justify-between rounded-xl p-2.5 border border-slate-100 bg-slate-50/50 hover:bg-sky-50/60 hover:border-sky-200 transition-all group"
                   >
@@ -427,7 +479,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   </Link>
 
                   <Link
-                    href="/services#stationery"
+                    href="/services/stationery"
                     onClick={onClose}
                     className="flex items-center justify-between rounded-xl p-2.5 border border-slate-100 bg-slate-50/50 hover:bg-sky-50/60 hover:border-sky-200 transition-all group"
                   >
@@ -438,7 +490,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   </Link>
 
                   <Link
-                    href="/services#corporate-gifts"
+                    href="/services/corporate-gifts"
                     onClick={onClose}
                     className="flex items-center justify-between rounded-xl p-2.5 border border-slate-100 bg-slate-50/50 hover:bg-sky-50/60 hover:border-sky-200 transition-all group"
                   >

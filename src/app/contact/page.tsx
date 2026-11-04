@@ -16,7 +16,6 @@ import {
   Sparkles,
   } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import ContactAiBot from "@/components/ContactAiBot";
 
 
 export default function ContactPage() {
@@ -550,118 +549,94 @@ export default function ContactPage() {
       </section>
 
       {/* =========================================================================
-          FAQ & AI ASSISTANT SECTION (Left: FAQ, Right: AI Assistant)
-          User Request: "after form put ai assistant in right side and faq in left side"
+          FAQ SECTION (Clean, centered, modern accordion)
          ========================================================================= */}
       <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            
-            {/* Left Column (FAQ): lg:col-span-6 */}
-            <div className="lg:col-span-6 space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                    GOT QUESTIONS?
-                  </span>
-                  <span className="cmyk-gradient-bar" />
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Frequently Asked{" "}
-                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                    Questions
-                  </span>
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Common queries about delivery, file formats, turnaround times, and sign installations in Kasna.
-                </p>
-              </div>
-
-              {/* FAQ Accordion List */}
-              <div className="space-y-3">
-                {faqs.map((faq, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-2xl border border-sky-100 bg-white overflow-hidden shadow-xs hover:border-sky-300 transition-colors"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                      className="flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-xs sm:text-sm hover:bg-sky-50/50 transition-colors cursor-pointer"
-                    >
-                      <span className="pr-2">{faq.q}</span>
-                      <ChevronDown
-                        className={`h-4 w-4 text-slate-400 shrink-0 transition-transform duration-200 ${
-                          openFaq === idx ? "rotate-180 text-sky-600" : ""
-                        }`}
-                      />
-                    </button>
-                    {openFaq === idx && (
-                      <div className="p-4 sm:p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/30">
-                        {faq.a}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Direct Workshop Assistance Callout */}
-              <div className="rounded-2xl bg-white border border-sky-100 p-4 sm:p-5 shadow-xs flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600 shrink-0">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                      Immediate Phone Assistance
-                    </span>
-                    <a
-                      href="tel:+919350036399"
-                      className="text-xs sm:text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors"
-                    >
-                      +91 93500 36399 (Workshop Manager)
-                    </a>
-                  </div>
-                </div>
-                <a
-                  href="https://wa.me/919350036399"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[#25D366] text-white p-2.5 hover:bg-[#20ba59] transition-colors shadow-xs shrink-0"
-                  title="WhatsApp"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                </a>
-              </div>
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <div className="inline-flex items-center gap-2">
+              <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                GOT QUESTIONS?
+              </span>
+              <span className="cmyk-gradient-bar" />
             </div>
-
-            {/* Right Column (AI Assistant): lg:col-span-6 */}
-            <div className="lg:col-span-6 space-y-4">
-              <div>
-                <div className="inline-flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold tracking-widest text-sky-600 uppercase">
-                    INTERACTIVE ASSISTANT
-                  </span>
-                  <span className="cmyk-gradient-bar" />
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Ask About Services,{" "}
-                  <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                    Pricing &amp; Location
-                  </span>
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Click any option to see services in clean bullet points, view pricing guide, or check our Kasna location.
-                </p>
-              </div>
-
-              {/* Bot Widget Container */}
-              <div className="rounded-3xl bg-white border border-sky-100 p-3 sm:p-5 shadow-lg">
-                <ContactAiBot />
-              </div>
-            </div>
-
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Frequently Asked{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                Questions
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Find quick answers to common queries about delivery, file formats, turnaround times, and sign installations in Kasna.
+            </p>
           </div>
+
+          {/* FAQ Accordion List */}
+          <div className="space-y-3.5 mt-10">
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  openFaq === idx
+                    ? "border-sky-300 bg-white shadow-md ring-1 ring-sky-300/30"
+                    : "border-sky-100 bg-white hover:border-sky-200 shadow-2xs hover:shadow-xs"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-sm sm:text-base hover:text-sky-600 transition-colors cursor-pointer"
+                >
+                  <span className="pr-4">{faq.q}</span>
+                  <div
+                    className={`flex h-8 w-8 items-center justify-center rounded-full transition-all shrink-0 ${
+                      openFaq === idx
+                        ? "bg-sky-500 text-white rotate-180"
+                        : "bg-sky-50 text-sky-600"
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+                {openFaq === idx && (
+                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50 bg-sky-50/20">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Help Banner */}
+          <div className="mt-12 rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 text-center space-y-3 shadow-sm">
+            <h3 className="text-base sm:text-lg font-extrabold text-slate-900">
+              Have a Question That Isn&apos;t Answered Here?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
+              Our workshop team in Kasna is always ready to assist you with material options, custom sizes, and instant factory estimates.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="tel:+919350036399"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-all active:scale-95 cursor-pointer"
+              >
+                <Phone className="h-4 w-4 text-sky-400" />
+                <span>Call +91 93500 36399</span>
+              </a>
+              <a
+                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20have%20a%20question%20regarding%20your%20printing%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all active:scale-95 cursor-pointer"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
     </div>

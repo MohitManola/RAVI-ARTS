@@ -204,47 +204,75 @@ export default function PortfolioPage() {
 
 
 
-      {/* Collage / Bento Grid of Work */}
+      {/* Professional Work Portfolio Grid */}
       <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 auto-rows-[280px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {projects.map((item) => (
               <div
                 key={item.id}
-                onClick={() => setPreviewImage({ src: item.image, title: item.title, client: item.client, specs: item.specs, tag: item.tag })}
-                className={`group relative overflow-hidden rounded-3xl bg-slate-950 border border-slate-200 shadow-sm hover:shadow-2xl hover:border-sky-400 transition-all duration-300 cursor-pointer flex flex-col justify-end ${
-                  item.span
-                }`}
+                onClick={() =>
+                  setPreviewImage({
+                    src: item.image,
+                    title: item.title,
+                    client: item.client,
+                    specs: item.specs,
+                    tag: item.tag,
+                  })
+                }
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
               >
-                {/* Background Image */}
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-108"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
+                {/* Image Container with Consistent 4:3 Aspect Ratio */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-108"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                    loading="lazy"
+                  />
 
-                {/* Top Badge */}
-                <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/15 shadow-md">
-                  <Camera className="h-3 w-3 text-sky-400" />
-                  <span>{item.tag}</span>
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-white border border-white/15 shadow-sm">
+                    <Camera className="h-3 w-3 text-sky-400" />
+                    <span>{item.tag}</span>
+                  </div>
+
+                  {/* Top Right Quick Zoom Icon */}
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:scale-105">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-slate-900 shadow-md">
+                      <ZoomIn className="h-4 w-4 text-sky-600" />
+                    </span>
+                  </div>
                 </div>
 
-                {/* Hover Quick Zoom Pill */}
-                <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg">
-                    <ZoomIn className="h-4 w-4 text-sky-600" />
-                  </span>
-                </div>
+                {/* Card Body */}
+                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 bg-white">
+                  <div className="space-y-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-sky-600 block">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors leading-snug line-clamp-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 line-clamp-1 flex items-center gap-1 pt-0.5">
+                      <MapPin className="h-3 w-3 text-slate-400 shrink-0" />
+                      <span className="truncate">{item.client}</span>
+                    </p>
+                  </div>
 
-                {/* Bottom Overlay Gradient with Title */}
-                <div className="relative z-10 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-4 pt-8 text-white">
-                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-1 sm:line-clamp-2">
-                    {item.title}
-                  </h3>
+                  {/* Footer Action Bar */}
+                  <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 group-hover:text-sky-700 transition-colors">
+                      <span>View Project</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                    <span className="text-[11px] font-medium text-slate-400">
+                      Kasna Workshop
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
