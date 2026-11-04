@@ -12,7 +12,6 @@ import {
   AlertCircle,
   Loader2,
   HelpCircle,
-  ChevronDown,
   Sparkles,
   } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
@@ -310,7 +309,10 @@ export default function ContactPage() {
 
                 <div className="mb-6">
                   <h3 className="text-2xl font-extrabold text-slate-900">
-                    Send Us a Message
+                    Send Us a{" "}
+                    <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                      Message
+                    </span>
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1">
                     Fill in the form below and we will calculate your quote and reply promptly.
@@ -587,17 +589,32 @@ export default function ContactPage() {
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-sm sm:text-base hover:text-sky-600 transition-colors cursor-pointer"
+                  className="group flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-sm sm:text-base cursor-pointer"
                 >
-                  <span className="pr-4">{faq.q}</span>
+                  <span className="pr-4 transition-colors group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:via-rose-600 group-hover:to-amber-500 group-hover:bg-clip-text group-hover:text-transparent">
+                    {faq.q}
+                  </span>
                   <div
                     className={`flex h-8 w-8 items-center justify-center rounded-full transition-all shrink-0 ${
                       openFaq === idx
                         ? "bg-sky-500 text-white rotate-180"
-                        : "bg-sky-50 text-sky-600"
+                        : "bg-sky-500 text-white group-hover:bg-sky-600"
                     }`}
                   >
-                    <ChevronDown className="h-4 w-4" />
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                        fill="none"
+                        stroke="white"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                      />
+                    </svg>
                   </div>
                 </button>
                 {openFaq === idx && (
