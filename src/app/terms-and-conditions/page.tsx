@@ -2,30 +2,150 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FileText,
-  ChevronRight,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Globe,
-  Scale,
-  CheckCircle2,
-  AlertCircle,
-  HelpCircle,
-} from "lucide-react";
+import { ChevronRight, Phone, Mail, MapPin, Clock, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Ravi Arts Enterprises - Kasna Greater Noida",
   description:
-    "Official Terms & Conditions for Ravi Arts Enterprises. Review our service policies, quotation guidelines, payment terms, artwork approvals, and delivery commitments.",
+    "Clear, straightforward Terms & Conditions for printing, signage, artwork approval, payments, and delivery at Ravi Arts Enterprises, Kasna, Greater Noida.",
   alternates: {
     canonical: "https://www.raviartsenterprises.com/terms-and-conditions",
   },
 };
 
 export default function TermsAndConditionsPage() {
+  const sections = [
+    {
+      num: "1",
+      badgeClass: "bg-sky-50 text-sky-600",
+      title: "Who We Are",
+      paragraphs: [
+        "Ravi Arts Enterprises is a printing, signage, and graphic design workshop based in Kasna, Greater Noida, Uttar Pradesh.",
+        "We handle flex banners, sunboard prints, visiting cards, brochures, vinyl graphics, acrylic 3D letters, LED glow signboards, and custom branding jobs for shops, offices, and factories.",
+      ],
+    },
+    {
+      num: "2",
+      badgeClass: "bg-emerald-50 text-emerald-600",
+      title: "Enquiries & Estimates",
+      paragraphs: [
+        "You can ask for a quote through our website, over the phone, on WhatsApp, or by visiting our workshop in person.",
+        "Every estimate is prepared around the material, thickness, dimensions, quantity, and finishing details you share with us at the time of enquiry.",
+      ],
+    },
+    {
+      num: "3",
+      badgeClass: "bg-amber-50 text-amber-600",
+      title: "Pricing & Changes",
+      bullets: [
+        "Prices depend on media quality, print size, quantity, fabrication work, and installation needs.",
+        "If you change sizes, materials, quantities, or delivery location after receiving a quote, the final amount will be updated accordingly.",
+        "Quotes are valid for the period noted on the estimate. If no validity date is mentioned, please confirm the current price before placing your order.",
+      ],
+    },
+    {
+      num: "4",
+      badgeClass: "bg-purple-50 text-purple-600",
+      title: "Order Confirmation & Payment",
+      bullets: [
+        "Production starts once we both agree on the final quote and job specifications.",
+        "For customised printing and signage fabrication, an advance payment is usually needed before we purchase materials or start printing.",
+        "The remaining balance is due as agreed—at the time of dispatch, pickup, or completion of site fitting.",
+        "Delays in confirming artwork or clearing the agreed payment can push back your delivery schedule.",
+      ],
+    },
+    {
+      num: "5",
+      badgeClass: "bg-rose-50 text-rose-600",
+      title: "Artwork & Proof Approval",
+      bullets: [
+        "Before we print or cut anything, we share a final design proof on WhatsApp, email, or at our desk for your review.",
+        "Please double-check all spelling, phone numbers, addresses, prices, dates, and logo placements carefully.",
+        "Once you approve the proof for production, we cannot take responsibility for typos or wrong details that were already present in the approved file.",
+        "Changes requested after production has started may require extra charges and time.",
+      ],
+    },
+    {
+      num: "6",
+      badgeClass: "bg-blue-50 text-blue-600",
+      title: "Print Quality & Colour Matching",
+      paragraphs: [
+        "We use properly calibrated machines and quality inks so your prints and signboards come out sharp and vibrant.",
+        "Please keep in mind that backlit phone or computer screens (RGB) always look slightly brighter than ink printed on physical media (CMYK) like flex, paper, vinyl, or acrylic. Minor shade variations can also happen between different materials or repeat batches.",
+      ],
+    },
+    {
+      num: "7",
+      badgeClass: "bg-teal-50 text-teal-600",
+      title: "Production & Delivery Timelines",
+      bullets: [
+        "We share an estimated completion time based on your order volume and our workshop schedule, and we make every effort to deliver on time.",
+        "Timelines can occasionally shift due to heavy seasonal workload, raw material stock, power interruptions, rain (especially for outdoor installation), or transport delays.",
+        "If anything outside our control affects your delivery date, we will inform you as early as possible.",
+      ],
+    },
+    {
+      num: "8",
+      badgeClass: "bg-indigo-50 text-indigo-600",
+      title: "Cancellations & Revisions",
+      bullets: [
+        "Because flex prints, visiting cards, signage boards, and promotional items are made specifically for your business, orders cannot be cancelled once printing, cutting, or fabrication has begun.",
+        "If you need to cancel before work starts, we will review the order stage and deduct only for design time or materials already arranged for your job.",
+      ],
+    },
+    {
+      num: "9",
+      badgeClass: "bg-orange-50 text-orange-600",
+      title: "Customer Files & Permissions",
+      paragraphs: [
+        "Please make sure that all logos, photos, brand names, and text you send us belong to your business or that you have clear permission to print them.",
+        "Ravi Arts Enterprises is not responsible for copyright or trademark issues arising from files, images, or content supplied by a customer.",
+      ],
+    },
+    {
+      num: "10",
+      badgeClass: "bg-pink-50 text-pink-600",
+      title: "Design Ownership",
+      paragraphs: [
+        "All brand assets and files you provide stay completely yours.",
+        "Layouts, signage mockups, and artwork created by our studio are prepared for producing your order. Editable raw source files are shared only when specifically included in your design package.",
+      ],
+    },
+    {
+      num: "11",
+      badgeClass: "bg-red-50 text-red-600",
+      title: "Site Conditions & Responsibility",
+      paragraphs: [
+        "We stand behind the materials and workmanship we deliver. Once your prints are handed over or a signboard is checked and mounted at your site, we are not responsible for damage caused by rough handling, weak wall surfaces, voltage spikes at your premises, extreme weather, or indirect business losses.",
+      ],
+    },
+    {
+      num: "12",
+      badgeClass: "bg-sky-50 text-sky-600",
+      title: "Website Use & Privacy",
+      paragraphs: [
+        "Please use our website honestly and only for genuine enquiries.",
+      ],
+      privacyLink: true,
+    },
+    {
+      num: "13",
+      badgeClass: "bg-amber-50 text-amber-600",
+      title: "Updates to These Terms",
+      paragraphs: [
+        "We may update our service terms or website details whenever our workflow changes. Whenever we update this page, the new date will be shown at the top.",
+      ],
+    },
+    {
+      num: "14",
+      badgeClass: "bg-purple-50 text-purple-600",
+      title: "Governing Law",
+      paragraphs: [
+        "These terms follow the applicable laws of India. If any dispute ever needs formal legal resolution, it will fall under the jurisdiction of the courts in Gautam Buddha Nagar, Uttar Pradesh.",
+      ],
+    },
+  ];
+
   return (
     <div className="flex flex-col w-full bg-[#eff7ff]">
       {/* Breadcrumb Navigation */}
@@ -75,8 +195,8 @@ export default function TermsAndConditionsPage() {
               </span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-              Welcome to Ravi Arts Enterprises. By accessing our website, submitting an enquiry, or
-              placing an order with us, you agree to the following Terms &amp; Conditions.
+              Simple, transparent terms that cover how we handle quotes, artwork approvals, payments,
+              printing, and delivery at Ravi Arts Enterprises.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-slate-900/80 border border-slate-700/80 px-3.5 py-1 text-xs text-slate-300">
               <Clock className="h-3.5 w-3.5 text-sky-400" />
@@ -88,360 +208,85 @@ export default function TermsAndConditionsPage() {
 
       {/* Main Content */}
       <section className="py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
           {/* Welcome Intro Box */}
           <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs">
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Please read these terms carefully before using our website or purchasing our services.
-              These terms outline the rights and responsibilities of both{" "}
-              <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong> and our
-              valued clients.
+              When you browse our website, ask for an estimate, or place an order with{" "}
+              <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong>, these
+              terms apply to our work together. We have kept them clear and practical so you know
+              exactly what to expect from design through delivery.
             </p>
           </div>
 
-          {/* 1. About Our Business */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600 font-bold text-sm">
-                1
+          {/* 1-14 Terms Cards in Full Normal Page Width Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {sections.map((sec) => (
+              <div
+                key={sec.num}
+                className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl font-bold text-sm shrink-0 ${sec.badgeClass}`}
+                  >
+                    {sec.num}
+                  </div>
+                  <h2 className="text-lg sm:text-xl font-bold text-slate-900">{sec.title}</h2>
+                </div>
+
+                {sec.paragraphs?.map((text, idx) => (
+                  <p key={idx} className="text-sm text-slate-600 leading-relaxed">
+                    {text}
+                  </p>
+                ))}
+
+                {sec.bullets && (
+                  <ul className="space-y-2 text-sm text-slate-700">
+                    {sec.bullets.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-sky-500 mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {sec.privacyLink && (
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Any phone numbers, project files, or contact details you share with us are
+                    handled privately under our{" "}
+                    <Link
+                      href="/privacy-policy"
+                      className="text-sky-600 font-semibold hover:underline"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </p>
+                )}
               </div>
-              <h2 className="text-xl font-bold text-slate-900">About Our Business</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Ravi Arts Enterprises is a printing, signage, and graphic design service provider based
-              in Kasna, Greater Noida, Uttar Pradesh, India.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We provide services including flex printing, sunboard printing, digital printing,
-              visiting cards, signage, acrylic boards, LED boards, vinyl printing, branding, and
-              customised graphic design solutions.
-            </p>
+            ))}
           </div>
 
-          {/* 2. Services and Enquiries */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 font-bold text-sm">
-                2
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Services and Enquiries</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              All services are provided according to the customer’s requirements and the specifications
-              discussed at the time of enquiry.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Customers can contact us through our website, phone, email, or WhatsApp for service
-              details and quotations.
-            </p>
-          </div>
-
-          {/* 3. Pricing and Quotations */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 font-bold text-sm">
-                3
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Pricing and Quotations</h2>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
-                <span>Prices depend on material, size, quantity, design, finishing, and project requirements.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
-                <span>All quotations are subject to the specifications provided by the customer.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
-                <span>Additional charges may apply for changes in specifications, artwork, materials, or delivery requirements.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
-                <span>A quotation is valid only for the period mentioned in it. If no validity is mentioned, please confirm the price before placing an order.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 4. Order Confirmation and Payment */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600 font-bold text-sm">
-                4
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Order Confirmation and Payment</h2>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-600 mt-2 shrink-0" />
-                <span>Orders are confirmed after mutual agreement on the quotation and project details.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-600 mt-2 shrink-0" />
-                <span>Advance payments, if applicable, will be communicated before production.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-600 mt-2 shrink-0" />
-                <span>Any remaining payment must be made according to the agreed payment terms.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-600 mt-2 shrink-0" />
-                <span>Production may be delayed if required payment or approvals are pending.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 5. Design and Artwork Approval */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 text-rose-600 font-bold text-sm">
-                5
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Design and Artwork Approval</h2>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-600 mt-2 shrink-0" />
-                <span>Customers must review and approve the final artwork before printing or production.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-600 mt-2 shrink-0" />
-                <span>
-                  Once artwork is approved, Ravi Arts Enterprises will not be responsible for spelling
-                  mistakes, incorrect details, or design errors already present in the approved artwork.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-600 mt-2 shrink-0" />
-                <span>Additional design revisions or major changes after approval may involve extra charges.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 6. Printing Quality and Colour Variation */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 font-bold text-sm">
-                6
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Printing Quality and Colour Variation</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We make reasonable efforts to maintain print quality and colour consistency.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              However, slight colour variations may occur due to differences in screens, printing machines,
-              materials, inks, and production processes.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Printed output may not always match the exact appearance of a digital design.
-            </p>
-          </div>
-
-          {/* 7. Production and Delivery Time */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-600 font-bold text-sm">
-                7
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Production and Delivery Time</h2>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-600 mt-2 shrink-0" />
-                <span>Production timelines are communicated according to the project requirements.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-600 mt-2 shrink-0" />
-                <span>Delivery schedules may vary depending on order quantity, material availability, production workload, and other circumstances.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-600 mt-2 shrink-0" />
-                <span>Delays caused by circumstances beyond our reasonable control may affect the agreed delivery timeline.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-600 mt-2 shrink-0" />
-                <span>Customers will be informed about significant changes whenever reasonably possible.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 8. Cancellation and Order Changes */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 font-bold text-sm">
-                8
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Cancellation and Order Changes</h2>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600 mt-2 shrink-0" />
-                <span>Customised printing and signage orders may not be cancelled once production has started.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600 mt-2 shrink-0" />
-                <span>Cancellation requests before production will be reviewed according to the order status and any costs already incurred.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600 mt-2 shrink-0" />
-                <span>Changes requested after order confirmation may involve additional charges and revised delivery timelines.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 9. Customer Responsibilities */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 font-bold text-sm">
-                9
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Customer Responsibilities</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Customers are responsible for providing accurate information, correct spelling, contact
-              details, artwork, logos, and other project requirements.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Customers must ensure that any supplied artwork, images, logos, or content are authorised
-              for use.
-            </p>
-          </div>
-
-          {/* 10. Intellectual Property */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-50 text-pink-600 font-bold text-sm">
-                10
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Intellectual Property</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              All original designs, artwork, logos, and creative materials remain the property of their
-              respective owners.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Customers must have the necessary rights or permissions to use any materials supplied for
-              printing or production. Unauthorised reproduction or use of copyrighted materials is not
-              permitted.
-            </p>
-          </div>
-
-          {/* 11. Limitation of Liability */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600 font-bold text-sm">
-                11
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Limitation of Liability</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Ravi Arts Enterprises will make reasonable efforts to provide services according to agreed
-              specifications.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We shall not be responsible for indirect losses, delays caused by external circumstances,
-              or errors in content approved by the customer, to the extent permitted by applicable law.
-            </p>
-            <p className="text-xs text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-100">
-              Nothing in these terms limits any rights or remedies that cannot legally be excluded.
-            </p>
-          </div>
-
-          {/* 12. Website Usage */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600 font-bold text-sm">
-                12
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Website Usage</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Visitors agree not to misuse our website, submit false enquiries, attempt unauthorised
-              access, or use website content for unlawful purposes.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We reserve the right to update website content and services without prior notice.
-            </p>
-          </div>
-
-          {/* 13. Privacy Policy */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 font-bold text-sm">
-                13
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Privacy Policy</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Personal information shared with Ravi Arts Enterprises will be handled according to our{" "}
-              <Link href="/privacy-policy" className="text-sky-600 font-semibold hover:underline">
-                Privacy Policy
-              </Link>
-              .
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Please review our{" "}
-              <Link href="/privacy-policy" className="text-sky-600 font-semibold hover:underline">
-                Privacy Policy
-              </Link>{" "}
-              to understand how customer information is collected, used, and protected.
-            </p>
-          </div>
-
-          {/* 14. Changes to Terms & Conditions */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 font-bold text-sm">
-                14
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Changes to Terms &amp; Conditions</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Ravi Arts Enterprises reserves the right to modify these Terms &amp; Conditions when
-              required.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Updated terms will be published on this page along with the revised update date.
-            </p>
-          </div>
-
-          {/* 15. Governing Law and Jurisdiction */}
-          <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600 font-bold text-sm">
-                15
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Governing Law and Jurisdiction</h2>
-            </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              These Terms &amp; Conditions shall be governed by the applicable laws of India.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Any disputes shall be subject to the jurisdiction of the competent courts in Gautam
-              Buddha Nagar, Uttar Pradesh, subject to applicable law.
-            </p>
-          </div>
-
-          {/* 16. Contact Information */}
+          {/* 15. Contact Information */}
           <div className="rounded-3xl bg-slate-900 text-white p-6 sm:p-8 shadow-xl space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/20 text-sky-400 font-bold text-sm border border-sky-500/30">
-                16
+                15
               </div>
-              <h2 className="text-xl font-bold text-white">Contact Information</h2>
+              <h2 className="text-xl font-bold text-white">Need Any Clarification?</h2>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              For questions, enquiries, or clarification regarding these Terms &amp; Conditions, please
-              contact us:
+              If anything here is unclear or you want to confirm terms for a bulk or custom signage
+              order, feel free to reach out directly:
             </p>
 
             <div className="pt-2 space-y-2 text-xs sm:text-sm">
               <h3 className="font-extrabold text-base text-white tracking-wide">
                 Ravi Arts Enterprises
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
                 <div className="flex items-center gap-2.5 text-slate-300">
                   <Globe className="h-4 w-4 text-sky-400 shrink-0" />
                   <span>
@@ -471,20 +316,20 @@ export default function TermsAndConditionsPage() {
                   <span>
                     Phone:{" "}
                     <a href="tel:+919350036399" className="text-emerald-400 hover:underline">
-                      9350036399
+                      +91 93500 36399
                     </a>
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
                   <MapPin className="h-4 w-4 text-amber-400 shrink-0" />
-                  <span>Address: Kasna, Greater Noida, Uttar Pradesh, India</span>
+                  <span>Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310</span>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-800 text-center sm:text-left">
               <p className="text-sm font-extrabold text-sky-400">
-                Thank you for choosing Ravi Arts Enterprises.
+                Thank you for working with Ravi Arts Enterprises.
               </p>
               <p className="text-xs text-slate-400 mt-0.5">Your Vision, Our Commitment.</p>
             </div>
@@ -494,4 +339,3 @@ export default function TermsAndConditionsPage() {
     </div>
   );
 }
-
