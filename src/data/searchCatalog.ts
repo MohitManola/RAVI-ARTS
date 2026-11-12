@@ -241,52 +241,62 @@ export const searchCatalog: SearchCatalogItem[] = [
     keywords: ["bill book", "invoice", "letterhead", "envelope", "receipt", "stationery"],
   },
 
-  // Site Pages
+  // Site & Navbar Pages
+  {
+    id: "home-page",
+    title: "Home — Ravi Arts Enterprises",
+    category: "Pages",
+    badge: "Navbar",
+    desc: "Main landing page: printing capabilities, signage showcase, and workshop highlights.",
+    href: "/",
+    keywords: ["home", "main", "ravi arts", "index", "landing", "overview"],
+  },
   {
     id: "services-all",
-    title: "All Printing & Signage Services",
+    title: "Services — All Printing & Signage",
     category: "Pages",
-    badge: "Services",
+    badge: "Navbar",
     desc: "Explore our full catalog of 8 primary industrial print and signage categories.",
     href: "/services",
-    keywords: ["services", "all services", "printing", "signage", "capabilities"],
+    keywords: ["services", "all services", "printing", "signage", "capabilities", "solutions"],
   },
   {
     id: "about-page",
-    title: "About Ravi Arts Enterprises",
+    title: "About Us — Ravi Arts Enterprises",
     category: "Pages",
-    badge: "Company",
+    badge: "Navbar",
     desc: "20+ years of printing excellence, in-house Kasna factory & manufacturing machinery.",
     href: "/about",
-    keywords: ["about", "company", "kasna", "factory", "owner", "infrastructure", "experience"],
+    keywords: ["about", "about us", "company", "kasna", "factory", "owner", "infrastructure", "experience"],
   },
   {
     id: "portfolio-page",
-    title: "Our Work & Portfolio Gallery",
+    title: "Our Work — Portfolio Gallery",
     category: "Pages",
-    badge: "Gallery",
+    badge: "Navbar",
     desc: "See real photos of completed signboards, hoardings, cards & printing projects.",
     href: "/portfolio",
-    keywords: ["portfolio", "our work", "gallery", "projects", "photos", "sample"],
+    keywords: ["portfolio", "our work", "work", "gallery", "projects", "photos", "sample"],
   },
   {
     id: "testimonials-page",
-    title: "Client Testimonials & Reviews",
+    title: "Testimonials & Client Reviews",
     category: "Pages",
-    badge: "Reviews",
+    badge: "Navbar",
     desc: "Feedback from verified retail showroom owners, corporate managers, and local clients.",
     href: "/testimonials",
-    keywords: ["testimonial", "reviews", "feedback", "clients", "rating"],
+    keywords: ["testimonial", "testimonials", "reviews", "feedback", "clients", "rating"],
   },
   {
     id: "contact-page",
     title: "Contact Us & Location Map",
     category: "Pages",
-    badge: "Contact",
+    badge: "Navbar",
     desc: "Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310. Call +91 93500 36399 / +91 99711 45089.",
     href: "/contact",
     keywords: [
       "contact",
+      "contact us",
       "phone",
       "address",
       "location",
@@ -317,6 +327,15 @@ export const searchCatalog: SearchCatalogItem[] = [
   },
 ];
 
+export const navbarQuickLinks: Array<{ label: string; href: string }> = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Our Work", href: "/portfolio" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact", href: "/contact" },
+];
+
 /**
  * Filter and rank catalog items against multi-word or phrase queries safely.
  */
@@ -341,11 +360,19 @@ export function filterSearchCatalog(rawQuery: string): SearchCatalogItem[] {
     if (!phraseMatches && !allWordsMatch) continue;
 
     let score = 0;
-    if (titleLower.includes(trimmed)) score += 100;
-    else if (words.every((w) => titleLower.includes(w))) score += 70;
-    else if (badgeLower.includes(trimmed)) score += 50;
-    else if (item.keywords.some((k) => k.includes(trimmed))) score += 40;
-    else score += 20;
+    if (titleLower.startsWith(trimmed) || item.keywords.some((k) => k === trimmed)) {
+      score += 130;
+    } else if (titleLower.includes(trimmed)) {
+      score += 100;
+    } else if (words.every((w) => titleLower.includes(w))) {
+      score += 70;
+    } else if (badgeLower.includes(trimmed)) {
+      score += 50;
+    } else if (item.keywords.some((k) => k.includes(trimmed))) {
+      score += 40;
+    } else {
+      score += 20;
+    }
 
     if (item.category === "Services") score += 10;
     else if (item.category === "Products") score += 5;

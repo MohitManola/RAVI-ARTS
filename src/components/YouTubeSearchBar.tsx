@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, X, ArrowRight, TrendingUp } from "lucide-react";
+import { Search, X, ArrowRight, TrendingUp, Compass } from "lucide-react";
 import {
   searchCatalog,
+  navbarQuickLinks,
   filterSearchCatalog,
   type SearchCatalogItem,
 } from "@/data/searchCatalog";
@@ -75,13 +76,13 @@ export default function YouTubeSearchBar({
     return () => window.removeEventListener("keydown", handleGlobalKeyDown);
   }, [onExpandChange]);
 
-  // Close dropdown & collapse on outside click
+  // Close dropdown & collapse on outside click (only for the currently visible search bar)
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
-      ) {
+      if (!containerRef.current || containerRef.current.offsetParent === null) {
+        return;
+      }
+      if (!containerRef.current.contains(e.target as Node)) {
         setIsOpen(false);
         if (!isMobile && onExpandChange) {
           onExpandChange(false);
@@ -94,7 +95,7 @@ export default function YouTubeSearchBar({
 
   // Filter items matching query with multi-word ranked matching
   const trimmed = query.trim().toLowerCase();
-  const results = trimmed ? filterSearchCatalog(query).slice(0, 7) : [];
+  const results = trimmed ? filterSearchCatalog(query).slice(0, 10) : [];
 
   const handleSelect = (href: string) => {
     setIsOpen(false);
@@ -111,6 +112,11 @@ export default function YouTubeSearchBar({
     // If the user used keyboard navigation to select a specific suggestion, navigate directly
     if (selectedIndex >= 0 && results[selectedIndex]) {
       handleSelect(results[selectedIndex].href);
+      return;
+    }
+    // If query directly matches a navbar/site page or a single result, navigate straight to it
+    if (trimmed && results.length > 0 && (results[0].category === "Pages" || results.length === 1)) {
+      handleSelect(results[0].href);
       return;
     }
     // If there is a search term, navigate to the filtered services results page
@@ -276,7 +282,7 @@ export default function YouTubeSearchBar({
 
       {/* YouTube Style Suggestions Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-[calc(100vw-24px)] xs:w-[360px] sm:w-[420px] max-w-[440px] rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-[999] overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute right-0 top-full mt-2 w-[calc(100vw-24px)] xs:w-[360px] sm:w-[420px] max-w-[440px] max-h-[75vh] overflow-y-auto rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-[999] animate-in fade-in zoom-in-95 duration-150">
           {trimmed ? (
             results.length > 0 ? (
               <div className="py-1">
@@ -286,6 +292,7 @@ export default function YouTubeSearchBar({
                     <button
                       key={item.id}
                       type="button"
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={() => handleSelect(item.href)}
                       onMouseEnter={() => setSelectedIndex(idx)}
                       className={`w-full flex items-center justify-between gap-3 px-4 py-2.5 text-left transition-colors cursor-pointer ${
@@ -320,7 +327,8 @@ export default function YouTubeSearchBar({
                 <div className="border-t border-slate-100 mt-1 pt-1">
                   <button
                     type="button"
-                    onClick={() => handleSubmit()}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => handleSelect(`/services?q=${encodeURIComponent(query.trim())}`)}
                     className="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
                   >
                     <span className="flex items-center gap-2">
@@ -338,6 +346,7 @@ export default function YouTubeSearchBar({
                 </p>
                 <button
                   type="button"
+                  onMouseDown={(e) => e.preventDefault()}
                   onClick={() => handleSubmit()}
                   className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 cursor-pointer"
                 >
@@ -347,9 +356,30 @@ export default function YouTubeSearchBar({
               </div>
             )
           ) : (
-            // Popular / Trending suggestions when query is empty
+            // Navbar Quick Links + Popular Searches when query is empty
             <div className="py-1">
-              <div className="flex items-center gap-1.5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              <div className="px-4 pt-1 pb-2.5 border-b border-slate-100">
+                <div className="flex items-center gap-1.5 pb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <Compass className="h-3 w-3 text-blue-500" />
+                  <span>Quick Pages</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {navbarQuickLinks.map((navItem) => (
+                    <button
+                      key={navItem.href}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => handleSelect(navItem.href)}
+                      className="inline-flex items-center gap-1 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white px-3 py-1 text-xs font-semibold text-slate-700 transition-colors cursor-pointer"
+                    >
+                      <span>{navItem.label}</span>
+                      <ArrowRight className="h-3 w-3 opacity-70" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 px-4 pt-2.5 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                 <TrendingUp className="h-3 w-3 text-blue-500" />
                 <span>Popular Searches</span>
               </div>
@@ -359,20 +389,24 @@ export default function YouTubeSearchBar({
                   <button
                     key={item.text}
                     type="button"
+                    onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleSelect(item.href)}
                     onMouseEnter={() => setSelectedIndex(idx)}
-                    className={`w-full flex items-center gap-3 px-4 py-2 text-left text-xs sm:text-sm transition-colors cursor-pointer ${
+                    className={`w-full flex items-center justify-between gap-3 px-4 py-2 text-left text-xs sm:text-sm transition-colors cursor-pointer ${
                       isSelected
                         ? "bg-slate-100 text-blue-600 font-semibold"
                         : "text-slate-700 hover:bg-slate-50"
                     }`}
                   >
-                    <Search
-                      className={`h-3.5 w-3.5 shrink-0 ${
-                        isSelected ? "text-blue-600" : "text-slate-400"
-                      }`}
-                    />
-                    <span>{item.text}</span>
+                    <span className="flex items-center gap-3 min-w-0">
+                      <Search
+                        className={`h-3.5 w-3.5 shrink-0 ${
+                          isSelected ? "text-blue-600" : "text-slate-400"
+                        }`}
+                      />
+                      <span className="truncate">{item.text}</span>
+                    </span>
+                    <ArrowRight className="h-3.5 w-3.5 text-slate-300 shrink-0" />
                   </button>
                 );
               })}
