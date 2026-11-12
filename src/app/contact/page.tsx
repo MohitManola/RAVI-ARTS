@@ -6,7 +6,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Clock,
   Send,
   CheckCircle2,
   AlertCircle,
@@ -285,21 +284,6 @@ export default function ContactPage() {
                     </span>
                   </div>
                 </a>
-
-                {/* Timings */}
-                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 border border-sky-100 shadow-xs">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
-                    <Clock className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                      Business Hours
-                    </span>
-                    <span className="text-sm font-bold text-slate-900 block">
-                      9:30 AM to 6:30 PM
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -695,34 +679,6 @@ export default function ContactPage() {
             {/* Right Side: Live Interactive Chatbot */}
             <div className="lg:col-span-6 sticky top-28">
               <ContactAiBot />
-            </div>
-          </div>
-
-          {/* Bottom Help Banner */}
-          <div className="mt-12 rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 text-center space-y-3 shadow-sm">
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900">
-              Have a Question That Isn&apos;t Answered Here?
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
-              Our workshop team in Kasna is always ready to assist you with material options, custom sizes, and instant factory estimates.
-            </p>
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="tel:+919350036399"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-all active:scale-95 cursor-pointer"
-              >
-                <Phone className="h-4 w-4 text-sky-400" />
-                <span>Call +91 93500 36399</span>
-              </a>
-              <a
-                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20have%20a%20question%20regarding%20your%20printing%20services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all active:scale-95 cursor-pointer"
-              >
-                <WhatsAppIcon className="h-4 w-4 fill-white" />
-                <span>Chat on WhatsApp</span>
-              </a>
             </div>
           </div>
 
