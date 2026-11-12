@@ -29,40 +29,40 @@ export default function PortfolioPage() {
   const { openQuoteModal } = useQuote();
   const [previewProject, setPreviewProject] = useState<ProjectItem | null>(null);
 
-  // 1. AirTree Retail Storefront: 1774 x 887 -> Exact 2:1 Wide Storefront Ratio
+  // 1. AirTree Retail Storefront: 1350 x 752 -> 16:9 Wide Storefront Ratio
   const project1: ProjectItem = {
     id: "airtree",
     title: "AirTree Retail Storefront Signage",
     location: "Kasna Commercial Belt • Greater Noida",
     desc: "Architectural storefront fascia with 3D illuminated acrylic channel letters mounted on matte composite panel.",
     dateTag: "Livraison hiver 2025",
-    image: "/images/work/airtree-showcase.png",
-    aspectClass: "aspect-[2/1]",
-    formatTag: "Storefront Facade (2:1)",
+    image: "/images/work/airtree.jpeg",
+    aspectClass: "aspect-[16/9]",
+    formatTag: "Storefront Facade (16:9)",
   };
 
-  // 2. Kakkar Chaap Glow Sign: 1536 x 1024 -> Exact 3:2 Backlit Sign Ratio
+  // 2. Kakkar Chaap Glow Sign: 1200 x 634 -> 16:9 Backlit Sign Ratio
   const project2: ProjectItem = {
     id: "kakkar-chaap",
     title: "Kakkar Chaap Backlit Glow Sign",
     location: "Commercial Hub • Greater Noida",
     desc: "High-luminance backlit LED flex signboard with heavy-gauge galvanized iron structural framing.",
     dateTag: "Livraison \u00e9t\u00e9 2025",
-    image: "/images/work/kakkar-chaap.png",
-    aspectClass: "aspect-[3/2]",
-    formatTag: "LED Lightbox (3:2)",
+    image: "/images/work/kitchen.jpeg",
+    aspectClass: "aspect-[16/9]",
+    formatTag: "LED Lightbox (16:9)",
   };
 
-  // 3. Fitness First Cafe Facade: 1774 x 887 -> Exact 2:1 Wide Architectural Ratio
+  // 3. Fitness First Cafe Facade: 1599 x 899 -> Exact 16:9 Architectural Ratio
   const project3: ProjectItem = {
     id: "fitness-facade",
     title: "Fitness First Commercial Facade",
     location: "Commercial Sector • Greater Noida West",
     desc: "Large-format outdoor commercial facade branding with heavy-duty structural iron framing and high-gauge flex.",
     dateTag: "Livraison automne 2024",
-    image: "/images/work/fitness-cafe.png",
-    aspectClass: "aspect-[2/1]",
-    formatTag: "Architectural Facade (2:1)",
+    image: "/images/work/fitness.jpeg",
+    aspectClass: "aspect-[16/9]",
+    formatTag: "Architectural Facade (16:9)",
   };
 
   // 4. Large Format Flex Printing: 1448 x 1086 -> 4:3 Ratio
@@ -101,16 +101,16 @@ export default function PortfolioPage() {
     formatTag: "3D Titanium Letters (4:3)",
   };
 
-  // 7. RDX Nutrition Glossy Gold Sign: 2172 x 724 -> Exact 3:1 Ultra-Wide Panoramic Signboard Ratio
+  // 7. RDX Nutrition Glossy Gold Sign: 1600 x 674 -> ~12:5 Ultra-Wide Panoramic Signboard Ratio
   const project7: ProjectItem = {
     id: "rdx-gold",
     title: "RDX Nutrition Glossy Gold Sign",
     location: "Ecotech Kasna • Greater Noida",
     desc: "Precision CNC laser-cut golden mirror finish 3D acrylic letters with waterproof halo backlit LED module.",
     dateTag: "Livraison \u00e9t\u00e9 2024",
-    image: "/images/work/rdx-gold-sign.png",
-    aspectClass: "aspect-[3/1]",
-    formatTag: "Panoramic Fascia (3:1)",
+    image: "/images/work/jym.jpeg",
+    aspectClass: "aspect-[12/5]",
+    formatTag: "Panoramic Fascia (12:5)",
   };
 
   // 8. Luxury Corporate Stationery: 1448 x 1086 -> 4:3 Ratio
@@ -223,7 +223,7 @@ export default function PortfolioPage() {
                   <div className="sm:col-span-6">
                     <div
                       onClick={() => setPreviewProject(project1)}
-                      className="group relative aspect-[2/1] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                      className={`group relative ${project1.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
                     >
                       <Image
                         src={project1.image}
@@ -261,7 +261,7 @@ export default function PortfolioPage() {
                   <div className="sm:col-span-6">
                     <div
                       onClick={() => setPreviewProject(project2)}
-                      className="group relative aspect-[3/2] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                      className={`group relative ${project2.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
                     >
                       <Image
                         src={project2.image}
@@ -281,7 +281,7 @@ export default function PortfolioPage() {
                 <div className="space-y-2 pt-2">
                   <div
                     onClick={() => setPreviewProject(project3)}
-                    className="group relative aspect-[2/1] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    className={`group relative ${project3.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
                   >
                     <Image
                       src={project3.image}
@@ -440,7 +440,7 @@ export default function PortfolioPage() {
                 <div className="space-y-3 pt-2">
                   <div
                     onClick={() => setPreviewProject(project7)}
-                    className="group relative aspect-[3/1] w-full overflow-hidden bg-neutral-950 cursor-pointer shadow-xs"
+                    className={`group relative ${project7.aspectClass} w-full overflow-hidden bg-neutral-950 cursor-pointer shadow-xs`}
                   >
                     <Image
                       src={project7.image}
@@ -460,7 +460,7 @@ export default function PortfolioPage() {
                         {project7.title}
                       </h3>
                       <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 border border-amber-200">
-                        Panoramic Fascia (3:1)
+                        {project7.formatTag}
                       </span>
                     </div>
                     <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">

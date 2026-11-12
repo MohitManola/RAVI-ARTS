@@ -188,29 +188,29 @@ export default function HomePage() {
       title: "AirTree Signage & Storefront Branding",
       category: "SIGNAGE",
       desc: "Architectural 3D board & illuminated storefront banner installation.",
-      image: "/images/work/airtree-showcase.png",
-      aspect: "aspect-[2/1]",
+      image: "/images/work/airtree.jpeg",
+      aspect: "aspect-[16/9]",
     },
     {
       title: "Fitness Center Exterior Sign & Banners",
       category: "LARGE FORMAT",
       desc: "Heavy-duty outdoor flex & high-impact visual facade branding.",
-      image: "/images/work/fitness-cafe.png",
-      aspect: "aspect-[2/1]",
+      image: "/images/work/fitness.jpeg",
+      aspect: "aspect-[16/9]",
     },
     {
       title: "Kakkar Chaap Backlit Glow Signboard",
       category: "GLOW SIGN",
       desc: "High-luminance weatherproof LED signage with structural MS framing.",
-      image: "/images/work/kakkar-chaap.png",
-      aspect: "aspect-[3/2]",
+      image: "/images/work/kitchen.jpeg",
+      aspect: "aspect-[16/9]",
     },
     {
       title: "RDX Nutrition Glossy Gold 3D Sign",
       category: "3D LETTERS",
       desc: "Precision laser-cut golden mirror finish letters with halo lighting.",
-      image: "/images/work/rdx-gold-sign.png",
-      aspect: "aspect-[3/1]",
+      image: "/images/work/jym.jpeg",
+      aspect: "aspect-[12/5]",
     },
   ];
 
@@ -421,7 +421,7 @@ export default function HomePage() {
                 key={item.title}
                 className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
                   <Image
                     src={item.image}
                     alt={item.title}
