@@ -5,170 +5,130 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  Eye,
   X,
   ZoomIn,
   Camera,
   MapPin,
-  ExternalLink,
+  Sparkles,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useQuote } from "@/context/QuoteContext";
 
+interface ProjectItem {
+  id: string;
+  title: string;
+  location: string;
+  desc: string;
+  dateTag: string;
+  image: string;
+  aspectClass: string;
+  formatTag: string;
+}
+
 export default function PortfolioPage() {
   const { openQuoteModal } = useQuote();
-  const [previewImage, setPreviewImage] = useState<{
-    src: string;
-    title: string;
-    client: string;
-    specs: string;
-    tag: string;
-  } | null>(null);
+  const [previewProject, setPreviewProject] = useState<ProjectItem | null>(null);
 
-  // Collage projects with authentic work photos from /images/work and fabrication outputs
-  const projects = [
-    {
-      id: 1,
-      title: "AirTree Signage & Storefront Branding",
-      category: "INSTALLATIONS",
-      client: "AirTree Retail Store, Greater Noida",
-      specs: "Complete outdoor architectural signboard with precision illuminated lettering and durable weather-sealed facade.",
-      image: "/images/work/airtree.jpeg",
-      tag: "Real Site Installation",
-      span: "md:col-span-2 md:row-span-2",
-      aspect: "aspect-[4/3] md:aspect-auto md:h-full",
-    },
-    {
-      id: 2,
-      title: "Fitness Center Exterior Sign & Banners",
-      category: "INSTALLATIONS",
-      client: "Fitness Hub, Greater Noida West",
-      specs: "High-visibility large format outdoor flex banner and structural iron framing engineered for maximum street visual impact.",
-      image: "/images/work/fitness.jpeg",
-      tag: "Real Site Installation",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 3,
-      title: "Gym 3D Acrylic Letters & Glow Sign",
-      category: "INSTALLATIONS",
-      client: "Premium Gym & Fitness Studio, Kasna",
-      specs: "Cast acrylic 3D channel letters with waterproof high-lumen LED backlight illumination for striking 24/7 night glow.",
-      image: "/images/work/jym.jpeg",
-      tag: "Real Site Installation",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 4,
-      title: "Modern Kitchen & Interior Visual Branding",
-      category: "INSTALLATIONS",
-      client: "Kitchen Showroom, Greater Noida",
-      specs: "Custom interior graphics, frosted privacy vinyl, and acrylic display panels fabricated with millimeter CNC precision.",
-      image: "/images/work/kitchen.jpeg",
-      tag: "Real Site Installation",
-      span: "md:col-span-2",
-      aspect: "aspect-[16/9]",
-    },
-    {
-      id: 5,
-      title: "3D Acrylic Letters & Reception Board",
-      category: "SIGNAGE",
-      client: "Corporate Headquarters, Kasna",
-      specs: "Laser cut cast acrylic letters with warm halo backlit LED illumination mounted on matte black ACP backing.",
-      image: "/images/services/Acrylic&3dLetterBoards.PNG",
-      tag: "Workshop Fabrication",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 6,
-      title: "LED Glow Sign Board & Shopfront Facade",
-      category: "SIGNAGE",
-      client: "Commercial Retail Center, Pari Chowk",
-      specs: "Architectural front-lit LED glow signboard with weather-sealed IP67 Samsung modules and heavy-gauge structural framing.",
-      image: "/images/services/SignBoards&Signage.PNG",
-      tag: "Installed Sign",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 7,
-      title: "Heavy-Duty Outdoor Star Flex Hoarding",
-      category: "FLEX",
-      client: "Township & Industrial Zone, Yamuna Expressway",
-      specs: "Seamless 10-foot wide 540 GSM Star Flex printed on high-speed industrial eco-solvent plotter with UV monsoon-proof inks.",
-      image: "/images/services/flex&LargeFormatePrinting.PNG",
-      tag: "Large Format Print",
-      span: "md:col-span-2",
-      aspect: "aspect-[16/9]",
-    },
-    {
-      id: 8,
-      title: "Velvet Touch Visiting Cards & Office Stationery",
-      category: "STATIONERY",
-      client: "Corporate Institutes, Knowledge Park",
-      specs: "350 GSM luxury art cards with velvet soft-touch thermal lamination, embossed spot UV, and branded corporate bill books.",
-      image: "/images/services/VisitingCards&BusinessStationary.PNG",
-      tag: "Print Samples",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 9,
-      title: "Multi-Page Product Catalogue & Brochures",
-      category: "COMMERCIAL",
-      client: "Manufacturing Plants, Ecotech Greater Noida",
-      specs: "Commercial high-volume multi-color offset print, 300 GSM art card covers, perfect binding, and gloss aqueous coating.",
-      image: "/images/services/Offset&DigitalPrinting.PNG",
-      tag: "Offset Press Output",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 10,
-      title: "Frosted Glass Privacy Film & Vinyl Decals",
-      category: "FLEX",
-      client: "Tech Zone Corporate Offices, Greater Noida",
-      specs: "Die-cut branded frosted privacy film applied with zero bubbles on executive conference room glass partitions.",
-      image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
-      tag: "Vinyl Installation",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 11,
-      title: "Complete Brand Identity & Signage Layouts",
-      category: "COMMERCIAL",
-      client: "Retail Showroom Rebranding, Alpha 1",
-      specs: "100% original vector brand guidelines, architectural 3D signage previews, and print-ready packaging formulations.",
-      image: "/images/services/branding&GraphicDesign.PNG",
-      tag: "Studio Design",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      id: 12,
-      title: "Customized Corporate Gifts & Executive Kits",
-      category: "GIFTS",
-      client: "Annual Corporate Summit, India Expo Mart",
-      specs: "Laser engraved double-wall stainless steel mugs, luxury rollerball pens, executive leather diaries, and custom gift boxes.",
-      image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
-      tag: "Real Merchandise",
-      span: "col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-  ];
+  // 1. AirTree Retail Storefront: 1774 x 887 -> Exact 2:1 Wide Storefront Ratio
+  const project1: ProjectItem = {
+    id: "airtree",
+    title: "AirTree Retail Storefront Signage",
+    location: "Kasna Commercial Belt • Greater Noida",
+    desc: "Architectural storefront fascia with 3D illuminated acrylic channel letters mounted on matte composite panel.",
+    dateTag: "Livraison hiver 2025",
+    image: "/images/work/airtree-showcase.png",
+    aspectClass: "aspect-[2/1]",
+    formatTag: "Storefront Facade (2:1)",
+  };
 
+  // 2. Kakkar Chaap Glow Sign: 1536 x 1024 -> Exact 3:2 Backlit Sign Ratio
+  const project2: ProjectItem = {
+    id: "kakkar-chaap",
+    title: "Kakkar Chaap Backlit Glow Sign",
+    location: "Commercial Hub • Greater Noida",
+    desc: "High-luminance backlit LED flex signboard with heavy-gauge galvanized iron structural framing.",
+    dateTag: "Livraison \u00e9t\u00e9 2025",
+    image: "/images/work/kakkar-chaap.png",
+    aspectClass: "aspect-[3/2]",
+    formatTag: "LED Lightbox (3:2)",
+  };
 
+  // 3. Fitness First Cafe Facade: 1774 x 887 -> Exact 2:1 Wide Architectural Ratio
+  const project3: ProjectItem = {
+    id: "fitness-facade",
+    title: "Fitness First Commercial Facade",
+    location: "Commercial Sector • Greater Noida West",
+    desc: "Large-format outdoor commercial facade branding with heavy-duty structural iron framing and high-gauge flex.",
+    dateTag: "Livraison automne 2024",
+    image: "/images/work/fitness-cafe.png",
+    aspectClass: "aspect-[2/1]",
+    formatTag: "Architectural Facade (2:1)",
+  };
+
+  // 4. Large Format Flex Printing: 1448 x 1086 -> 4:3 Ratio
+  const project4: ProjectItem = {
+    id: "star-flex",
+    title: "Outdoor Star Flex Hoarding",
+    location: "Yamuna Expressway • Greater Noida",
+    desc: "Heavy-duty structural truss hoarding with 540 GSM frontlit banner engineered for high wind and monsoon resistance.",
+    dateTag: "Livraison \u00e9t\u00e9 2024",
+    image: "/images/services/flex&LargeFormatePrinting.PNG",
+    aspectClass: "aspect-[4/3]",
+    formatTag: "Outdoor Hoarding (4:3)",
+  };
+
+  // 5. LED Glow Signs & Storefronts: 1448 x 1086 -> 4:3 Ratio
+  const project5: ProjectItem = {
+    id: "sign-boards",
+    title: "LED Glow Signs & Storefronts",
+    location: "Pari Chowk • Greater Noida",
+    desc: "Samsung LED illuminated shopfront signage with composite ACP cladding and weather-sealed modules.",
+    dateTag: "Livraison hiver 2025",
+    image: "/images/services/SignBoards&Signage.PNG",
+    aspectClass: "aspect-[4/3]",
+    formatTag: "ACP Cladding (4:3)",
+  };
+
+  // 6. 3D Metal & Acrylic Letter Signs: 1448 x 1086 -> 4:3 Ratio
+  const project6: ProjectItem = {
+    id: "acrylic-letters",
+    title: "3D Metal & Acrylic Letter Signs",
+    location: "Knowledge Park • Greater Noida",
+    desc: "Titanium gold and brushed metallic 3D signage with warm halo backlighting engineered for corporate lobbies.",
+    dateTag: "Livraison \u00e9t\u00e9 2025",
+    image: "/images/services/Acrylic&3dLetterBoards.PNG",
+    aspectClass: "aspect-[4/3]",
+    formatTag: "3D Titanium Letters (4:3)",
+  };
+
+  // 7. RDX Nutrition Glossy Gold Sign: 2172 x 724 -> Exact 3:1 Ultra-Wide Panoramic Signboard Ratio
+  const project7: ProjectItem = {
+    id: "rdx-gold",
+    title: "RDX Nutrition Glossy Gold Sign",
+    location: "Ecotech Kasna • Greater Noida",
+    desc: "Precision CNC laser-cut golden mirror finish 3D acrylic letters with waterproof halo backlit LED module.",
+    dateTag: "Livraison \u00e9t\u00e9 2024",
+    image: "/images/work/rdx-gold-sign.png",
+    aspectClass: "aspect-[3/1]",
+    formatTag: "Panoramic Fascia (3:1)",
+  };
+
+  // 8. Luxury Corporate Stationery: 1448 x 1086 -> 4:3 Ratio
+  const project8: ProjectItem = {
+    id: "visiting-cards",
+    title: "Luxury Corporate Stationery",
+    location: "Corporate Desk • Kasna",
+    desc: "350 GSM luxury art card stock with raised spot UV coating, foil stamping, and velvet thermal lamination.",
+    dateTag: "Livraison hiver 2025",
+    image: "/images/services/VisitingCards&BusinessStationary.PNG",
+    aspectClass: "aspect-[4/3]",
+    formatTag: "Premium Print (4:3)",
+  };
 
   return (
-    <div className="flex flex-col w-full">
-      {/* Header Banner */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[220px] sm:min-h-[260px] flex items-center">
+    <div className="flex flex-col w-full bg-white text-slate-900 min-h-screen">
+      {/* Top Banner - Standardized across all pages */}
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
         {/* Full Banner Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -180,15 +140,16 @@ export default function PortfolioPage() {
             className="object-cover object-right select-none"
             quality={95}
           />
+          {/* Contrast gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 mb-2">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
+          <div className="max-w-xl md:max-w-2xl">
+            <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                PORTFOLIO
+                PORTFOLIO ARCHIVE
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
@@ -198,91 +159,373 @@ export default function PortfolioPage() {
                 Work
               </span>
             </h1>
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
+              Authentic completed signboards, hoardings, 3D letters, and commercial printing installations delivered across Greater Noida.
+            </p>
           </div>
         </div>
       </section>
 
-
-
-      {/* Professional Work Portfolio Grid */}
-      <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
+      {/* ========================================================================= */}
+      {/* EDITORIAL MAGAZINE SPREAD (Faithfully matching uploaded Agenda lookbook) */}
+      {/* ========================================================================= */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projects.map((item) => (
-              <div
-                key={item.id}
-                onClick={() =>
-                  setPreviewImage({
-                    src: item.image,
-                    title: item.title,
-                    client: item.client,
-                    specs: item.specs,
-                    tag: item.tag,
-                  })
-                }
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
-              >
-                {/* Image Container with Consistent 4:3 Aspect Ratio */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-108"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    loading="lazy"
-                  />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-white border border-white/15 shadow-sm">
-                    <Camera className="h-3 w-3 text-sky-400" />
-                    <span>{item.tag}</span>
-                  </div>
-
-                  {/* Top Right Quick Zoom Icon */}
-                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:scale-105">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-slate-900 shadow-md">
-                      <ZoomIn className="h-4 w-4 text-sky-600" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 bg-white">
-                  <div className="space-y-1.5">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-sky-600 block">
-                      {item.tag}
-                    </span>
-                    <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors leading-snug line-clamp-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 line-clamp-1 flex items-center gap-1 pt-0.5">
-                      <MapPin className="h-3 w-3 text-slate-400 shrink-0" />
-                      <span className="truncate">{item.client}</span>
-                    </p>
-                  </div>
-
-                  {/* Footer Action Bar */}
-                  <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 group-hover:text-sky-700 transition-colors">
-                      <span>View Project</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </span>
-                    <span className="text-[11px] font-medium text-slate-400">
-                      Kasna Workshop
-                    </span>
-                  </div>
+          {/* Magazine Spread Outer Box */}
+          <div className="relative bg-white border border-neutral-200/60 p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_24px_rgba(0,0,0,0.04)]">
+            
+            {/* Top Spread Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 sm:pb-12 border-b border-neutral-100">
+              <div>
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 font-sans">
+                  Agenda
+                </h2>
+                <p className="text-xs sm:text-[13px] text-neutral-400 font-normal tracking-wide mt-1.5">
+                  8 r&eacute;alisations r&eacute;centes en cours, livr&eacute;es en 2024-2025-2026 &bull; Greater Noida
+                </p>
+              </div>
+              <div className="self-start sm:self-auto">
+                <div className="inline-flex items-center bg-black text-white px-3 py-1 text-[11px] font-black tracking-widest uppercase">
+                  <span>RAVI ARTS</span>
+                  <span className="ml-1.5 text-neutral-400 font-light text-[10px]">63</span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Two-Facing Page Grid (Left Page + Right Page) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 pt-8 sm:pt-12 items-start">
+              
+              {/* ============================================================ */}
+              {/* LEFT PAGE SPREAD                                             */}
+              {/* ============================================================ */}
+              <div className="space-y-10 lg:space-y-12">
+                
+                {/* 1. Villa Kogelhofun Position (AirTree: Text on left, 2:1 wide photo on right) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                  <div className="sm:col-span-6 space-y-1 pr-2">
+                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                      {project1.title}
+                    </h3>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project1.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                      {project1.desc}
+                    </p>
+                    <div className="pt-1.5">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project1.dateTag}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-6">
+                    <div
+                      onClick={() => setPreviewProject(project1)}
+                      className="group relative aspect-[2/1] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project1.image}
+                        alt={project1.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Glebe House Position (Kakkar Chaap: Text on left, 3:2 photo on right) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                  <div className="sm:col-span-6 space-y-1 pr-2">
+                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                      {project2.title}
+                    </h3>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project2.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                      {project2.desc}
+                    </p>
+                    <div className="pt-1.5">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project2.dateTag}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-6">
+                    <div
+                      onClick={() => setPreviewProject(project2)}
+                      className="group relative aspect-[3/2] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project2.image}
+                        alt={project2.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Centerpiece Large Architectural Photo (Fitness First Cafe: 2:1 Wide Facade) */}
+                <div className="space-y-2 pt-2">
+                  <div
+                    onClick={() => setPreviewProject(project3)}
+                    className="group relative aspect-[2/1] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                  >
+                    <Image
+                      src={project3.image}
+                      alt={project3.title}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 48vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1 pt-1">
+                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                      {project3.title}
+                    </h3>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project3.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-0.5">
+                      {project3.desc}
+                    </p>
+                    <div className="pt-1">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project3.dateTag}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Werkhaus Position (Large Format Flex: Text on left, 4:3 photo on right) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
+                  <div className="sm:col-span-7 space-y-1 pr-2">
+                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                      {project4.title}
+                    </h3>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project4.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                      {project4.desc}
+                    </p>
+                    <div className="pt-1.5">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project4.dateTag}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-5">
+                    <div
+                      onClick={() => setPreviewProject(project4)}
+                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project4.image}
+                        alt={project4.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* ============================================================ */}
+              {/* RIGHT PAGE SPREAD                                            */}
+              {/* ============================================================ */}
+              <div className="space-y-10 lg:space-y-12">
+                
+                {/* Top Row: Non Program Pavillon (Left) + 3D Letter Signs (Right) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-start">
+                  
+                  {/* Item 5: Non Program Pavillon (Text above, photo below - 4:3) */}
+                  <div className="sm:col-span-6 space-y-3">
+                    <div className="space-y-1">
+                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                        {project5.title}
+                      </h3>
+                      <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                        {project5.location}
+                      </p>
+                      <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                        {project5.desc}
+                      </p>
+                      <div className="pt-1.5">
+                        <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                          {project5.dateTag}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div
+                      onClick={() => setPreviewProject(project5)}
+                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project5.image}
+                        alt={project5.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 22vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 6: 3D Metal & Acrylic Letter Signs (Photo on top, text below - 4:3) */}
+                  <div className="sm:col-span-6 space-y-3">
+                    <div
+                      onClick={() => setPreviewProject(project6)}
+                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project6.image}
+                        alt={project6.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 22vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                        {project6.title}
+                      </h3>
+                      <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                        {project6.location}
+                      </p>
+                      <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                        {project6.desc}
+                      </p>
+                      <div className="pt-1.5">
+                        <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                          {project6.dateTag}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Item 7: Minimod Position (RDX Nutrition: 3:1 Ultra-Wide Panoramic Fascia Centerpiece) */}
+                <div className="space-y-3 pt-2">
+                  <div
+                    onClick={() => setPreviewProject(project7)}
+                    className="group relative aspect-[3/1] w-full overflow-hidden bg-neutral-950 cursor-pointer shadow-xs"
+                  >
+                    <Image
+                      src={project7.image}
+                      alt={project7.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 48vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                        {project7.title}
+                      </h3>
+                      <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 border border-amber-200">
+                        Panoramic Fascia (3:1)
+                      </span>
+                    </div>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project7.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                      {project7.desc}
+                    </p>
+                    <div className="pt-1.5">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project7.dateTag}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Item 8: Carré Seine Position (Luxury Stationery: Photo on left + text on right) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
+                  <div className="sm:col-span-5">
+                    <div
+                      onClick={() => setPreviewProject(project8)}
+                      className="group relative aspect-[4/3] w-full max-w-[200px] overflow-hidden bg-neutral-100 cursor-pointer"
+                    >
+                      <Image
+                        src={project8.image}
+                        alt={project8.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 20vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-7 space-y-1 pl-1">
+                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
+                      {project8.title}
+                    </h3>
+                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
+                      {project8.location}
+                    </p>
+                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
+                      {project8.desc}
+                    </p>
+                    <div className="pt-1.5">
+                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
+                        {project8.dateTag}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
           {/* Bottom Consultation Banner */}
-          <div className="mt-14 rounded-3xl bg-slate-900 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl">
+          <div className="mt-12 sm:mt-16 rounded-2xl bg-slate-950 p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl">
             <div className="space-y-1 text-center md:text-left">
               <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
-                WANT SIMILAR QUALITY FOR YOUR BUSINESS?
+                CUSTOM INDUSTRIAL FABRICATION &bull; KASNA
               </span>
               <h3 className="text-xl sm:text-2xl font-black">
                 Have a Signage or Printing Project in{" "}
@@ -319,58 +562,64 @@ export default function PortfolioPage() {
       </section>
 
       {/* Full-Screen Preview Lightbox Modal */}
-      {previewImage && (
+      {previewProject && (
         <div
           role="dialog"
           aria-modal="true"
-          onClick={() => setPreviewImage(null)}
+          onClick={() => setPreviewProject(null)}
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md transition-all cursor-pointer"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full rounded-3xl bg-slate-900 border border-slate-700 overflow-hidden shadow-2xl cursor-default flex flex-col md:flex-row"
+            className="relative max-w-4xl w-full rounded-2xl bg-slate-900 border border-slate-700 overflow-hidden shadow-2xl cursor-default flex flex-col md:flex-row"
           >
             {/* Close Button */}
             <button
               type="button"
-              onClick={() => setPreviewImage(null)}
+              onClick={() => setPreviewProject(null)}
               aria-label="Close preview"
-              className="absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-rose-600 transition-colors shadow-lg"
+              className="absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-rose-600 transition-colors shadow-lg cursor-pointer"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {/* Left: Image */}
-            <div className="relative aspect-[4/3] md:aspect-auto md:w-3/5 min-h-[300px] sm:min-h-[380px] bg-slate-950">
+            {/* Left: Image (Object-contain preserves exact natural dimensions) */}
+            <div className="relative w-full md:w-3/5 min-h-[300px] sm:min-h-[380px] md:min-h-[440px] bg-slate-950 flex items-center justify-center p-4">
               <Image
-                src={previewImage.src}
-                alt={previewImage.title}
+                src={previewProject.image}
+                alt={previewProject.title}
                 fill
-                className="object-contain p-2"
+                className="object-contain p-4 select-none"
                 sizes="(max-width: 768px) 100vw, 60vw"
                 priority
               />
               <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/20">
                 <Camera className="h-3 w-3 text-emerald-400" />
-                <span>{previewImage.tag}</span>
+                <span>{previewProject.formatTag}</span>
               </div>
             </div>
 
             {/* Right: Project Details & Action */}
             <div className="p-6 md:w-2/5 flex flex-col justify-between space-y-4 bg-slate-900 text-white">
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-                  {previewImage.client}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
+                    {previewProject.location}
+                  </span>
+                </div>
                 <h3 className="text-xl font-extrabold text-white leading-snug">
-                  {previewImage.title}
+                  {previewProject.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
-                  {previewImage.specs}
+                  {previewProject.desc}
                 </p>
                 <div className="pt-2 flex items-center gap-2 text-xs text-slate-400">
                   <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>Manufactured at Kasna Workshop, Greater Noida</span>
+                  <span>Kasna Workshop, Greater Noida</span>
+                </div>
+                <div className="pt-1 flex items-center gap-1.5 text-xs text-emerald-400 font-semibold">
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+                  <span>Authentic On-Site Installation</span>
                 </div>
               </div>
 
@@ -378,8 +627,8 @@ export default function PortfolioPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    const title = previewImage.title;
-                    setPreviewImage(null);
+                    const title = previewProject.title;
+                    setPreviewProject(null);
                     openQuoteModal(title);
                   }}
                   className="w-full flex items-center justify-center gap-2 rounded-xl bg-sky-600 hover:bg-sky-500 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-colors cursor-pointer"
@@ -389,7 +638,7 @@ export default function PortfolioPage() {
                 </button>
                 <a
                   href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20am%20interested%20in%20${encodeURIComponent(
-                    previewImage.title
+                    previewProject.title
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

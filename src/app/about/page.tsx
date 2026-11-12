@@ -72,11 +72,26 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col w-full">
-      {/* Page Header */}
-      <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
-        <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
+      {/* Header Banner */}
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
+        {/* Full Banner Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/contact_us_top.png"
+            alt="About Ravi Arts Enterprises - Kasna Greater Noida"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-right select-none"
+            quality={95}
+          />
+          {/* Subtle gradient to ensure flawless text contrast on all devices */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
+          <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 ABOUT OUR COMPANY
@@ -89,7 +104,7 @@ export default function AboutPage() {
                 Beyond
               </span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
               We are a dedicated team of printing technologists, signage fabricators,
               and visual branding experts helping businesses build standout identities across Greater Noida since 2005.
             </p>
@@ -231,12 +246,12 @@ export default function AboutPage() {
               return (
                 <div
                   key={val.title}
-                  className="rounded-2xl bg-white p-6 border border-sky-100 shadow-sm hover:shadow-md transition-shadow"
+                  className="group rounded-2xl bg-white p-6 border border-sky-100 shadow-sm hover:bg-sky-50/40 hover:border-sky-300 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${val.color} mb-4`}>
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${val.color} mb-4 group-hover:scale-110 transition-transform duration-300 shadow-2xs`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
                     {val.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">

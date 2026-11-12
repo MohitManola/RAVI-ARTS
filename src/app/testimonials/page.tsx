@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   ArrowRight,
   CheckCircle2,
-  MessageSquare,
   ExternalLink,
   ThumbsUp,
   Share2,
@@ -60,8 +59,6 @@ export default function TestimonialsPage() {
       rating: 5,
       date: "4 months ago",
       verified: true,
-      ownerResponse:
-        "Thank you so much Harshikha ji for your kind words! We are glad you loved our printing services and quality.",
     },
     {
       id: 2,
@@ -73,8 +70,6 @@ export default function TestimonialsPage() {
       rating: 5,
       date: "4 months ago",
       verified: true,
-      ownerResponse:
-        "Thank you Sunil ji! We appreciate your trust in Ravi Arts Enterprises for both printing and signage.",
     },
     {
       id: 3,
@@ -86,8 +81,6 @@ export default function TestimonialsPage() {
       rating: 5,
       date: "4 months ago",
       verified: true,
-      ownerResponse:
-        "Thank you for the wonderful feedback Sunil ji. Delivering top-tier signage across Greater Noida is our constant mission.",
     },
     {
       id: 4,
@@ -99,22 +92,17 @@ export default function TestimonialsPage() {
       rating: 5,
       date: "3 months ago",
       verified: true,
-      ownerResponse:
-        "Thank you Manoj ji! We always strive to provide the best work and service across Greater Noida.",
     },
     {
       id: 5,
       author: "Jyoti Enterprises",
       badge: "2 reviews",
       avatarBg: "bg-amber-600 text-white",
-      quote:
-        "A good place for signage works and art\nAnd the owner is so good well behavior..",
-      service: "Signage Works & Art",
+      quote: "The owner is so good and well behavior..",
+      service: "",
       rating: 5,
       date: "7 years ago",
       verified: true,
-      ownerResponse:
-        "Thank you so much Jyoti Enterprises! We have cherished working with you for over 7 years. Humble behavior, transparent dealing and top quality remain our core values.",
     },
     {
       id: 6,
@@ -123,14 +111,11 @@ export default function TestimonialsPage() {
       hasPhotos: true,
       photoCount: 7,
       avatarBg: "bg-rose-600 text-white",
-      quote:
-        "★★★★★ (Shared 7 photos of finished signage & printing works in Greater Noida). Superb finishing and reliable service.",
+      quote: "Superb finishing and reliable service.",
       service: "Signage & Print Portfolio",
       rating: 5,
       date: "4 months ago",
       verified: true,
-      ownerResponse:
-        "Thank you Ved ji for sharing photos of the work and leaving us a 5-star Google review!",
     },
     {
       id: 7,
@@ -139,13 +124,11 @@ export default function TestimonialsPage() {
       isLocalGuide: true,
       avatarBg: "bg-orange-500 text-white",
       quote:
-        "★★★★★ 5-star rating from Google Local Guide for outstanding printing, glow signs, and branding solutions in Kasna & Greater Noida.",
+        "Outstanding printing, glow signs, and branding solutions in Kasna & Greater Noida.",
       service: "Local Guide Verified",
       rating: 5,
       date: "5 years ago",
       verified: true,
-      ownerResponse:
-        "Thank you Gagan ji! As a Google Local Guide, your 5-star rating over the past 5 years means a lot to our entire team at Ravi Arts Enterprises.",
     },
   ];
 
@@ -181,7 +164,7 @@ export default function TestimonialsPage() {
 
       <div className="flex flex-col w-full">
         {/* Header Banner */}
-        <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
+        <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/testimonials_top.png"
@@ -195,7 +178,7 @@ export default function TestimonialsPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
+          <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
             <div className="max-w-xl md:max-w-2xl">
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
@@ -369,9 +352,13 @@ export default function TestimonialsPage() {
 
                     {/* Service Tag & Google Action Bar */}
                     <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
-                      <span className="inline-block rounded-md bg-sky-50 px-2 py-0.5 text-[11px] font-semibold text-sky-700 border border-sky-100">
-                        {rev.service}
-                      </span>
+                      {rev.service ? (
+                        <span className="inline-block rounded-md bg-sky-50 px-2 py-0.5 text-[11px] font-semibold text-sky-700 border border-sky-100">
+                          {rev.service}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
 
                       {/* Like & Share Action Buttons */}
                       <div className="flex items-center gap-1 text-slate-400">
@@ -410,19 +397,6 @@ export default function TestimonialsPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Owner Response Box */}
-                  {rev.ownerResponse && (
-                    <div className="rounded-2xl bg-slate-50 border border-slate-200/70 p-3.5 space-y-1 text-xs">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-[11px]">
-                        <MessageSquare className="h-3 w-3 text-sky-600" />
-                        <span>Response from the owner (Ravi Arts Enterprises)</span>
-                      </div>
-                      <p className="text-slate-600 leading-relaxed text-[11px]">
-                        {rev.ownerResponse}
-                      </p>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>

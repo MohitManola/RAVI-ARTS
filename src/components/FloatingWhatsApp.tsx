@@ -27,6 +27,8 @@ export default function FloatingWhatsApp() {
         aria-label="Chat on WhatsApp with Ravi Arts Enterprises"
         className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:bg-[#20ba59] hover:shadow-xl hover:shadow-[#25D366]/40 hover:scale-105 active:scale-95 transition-all duration-300 ring-2 ring-white/80"
       >
+        {/* Subtle breathing ripple glow matching call button */}
+        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none" />
         <WhatsAppIcon className="h-7 w-7 fill-white" />
       </a>
     </div>

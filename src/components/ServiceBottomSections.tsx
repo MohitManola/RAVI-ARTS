@@ -42,26 +42,31 @@ function CustomisedApproachIcon({ className }: { className?: string }) {
 export function WhyChooseRaviArts() {
   const features = [
     {
+      number: "01",
       icon: Gem,
       title: "Quality-Focused Work",
       desc: "Attention to materials, finishing, and presentation.",
     },
     {
+      number: "02",
       icon: Settings,
       title: "Complete Solutions",
       desc: "Printing, signage, and design services under one roof.",
     },
     {
+      number: "03",
       icon: CustomisedApproachIcon,
       title: "Customised Approach",
       desc: "Solutions tailored to your project and requirements.",
     },
     {
+      number: "04",
       icon: Users,
       title: "Reliable Communication",
       desc: "Clear coordination from enquiry to delivery.",
     },
     {
+      number: "05",
       icon: Lightbulb,
       title: "Business-Focused Creativity",
       desc: "Visual solutions designed around your brand.",
@@ -69,11 +74,11 @@ export function WhyChooseRaviArts() {
   ];
 
   return (
-    <section className="relative bg-[#f4f9fd] py-14 sm:py-16 md:py-20 border-t border-sky-100/80">
+    <section className="relative bg-[#eff7ff] py-14 sm:py-16 md:py-20 border-t border-sky-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header: Subhead & Title */}
-        <div className="space-y-2">
+        <div className="space-y-2 mb-10 sm:mb-12 max-w-2xl">
           <div className="inline-flex items-center gap-2">
             <span className="text-xs font-bold tracking-widest text-[#00a8ff] uppercase">
               WHY CHOOSE US
@@ -81,40 +86,43 @@ export function WhyChooseRaviArts() {
             <span className="cmyk-gradient-bar" />
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-[#07172d] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Why Choose Ravi Arts{" "}
             <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
               Enterprises?
             </span>
           </h2>
+          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+            Committed to quality, precision craftsmanship, and dependable service for every project.
+          </p>
         </div>
 
-        {/* 5 Feature Columns in a horizontal row with vertical dividers */}
-        <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200">
-          {features.map((item, idx) => {
+        {/* 5 Feature Columns in White Card Container with subtle dividers */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-sky-100 rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-sky-100">
+          {features.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`flex flex-col items-start ${idx === 0
-                    ? "lg:pr-6"
-                    : idx === features.length - 1
-                      ? "lg:pl-6"
-                      : "lg:px-6"
-                  }`}
+                className="p-5 sm:p-6 flex flex-col justify-start group hover:bg-sky-50/50 rounded-2xl transition-all duration-300 cursor-pointer"
               >
-                {/* Bare Cyan/Sky-Blue Icon */}
-                <div className="text-[#00a8ff]">
-                  <Icon className="h-8 w-8 sm:h-9 sm:w-9 stroke-[1.8]" />
+                {/* Icon in Light Blue Box matching Work Process Section */}
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-500 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 shadow-2xs">
+                  <Icon className="h-5 w-5 stroke-[1.8]" />
                 </div>
 
+                {/* Step / Feature Number */}
+                <span className="text-xs font-mono font-bold text-sky-600 uppercase tracking-widest mb-1.5">
+                  {item.number}
+                </span>
+
                 {/* Title */}
-                <h3 className="mt-4 sm:mt-5 text-sm sm:text-base font-extrabold text-[#07172d] leading-snug">
+                <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors mb-2 leading-snug">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-2 text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

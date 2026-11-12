@@ -337,23 +337,38 @@ function ServicesContent() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-20 text-white">
-        <div className="pointer-events-none absolute -top-24 right-1/4 h-96 w-96 rounded-full bg-sky-500/15 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
+        {/* Full Banner Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/contact_us_top.png"
+            alt="Complete Print and Signage Capabilities - Ravi Arts Enterprises"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-right select-none"
+            quality={95}
+          />
+          {/* Subtle gradient to ensure flawless text contrast on all devices */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
+          <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 COMPLETE PRINT &amp; SIGNAGE CAPABILITIES
               </span>
               <span className="cmyk-gradient-bar" />
             </div>
-            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
+            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
               Everything You Need, Under{" "}
-              <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
                 One Roof
               </span>
             </h1>
-            <p className="mt-4 text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
               Explore our full range of industrial printing, commercial offset,
               architectural sign fabrication, and creative branding services in Kasna, Greater Noida.
             </p>

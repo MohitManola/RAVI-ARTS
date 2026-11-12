@@ -35,7 +35,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 export default function HomePage() {
   const { openQuoteModal } = useQuote();
 
-  // Authentic Google Reviews for slider
+  // Authentic Google Reviews for slider (synchronized with /testimonials)
   const testimonials = [
     {
       id: 1,
@@ -55,6 +55,14 @@ export default function HomePage() {
     },
     {
       id: 3,
+      quote: "Good signage services in greater noida",
+      author: "Sunil Rajak",
+      role: "Google Review • 1 review • 4 months ago",
+      avatarBg: "bg-sky-600 text-white",
+      rating: 5,
+    },
+    {
+      id: 4,
       quote: "Best work in greater noida",
       author: "Manoj Kumar",
       role: "Google Review • 1 review • 3 months ago",
@@ -62,27 +70,25 @@ export default function HomePage() {
       rating: 5,
     },
     {
-      id: 4,
-      quote:
-        "A good place for signage works and art. And the owner is so good well behavior..",
+      id: 5,
+      quote: "The owner is so good and well behavior..",
       author: "Jyoti Enterprises",
       role: "Google Review • 2 reviews • 7 years ago",
       avatarBg: "bg-amber-600 text-white",
       rating: 5,
     },
     {
-      id: 5,
-      quote:
-        "Good signage services in greater noida. Top quality fabrication and quick delivery.",
-      author: "Sunil Rajak",
-      role: "Google Review • 1 review • 4 months ago",
-      avatarBg: "bg-sky-600 text-white",
+      id: 6,
+      quote: "Superb finishing and reliable service.",
+      author: "Ved Sharma",
+      role: "Google Review • 7 photos • 4 months ago",
+      avatarBg: "bg-rose-600 text-white",
       rating: 5,
     },
     {
-      id: 6,
+      id: 7,
       quote:
-        "5-star rating from Google Local Guide for outstanding printing, glow sign boards, and signage solutions in Kasna & Greater Noida.",
+        "Outstanding printing, glow signs, and branding solutions in Kasna & Greater Noida.",
       author: "Gagan Tyagi",
       role: "Local Guide • 15 reviews • 12 photos • 5 years ago",
       avatarBg: "bg-orange-500 text-white",
@@ -182,25 +188,29 @@ export default function HomePage() {
       title: "AirTree Signage & Storefront Branding",
       category: "SIGNAGE",
       desc: "Architectural 3D board & illuminated storefront banner installation.",
-      image: "/images/work/airtree.jpeg",
+      image: "/images/work/airtree-showcase.png",
+      aspect: "aspect-[2/1]",
     },
     {
       title: "Fitness Center Exterior Sign & Banners",
       category: "LARGE FORMAT",
       desc: "Heavy-duty outdoor flex & high-impact visual facade branding.",
-      image: "/images/work/fitness.jpeg",
+      image: "/images/work/fitness-cafe.png",
+      aspect: "aspect-[2/1]",
     },
     {
-      title: "Gym 3D Acrylic Letters & Glow Sign",
-      category: "SIGNAGE",
-      desc: "Waterproof illuminated LED letters with laser-cut acrylic precision.",
-      image: "/images/work/jym.jpeg",
+      title: "Kakkar Chaap Backlit Glow Signboard",
+      category: "GLOW SIGN",
+      desc: "High-luminance weatherproof LED signage with structural MS framing.",
+      image: "/images/work/kakkar-chaap.png",
+      aspect: "aspect-[3/2]",
     },
     {
-      title: "Modern Kitchen & Interior Visual Branding",
-      category: "BRANDING",
-      desc: "Custom indoor graphics, self-adhesive vinyl & acrylic display.",
-      image: "/images/work/kitchen.jpeg",
+      title: "RDX Nutrition Glossy Gold 3D Sign",
+      category: "3D LETTERS",
+      desc: "Precision laser-cut golden mirror finish letters with halo lighting.",
+      image: "/images/work/rdx-gold-sign.png",
+      aspect: "aspect-[3/1]",
     },
   ];
 
@@ -450,7 +460,7 @@ export default function HomePage() {
               <div>
                 <div className="inline-flex items-center gap-2 mb-2">
                   <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
-                    CLIENT TESTIMONIALS
+                    100% GENUINE GOOGLE REVIEWS
                   </span>
                   <span className="cmyk-gradient-bar" />
                 </div>
@@ -461,7 +471,7 @@ export default function HomePage() {
                   </span>
                 </h2>
                 <p className="mt-1 text-sm text-slate-600">
-                  Trusted by businesses, brands and individuals across Kasna, Greater Noida and beyond. <Link href="/testimonials" className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-700 ml-2 underline">View all Google reviews →</Link>
+                  Read authentic Google reviews from real customers who trusted Ravi Arts Enterprises for flex banners, glow signs, 3D acrylic letters, and business printing in Kasna, Greater Noida. <Link href="/testimonials" className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-700 ml-2 underline">View all Google reviews →</Link>
                 </p>
               </div>
 

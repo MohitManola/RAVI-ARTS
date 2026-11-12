@@ -123,8 +123,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           telephone: "+91-9350036399",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Near Republic Honda, Opp. HDFC Bank, Main Road Kasna",
-            addressLocality: "Greater Noida",
+            streetAddress: "Kasna",
+            addressLocality: "Greater Noida/Delhi NCR",
             addressRegion: "Uttar Pradesh",
             postalCode: "201310",
             addressCountry: "IN",

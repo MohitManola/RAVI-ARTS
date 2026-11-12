@@ -207,7 +207,7 @@ export const searchCatalog: SearchItem[] = [
     title: "Contact Us & Location Map",
     category: "Pages",
     badge: "Contact",
-    desc: "Opp. HDFC Bank, Near Republic Honda, Kasna, Greater Noida. Phone & WhatsApp.",
+    desc: "Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310. Phone & WhatsApp.",
     href: "/contact",
     keywords: ["contact", "phone", "address", "location", "email", "map", "kasna"],
   },

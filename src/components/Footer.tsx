@@ -219,7 +219,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-amber-300 transition-colors leading-snug"
                 >
-                  Kasna, Greater Noida, UP - 201310
+                  Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310
                 </a>
               </div>
             </div>

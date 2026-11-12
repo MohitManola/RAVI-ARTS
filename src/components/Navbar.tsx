@@ -113,7 +113,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 title="View Kasna Workshop on Google Maps"
               >
                 <MapPin className="h-3.5 w-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
-                <span>Near Republic Honda, Opp. HDFC Bank, Kasna, Gr. Noida</span>
+                <span>Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310</span>
               </a>
             </div>
             <div className="flex items-center gap-4">

@@ -13,8 +13,9 @@ import {
   Loader2,
   HelpCircle,
   Sparkles,
-  } from "lucide-react";
+} from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import ContactAiBot from "@/components/ContactAiBot";
 
 
 export default function ContactPage() {
@@ -41,7 +42,7 @@ export default function ContactPage() {
   const faqs = [
     {
       q: "Where is your workshop located in Kasna?",
-      a: "Our workshop and customer reception is located Near Republic honda showroom, Opp. HDFC Bank main road Kasna, Gr. Noida, U.P 201310. You are welcome to visit us during business hours (9:30 AM to 6:30 PM) to inspect physical print media and acrylic samples.",
+      a: "Our workshop and customer reception is located at Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310. You are welcome to visit us during business hours (9:30 AM to 6:30 PM) to inspect physical print media and acrylic samples.",
     },
     {
       q: "Can you deliver and install signboards across Greater Noida and Noida?",
@@ -112,7 +113,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
+      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
         {/* Full Banner Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -129,7 +130,7 @@ export default function ContactPage() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
           <div className="max-w-xl md:max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
@@ -280,7 +281,7 @@ export default function ContactPage() {
                       </span>
                     </div>
                     <span className="text-sm font-bold text-slate-900 block leading-snug group-hover:text-sky-600 transition-colors mt-0.5">
-                      Near Republic honda showroom, Opp. HDFC Bank main road Kasna, Gr. Noida, U.P 201310
+                      Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310
                     </span>
                   </div>
                 </a>
@@ -369,11 +370,10 @@ export default function ContactPage() {
                             setFormData({ ...formData, name: e.target.value })
                           }
                           placeholder="e.g. Rahul Verma"
-                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${
-                            errors.name
-                              ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
-                              : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-                          }`}
+                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${errors.name
+                            ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            }`}
                         />
                         {errors.name && (
                           <p className="mt-1 flex items-center gap-1 text-xs text-rose-600">
@@ -395,11 +395,10 @@ export default function ContactPage() {
                             setFormData({ ...formData, phone: e.target.value })
                           }
                           placeholder="10-digit mobile number"
-                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${
-                            errors.phone
-                              ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
-                              : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-                          }`}
+                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${errors.phone
+                            ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            }`}
                         />
                         {errors.phone && (
                           <p className="mt-1 flex items-center gap-1 text-xs text-rose-600">
@@ -423,11 +422,10 @@ export default function ContactPage() {
                             setFormData({ ...formData, email: e.target.value })
                           }
                           placeholder="name@business.com"
-                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${
-                            errors.email
-                              ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
-                              : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-                          }`}
+                          className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${errors.email
+                            ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                            : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            }`}
                         />
                         {errors.email && (
                           <p className="mt-1 flex items-center gap-1 text-xs text-rose-600">
@@ -508,11 +506,10 @@ export default function ContactPage() {
                           setFormData({ ...formData, message: e.target.value })
                         }
                         placeholder="Please describe your requirements, timeline, or design details..."
-                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${
-                          errors.message
-                            ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
-                            : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-                        }`}
+                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none transition-all ${errors.message
+                          ? "border-rose-400 bg-rose-50/30 focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
+                          : "border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                          }`}
                       />
                       {errors.message && (
                         <p className="mt-1 flex items-center gap-1 text-xs text-rose-600">
@@ -551,13 +548,73 @@ export default function ContactPage() {
       </section>
 
       {/* =========================================================================
-          FAQ SECTION (Clean, centered, modern accordion)
+          GOOGLE MAP LOCATION SECTION
          ========================================================================= */}
+      <section className="py-12 sm:py-16 bg-white border-t border-sky-100/60">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                  WORKSHOP LOCATION
+                </span>
+                <span className="cmyk-gradient-bar" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Visit Our Workshop in{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Kasna, Greater Noida
+                </span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+                Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310.
+                Open Monday to Saturday, 9:30 AM to 6:30 PM.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://maps.google.com/?cid=16584880572522717071"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-all shadow-xs"
+              >
+                <MapPin className="h-3.5 w-3.5 text-rose-400" />
+                <span>Get Driving Directions</span>
+              </a>
+              <a
+                href="tel:+919350036399"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all shadow-xs"
+              >
+                <Phone className="h-3.5 w-3.5 text-sky-600" />
+                <span>Call +91 93500 36399</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Embedded Google Map */}
+          <div className="relative w-full h-[380px] sm:h-[460px] rounded-3xl overflow-hidden border border-slate-200/90 shadow-lg bg-slate-100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.331024259717!2d77.5394239!3d28.439436099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc13bec362d6f%3A0xe628e6fbd393df8f!2sRavi%20Arts%20Enterprises!5e0!3m2!1sen!2sin!4v1793943161039!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Ravi Arts Enterprises Location Map"
+              className="w-full h-full"
+            />
+          </div>
+
+        </div>
+      </section>
       <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto space-y-2">
+          <div className="text-center max-w-3xl mx-auto space-y-2 mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-2">
               <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
                 GOT QUESTIONS?
@@ -565,65 +622,80 @@ export default function ContactPage() {
               <span className="cmyk-gradient-bar" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Frequently Asked{" "}
+              Frequently Asked Questions &amp;{" "}
               <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
-                Questions
+                Live Assistant
               </span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Find quick answers to common queries about delivery, file formats, turnaround times, and sign installations in Kasna.
+              Find quick answers on the left or chat with our live interactive assistant on the right for instant guidance.
             </p>
           </div>
 
-          {/* FAQ Accordion List */}
-          <div className="space-y-3.5 mt-10">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  openFaq === idx
-                    ? "border-sky-300 bg-white shadow-md ring-1 ring-sky-300/30"
-                    : "border-sky-100 bg-white hover:border-sky-200 shadow-2xs hover:shadow-xs"
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="group flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-sm sm:text-base cursor-pointer"
-                >
-                  <span className="pr-4 transition-colors group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:via-rose-600 group-hover:to-amber-500 group-hover:bg-clip-text group-hover:text-transparent">
-                    {faq.q}
-                  </span>
-                  <div
-                    className={`flex h-8 w-8 items-center justify-center rounded-full transition-all shrink-0 ${
-                      openFaq === idx
-                        ? "bg-sky-500 text-white rotate-180"
-                        : "bg-sky-500 text-white group-hover:bg-sky-600"
-                    }`}
-                  >
-                    <svg
-                      aria-hidden="true"
-                      viewBox="0 0 24 24"
-                      className="h-4 w-4"
-                    >
-                      <path
-                        d="m6 9 6 6 6-6"
-                        fill="none"
-                        stroke="white"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50 bg-sky-50/20">
-                    {faq.a}
-                  </div>
-                )}
+          {/* 2-Column Grid: FAQ Left, Chatbot Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Left Side: FAQ Accordion */}
+            <div className="lg:col-span-6 space-y-3.5">
+              <div className="flex items-center gap-2 pb-1 text-slate-800">
+                <HelpCircle className="h-4 w-4 text-sky-600" />
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Quick Answers &amp; Workshop FAQs
+                </span>
               </div>
-            ))}
+              <div className="space-y-3.5 mt-2">
+                {faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openFaq === idx
+                      ? "border-sky-300 bg-white shadow-md ring-1 ring-sky-300/30"
+                      : "border-sky-100 bg-white hover:border-sky-200 shadow-2xs hover:shadow-xs"
+                      }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                      className="group flex w-full items-center justify-between p-4 sm:p-5 text-left font-bold text-slate-900 text-sm sm:text-base cursor-pointer"
+                    >
+                      <span className="pr-4 transition-colors group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:via-rose-600 group-hover:to-amber-500 group-hover:bg-clip-text group-hover:text-transparent">
+                        {faq.q}
+                      </span>
+                      <div
+                        className={`flex h-8 w-8 items-center justify-center rounded-full transition-all shrink-0 ${openFaq === idx
+                          ? "bg-sky-500 text-white rotate-180"
+                          : "bg-sky-500 text-white group-hover:bg-sky-600"
+                          }`}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          className="h-4 w-4"
+                        >
+                          <path
+                            d="m6 9 6 6 6-6"
+                            fill="none"
+                            stroke="white"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                    {openFaq === idx && (
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50 bg-sky-50/20">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Right Side: Live Interactive Chatbot */}
+            <div className="lg:col-span-6 sticky top-28">
+              <ContactAiBot />
+            </div>
           </div>
 
           {/* Bottom Help Banner */}
