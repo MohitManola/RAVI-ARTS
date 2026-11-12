@@ -130,7 +130,7 @@ export default function ContactAiBot() {
           <div>
             <div className="flex items-center gap-1.5">
               <h3 className="font-extrabold text-sm sm:text-base leading-tight text-white tracking-tight">
-                Ravi Arts AI
+                Ravi Arts Enterprises AI
               </h3>
               <span className="inline-flex items-center rounded-full bg-sky-500/20 text-sky-300 px-1.5 py-0.2 text-[10px] font-semibold border border-sky-400/30">
                 Online
@@ -162,28 +162,25 @@ export default function ContactAiBot() {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex items-start gap-2.5 animate-in fade-in duration-200 ${
-              msg.sender === "user" ? "flex-row-reverse" : ""
-            }`}
+            className={`flex items-start gap-2.5 animate-in fade-in duration-200 ${msg.sender === "user" ? "flex-row-reverse" : ""
+              }`}
           >
             {/* Avatar */}
             <div
-              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold shadow-2xs ${
-                msg.sender === "user"
+              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold shadow-2xs ${msg.sender === "user"
                   ? "bg-slate-900 text-white"
                   : "bg-sky-600 text-white"
-              }`}
+                }`}
             >
               {msg.sender === "user" ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
             </div>
 
             {/* Bubble */}
             <div
-              className={`max-w-[85%] sm:max-w-[80%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed ${
-                msg.sender === "user"
+              className={`max-w-[85%] sm:max-w-[80%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed ${msg.sender === "user"
                   ? "bg-slate-900 text-white rounded-tr-xs shadow-xs font-medium"
                   : "bg-white text-slate-800 border border-slate-200/80 rounded-tl-xs shadow-xs space-y-3 font-semibold"
-              }`}
+                }`}
             >
               <p>{msg.text}</p>
 
@@ -196,11 +193,10 @@ export default function ContactAiBot() {
                       href={act.href}
                       target={act.type === "whatsapp" ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${
-                        act.type === "whatsapp"
+                      className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${act.type === "whatsapp"
                           ? "bg-[#25D366] text-white hover:bg-[#20ba59]"
                           : "bg-slate-900 text-white hover:bg-slate-800"
-                      }`}
+                        }`}
                     >
                       {act.type === "whatsapp" ? (
                         <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
@@ -215,9 +211,8 @@ export default function ContactAiBot() {
               )}
 
               <span
-                className={`block text-[10px] pt-1 font-normal ${
-                  msg.sender === "user" ? "text-slate-400 text-right" : "text-slate-400"
-                }`}
+                className={`block text-[10px] pt-1 font-normal ${msg.sender === "user" ? "text-slate-400 text-right" : "text-slate-400"
+                  }`}
               >
                 {msg.time}
               </span>
@@ -233,7 +228,7 @@ export default function ContactAiBot() {
               <span className="h-2 w-2 rounded-full bg-sky-500 animate-bounce [animation-delay:-0.15s]" />
               <span className="h-2 w-2 rounded-full bg-sky-500 animate-bounce" />
             </div>
-            <span className="text-[11px] font-medium text-slate-400">Ravi Arts AI is typing...</span>
+            <span className="text-[11px] font-medium text-slate-400">Ravi Arts Enterprises AI is typing...</span>
           </div>
         )}
       </div>
