@@ -141,7 +141,7 @@ export default function AboutPage() {
                       <span className="font-bold block text-sm group-hover:text-sky-300 transition-colors">
                         Kasna Workshop Facility
                       </span>
-                      <span className="text-slate-400">Near Republic Honda, Opp. HDFC Bank, Kasna</span>
+                      <span className="text-slate-400">Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310</span>
                     </div>
                   </div>
                   <span className="text-[11px] font-semibold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-full border border-sky-800 group-hover:border-sky-500 transition-colors">
@@ -296,7 +296,7 @@ export default function AboutPage() {
               <div className="relative overflow-hidden rounded-3xl bg-slate-100 shadow-2xl border border-slate-200">
                 <div className="relative aspect-[16/10] w-full">
                   <Image
-                    src="/images/services/Offset&DigitalPrinting.PNG"
+                    src="/images/ModernIndustrialPri.png"
                     alt="Ravi Arts High-Tech Industrial Printing Machinery"
                     fill
                     className="object-cover"

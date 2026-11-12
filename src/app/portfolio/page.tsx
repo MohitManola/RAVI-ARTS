@@ -1,653 +1,515 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  ArrowRight,
-  X,
-  ZoomIn,
-  Camera,
-  MapPin,
   Sparkles,
+  ArrowRight,
+  ChevronRight,
+  ZoomIn,
+  X,
+  ChevronLeft,
+  Phone,
+  MapPin,
+  Layers,
+  CheckCircle2,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import { useQuote } from "@/context/QuoteContext";
+
+type PortfolioCategory =
+  | "All Work"
+  | "Signage & 3D Letters"
+  | "Outdoor & Flex"
+  | "Commercial Print";
 
 interface ProjectItem {
   id: string;
   title: string;
+  category: Exclude<PortfolioCategory, "All Work">;
+  tag: string;
   location: string;
-  desc: string;
-  dateTag: string;
+  specs: string;
+  description: string;
   image: string;
-  aspectClass: string;
-  formatTag: string;
+  featured?: boolean;
+  wide?: boolean;
 }
 
-export default function PortfolioPage() {
-  const { openQuoteModal } = useQuote();
-  const [previewProject, setPreviewProject] = useState<ProjectItem | null>(null);
+const CATEGORIES: PortfolioCategory[] = [
+  "All Work",
+  "Signage & 3D Letters",
+  "Outdoor & Flex",
+  "Commercial Print",
+];
 
-  // 1. AirTree Retail Storefront: 1350 x 752 -> 16:9 Wide Storefront Ratio
-  const project1: ProjectItem = {
-    id: "airtree",
-    title: "AirTree Retail Storefront Signage",
-    location: "Kasna Commercial Belt • Greater Noida",
-    desc: "Architectural storefront fascia with 3D illuminated acrylic channel letters mounted on matte composite panel.",
-    dateTag: "Livraison hiver 2025",
+const PROJECTS: ProjectItem[] = [
+  {
+    id: "airtree-signage",
+    title: "AirTree Electronics Backlit Fascia",
+    category: "Signage & 3D Letters",
+    tag: "3D Acrylic LED Board",
+    location: "Greater Noida",
+    specs: "ACP Cladding • Laser-Cut 3D Acrylic • Waterproof LEDs",
+    description:
+      "Full storefront elevation engineered with CNC-routed ACP panels and high-lumen 3D illuminated acrylic channel lettering built for 24/7 visibility.",
     image: "/images/work/airtree.jpeg",
-    aspectClass: "aspect-[16/9]",
-    formatTag: "Storefront Facade (16:9)",
-  };
-
-  // 2. Kakkar Chaap Glow Sign: 1200 x 634 -> 16:9 Backlit Sign Ratio
-  const project2: ProjectItem = {
-    id: "kakkar-chaap",
-    title: "Kakkar Chaap Backlit Glow Sign",
-    location: "Commercial Hub • Greater Noida",
-    desc: "High-luminance backlit LED flex signboard with heavy-gauge galvanized iron structural framing.",
-    dateTag: "Livraison \u00e9t\u00e9 2025",
-    image: "/images/work/kitchen.jpeg",
-    aspectClass: "aspect-[16/9]",
-    formatTag: "LED Lightbox (16:9)",
-  };
-
-  // 3. Fitness First Cafe Facade: 1599 x 899 -> Exact 16:9 Architectural Ratio
-  const project3: ProjectItem = {
-    id: "fitness-facade",
-    title: "Fitness First Commercial Facade",
-    location: "Commercial Sector • Greater Noida West",
-    desc: "Large-format outdoor commercial facade branding with heavy-duty structural iron framing and high-gauge flex.",
-    dateTag: "Livraison automne 2024",
+    featured: true,
+  },
+  {
+    id: "fitness-cafe-sign",
+    title: "Fitness First Nutrition Cafe Frontage",
+    category: "Signage & 3D Letters",
+    tag: "Storefront Glow Signage",
+    location: "Alpha Commercial Belt",
+    specs: "Matte ACP Base • Edge-Lit Acrylic • Weatherproof Frame",
+    description:
+      "Crisp high-contrast storefront signage board with uniform internal LED illumination and precision vinyl brand accents.",
     image: "/images/work/fitness.jpeg",
-    aspectClass: "aspect-[16/9]",
-    formatTag: "Architectural Facade (16:9)",
-  };
-
-  // 4. Large Format Flex Printing: 1448 x 1086 -> 4:3 Ratio
-  const project4: ProjectItem = {
-    id: "star-flex",
-    title: "Outdoor Star Flex Hoarding",
-    location: "Yamuna Expressway • Greater Noida",
-    desc: "Heavy-duty structural truss hoarding with 540 GSM frontlit banner engineered for high wind and monsoon resistance.",
-    dateTag: "Livraison \u00e9t\u00e9 2024",
-    image: "/images/services/flex&LargeFormatePrinting.PNG",
-    aspectClass: "aspect-[4/3]",
-    formatTag: "Outdoor Hoarding (4:3)",
-  };
-
-  // 5. LED Glow Signs & Storefronts: 1448 x 1086 -> 4:3 Ratio
-  const project5: ProjectItem = {
-    id: "sign-boards",
-    title: "LED Glow Signs & Storefronts",
-    location: "Pari Chowk • Greater Noida",
-    desc: "Samsung LED illuminated shopfront signage with composite ACP cladding and weather-sealed modules.",
-    dateTag: "Livraison hiver 2025",
-    image: "/images/services/SignBoards&Signage.PNG",
-    aspectClass: "aspect-[4/3]",
-    formatTag: "ACP Cladding (4:3)",
-  };
-
-  // 6. 3D Metal & Acrylic Letter Signs: 1448 x 1086 -> 4:3 Ratio
-  const project6: ProjectItem = {
-    id: "acrylic-letters",
-    title: "3D Metal & Acrylic Letter Signs",
-    location: "Knowledge Park • Greater Noida",
-    desc: "Titanium gold and brushed metallic 3D signage with warm halo backlighting engineered for corporate lobbies.",
-    dateTag: "Livraison \u00e9t\u00e9 2025",
-    image: "/images/services/Acrylic&3dLetterBoards.PNG",
-    aspectClass: "aspect-[4/3]",
-    formatTag: "3D Titanium Letters (4:3)",
-  };
-
-  // 7. RDX Nutrition Glossy Gold Sign: 1600 x 674 -> ~12:5 Ultra-Wide Panoramic Signboard Ratio
-  const project7: ProjectItem = {
-    id: "rdx-gold",
-    title: "RDX Nutrition Glossy Gold Sign",
-    location: "Ecotech Kasna • Greater Noida",
-    desc: "Precision CNC laser-cut golden mirror finish 3D acrylic letters with waterproof halo backlit LED module.",
-    dateTag: "Livraison \u00e9t\u00e9 2024",
+    featured: true,
+  },
+  {
+    id: "kitchen-branding",
+    title: "Modular Kitchen Showroom Display",
+    category: "Outdoor & Flex",
+    tag: "Showroom Branding & Vinyl",
+    location: "Kasna & Pari Chowk",
+    specs: "Eco-Solvent Matte Vinyl • Sunboard Mounts • Fascia Board",
+    description:
+      "Complete interior and exterior display branding combining crisp large-format eco-solvent wall graphics and custom signage.",
+    image: "/images/work/kitchen.jpeg",
+    featured: true,
+  },
+  {
+    id: "jym-fascia-wrap",
+    title: "Fitness Club Full Panoramic Hoarding",
+    category: "Outdoor & Flex",
+    tag: "Wide-Format Fascia & Flex",
+    location: "Greater Noida West",
+    specs: "Heavy-Duty Star Flex • MS Box Truss • Custom LED Floods",
+    description:
+      "Extra-wide storefront banner and rigid steel framing built to withstand harsh NCR weather without color fade or sag.",
     image: "/images/work/jym.jpeg",
-    aspectClass: "aspect-[12/5]",
-    formatTag: "Panoramic Fascia (12:5)",
-  };
+    featured: true,
+    wide: true,
+  },
+  {
+    id: "kakkar-chaap-board",
+    title: "Restaurant Menu & Glow Sign Installation",
+    category: "Signage & 3D Letters",
+    tag: "Backlit Menu & Sign Board",
+    location: "Gamma Sector, Greater Noida",
+    specs: "Translit Backlit Flex • Heavy Aluminium Profile • LED Modules",
+    description:
+      "High-brightness backlit display and counter menu branding designed to attract evening footfall cleanly.",
+    image: "/images/work/kakkar-chaap.png",
+  },
+  {
+    id: "corporate-brochures",
+    title: "Industrial Product Catalogues & Brochures",
+    category: "Commercial Print",
+    tag: "Multi-Color Offset Print",
+    location: "Kasna Industrial Area",
+    specs: "300 GSM Art Card Cover • 170 GSM Inside • Matte Lamination",
+    description:
+      "Sharp 4-color offset product catalogues printed and center-pinned in-house for Greater Noida manufacturing plants.",
+    image: "/images/portfolio-brochure.webp",
+  },
+  {
+    id: "premium-visiting-cards",
+    title: "Spot UV & Velvet Laminated Business Cards",
+    category: "Commercial Print",
+    tag: "Executive Stationery",
+    location: "Delhi NCR Corporates",
+    specs: "350–400 GSM Stock • Velvet Soft-Touch • Raised Spot UV",
+    description:
+      "Executive visiting cards, matching letterheads, and carbonless bill books finished with crisp die-cut edges.",
+    image: "/images/portfolio-cards.webp",
+  },
+  {
+    id: "corporate-apparel-kits",
+    title: "Custom Printed T-Shirts & Event Merchandise",
+    category: "Commercial Print",
+    tag: "Corporate Gifts & Apparel",
+    location: "Educational & Factory Teams",
+    specs: "DTF & Screen Printing • Ceramic Mugs • Custom Brand Kits",
+    description:
+      "Durable logo-printed polos, event T-shirts, mugs, and onboarding gift sets tailored for bulk staff orders.",
+    image: "/images/portfolio-tshirt.webp",
+  },
+];
 
-  // 8. Luxury Corporate Stationery: 1448 x 1086 -> 4:3 Ratio
-  const project8: ProjectItem = {
-    id: "visiting-cards",
-    title: "Luxury Corporate Stationery",
-    location: "Corporate Desk • Kasna",
-    desc: "350 GSM luxury art card stock with raised spot UV coating, foil stamping, and velvet thermal lamination.",
-    dateTag: "Livraison hiver 2025",
-    image: "/images/services/VisitingCards&BusinessStationary.PNG",
-    aspectClass: "aspect-[4/3]",
-    formatTag: "Premium Print (4:3)",
-  };
+export default function PortfolioPage() {
+  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("All Work");
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
+
+  const filteredProjects =
+    activeCategory === "All Work"
+      ? PROJECTS
+      : PROJECTS.filter((item) => item.category === activeCategory);
+
+  const previewProject = previewIndex !== null ? filteredProjects[previewIndex] ?? null : null;
+
+  const handleNext = useCallback(() => {
+    if (previewIndex === null || filteredProjects.length === 0) return;
+    setPreviewIndex((previewIndex + 1) % filteredProjects.length);
+  }, [previewIndex, filteredProjects.length]);
+
+  const handlePrev = useCallback(() => {
+    if (previewIndex === null || filteredProjects.length === 0) return;
+    setPreviewIndex((previewIndex - 1 + filteredProjects.length) % filteredProjects.length);
+  }, [previewIndex, filteredProjects.length]);
+
+  useEffect(() => {
+    if (previewIndex === null) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setPreviewIndex(null);
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [previewIndex, handleNext, handlePrev]);
 
   return (
-    <div className="flex flex-col w-full bg-white text-slate-900 min-h-screen">
-      {/* Top Banner - Standardized across all pages */}
+    <div className="flex flex-col w-full bg-[#f8fafc]">
+      {/* Dark Top Hero Banner matching our_work_top.png */}
       <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
-        {/* Full Banner Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/our_work_top.png"
-            alt="Our Work & Project Portfolio - Ravi Arts Enterprises"
+            alt="Ravi Arts Enterprises Our Portfolio Showcase"
             fill
             priority
             sizes="100vw"
             className="object-cover object-right select-none"
             quality={95}
           />
-          {/* Contrast gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/55 sm:to-transparent" />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-          <div className="max-w-xl md:max-w-2xl">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-                PORTFOLIO ARCHIVE
-              </span>
-              <span className="cmyk-gradient-bar" />
-            </div>
-            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Our Recent{" "}
-              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
-                Work
-              </span>
+        <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <nav className="flex items-center gap-2 text-xs text-slate-300 font-medium mb-4">
+            <Link href="/" className="hover:text-sky-300 transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-slate-500" />
+            <span className="text-sky-300 font-semibold">Our Work</span>
+          </nav>
+
+          <div className="max-w-2xl space-y-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-sky-300">
+              <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+              OUR PORTFOLIO &bull; RECENT WORK
+            </span>
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
+              Recent Print &amp; <span className="text-sky-400">Signage Work</span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-              Authentic completed signboards, hoardings, 3D letters, and commercial printing installations delivered across Greater Noida.
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-medium">
+              Real storefront LED boards, heavy-duty flex installations, and commercial offset prints delivered by our Kasna workshop across Greater Noida &amp; Delhi NCR.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* EDITORIAL MAGAZINE SPREAD (Faithfully matching uploaded Agenda lookbook) */}
-      {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      {/* Main Portfolio Filter & Gallery */}
+      <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          {/* Magazine Spread Outer Box */}
-          <div className="relative bg-white border border-neutral-200/60 p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_24px_rgba(0,0,0,0.04)]">
-            
-            {/* Top Spread Bar */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 sm:pb-12 border-b border-neutral-100">
-              <div>
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 font-sans">
-                  Agenda
-                </h2>
-                <p className="text-xs sm:text-[13px] text-neutral-400 font-normal tracking-wide mt-1.5">
-                  8 r&eacute;alisations r&eacute;centes en cours, livr&eacute;es en 2024-2025-2026 &bull; Greater Noida
-                </p>
-              </div>
-              <div className="self-start sm:self-auto">
-                <div className="inline-flex items-center bg-black text-white px-3 py-1 text-[11px] font-black tracking-widest uppercase">
-                  <span>RAVI ARTS</span>
-                  <span className="ml-1.5 text-neutral-400 font-light text-[10px]">63</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Two-Facing Page Grid (Left Page + Right Page) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 pt-8 sm:pt-12 items-start">
-              
-              {/* ============================================================ */}
-              {/* LEFT PAGE SPREAD                                             */}
-              {/* ============================================================ */}
-              <div className="space-y-10 lg:space-y-12">
-                
-                {/* 1. Villa Kogelhofun Position (AirTree: Text on left, 2:1 wide photo on right) */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                  <div className="sm:col-span-6 space-y-1 pr-2">
-                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                      {project1.title}
-                    </h3>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project1.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                      {project1.desc}
-                    </p>
-                    <div className="pt-1.5">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project1.dateTag}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-6">
-                    <div
-                      onClick={() => setPreviewProject(project1)}
-                      className={`group relative ${project1.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
-                    >
-                      <Image
-                        src={project1.image}
-                        alt={project1.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. Glebe House Position (Kakkar Chaap: Text on left, 3:2 photo on right) */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                  <div className="sm:col-span-6 space-y-1 pr-2">
-                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                      {project2.title}
-                    </h3>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project2.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                      {project2.desc}
-                    </p>
-                    <div className="pt-1.5">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project2.dateTag}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-6">
-                    <div
-                      onClick={() => setPreviewProject(project2)}
-                      className={`group relative ${project2.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
-                    >
-                      <Image
-                        src={project2.image}
-                        alt={project2.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. Centerpiece Large Architectural Photo (Fitness First Cafe: 2:1 Wide Facade) */}
-                <div className="space-y-2 pt-2">
-                  <div
-                    onClick={() => setPreviewProject(project3)}
-                    className={`group relative ${project3.aspectClass} w-full overflow-hidden bg-neutral-100 cursor-pointer`}
-                  >
-                    <Image
-                      src={project3.image}
-                      alt={project3.title}
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 48vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1 pt-1">
-                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                      {project3.title}
-                    </h3>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project3.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-0.5">
-                      {project3.desc}
-                    </p>
-                    <div className="pt-1">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project3.dateTag}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. Werkhaus Position (Large Format Flex: Text on left, 4:3 photo on right) */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
-                  <div className="sm:col-span-7 space-y-1 pr-2">
-                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                      {project4.title}
-                    </h3>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project4.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                      {project4.desc}
-                    </p>
-                    <div className="pt-1.5">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project4.dateTag}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-5">
-                    <div
-                      onClick={() => setPreviewProject(project4)}
-                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-                    >
-                      <Image
-                        src={project4.image}
-                        alt={project4.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* ============================================================ */}
-              {/* RIGHT PAGE SPREAD                                            */}
-              {/* ============================================================ */}
-              <div className="space-y-10 lg:space-y-12">
-                
-                {/* Top Row: Non Program Pavillon (Left) + 3D Letter Signs (Right) */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-start">
-                  
-                  {/* Item 5: Non Program Pavillon (Text above, photo below - 4:3) */}
-                  <div className="sm:col-span-6 space-y-3">
-                    <div className="space-y-1">
-                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                        {project5.title}
-                      </h3>
-                      <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                        {project5.location}
-                      </p>
-                      <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                        {project5.desc}
-                      </p>
-                      <div className="pt-1.5">
-                        <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                          {project5.dateTag}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div
-                      onClick={() => setPreviewProject(project5)}
-                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-                    >
-                      <Image
-                        src={project5.image}
-                        alt={project5.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 22vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Item 6: 3D Metal & Acrylic Letter Signs (Photo on top, text below - 4:3) */}
-                  <div className="sm:col-span-6 space-y-3">
-                    <div
-                      onClick={() => setPreviewProject(project6)}
-                      className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-                    >
-                      <Image
-                        src={project6.image}
-                        alt={project6.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 22vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                        {project6.title}
-                      </h3>
-                      <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                        {project6.location}
-                      </p>
-                      <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                        {project6.desc}
-                      </p>
-                      <div className="pt-1.5">
-                        <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                          {project6.dateTag}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Item 7: Minimod Position (RDX Nutrition: 3:1 Ultra-Wide Panoramic Fascia Centerpiece) */}
-                <div className="space-y-3 pt-2">
-                  <div
-                    onClick={() => setPreviewProject(project7)}
-                    className={`group relative ${project7.aspectClass} w-full overflow-hidden bg-neutral-950 cursor-pointer shadow-xs`}
-                  >
-                    <Image
-                      src={project7.image}
-                      alt={project7.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 48vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                        {project7.title}
-                      </h3>
-                      <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 border border-amber-200">
-                        {project7.formatTag}
-                      </span>
-                    </div>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project7.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                      {project7.desc}
-                    </p>
-                    <div className="pt-1.5">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project7.dateTag}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Item 8: Carré Seine Position (Luxury Stationery: Photo on left + text on right) */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
-                  <div className="sm:col-span-5">
-                    <div
-                      onClick={() => setPreviewProject(project8)}
-                      className="group relative aspect-[4/3] w-full max-w-[200px] overflow-hidden bg-neutral-100 cursor-pointer"
-                    >
-                      <Image
-                        src={project8.image}
-                        alt={project8.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 20vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/20 transition-colors flex items-center justify-center">
-                        <ZoomIn className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-7 space-y-1 pl-1">
-                    <h3 className="text-[13px] font-black text-neutral-900 uppercase tracking-tight">
-                      {project8.title}
-                    </h3>
-                    <p className="text-[10.5px] font-medium text-neutral-400 tracking-wide">
-                      {project8.location}
-                    </p>
-                    <p className="text-[11px] text-neutral-500 leading-relaxed pt-1">
-                      {project8.desc}
-                    </p>
-                    <div className="pt-1.5">
-                      <span className="text-[10px] font-medium text-neutral-400 border-b border-neutral-300 pb-0.5 inline-block">
-                        {project8.dateTag}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Bottom Consultation Banner */}
-          <div className="mt-12 sm:mt-16 rounded-2xl bg-slate-950 p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl">
-            <div className="space-y-1 text-center md:text-left">
-              <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
-                CUSTOM INDUSTRIAL FABRICATION &bull; KASNA
+          {/* Header + Filter Pills */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200">
+            <div className="space-y-1.5">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-sky-600">
+                Installed &amp; Printed In-House
               </span>
-              <h3 className="text-xl sm:text-2xl font-black">
-                Have a Signage or Printing Project in{" "}
-                <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
-                  Mind?
-                </span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300">
-                Share your measurements or concept with our team in Kasna for instant factory estimates.
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Explore Our Completed Projects
+              </h2>
+              <p className="text-sm text-slate-600">
+                Click any project card to inspect finish details and request the same format for your business.
               </p>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-              <button
-                type="button"
-                onClick={() => openQuoteModal("Our Work Portfolio")}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-xs sm:text-sm font-bold text-slate-900 hover:bg-slate-100 transition-all cursor-pointer shadow-md"
-              >
-                <span>Request Custom Quote</span>
-                <ArrowRight className="h-4 w-4 text-sky-600" />
-              </button>
-              <a
-                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20saw%20your%20work%20collage%20on%20the%20website%20and%20want%20to%20order%20similar%20signage."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-md"
-              >
-                <WhatsAppIcon className="h-4 w-4 fill-white" />
-                <span>WhatsApp Us</span>
-              </a>
+
+            <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Portfolio Categories">
+              {CATEGORIES.map((category) => {
+                const isActive = activeCategory === category;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => {
+                      setActiveCategory(category);
+                      setPreviewIndex(null);
+                    }}
+                    className={`rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all cursor-pointer border ${
+                      isActive
+                        ? "bg-slate-900 text-white border-slate-900 shadow-sm"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-sky-300 hover:text-sky-700"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
+          {/* Responsive Project Grid */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredProjects.map((project, index) => (
+              <article
+                key={project.id}
+                className={`group rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-sky-200 transition-all duration-300 overflow-hidden flex flex-col ${
+                  project.wide && activeCategory === "All Work" ? "md:col-span-2 lg:col-span-2" : ""
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setPreviewIndex(index)}
+                  className={`relative w-full overflow-hidden bg-slate-900 cursor-pointer text-left ${
+                    project.wide && activeCategory === "All Work"
+                      ? "aspect-[16/9] sm:aspect-[12/5]"
+                      : "aspect-[16/9]"
+                  }`}
+                  aria-label={`Inspect ${project.title}`}
+                >
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} — ${project.tag}`}
+                    fill
+                    sizes={
+                      project.wide && activeCategory === "All Work"
+                        ? "(max-width: 768px) 100vw, 66vw"
+                        : "(max-width: 768px) 100vw, 33vw"
+                    }
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="rounded-full bg-slate-950/80 backdrop-blur-sm border border-white/15 px-3 py-1 text-[11px] font-bold text-white">
+                      {project.tag}
+                    </span>
+                    {project.featured && (
+                      <span className="rounded-full bg-emerald-500/90 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-slate-950">
+                        Recent
+                      </span>
+                    )}
+                  </div>
+
+                  <span className="absolute bottom-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md opacity-90 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                    <ZoomIn className="h-4 w-4" />
+                  </span>
+                </button>
+
+                <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2 text-xs text-slate-500 font-semibold">
+                      <span className="inline-flex items-center gap-1 text-sky-700">
+                        <Layers className="h-3.5 w-3.5" />
+                        {project.category}
+                      </span>
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="h-3 w-3 text-slate-400" />
+                        {project.location}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-sky-700 transition-colors">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <span className="text-[11px] font-semibold text-slate-500 truncate">
+                      {project.specs}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setPreviewIndex(index)}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-800 shrink-0 cursor-pointer"
+                    >
+                      <span>View</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Full-Screen Preview Lightbox Modal */}
+      {/* Quality Standards Strip */}
+      <section className="py-10 bg-white border-y border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-extrabold text-slate-900">Direct Workshop Execution</h3>
+                <p className="text-xs text-slate-600 mt-1">
+                  Every board, flex banner, and offset sheet is fabricated and checked in-house before dispatch.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-extrabold text-slate-900">Site Measurement &amp; Fitting</h3>
+                <p className="text-xs text-slate-600 mt-1">
+                  Experienced fitting technicians handle fascia measurements, MS framing, and electrical wiring across Greater Noida &amp; NCR.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-extrabold text-slate-900">Weatherproof Materials</h3>
+                <p className="text-xs text-slate-600 mt-1">
+                  UV-stabilized inks, heavy GSM Star Flex, and waterproof LED modules built for long-lasting outdoor visibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Consultation CTA */}
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-[#071328] text-white p-8 sm:p-12 shadow-2xl border border-sky-900/50 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-xl space-y-3">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-sky-400">
+                <MapPin className="h-3.5 w-3.5" />
+                Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                Want Similar Branding for Your Shop or Factory?
+              </h2>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Share your board dimensions or print quantity with Ravi Arts Enterprises for a direct factory estimate and layout mockup.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20saw%20your%20portfolio%20and%20need%20a%20quote."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-3 text-xs sm:text-sm font-bold shadow-lg transition-all"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>WhatsApp Inquiry</span>
+              </a>
+
+              <a
+                href="tel:+919350036399"
+                className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-slate-100 text-slate-900 px-5 py-3 text-xs sm:text-sm font-bold shadow-md transition-all"
+              >
+                <Phone className="h-4 w-4 text-sky-600" />
+                <span>+91 93500 36399</span>
+              </a>
+
+              <a
+                href="tel:+919971145089"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-white px-5 py-3 text-xs sm:text-sm font-bold transition-all"
+              >
+                <Phone className="h-4 w-4 text-sky-400" />
+                <span>+91 99711 45089</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Lightbox Modal */}
       {previewProject && (
         <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-sm p-4 sm:p-6"
           role="dialog"
           aria-modal="true"
-          onClick={() => setPreviewProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md transition-all cursor-pointer"
+          aria-label={previewProject.title}
+          onClick={() => setPreviewIndex(null)}
         >
           <div
+            className="relative w-full max-w-4xl rounded-3xl bg-white shadow-2xl overflow-hidden border border-slate-200"
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full rounded-2xl bg-slate-900 border border-slate-700 overflow-hidden shadow-2xl cursor-default flex flex-col md:flex-row"
           >
-            {/* Close Button */}
             <button
               type="button"
-              onClick={() => setPreviewProject(null)}
-              aria-label="Close preview"
-              className="absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-rose-600 transition-colors shadow-lg cursor-pointer"
+              onClick={() => setPreviewIndex(null)}
+              aria-label="Close project preview"
+              className="absolute top-3 right-3 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-red-600 transition-colors cursor-pointer"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {/* Left: Image (Object-contain preserves exact natural dimensions) */}
-            <div className="relative w-full md:w-3/5 min-h-[300px] sm:min-h-[380px] md:min-h-[440px] bg-slate-950 flex items-center justify-center p-4">
+            <div className="relative aspect-[16/9] w-full bg-slate-950">
               <Image
                 src={previewProject.image}
                 alt={previewProject.title}
                 fill
-                className="object-contain p-4 select-none"
-                sizes="(max-width: 768px) 100vw, 60vw"
-                priority
+                sizes="(max-width: 1024px) 100vw, 900px"
+                className="object-contain"
               />
-              <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/20">
-                <Camera className="h-3 w-3 text-emerald-400" />
-                <span>{previewProject.formatTag}</span>
-              </div>
+
+              {filteredProjects.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    aria-label="Previous project"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950/75 text-white hover:bg-sky-600 transition-colors cursor-pointer"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    aria-label="Next project"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950/75 text-white hover:bg-sky-600 transition-colors cursor-pointer"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </>
+              )}
             </div>
 
-            {/* Right: Project Details & Action */}
-            <div className="p-6 md:w-2/5 flex flex-col justify-between space-y-4 bg-slate-900 text-white">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-                    {previewProject.location}
-                  </span>
+            <div className="p-5 sm:p-6 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-sky-700">
+                  <span>{previewProject.tag}</span>
+                  <span>&bull;</span>
+                  <span className="text-slate-500">{previewProject.location}</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-white leading-snug">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                   {previewProject.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
-                  {previewProject.desc}
+                <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
+                  {previewProject.description}
                 </p>
-                <div className="pt-2 flex items-center gap-2 text-xs text-slate-400">
-                  <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>Kasna Workshop, Greater Noida</span>
-                </div>
-                <div className="pt-1 flex items-center gap-1.5 text-xs text-emerald-400 font-semibold">
-                  <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-                  <span>Authentic On-Site Installation</span>
-                </div>
+                <p className="text-[11px] font-semibold text-slate-500 pt-1">
+                  Specs: {previewProject.specs}
+                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 space-y-2.5">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const title = previewProject.title;
-                    setPreviewProject(null);
-                    openQuoteModal(title);
-                  }}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-sky-600 hover:bg-sky-500 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-colors cursor-pointer"
-                >
-                  <span>Order Similar Work</span>
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-                <a
-                  href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20am%20interested%20in%20${encodeURIComponent(
-                    previewProject.title
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs sm:text-sm font-bold text-white transition-colors cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-              </div>
+              <a
+                href={`https://wa.me/919350036399?text=${encodeURIComponent(
+                  `Hello Ravi Arts Enterprises, I would like a quote similar to "${previewProject.title}".`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 hover:bg-sky-600 text-white px-5 py-2.5 text-xs font-bold shrink-0 transition-colors"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
+                <span>Request Quote</span>
+              </a>
             </div>
           </div>
         </div>

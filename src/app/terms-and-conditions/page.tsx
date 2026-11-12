@@ -313,10 +313,14 @@ export default function TermsAndConditionsPage() {
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
                   <Phone className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <span>
+                  <span className="flex flex-wrap items-center gap-x-2">
                     Phone:{" "}
                     <a href="tel:+919350036399" className="text-emerald-400 hover:underline">
                       +91 93500 36399
+                    </a>
+                    <span className="text-slate-500">/</span>
+                    <a href="tel:+919971145089" className="text-emerald-400 hover:underline">
+                      +91 99711 45089
                     </a>
                   </span>
                 </div>

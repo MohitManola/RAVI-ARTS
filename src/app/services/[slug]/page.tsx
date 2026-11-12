@@ -120,7 +120,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           "@type": "LocalBusiness",
           name: "Ravi Arts Enterprises",
           image: "https://raviartsenterprises.com/images/logo_1.png",
-          telephone: "+91-9350036399",
+          telephone: ["+91-9350036399", "+91-9971145089"],
           address: {
             "@type": "PostalAddress",
             streetAddress: "Kasna",
@@ -646,7 +646,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     <div>
                       <h4 className="text-sm font-bold text-white">Workshop &amp; Showroom Address</h4>
                       <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        Near Republic Honda, Opp. HDFC Bank, Main Road Kasna, Greater Noida, Uttar Pradesh - 201310
+                        Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310
                       </p>
                     </div>
                   </div>
@@ -669,9 +669,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-white">Direct Phone Contact</h4>
-                      <a href="tel:+919350036399" className="text-xs text-emerald-400 font-bold hover:underline">
-                        +91 93500 36399 / 9350036399
-                      </a>
+                      <div className="flex flex-wrap items-center gap-x-2 text-xs text-emerald-400 font-bold mt-0.5">
+                        <a href="tel:+919350036399" className="hover:underline">
+                          +91 93500 36399
+                        </a>
+                        <span className="text-slate-500">/</span>
+                        <a href="tel:+919971145089" className="hover:underline">
+                          +91 99711 45089
+                        </a>
+                      </div>
                     </div>
                   </div>
 

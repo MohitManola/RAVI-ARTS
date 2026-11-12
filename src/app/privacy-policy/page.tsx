@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
 
       {/* Main Policy Content */}
       <section className="py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
           {/* Introduction Card */}
           <div className="rounded-3xl bg-white border border-sky-100 p-6 sm:p-8 shadow-xs">
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
@@ -393,16 +393,20 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
                   <Phone className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <span>
+                  <span className="flex flex-wrap items-center gap-x-2">
                     Phone:{" "}
                     <a href="tel:+919350036399" className="text-emerald-400 hover:underline">
-                      9350036399
+                      +91 93500 36399
+                    </a>
+                    <span className="text-slate-500">/</span>
+                    <a href="tel:+919971145089" className="text-emerald-400 hover:underline">
+                      +91 99711 45089
                     </a>
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
                   <MapPin className="h-4 w-4 text-amber-400 shrink-0" />
-                  <span>Location: Kasna, Greater Noida, Uttar Pradesh, India</span>
+                  <span>Location: Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310</span>
                 </div>
               </div>
             </div>

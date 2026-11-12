@@ -25,7 +25,8 @@ interface ChatMessage {
   time: string;
 }
 
-const DEFAULT_BOT_REPLY = "Hii, I am AI of Ravi Arts. What do you want?";
+const GREETING_REPLY =
+  "Hello! I am Ravi Arts Enterprises. How can I help you today with Flex Printing, 3D LED Sign Boards, Visiting Cards, or custom signage?";
 
 const QUICK_ACTIONS: ActionBtn[] = [
   {
@@ -38,15 +39,55 @@ const QUICK_ACTIONS: ActionBtn[] = [
     label: "Call +91 93500 36399",
     href: "tel:+919350036399",
   },
+  {
+    type: "call",
+    label: "Call +91 99711 45089",
+    href: "tel:+919971145089",
+  },
 ];
 
 const SUGGESTED_QUESTIONS = [
-  "Flex Printing",
-  "Sign Board",
-  "Visiting Cards",
+  "Flex & Vinyl Printing",
+  "3D LED Sign Board",
+  "Visiting Cards & Brochures",
   "Pricing & Rates",
   "Kasna Workshop Location",
 ];
+
+/** Builds a helpful Ravi Arts Enterprises reply tailored to the user's message. */
+function getBotResponse(rawQuery: string): string {
+  const q = rawQuery.toLowerCase();
+
+  if (/^(hi|hii|hello|hey|namaste|good morning|good evening)\b/.test(q.trim())) {
+    return "Hello! I am Ravi Arts Enterprises. We handle all types of printing, signage, and graphic solutions at our Kasna, Greater Noida/Delhi NCR workshop. Tell me what you need—like flex banners, 3D LED boards, visiting cards, or bulk prints!";
+  }
+
+  if (/(location|address|where|kasna|noida|map|visit|shop|workshop|timing|hours|open|phone|number|contact|call)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. Visit our workshop at Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310 (Mon–Sat, 9:30 AM to 6:30 PM). You can call us anytime on +91 93500 36399 or +91 99711 45089.";
+  }
+
+  if (/(price|pricing|rate|cost|quote|estimate|budget|cheap|charge|how much)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. Pricing depends on material, dimensions (sq. ft.), and quantity—and because we print in-house at Kasna, you get direct factory rates with zero middlemen. Message us your size or requirement on WhatsApp (+91 93500 36399) or call +91 99711 45089 for an instant quote!";
+  }
+
+  if (/(sign|led|acrylic|glow|acp|3d|neon|hoarding|board|nameplate)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. We manufacture custom 3D Acrylic LED Letters, ACP Elevation Boards, Glow Sign Boards, Metal Brass/SS Letters, and Outdoor Hoardings with site measurement and installation across Greater Noida & Delhi NCR. Call +91 93500 36399 or +91 99711 45089 to schedule a site check!";
+  }
+
+  if (/(flex|banner|vinyl|backdrop|standee|sunboard|branding|wrap|sticker|one way|window)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. We do high-DPI Star Flex, Blackout Flex, Eco-Solvent Vinyl, One-Way Vision film, Sunboard mounts, Roll-Up Standees, and vehicle branding with fast turnaround. Share your dimensions on WhatsApp or call +91 93500 36399 / +91 99711 45089!";
+  }
+
+  if (/(card|visiting|brochure|pamphlet|flyer|catalog|bill|book|letterhead|offset|stationery|invitation|menu)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. We print matte/velvet laminated Visiting Cards, Brochures, Pamphlets, Bill Books, Letterheads, Flyers, Menus, and Event Invitations on sharp offset & digital presses. Reach us at +91 93500 36399 or +91 99711 45089 for samples and rates!";
+  }
+
+  if (/(gift|mug|tshirt|t-shirt|shirt|trophy|bottle|box|package|packaging|label|corporate|dairy|diary|pen)/.test(q)) {
+    return "Hello! I am Ravi Arts Enterprises. We customize Corporate Gift kits, engraved bottles/diaries, branded T-shirts, mugs, trophies, and product packaging boxes/labels for businesses and events. Contact +91 93500 36399 or +91 99711 45089 for bulk pricing!";
+  }
+
+  return "Hello! I am Ravi Arts Enterprises. We provide Flex & Vinyl Printing, 3D LED & ACP Sign Boards, Offset & Digital Stationery, Packaging, and Corporate Gifts in Kasna, Greater Noida/Delhi NCR - 201310. Share your project details on WhatsApp or call +91 93500 36399 / +91 99711 45089 and our team will assist you right away!";
+}
 
 export default function ContactAiBot() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -76,7 +117,7 @@ export default function ContactAiBot() {
       {
         id: "init-1",
         sender: "bot",
-        text: DEFAULT_BOT_REPLY,
+        text: GREETING_REPLY,
         actions: QUICK_ACTIONS,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       },
@@ -109,7 +150,7 @@ export default function ContactAiBot() {
       const botMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: "bot",
-        text: DEFAULT_BOT_REPLY,
+        text: getBotResponse(text),
         actions: QUICK_ACTIONS,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };

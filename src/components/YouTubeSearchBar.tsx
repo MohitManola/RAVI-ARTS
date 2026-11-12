@@ -3,213 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X, ArrowRight, TrendingUp } from "lucide-react";
+import {
+  searchCatalog,
+  filterSearchCatalog,
+  type SearchCatalogItem,
+} from "@/data/searchCatalog";
 
-export interface SearchCatalogItem {
-  id: string;
-  title: string;
-  category: "Services" | "Products" | "Pages";
-  badge: string;
-  desc: string;
-  href: string;
-  keywords: string[];
-}
-
-export const searchCatalog: SearchCatalogItem[] = [
-  // Core Services
-  {
-    id: "flex-printing",
-    title: "Flex & Large Format Printing",
-    category: "Services",
-    badge: "Printing",
-    desc: "Outdoor hoardings, frontlit/backlit flex, star flex, banners & exhibition backdrops.",
-    href: "/services/flex-printing",
-    keywords: ["flex", "banner", "hoarding", "large format", "star flex", "backlit", "backdrop", "roll up standee", "frontlit"],
-  },
-  {
-    id: "sign-boards",
-    title: "Sign Boards & Signage",
-    category: "Services",
-    badge: "Signage",
-    desc: "LED glow signs, acrylic letters, 3D ACP panels, neon letters & retail store boards.",
-    href: "/services/sign-boards",
-    keywords: ["sign", "glow sign", "led", "acrylic", "acp", "neon", "board", "shop board", "retail", "signage"],
-  },
-  {
-    id: "visiting-cards",
-    title: "Visiting Cards & Stationery",
-    category: "Services",
-    badge: "Stationery",
-    desc: "Premium matte/gloss visiting cards, letterheads, bill books, envelopes & ID cards.",
-    href: "/services/stationery",
-    keywords: ["visiting card", "business card", "cards", "letterhead", "stationery", "bill book", "invoice", "id card", "envelope"],
-  },
-  {
-    id: "offset-printing",
-    title: "Offset & Digital Printing",
-    category: "Services",
-    badge: "Printing",
-    desc: "Multi-page brochures, product catalogues, marketing flyers, pamphlets & packaging inserts.",
-    href: "/services/offset-printing",
-    keywords: ["offset", "digital", "brochure", "catalogue", "flyer", "pamphlet", "booklet", "magazine", "calendar", "poster"],
-  },
-  {
-    id: "acrylic-letters",
-    title: "Acrylic & 3D Letter Boards",
-    category: "Services",
-    badge: "Signage",
-    desc: "Precision laser cut 3D acrylic letters, titanium metallic finishes & halo backlit illumination.",
-    href: "/services/acrylic-letters",
-    keywords: ["3d letter", "acrylic", "laser cut", "metal letters", "titanium", "brass", "halo", "reception", "name plate"],
-  },
-  {
-    id: "vinyl-printing",
-    title: "Eco-Solvent & Vinyl Printing",
-    category: "Services",
-    badge: "Vinyl",
-    desc: "Die-cut stickers, commercial vehicle wraps, frosted glass partition film & wall decals.",
-    href: "/services/vinyl-printing",
-    keywords: ["vinyl", "sticker", "vehicle wrap", "eco solvent", "frosted", "glass film", "decals", "one way vision", "car wrap"],
-  },
-  {
-    id: "graphic-design",
-    title: "Branding & Graphic Design",
-    category: "Services",
-    badge: "Design",
-    desc: "Custom logo design, brand identity kits, vector artwork & print-ready layout formulation.",
-    href: "/services/graphic-design",
-    keywords: ["logo", "design", "graphic design", "branding", "identity", "artwork", "vector", "layout", "social media"],
-  },
-  {
-    id: "corporate-gifts",
-    title: "Corporate Gifts & Promotional Products",
-    category: "Services",
-    badge: "Gifts",
-    desc: "Custom printed coffee mugs, screen-printed corporate t-shirts, engraved pens, diaries & gift sets.",
-    href: "/services/corporate-gifts",
-    keywords: ["gift", "corporate gift", "mug", "tshirt", "t-shirt", "pen", "diary", "promotional", "hamper", "bottle", "keychain"],
-  },
-
-  // Popular Specific Products
-  {
-    id: "standee-printing",
-    title: "Roll-Up Standees & Exhibition Banners",
-    category: "Products",
-    badge: "Printing",
-    desc: "Portable aluminum roll-up standees with star flex print for trade fairs, exhibitions & office branding.",
-    href: "/services/flex-printing",
-    keywords: ["standee", "roll up", "backdrop", "exhibition", "trade show", "canopy", "event"],
-  },
-  {
-    id: "sunboard-printing",
-    title: "Sunboard & Foam Sheet Printing",
-    category: "Products",
-    badge: "Signage",
-    desc: "Rigid lightweight display boards for showroom branding, exhibitions & retail point-of-sale.",
-    href: "/services/sign-boards",
-    keywords: ["sunboard", "foam sheet", "rigid board", "display board", "sunpack"],
-  },
-  {
-    id: "glow-sign-board",
-    title: "LED Glow Sign Boards & Shop Frontages",
-    category: "Products",
-    badge: "Signage",
-    desc: "Energy-efficient waterproof Samsung LED illuminated frontages and commercial shop boards.",
-    href: "/services/sign-boards",
-    keywords: ["glow sign", "led board", "shop board", "light board", "illuminated"],
-  },
-  {
-    id: "frosted-glass-film",
-    title: "Frosted Glass & Office Privacy Films",
-    category: "Products",
-    badge: "Vinyl",
-    desc: "High-grade frosted vinyl with precision plotter cutout company logos for glass cabins & partitions.",
-    href: "/services/vinyl-printing",
-    keywords: ["frosted", "glass film", "cabin", "privacy", "office partition", "window film"],
-  },
-  {
-    id: "vehicle-graphics",
-    title: "Commercial Fleet Vehicle Wraps",
-    category: "Products",
-    badge: "Vinyl",
-    desc: "High-grade outdoor vinyl wraps for trucks, delivery vans, commercial autos & cars.",
-    href: "/services/vinyl-printing",
-    keywords: ["vehicle", "car wrap", "van wrap", "truck wrap", "fleet", "auto"],
-  },
-  {
-    id: "custom-mugs-tshirts",
-    title: "Custom Printed Mugs & Corporate T-Shirts",
-    category: "Products",
-    badge: "Gifts",
-    desc: "Sublimation full-color photo mugs, travel sippers, and screen-printed corporate t-shirts.",
-    href: "/services/corporate-gifts",
-    keywords: ["mug", "coffee mug", "tshirt", "t-shirt", "bottle", "tumbler", "sipper", "cap"],
-  },
-  {
-    id: "safety-signage",
-    title: "Factory Safety & Night Glow Signage",
-    category: "Products",
-    badge: "Signage",
-    desc: "Photoluminescent fire emergency exit signs, caution boards & industrial plant markers.",
-    href: "/services/sign-boards",
-    keywords: ["safety", "night glow", "fire exit", "glow in dark", "danger", "caution"],
-  },
-  {
-    id: "bill-books-stationery",
-    title: "Bill Books, Letterheads & Invoices",
-    category: "Products",
-    badge: "Stationery",
-    desc: "Carbonless duplicate/triplicate invoice bill books, executive letterheads & company envelopes.",
-    href: "/services/stationery",
-    keywords: ["bill book", "invoice", "letterhead", "envelope", "receipt", "stationery"],
-  },
-
-  // Site Pages
-  {
-    id: "services-all",
-    title: "All Printing & Signage Services",
-    category: "Pages",
-    badge: "Services",
-    desc: "Explore our full catalog of 8 primary industrial print and signage categories.",
-    href: "/services",
-    keywords: ["services", "all services", "printing", "signage", "capabilities"],
-  },
-  {
-    id: "about-page",
-    title: "About Ravi Arts Enterprises",
-    category: "Pages",
-    badge: "Company",
-    desc: "20+ years of printing excellence, in-house Kasna factory & manufacturing machinery.",
-    href: "/about",
-    keywords: ["about", "company", "kasna", "factory", "owner", "infrastructure", "experience"],
-  },
-  {
-    id: "portfolio-page",
-    title: "Our Work & Portfolio Gallery",
-    category: "Pages",
-    badge: "Gallery",
-    desc: "See real photos of completed signboards, hoardings, cards & printing projects.",
-    href: "/portfolio",
-    keywords: ["portfolio", "our work", "gallery", "projects", "photos", "sample"],
-  },
-  {
-    id: "testimonials-page",
-    title: "Client Testimonials & Reviews",
-    category: "Pages",
-    badge: "Reviews",
-    desc: "Feedback from verified retail showroom owners, corporate managers, and local clients.",
-    href: "/testimonials",
-    keywords: ["testimonial", "reviews", "feedback", "clients", "rating"],
-  },
-  {
-    id: "contact-page",
-    title: "Contact Us & Location Map",
-    category: "Pages",
-    badge: "Contact",
-    desc: "Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310. Phone & WhatsApp.",
-    href: "/contact",
-    keywords: ["contact", "phone", "address", "location", "email", "map", "kasna"],
-  },
-];
+export { searchCatalog, type SearchCatalogItem };
 
 const trendingSearches = [
   { text: "Flex Printing", href: "/services/flex-printing" },
@@ -254,10 +54,13 @@ export default function YouTubeSearchBar({
     }
   }, [isExpanded, isMobile]);
 
-  // Global Ctrl+K / Cmd+K shortcut listener
+  // Global Ctrl+K / Cmd+K shortcut listener (only for the currently visible search bar)
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        if (!containerRef.current || containerRef.current.offsetParent === null) {
+          return;
+        }
         e.preventDefault();
         if (onExpandChange) {
           onExpandChange(true);
@@ -289,17 +92,9 @@ export default function YouTubeSearchBar({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobile, onExpandChange]);
 
-  // Filter items matching query
+  // Filter items matching query with multi-word ranked matching
   const trimmed = query.trim().toLowerCase();
-  const results = trimmed
-    ? searchCatalog.filter((item) => {
-        const inTitle = item.title.toLowerCase().includes(trimmed);
-        const inDesc = item.desc.toLowerCase().includes(trimmed);
-        const inBadge = item.badge.toLowerCase().includes(trimmed);
-        const inKeywords = item.keywords.some((k) => k.includes(trimmed));
-        return inTitle || inDesc || inBadge || inKeywords;
-      }).slice(0, 7)
-    : [];
+  const results = trimmed ? filterSearchCatalog(query).slice(0, 7) : [];
 
   const handleSelect = (href: string) => {
     setIsOpen(false);
@@ -357,12 +152,19 @@ export default function YouTubeSearchBar({
     }
   };
 
-  // Helper to highlight matched query substring in text
+  // Helper to highlight matched query tokens safely in text
   const renderHighlighted = (text: string, highlight: string) => {
-    if (!highlight.trim()) return text;
-    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+    const terms = highlight
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    if (terms.length === 0) return text;
+
+    const pattern = new RegExp(`(${terms.join("|")})`, "gi");
+    const parts = text.split(pattern);
     return parts.map((part, i) =>
-      part.toLowerCase() === highlight.toLowerCase() ? (
+      i % 2 === 1 ? (
         <span key={i} className="font-extrabold text-blue-600">
           {part}
         </span>

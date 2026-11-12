@@ -57,6 +57,10 @@ export default function NotFound() {
         <a href="tel:+919350036399" className="text-sky-600 font-semibold hover:underline">
           +91 93500 36399
         </a>
+        {" / "}
+        <a href="tel:+919971145089" className="text-sky-600 font-semibold hover:underline">
+          +91 99711 45089
+        </a>
       </div>
     </div>
   );

@@ -68,7 +68,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
-              All Types Graphic &amp; Signage Solutions
+              All Types Printing, Signage &amp; Graphic Solutions
             </p>
 
             {/* CMYK Brand Gradient Line like Home Page */}

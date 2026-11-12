@@ -574,6 +574,13 @@ export default function ContactPage() {
                 <Phone className="h-3.5 w-3.5 text-sky-600" />
                 <span>Call +91 93500 36399</span>
               </a>
+              <a
+                href="tel:+919971145089"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all shadow-xs"
+              >
+                <Phone className="h-3.5 w-3.5 text-sky-600" />
+                <span>Call +91 99711 45089</span>
+              </a>
             </div>
           </div>
 
