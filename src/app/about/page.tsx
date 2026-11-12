@@ -73,21 +73,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
-        {/* Full Banner Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/contact_us_top.png"
-            alt="About Ravi Arts Enterprises - Kasna Greater Noida"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-right select-none"
-            quality={95}
-          />
-          {/* Subtle gradient to ensure flawless text contrast on all devices */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
-        </div>
+      <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
 
         {/* Content Container */}
         <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">

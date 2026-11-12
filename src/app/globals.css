@@ -86,6 +86,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+.hero-navy-gradient {
+  background-color: #021331;
+  background-image:
+    radial-gradient(ellipse 65% 110% at 96% 85%, #004792 0%, #013067 24%, #021a40 58%, transparent 100%),
+    linear-gradient(90deg, #021331 0%, #02183d 35%, #011b41 68%, #012e66 100%);
+}
+
 /* Animations */
 @keyframes pulseSubtle {
   0%, 100% {
