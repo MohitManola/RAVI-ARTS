@@ -5,15 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Star,
-  ShieldCheck,
   ArrowRight,
-  CheckCircle2,
   ExternalLink,
   ThumbsUp,
   Share2,
-  Camera,
-  Award,
-  MapPin,
   Check,
 } from "lucide-react";
 import { GoogleIcon } from "@/components/SocialIcons";
@@ -52,7 +47,6 @@ export default function TestimonialsPage() {
     {
       id: 1,
       author: "Harshikha Tiwari",
-      badge: "3 reviews",
       avatarBg: "bg-purple-600 text-white",
       quote: "Best printing services in greater noida",
       service: "Printing Services",
@@ -63,7 +57,6 @@ export default function TestimonialsPage() {
     {
       id: 2,
       author: "Sunil Rajak",
-      badge: "1 review",
       avatarBg: "bg-blue-600 text-white",
       quote: "Best printing & signage services",
       service: "Printing & Signage",
@@ -74,7 +67,6 @@ export default function TestimonialsPage() {
     {
       id: 3,
       author: "Sunil Rajak",
-      badge: "1 review",
       avatarBg: "bg-sky-600 text-white",
       quote: "Good signage services in greater noida",
       service: "Signage Services",
@@ -85,7 +77,6 @@ export default function TestimonialsPage() {
     {
       id: 4,
       author: "Manoj Kumar",
-      badge: "1 review",
       avatarBg: "bg-emerald-600 text-white",
       quote: "Best work in greater noida",
       service: "Printing & Signage Work",
@@ -96,7 +87,6 @@ export default function TestimonialsPage() {
     {
       id: 5,
       author: "Jyoti Enterprises",
-      badge: "2 reviews",
       avatarBg: "bg-amber-600 text-white",
       quote: "The owner is so good and well behavior..",
       service: "",
@@ -107,9 +97,6 @@ export default function TestimonialsPage() {
     {
       id: 6,
       author: "Ved Sharma",
-      badge: "7 photos",
-      hasPhotos: true,
-      photoCount: 7,
       avatarBg: "bg-rose-600 text-white",
       quote: "Superb finishing and reliable service.",
       service: "Signage & Print Portfolio",
@@ -120,8 +107,6 @@ export default function TestimonialsPage() {
     {
       id: 7,
       author: "Gagan Tyagi",
-      badge: "Local Guide · 15 reviews · 12 photos",
-      isLocalGuide: true,
       avatarBg: "bg-orange-500 text-white",
       quote:
         "Outstanding printing, glow signs, and branding solutions in Kasna & Greater Noida.",
@@ -302,25 +287,6 @@ export default function TestimonialsPage() {
                               >
                                 ✓
                               </span>
-                            )}
-                          </div>
-
-                          {/* Reviewer Google Badge */}
-                          <div className="flex items-center gap-1 text-[11px] text-slate-500 mt-0.5">
-                            {rev.isLocalGuide && (
-                              <span className="inline-flex items-center gap-1 text-orange-600 font-medium">
-                                <Award className="h-3 w-3 fill-orange-500 text-orange-500" />
-                                {rev.badge}
-                              </span>
-                            )}
-                            {rev.hasPhotos && (
-                              <span className="inline-flex items-center gap-1 text-sky-700 font-medium">
-                                <Camera className="h-3 w-3 text-sky-600" />
-                                {rev.badge}
-                              </span>
-                            )}
-                            {!rev.isLocalGuide && !rev.hasPhotos && (
-                              <span>{rev.badge}</span>
                             )}
                           </div>
                         </div>
