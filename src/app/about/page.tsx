@@ -76,8 +76,8 @@ export default function AboutPage() {
       <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
 
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-          <div className="max-w-xl md:max-w-2xl">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
+          <div className="max-w-2xl md:max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 ABOUT OUR COMPANY
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 Beyond
               </span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
               We are a dedicated team of printing technologists, signage fabricators,
               and visual branding experts helping businesses build standout identities across Greater Noida since 2005.
             </p>
@@ -169,22 +169,22 @@ export default function AboutPage() {
                 </h2>
 
                 <div className="mt-2 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                <p>
-                  Established with a commitment to uncompromised printing standards,
-                  <strong className="text-slate-900"> Ravi Arts Enterprises</strong> has grown into
-                  one of the most dependable printing and signage destinations in Greater Noida.
-                  From small retail outlets needing attractive glow sign boards to large corporations
-                  requiring expansive outdoor hoardings and bulk commercial stationery, we treat
-                  every assignment with precision.
-                </p>
-                <p>
-                  Our in-house fabrication facility in Kasna is equipped with high-performance
-                  printing machinery and cutting-edge computerized routers. This allows us to
-                  deliver rapid turnaround times without sacrificing the vibrant colors and
-                  structural durability our clients depend on.
-                </p>
+                  <p>
+                    Established with a commitment to uncompromised printing standards,
+                    <strong className="text-slate-900"> Ravi Arts Enterprises</strong> has grown into
+                    one of the most dependable printing and signage destinations in Greater Noida.
+                    From small retail outlets needing attractive glow sign boards to large corporations
+                    requiring expansive outdoor hoardings and bulk commercial stationery, we treat
+                    every assignment with precision.
+                  </p>
+                  <p>
+                    Our in-house fabrication facility in Kasna is equipped with high-performance
+                    printing machinery and cutting-edge computerized routers. This allows us to
+                    deliver rapid turnaround times without sacrificing the vibrant colors and
+                    structural durability our clients depend on.
+                  </p>
+                </div>
               </div>
-            </div>
 
               <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-100">
                 <div>

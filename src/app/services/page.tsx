@@ -81,15 +81,15 @@ function ServicesContent() {
         "Exhibition Backdrops & Roll-up Standees",
       ],
       items: [
-              "Flex Banner Printing",
-              "Frontlit Flex Printing",
-              "Backlit Flex Printing",
-              "Star Flex Printing",
-              "Hoarding Printing",
-              "Event Banner Printing",
-              "Promotional Banner Printing",
-              "Large Format Digital Printing",
-              "Outdoor Advertising Printing"
+        "Flex Banner Printing",
+        "Frontlit Flex Printing",
+        "Backlit Flex Printing",
+        "Star Flex Printing",
+        "Hoarding Printing",
+        "Event Banner Printing",
+        "Promotional Banner Printing",
+        "Large Format Digital Printing",
+        "Outdoor Advertising Printing"
       ],
       turnaround: "Same Day / 24 Hours",
       image: "/images/services/flex&LargeFormatePrinting.PNG",
@@ -108,16 +108,16 @@ function ServicesContent() {
         "Complete On-Site Installation in Greater Noida",
       ],
       items: [
-              "Glow Sign Boards",
-              "LED Sign Boards",
-              "ACP Sign Boards",
-              "Flex Sign Boards",
-              "Sunboard Signage",
-              "Indoor Signage",
-              "Outdoor Signage",
-              "Shop & Office Signage",
-              "Safety & Directional Signage",
-              "Night Glow Signage"
+        "Glow Sign Boards",
+        "LED Sign Boards",
+        "ACP Sign Boards",
+        "Flex Sign Boards",
+        "Sunboard Signage",
+        "Indoor Signage",
+        "Outdoor Signage",
+        "Shop & Office Signage",
+        "Safety & Directional Signage",
+        "Night Glow Signage"
       ],
       turnaround: "3 - 5 Business Days",
       image: "/images/services/SignBoards&Signage.PNG",
@@ -136,16 +136,16 @@ function ServicesContent() {
         "Employee Lanyards & Plastic ID Cards",
       ],
       items: [
-              "Standard Visiting Cards",
-              "Premium Visiting Cards",
-              "Matte & Glossy Visiting Cards",
-              "Letterhead Printing",
-              "Envelope Printing",
-              "Bill Book Printing",
-              "Invoice Book Printing",
-              "ID Card Printing",
-              "Company Profile Printing",
-              "Corporate Stationery"
+        "Standard Visiting Cards",
+        "Premium Visiting Cards",
+        "Matte & Glossy Visiting Cards",
+        "Letterhead Printing",
+        "Envelope Printing",
+        "Bill Book Printing",
+        "Invoice Book Printing",
+        "ID Card Printing",
+        "Company Profile Printing",
+        "Corporate Stationery"
       ],
       turnaround: "24 - 48 Hours",
       image: "/images/services/VisitingCards&BusinessStationary.PNG",
@@ -164,17 +164,17 @@ function ServicesContent() {
         "Packaging Inserts & User Manuals",
       ],
       items: [
-              "Brochure Printing",
-              "Flyer & Leaflet Printing",
-              "Catalogue Printing",
-              "Poster Printing",
-              "Pamphlet Printing",
-              "Booklet Printing",
-              "Magazine Printing",
-              "Invitation Card Printing",
-              "Menu Card Printing",
-              "Calendar Printing",
-              "Custom Document Printing"
+        "Brochure Printing",
+        "Flyer & Leaflet Printing",
+        "Catalogue Printing",
+        "Poster Printing",
+        "Pamphlet Printing",
+        "Booklet Printing",
+        "Magazine Printing",
+        "Invitation Card Printing",
+        "Menu Card Printing",
+        "Calendar Printing",
+        "Custom Document Printing"
       ],
       turnaround: "2 - 3 Business Days",
       image: "/images/services/Offset&DigitalPrinting.PNG",
@@ -193,16 +193,16 @@ function ServicesContent() {
         "Clean Stud & Standoff Wall Mounting",
       ],
       items: [
-              "Acrylic Name Plates",
-              "Acrylic LED Boards",
-              "3D Acrylic Letters",
-              "Acrylic Reception Boards",
-              "LED Backlit Letters",
-              "Frontlit Channel Letters",
-              "SS 3D Letters",
-              "Brass 3D Letters",
-              "Metal Letter Signage",
-              "Custom Office Branding Boards"
+        "Acrylic Name Plates",
+        "Acrylic LED Boards",
+        "3D Acrylic Letters",
+        "Acrylic Reception Boards",
+        "LED Backlit Letters",
+        "Frontlit Channel Letters",
+        "SS 3D Letters",
+        "Brass 3D Letters",
+        "Metal Letter Signage",
+        "Custom Office Branding Boards"
       ],
       turnaround: "3 - 4 Business Days",
       image: "/images/services/Acrylic&3dLetterBoards.PNG",
@@ -221,17 +221,17 @@ function ServicesContent() {
         "Removable One-Way Vision Window Film",
       ],
       items: [
-              "Eco-Solvent Printing",
-              "Vinyl Sticker Printing",
-              "Self-Adhesive Vinyl Printing",
-              "One-Way Vision Printing",
-              "Frosted Film Printing",
-              "Window Graphics",
-              "Wall Graphics",
-              "Vehicle Graphics",
-              "Vehicle Branding",
-              "Product Label Printing",
-              "Custom Sticker Printing"
+        "Eco-Solvent Printing",
+        "Vinyl Sticker Printing",
+        "Self-Adhesive Vinyl Printing",
+        "One-Way Vision Printing",
+        "Frosted Film Printing",
+        "Window Graphics",
+        "Wall Graphics",
+        "Vehicle Graphics",
+        "Vehicle Branding",
+        "Product Label Printing",
+        "Custom Sticker Printing"
       ],
       turnaround: "24 - 48 Hours",
       image: "/images/services/Eco-Solvent&VinalPrinting.PNG",
@@ -250,18 +250,18 @@ function ServicesContent() {
         "Packaging & Label Artwork Formulation",
       ],
       items: [
-              "Logo Design",
-              "Brand Identity Design",
-              "Business Card Design",
-              "Brochure Design",
-              "Catalogue Design",
-              "Flyer & Poster Design",
-              "Social Media Creatives",
-              "Flex & Banner Design",
-              "Signage Artwork Design",
-              "Packaging Design",
-              "Print-Ready Artwork",
-              "Corporate Branding"
+        "Logo Design",
+        "Brand Identity Design",
+        "Business Card Design",
+        "Brochure Design",
+        "Catalogue Design",
+        "Flyer & Poster Design",
+        "Social Media Creatives",
+        "Flex & Banner Design",
+        "Signage Artwork Design",
+        "Packaging Design",
+        "Print-Ready Artwork",
+        "Corporate Branding"
       ],
       turnaround: "1 - 3 Business Days",
       image: "/images/services/branding&GraphicDesign.PNG",
@@ -280,17 +280,17 @@ function ServicesContent() {
         "Eco-Friendly Jute & Canvas Conference Bags",
       ],
       items: [
-              "Customised T-Shirts",
-              "Printed Mugs",
-              "Corporate Diaries",
-              "Promotional Pens",
-              "Customised Caps",
-              "Keychains",
-              "Corporate Gift Sets",
-              "Promotional Bags",
-              "Branded Merchandise",
-              "Event Giveaways",
-              "Customised Office Gifts"
+        "Customised T-Shirts",
+        "Printed Mugs",
+        "Corporate Diaries",
+        "Promotional Pens",
+        "Customised Caps",
+        "Keychains",
+        "Corporate Gift Sets",
+        "Promotional Bags",
+        "Branded Merchandise",
+        "Event Giveaways",
+        "Customised Office Gifts"
       ],
       turnaround: "3 - 5 Business Days",
       image: "/images/services/CorporateGifts&PromotionalProducts.PNG",
@@ -304,35 +304,35 @@ function ServicesContent() {
   const filteredServices = !queryLower
     ? serviceItems
     : serviceItems.filter((svc) => {
-        const allText = [
-          svc.title,
-          svc.subtitle,
-          svc.desc,
-          svc.tag,
-          ...svc.features,
-          ...(svc.items || []),
-        ]
-          .join(" ")
-          .toLowerCase();
+      const allText = [
+        svc.title,
+        svc.subtitle,
+        svc.desc,
+        svc.tag,
+        ...svc.features,
+        ...(svc.items || []),
+      ]
+        .join(" ")
+        .toLowerCase();
 
-        // Direct phrase match
-        if (allText.includes(queryLower)) return true;
+      // Direct phrase match
+      if (allText.includes(queryLower)) return true;
 
-        // All search words present anywhere in service details
-        if (queryWords.length > 0 && queryWords.every((word) => allText.includes(word))) {
+      // All search words present anywhere in service details
+      if (queryWords.length > 0 && queryWords.every((word) => allText.includes(word))) {
+        return true;
+      }
+
+      // For multi-word queries, match if any word of length >= 3 matches title or product items
+      if (queryWords.length > 1) {
+        const keyWords = [svc.title, ...(svc.items || [])].join(" ").toLowerCase();
+        if (queryWords.some((word) => word.length >= 3 && keyWords.includes(word))) {
           return true;
         }
+      }
 
-        // For multi-word queries, match if any word of length >= 3 matches title or product items
-        if (queryWords.length > 1) {
-          const keyWords = [svc.title, ...(svc.items || [])].join(" ").toLowerCase();
-          if (queryWords.some((word) => word.length >= 3 && keyWords.includes(word))) {
-            return true;
-          }
-        }
-
-        return false;
-      });
+      return false;
+    });
 
   return (
     <div className="flex flex-col w-full">
@@ -340,8 +340,8 @@ function ServicesContent() {
       <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
 
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-          <div className="max-w-xl md:max-w-2xl">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
+          <div className="max-w-2xl md:max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 COMPLETE PRINT &amp; SIGNAGE CAPABILITIES
@@ -354,7 +354,7 @@ function ServicesContent() {
                 One Roof
               </span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
               Explore our full range of industrial printing, commercial offset,
               architectural sign fabrication, and creative branding services in Kasna, Greater Noida.
             </p>
@@ -465,100 +465,99 @@ function ServicesContent() {
               <div
                 key={svc.id}
                 id={svc.id}
-                className={`scroll-mt-28 rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
+                className={`scroll-mt-28 rounded-3xl bg-white border border-sky-100 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  } flex flex-col lg:flex-row items-center gap-8 lg:gap-12`}
               >
-              {/* Media */}
-              <div className="w-full lg:w-5/12">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-md">
-                  <Image
-                    src={svc.image}
-                    alt={svc.title}
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Information */}
-              <div className="w-full lg:w-7/12 space-y-4">
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-sky-600">
-                    {svc.subtitle}
-                  </span>
-                  <h2 className="text-2xl font-extrabold text-slate-900 mt-1">
-                    <Link
-                      href={`/services/${svc.id}`}
-                      className="hover:text-sky-600 transition-colors"
-                    >
-                      {svc.title}
-                    </Link>
-                  </h2>
+                {/* Media */}
+                <div className="w-full lg:w-5/12">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-md">
+                    <Image
+                      src={svc.image}
+                      alt={svc.title}
+                      fill
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {svc.desc}
-                </p>
-
-                {/* Products & Sub-Services Included */}
-                <div className="space-y-2 pt-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                      Products &amp; Capabilities Included
+                {/* Information */}
+                <div className="w-full lg:w-7/12 space-y-4">
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-sky-600">
+                      {svc.subtitle}
                     </span>
-                    <span className="h-px flex-1 bg-slate-200" />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {svc.items.map((item) => (
-                      <div key={item} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Turnaround Badge & CTA */}
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-                    <Clock className="h-4 w-4 text-sky-500" />
-                    <span>Est. Turnaround: {svc.turnaround}</span>
+                    <h2 className="text-2xl font-extrabold text-slate-900 mt-1">
+                      <Link
+                        href={`/services/${svc.id}`}
+                        className="hover:text-sky-600 transition-colors"
+                      >
+                        {svc.title}
+                      </Link>
+                    </h2>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <Link
-                      href={`/services/${svc.id}`}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 hover:text-sky-600 transition-colors"
-                    >
-                      <span>Explore Service</span>
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={() => openQuoteModal(svc.title)}
-                      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition-colors"
-                    >
-                      <span>Request Quote</span>
-                    </button>
-                    <a
-                      href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(svc.title)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3.5 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"
-                    >
-                      <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-                      <span>WhatsApp</span>
-                    </a>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {svc.desc}
+                  </p>
+
+                  {/* Products & Sub-Services Included */}
+                  <div className="space-y-2 pt-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                        Products &amp; Capabilities Included
+                      </span>
+                      <span className="h-px flex-1 bg-slate-200" />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {svc.items.map((item) => (
+                        <div key={item} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Turnaround Badge & CTA */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                      <Clock className="h-4 w-4 text-sky-500" />
+                      <span>Est. Turnaround: {svc.turnaround}</span>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <Link
+                        href={`/services/${svc.id}`}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 hover:text-sky-600 transition-colors"
+                      >
+                        <span>Explore Service</span>
+                        <ArrowRight className="h-3 w-3" />
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => openQuoteModal(svc.title)}
+                        className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 transition-colors"
+                      >
+                        <span>Request Quote</span>
+                      </button>
+                      <a
+                        href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(svc.title)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-3.5 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"
+                      >
+                        <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
+                        <span>WhatsApp</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))
-        )}
-      </div>
-    </section>
+            ))
+          )}
+        </div>
+      </section>
 
       {/* OUR WORK PROCESS (Matching Home Page) */}
       <WorkProcessSection />

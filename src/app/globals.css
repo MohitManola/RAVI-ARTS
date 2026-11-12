@@ -87,10 +87,10 @@
 }
 
 .hero-navy-gradient {
-  background-color: #021331;
+  background-color: #010817;
   background-image:
-    radial-gradient(ellipse 65% 110% at 96% 85%, #004792 0%, #013067 24%, #021a40 58%, transparent 100%),
-    linear-gradient(90deg, #021331 0%, #02183d 35%, #011b41 68%, #012e66 100%);
+    radial-gradient(ellipse 52% 105% at 96% 86%, #012a5c 0%, #011c45 30%, #020e26 62%, transparent 100%),
+    linear-gradient(90deg, #010817 0%, #020b1e 38%, #01102a 72%, #011738 100%);
 }
 
 /* Animations */
