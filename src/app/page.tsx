@@ -232,29 +232,29 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: ABOUT SECTION (Directly matching Image 1 mockup)
+          SECTION 4: ABOUT SECTION (Directly matching Image 1 mockup, Mobile Optimized)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-t border-sky-100/60">
+      <section className="py-10 sm:py-16 lg:py-24 bg-white border-t border-sky-100/60 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+                  <span className="text-[11px] sm:text-xs font-bold tracking-widest text-slate-700 uppercase">
                     ABOUT RAVI ARTS ENTERPRISES
                   </span>
                   <span className="cmyk-gradient-bar" />
                 </div>
 
-                <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                   Turning Your Ideas into{" "}
                   <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent font-black">
                     Impressions
                   </span>
                 </h2>
 
-                <div className="mt-2 space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+                <div className="mt-2.5 sm:mt-3 space-y-2.5 sm:space-y-3 text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl">
                   <p>
                     <strong className="text-slate-900 font-bold">Ravi Arts Enterprises</strong> is a trusted printing and signage company in Kasna, Greater Noida, established in 2005. With over 20 years of experience, we provide high-quality, cost-effective solutions for businesses of all sizes.
                   </p>
@@ -264,70 +264,70 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 4 Feature Badges 2x2 grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
-                    <Award className="h-5 w-5" />
+              {/* 4 Feature Badges: Compact 2x2 grid on mobile & tablet */}
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-4 pt-1 sm:pt-2">
+                <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-slate-50/70 sm:bg-white border border-slate-200/80 p-3 sm:p-3.5 shadow-2xs sm:shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-sky-50 text-sky-600">
+                    <Award className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                       Quality Assurance
                     </h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug">
                       Premium materials &amp; perfect finish.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                    <Zap className="h-5 w-5" />
+                <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-slate-50/70 sm:bg-white border border-slate-200/80 p-3 sm:p-3.5 shadow-2xs sm:shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+                    <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                       On-Time Delivery
                     </h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug">
                       Because your time matters.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
-                    <Users className="h-5 w-5" />
+                <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-slate-50/70 sm:bg-white border border-slate-200/80 p-3 sm:p-3.5 shadow-2xs sm:shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
+                    <Users className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                       Experienced Team
                     </h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug">
                       Skilled professionals at your service.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-slate-200/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-slate-300">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <Headphones className="h-5 w-5" />
+                <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-slate-50/70 sm:bg-white border border-slate-200/80 p-3 sm:p-3.5 shadow-2xs sm:shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <Headphones className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                       Dedicated Support
                     </h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug">
                       Always here to help you.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-3">
+              {/* Action Button: Full width on mobile, auto on sm+ */}
+              <div className="pt-2 sm:pt-3">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-slate-800 transition-all active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-md hover:bg-slate-800 transition-all active:scale-95"
                 >
                   <span>Know More About Us</span>
                   <ArrowRight className="h-4 w-4" />
@@ -335,15 +335,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Visual with Official Ravi Arts Logo */}
-            <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md">
+            {/* Right Visual with Official Ravi Arts Logo (Balanced for mobile & desktop) */}
+            <div className="lg:col-span-5 pt-2 sm:pt-0">
+              <div className="relative mx-auto max-w-[260px] sm:max-w-md">
                 {/* Yellow and Pink graphic decor accents matching branding */}
-                <div className="absolute -top-4 -left-4 h-16 w-16 rounded-2xl bg-amber-400/90 -z-10" />
-                <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-2xl bg-rose-500/90 -z-10" />
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 h-12 w-12 sm:h-16 sm:w-16 rounded-2xl bg-amber-400/90 -z-10" />
+                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 h-12 w-12 sm:h-16 sm:w-16 rounded-2xl bg-rose-500/90 -z-10" />
 
-                <div className="group overflow-hidden rounded-3xl bg-white hover:bg-slate-950 border border-slate-200/80 hover:border-slate-300 p-8 sm:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center cursor-pointer">
-                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
+                <div className="group overflow-hidden rounded-2xl sm:rounded-3xl bg-white hover:bg-slate-950 border border-slate-200/80 hover:border-slate-300 p-6 sm:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center cursor-pointer">
+                  <div className="relative aspect-square w-full max-w-[200px] sm:max-w-[300px] transition-transform duration-500 group-hover:scale-105">
                     <Image
                       src="/images/logo_1.png"
                       alt="Ravi Arts Enterprises Official Logo"

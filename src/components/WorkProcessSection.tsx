@@ -32,13 +32,13 @@ const steps = [
 
 export default function WorkProcessSection() {
   return (
-    <section className="py-14 sm:py-20 bg-[#eff7ff] border-t border-sky-100">
+    <section className="py-10 sm:py-16 lg:py-20 bg-[#eff7ff] border-t border-sky-100 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-6 sm:mb-12 max-w-2xl">
           <div className="inline-flex items-center gap-2 mb-2">
-            <span className="text-xs font-bold tracking-widest text-slate-700 uppercase">
+            <span className="text-[11px] sm:text-xs font-bold tracking-widest text-slate-700 uppercase">
               OUR WORK PROCESS
             </span>
             <span className="cmyk-gradient-bar" />
@@ -49,39 +49,47 @@ export default function WorkProcessSection() {
               to Impact
             </span>
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="mt-1.5 sm:mt-2 text-xs sm:text-base text-slate-600 leading-relaxed">
             A clear, step-by-step process that ensures every project is delivered smoothly
           </p>
         </div>
 
-        {/* 4 Process Columns with Subtle Dividers in White Card */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-sky-100 rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-sky-100">
+        {/* 4 Process Columns: Responsive horizontal card flow on mobile, 4-col divider on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-sky-100 rounded-2xl bg-white p-2 sm:p-6 shadow-sm border border-sky-100">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.number}
-                className="p-6 flex flex-col justify-start group hover:bg-sky-50/50 rounded-2xl transition-all duration-300"
+                className="p-3.5 sm:p-6 flex flex-row sm:flex-col items-start gap-3.5 sm:gap-0 group hover:bg-sky-50/50 rounded-xl sm:rounded-2xl transition-all duration-300"
               >
-                {/* Icon in Light Blue Box */}
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-500 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
-                  <Icon className="h-5 w-5 stroke-[1.8]" />
+                {/* Icon Container with Mobile Step Badge */}
+                <div className="relative shrink-0 sm:mb-4">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-600 group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-2xs">
+                    <Icon className="h-5 w-5 stroke-[1.8]" />
+                  </div>
+                  {/* Step number badge pinned to icon on mobile */}
+                  <span className="sm:hidden absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-slate-900 text-[10px] font-mono font-bold text-white shadow-xs">
+                    {idx + 1}
+                  </span>
                 </div>
 
-                {/* Step Number */}
-                <span className="text-xs font-mono font-bold text-sky-600 uppercase tracking-widest mb-1.5">
-                  {step.number}
-                </span>
+                <div className="flex-1 min-w-0">
+                  {/* Step Number on Desktop */}
+                  <span className="hidden sm:inline-block text-xs font-mono font-bold text-sky-600 uppercase tracking-widest mb-1.5">
+                    {step.number}
+                  </span>
 
-                {/* Step Title */}
-                <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
-                  {step.title}
-                </h3>
+                  {/* Step Title */}
+                  <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors mb-1 sm:mb-2 leading-snug">
+                    {step.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                  {step.desc}
-                </p>
+                  {/* Description */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 sm:text-slate-500 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
             );
           })}
