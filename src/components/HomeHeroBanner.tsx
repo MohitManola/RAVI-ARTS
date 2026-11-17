@@ -21,8 +21,8 @@ export default function HomeHeroBanner() {
         Where Quality Printing, Signage and Graphics Meet Brand Visibility - Ravi Arts Enterprises Kasna Greater Noida
       </h1>
 
-      {/* Main Full-Width Single Hero Banner Image (Edge-to-Edge with no border) */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[16/7] md:aspect-[1920/600] min-h-[400px] sm:min-h-[460px] md:min-h-[540px] overflow-hidden bg-white">
+      {/* Desktop / Tablet Hero Banner (md and up) */}
+      <div className="hidden md:block relative w-full aspect-[16/7] md:aspect-[1920/600] min-h-[460px] md:min-h-[540px] overflow-hidden bg-white">
         {/* Full-bleed Banner Image (Machine on the right, clean white canvas on the left) */}
         <Image
           src="/images/HomeHeroBanner_1.png"
@@ -129,6 +129,50 @@ export default function HomeHeroBanner() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Hero Banner (below md) — Uses mobileBanner.png with all pre-rendered text and interactive touch targets */}
+      <div className="block md:hidden relative w-full aspect-square overflow-hidden bg-white select-none">
+        <Image
+          src="/images/mobileBanner.png"
+          alt="Where Quality Printing, Signage and Graphics Meet Brand Visibility - Ravi Arts Enterprises"
+          fill
+          priority
+          className="object-cover select-none"
+          sizes="100vw"
+          quality={95}
+        />
+
+        {/* Interactive Button Touch Targets positioned exactly over the banner's buttons */}
+        {/* Row 1, Left: Explore Services -> */}
+        <Link
+          href="/services"
+          aria-label="Explore Services"
+          className="absolute left-[7.1%] top-[52.2%] w-[26.8%] h-[6.1%] rounded-full z-10 focus:outline-none focus:ring-2 focus:ring-sky-500 active:scale-95 transition-transform"
+        />
+
+        {/* Row 1, Right: Contact */}
+        <Link
+          href="/contact"
+          aria-label="Contact Ravi Arts Enterprises"
+          className="absolute left-[35.5%] top-[52.2%] w-[18.5%] h-[6.1%] rounded-full z-10 focus:outline-none focus:ring-2 focus:ring-sky-500 active:scale-95 transition-transform"
+        />
+
+        {/* Row 2, Left: Call Contact */}
+        <a
+          href="tel:+919350036399"
+          aria-label="Call Ravi Arts Enterprises on +91 93500 36399"
+          className="absolute left-[7.1%] top-[59.5%] w-[18.5%] h-[6.1%] rounded-full z-10 focus:outline-none focus:ring-2 focus:ring-sky-500 active:scale-95 transition-transform"
+        />
+
+        {/* Row 2, Right: WhatsApp */}
+        <a
+          href="https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises%2C%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20signage%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with Ravi Arts Enterprises on WhatsApp"
+          className="absolute left-[27.0%] top-[59.5%] w-[20.0%] h-[6.1%] rounded-full z-10 focus:outline-none focus:ring-2 focus:ring-emerald-500 active:scale-95 transition-transform"
+        />
       </div>
 
       {/* Dual Text Sliders below Hero Banner (End to End Full Width) */}
