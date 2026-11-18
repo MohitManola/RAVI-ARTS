@@ -261,10 +261,13 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Legal Copyright Bar (Thumb friendly on mobile) */}
-        <div className="mt-8 sm:mt-12 border-t border-slate-700/60 pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 text-center sm:text-left">
+        {/* Bottom Legal Copyright Bar (Centered) */}
+        <div className="mt-8 sm:mt-12 border-t border-slate-700/60 pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs text-slate-400 text-center">
           <p>© {currentYear} Ravi Arts Enterprises. All rights reserved.</p>
-          <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+          <span className="hidden sm:inline text-slate-600 select-none" aria-hidden="true">
+            •
+          </span>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
             <Link
               href="/privacy-policy"
               className="hover:text-slate-200 active:text-white transition-colors py-1 px-1.5"
