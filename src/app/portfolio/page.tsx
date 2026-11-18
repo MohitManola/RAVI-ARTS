@@ -4,7 +4,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Sparkles,
   ArrowRight,
   ChevronRight,
   ZoomIn,
@@ -173,7 +172,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="flex flex-col w-full bg-[#f8fafc]">
-      {/* Dark Top Hero Banner matching our_work_top.png */}
+      {/* Dark Top Hero Banner matching Testimonials Page Design */}
       <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
@@ -185,27 +184,24 @@ export default function PortfolioPage() {
             className="object-cover object-right select-none"
             quality={95}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/55 sm:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
         </div>
 
-        <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <nav className="flex items-center gap-2 text-xs text-slate-300 font-medium mb-4">
-            <Link href="/" className="hover:text-sky-300 transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5 text-slate-500" />
-            <span className="text-sky-300 font-semibold">Our Work</span>
-          </nav>
-
-          <div className="max-w-2xl space-y-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-sky-300">
-              <Sparkles className="h-3.5 w-3.5 text-amber-400" />
-              OUR PORTFOLIO &bull; RECENT WORK
-            </span>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
-              Recent Print &amp; <span className="text-sky-400">Signage Work</span>
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
+          <div className="max-w-xl md:max-w-2xl">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
+                OUR PORTFOLIO &bull; RECENT WORK
+              </span>
+              <span className="cmyk-gradient-bar" />
+            </div>
+            <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+              Recent Print &amp; Signage{" "}
+              <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                Work
+              </span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-medium">
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
               Real storefront LED boards, heavy-duty flex installations, and commercial offset prints delivered by our Kasna workshop across Greater Noida &amp; Delhi NCR.
             </p>
           </div>
