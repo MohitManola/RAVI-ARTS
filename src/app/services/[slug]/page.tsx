@@ -51,8 +51,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://raviartsenterprises.com/services/${service.slug}`,
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
-      title: `${service.title} in Kasna, Greater Noida`,
+      title: service.metaTitle,
       description: service.metaDescription,
       url: `https://raviartsenterprises.com/services/${service.slug}`,
       siteName: "Ravi Arts Enterprises",
@@ -139,9 +150,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           "Kasna",
           "Greater Noida",
           "Noida",
-          "Yamuna Expressway",
+          "Delhi",
+          "Delhi NCR",
+          "Uttar Pradesh",
+          "UP",
           "Surajpur",
+          "Yamuna Expressway",
           "Ecotech Greater Noida",
+          "Pari Chowk",
         ],
         description: service.metaDescription,
         hasOfferCatalog: {
@@ -573,8 +589,165 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </section>
 
         {/* =========================================================================
-            SECTION 7: FREQUENTLY ASKED QUESTIONS
+            SECTION 6.5: LOCAL SERVICE AREA & SEO COVERAGE
+            Targets: "best [service] printing in Kasna, Delhi, Noida, UP, NCR, Greater Noida, near me"
            ========================================================================= */}
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-white via-sky-50/40 to-white border-b border-sky-100">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 border border-sky-200 px-3.5 py-1 text-xs font-bold text-sky-800">
+                <MapPin className="h-3.5 w-3.5 text-sky-600" />
+                <span>LOCAL SERVICE AREA &amp; REGIONAL COVERAGE</span>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
+                Best {service.title} in{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Kasna, Delhi, Noida, UP, NCR, Greater Noida &amp; Near Me
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Looking for the best {service.title.toLowerCase()} printing and fabrication near you? Ravi Arts Enterprises operates a cutting-edge, in-house production facility in Kasna, Greater Noida. We deliver premium quality, factory-direct wholesale pricing, same-day dispatch, and turnkey on-site installation across Delhi NCR and Uttar Pradesh.
+              </p>
+
+              {/* Special highlight banner for Acrylic Letters & high-priority services */}
+              {service.slug === "acrylic-letters" ? (
+                <div className="mt-4 p-4 rounded-2xl bg-gradient-to-r from-sky-500/10 via-amber-500/10 to-rose-500/10 border-2 border-sky-300 text-slate-900 shadow-xs">
+                  <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-extrabold text-sky-900">
+                    <Sparkles className="h-4 w-4 text-amber-500 shrink-0" />
+                    <span>
+                      #1 Rated Service: Best Acrylic-Letters Printing in Kasna, Delhi, Noida, UP, NCR, Greater Noida &amp; Near Me
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 mt-1 max-w-xl mx-auto">
+                    Precision computer-guided laser cutting, virgin-grade cast acrylic, halo-lit LED backlighting, and flush stud mounting for corporate receptions, showrooms, and outdoor facades.
+                  </p>
+                </div>
+              ) : (
+                <div className="mt-4 p-3.5 rounded-2xl bg-sky-50 border border-sky-200 text-slate-800 text-xs sm:text-sm font-bold flex items-center justify-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>
+                    Direct Factory Rates: Best {service.title} in Kasna, Delhi, Noida, UP, NCR, Greater Noida &amp; Near Me
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Regional Coverage Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {[
+                { name: "Kasna", tag: "Main Factory Workshop", detail: "Immediate Pickup & Rates" },
+                { name: "Greater Noida", tag: "Express Same-Day", detail: "Pari Chowk & Alpha/Beta" },
+                { name: "Noida", tag: "Daily Deliveries", detail: "Sectors 1-168 & Expressway" },
+                { name: "Delhi", tag: "Next-Day Shipping", detail: "East, South, North & West" },
+                { name: "Delhi NCR", tag: "Full Regional Reach", detail: "Gurugram, Ghaziabad & Faridabad" },
+                { name: "Uttar Pradesh (UP)", tag: "Statewide Distribution", detail: "Bulk Orders & Logistics" },
+                { name: "Yamuna Expressway", tag: "Industrial Corridor", detail: "Jewar Airport Hub & Sec 18-33" },
+                { name: "Ecotech & Surajpur", tag: "Industrial Plants", detail: "On-Site Factory Mounting" },
+                { name: "Knowledge Park", tag: "Campuses & Institutes", detail: "Fast Institutional Support" },
+                { name: "Near Me", tag: "Local Search Leader", detail: "Rapid Site Measurement Visits" },
+              ].map((loc, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-sky-100 bg-white p-3.5 text-center shadow-2xs hover:border-sky-300 hover:shadow-sm transition-all space-y-1"
+                >
+                  <div className="flex items-center justify-center gap-1 text-slate-900 font-bold text-xs sm:text-sm">
+                    <MapPin className="h-3 w-3 text-sky-500 shrink-0" />
+                    <span>{loc.name}</span>
+                  </div>
+                  <span className="block text-[10px] font-semibold text-sky-600 bg-sky-50 rounded-md py-0.5 px-1.5">
+                    {loc.tag}
+                  </span>
+                  <span className="block text-[10px] text-slate-500 leading-tight">
+                    {loc.detail}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Localized Search Queries / SEO Keyword Cloud */}
+            <div className="rounded-3xl bg-slate-900 text-white p-6 sm:p-8 space-y-4 shadow-xl">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="flex items-center gap-2">
+                  <Navigation className="h-4 w-4 text-amber-400" />
+                  <h3 className="text-sm font-bold text-slate-100 uppercase tracking-wider">
+                    Targeted Local Services &amp; Delivery Hubs
+                  </h3>
+                </div>
+                <span className="text-xs text-slate-400">
+                  On-Site Installation &amp; Free Measurement Available
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-1">
+                {[
+                  `best ${service.title.toLowerCase()} in kasna`,
+                  `best ${service.title.toLowerCase()} in greater noida`,
+                  `best ${service.title.toLowerCase()} in noida`,
+                  `best ${service.title.toLowerCase()} in delhi`,
+                  `best ${service.title.toLowerCase()} in up`,
+                  `best ${service.title.toLowerCase()} in ncr`,
+                  `best ${service.title.toLowerCase()} near me`,
+                  `${service.title.toLowerCase()} manufacturer kasna`,
+                  `${service.title.toLowerCase()} factory direct greater noida`,
+                  `${service.title.toLowerCase()} installation noida expressway`,
+                  ...(service.slug === "acrylic-letters"
+                    ? [
+                        "best acrylic-letters printing in kasna",
+                        "best acrylic-letters printing in delhi",
+                        "best acrylic-letters printing in noida",
+                        "best acrylic-letters printing in up",
+                        "best acrylic-letters printing in ncr",
+                        "best acrylic-letters printing in greater noida",
+                        "best acrylic-letters printing near me",
+                        "3d acrylic letters kasna greater noida",
+                        "acrylic led board near me",
+                        "office reception 3d letters delhi ncr",
+                      ]
+                    : []),
+                ].map((kw, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-1 rounded-full bg-slate-800/90 border border-slate-700/80 px-3 py-1 text-[11px] font-medium text-slate-300 hover:text-white hover:border-sky-400 transition-colors"
+                  >
+                    <CheckCircle2 className="h-3 w-3 text-emerald-400 shrink-0" />
+                    <span>{kw}</span>
+                  </span>
+                ))}
+              </div>
+
+              <div className="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+                <span>
+                  Need on-site measurement or sample inspection in Kasna or Greater Noida?
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:+919350036399"
+                    className="inline-flex items-center gap-1.5 font-bold text-amber-400 hover:underline"
+                  >
+                    <Phone className="h-3 w-3" />
+                    <span>Call +91 93500 36399</span>
+                  </a>
+                  <span>•</span>
+                  <a
+                    href={`https://wa.me/919350036399?text=Hello%20Ravi%20Arts%20Enterprises,%20I%20need%20a%20local%20site%20visit%20for%20${encodeURIComponent(service.title)}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-bold text-emerald-400 hover:underline"
+                  >
+                    <WhatsAppIcon className="h-3 w-3 fill-emerald-400" />
+                    <span>WhatsApp Site Visit</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 7: FREQUENTLY ASKED QUESTIONS
+            ========================================================================= */}
         <section className="py-12 sm:py-16 bg-white border-b border-sky-100">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="text-center">

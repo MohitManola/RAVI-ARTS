@@ -31,18 +31,41 @@ export const metadata: Metadata = {
     template: "%s | Ravi Arts Enterprises",
   },
   description:
-    "Leading printing, signage, and branding enterprise in Kasna, Greater Noida. Flex hoardings, LED glow sign boards, 3D acrylic letters, visiting cards, offset printing, and vinyl wraps.",
+    "Kasna & Greater Noida's leading printing, LED glow sign boards, and 3D acrylic letters manufacturer. Flex banners, brochures, visiting cards, vinyl graphics, and corporate gifts with same-day express turnaround.",
   keywords: [
-    "printing press Kasna Greater Noida",
-    "signage board Greater Noida",
-    "flex printing Kasna",
-    "glow sign board Greater Noida",
-    "acrylic 3D letters Kasna",
-    "visiting card printing Noida",
+    "best printing press in kasna",
+    "best acrylic letters printing in kasna",
+    "best flex printing in greater noida",
+    "sign board manufacturer near me",
+    "printing services near me",
+    "glow sign board greater noida",
+    "3d acrylic letters noida",
+    "visiting card printing kasna",
+    "offset printing delhi ncr",
     "Ravi Arts Enterprises",
-    "commercial printing Greater Noida",
+    "commercial printing greater noida up",
   ],
   authors: [{ name: "Ravi Arts Enterprises" }],
+  alternates: {
+    canonical: "https://raviartsenterprises.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "IN-UP",
+    "geo.placename": "Kasna, Greater Noida",
+    "geo.position": "28.4355;77.5307",
+    ICBM: "28.4355, 77.5307",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -74,6 +97,64 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Ravi Arts Enterprises",
+  alternateName: "Ravi Arts",
+  image: "https://raviartsenterprises.com/images/logo_1.png",
+  logo: "https://raviartsenterprises.com/images/logo_1.png",
+  url: "https://raviartsenterprises.com",
+  telephone: ["+91-9350036399", "+91-9971145089"],
+  email: "raviartsenterprises@gmail.com",
+  priceRange: "₹₹",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Kasna",
+    addressLocality: "Greater Noida/Delhi NCR",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "201310",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.4355,
+    longitude: 77.5307,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:30",
+      closes: "18:30",
+    },
+  ],
+  areaServed: [
+    "Kasna",
+    "Greater Noida",
+    "Noida",
+    "Delhi",
+    "Delhi NCR",
+    "Uttar Pradesh",
+    "UP",
+    "Yamuna Expressway",
+    "Surajpur",
+    "Ecotech Greater Noida",
+    "Pari Chowk",
+  ],
+  sameAs: [
+    "https://maps.app.goo.gl/8XEp1SBYLcZUSDV47?g_st=iw",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +165,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#eff7ff] text-slate-900 selection:bg-sky-500 selection:text-white">
         <QuoteProvider>
           <Navbar />
