@@ -144,7 +144,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
         {/* Main Navbar */}
         <div
           className={`relative mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
-            scrolled ? "py-2.5" : "py-3.5"
+            scrolled ? "py-2.5 min-h-[64px]" : "py-3.5 min-h-[72px] sm:min-h-[76px]"
           }`}
         >
           {/* Mobile Full-Width Search Takeover (Covers Logo and Header for Perfect Space) */}
@@ -161,8 +161,10 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           {/* Brand Logo */}
           <Link
             href="/"
-            className={`group items-center gap-3 shrink-0 ${
-              isSearchExpanded ? "hidden md:flex" : "flex"
+            className={`group items-center gap-3 shrink-0 flex ${
+              isSearchExpanded
+                ? "invisible pointer-events-none md:visible md:pointer-events-auto"
+                : "visible"
             }`}
           >
             <div className="relative h-11 w-11 sm:h-12 sm:w-12 overflow-hidden transition-transform duration-300 group-hover:scale-105">
@@ -315,20 +317,20 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
             {/* Mobile Search Button on small devices */}
             <div className="md:hidden">
-              {!isSearchExpanded && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsSearchExpanded(true);
-                    setIsOpen(false);
-                  }}
-                  aria-label="Search services"
-                  title="Search printing & signage"
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:text-blue-600 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
-                >
-                  <Search className="h-5 w-5 stroke-[2.2]" />
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSearchExpanded(true);
+                  setIsOpen(false);
+                }}
+                aria-label="Search services"
+                title="Search printing & signage"
+                className={`h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:text-blue-600 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer ${
+                  isSearchExpanded ? "invisible pointer-events-none" : "flex"
+                }`}
+              >
+                <Search className="h-5 w-5 stroke-[2.2]" />
+              </button>
             </div>
 
             {/* Mobile Menu Hamburger */}
@@ -339,7 +341,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 setIsSearchExpanded(false);
               }}
               className={`items-center justify-center rounded-xl p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none lg:hidden cursor-pointer ${
-                isSearchExpanded ? "hidden md:flex" : "inline-flex"
+                isSearchExpanded ? "invisible pointer-events-none md:inline-flex" : "inline-flex"
               }`}
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}

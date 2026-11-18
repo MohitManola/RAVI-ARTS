@@ -218,7 +218,10 @@ export default function PortfolioPage() {
                 Installed &amp; Printed In-House
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Explore Our Completed Projects
+                Explore Our Completed{" "}
+                <span className="bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  Projects
+                </span>
               </h2>
               <p className="text-sm text-slate-600">
                 Click any project card to inspect finish details and request the same format for your business.
@@ -386,7 +389,10 @@ export default function PortfolioPage() {
                 Kasna, Greater Noida/Delhi NCR, Uttar Pradesh - 201310
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                Want Similar Branding for Your Shop or Factory?
+                Want Similar Branding for Your Shop or{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-rose-500 to-amber-400 bg-clip-text text-transparent">
+                  Factory?
+                </span>
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
                 Share your board dimensions or print quantity with Ravi Arts Enterprises for a direct factory estimate and layout mockup.
