@@ -13,6 +13,7 @@ import {
   MapPin,
   Clock,
   ArrowRight,
+  Search,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { InstagramIcon, FacebookIcon, GoogleIcon } from "@/components/SocialIcons";
@@ -142,12 +143,28 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
         {/* Main Navbar */}
         <div
-          className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
+          className={`relative mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
             scrolled ? "py-2.5" : "py-3.5"
           }`}
         >
+          {/* Mobile Full-Width Search Takeover (Covers Logo and Header for Perfect Space) */}
+          {isSearchExpanded && (
+            <div className="absolute inset-0 z-50 flex items-center bg-white px-3 sm:px-4 md:hidden animate-in fade-in duration-150">
+              <YouTubeSearchBar
+                isExpanded={true}
+                onExpandChange={setIsSearchExpanded}
+                isMobileOverlay={true}
+              />
+            </div>
+          )}
+
           {/* Brand Logo */}
-          <Link href="/" className="group flex items-center gap-3 shrink-0">
+          <Link
+            href="/"
+            className={`group items-center gap-3 shrink-0 ${
+              isSearchExpanded ? "hidden md:flex" : "flex"
+            }`}
+          >
             <div className="relative h-11 w-11 sm:h-12 sm:w-12 overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/images/logo_1.png"
@@ -298,17 +315,32 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
             {/* Mobile Search Button on small devices */}
             <div className="md:hidden">
-              <YouTubeSearchBar
-                isExpanded={isSearchExpanded}
-                onExpandChange={setIsSearchExpanded}
-              />
+              {!isSearchExpanded && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsSearchExpanded(true);
+                    setIsOpen(false);
+                  }}
+                  aria-label="Search services"
+                  title="Search printing & signage"
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:text-blue-600 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
+                >
+                  <Search className="h-5 w-5 stroke-[2.2]" />
+                </button>
+              )}
             </div>
 
             {/* Mobile Menu Hamburger */}
             <button
               type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-xl p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none lg:hidden cursor-pointer"
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setIsSearchExpanded(false);
+              }}
+              className={`items-center justify-center rounded-xl p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none lg:hidden cursor-pointer ${
+                isSearchExpanded ? "hidden md:flex" : "inline-flex"
+              }`}
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
             >

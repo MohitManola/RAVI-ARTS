@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, X, ArrowRight, TrendingUp, Compass } from "lucide-react";
+import { Search, X, ArrowRight, TrendingUp, Compass, ArrowLeft } from "lucide-react";
 import {
   searchCatalog,
   navbarQuickLinks,
@@ -27,6 +27,7 @@ interface YouTubeSearchBarProps {
   isMobile?: boolean;
   isExpanded?: boolean;
   onExpandChange?: (expanded: boolean) => void;
+  isMobileOverlay?: boolean;
 }
 
 export default function YouTubeSearchBar({
@@ -34,6 +35,7 @@ export default function YouTubeSearchBar({
   isMobile = false,
   isExpanded = false,
   onExpandChange,
+  isMobileOverlay = false,
 }: YouTubeSearchBarProps) {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -180,8 +182,8 @@ export default function YouTubeSearchBar({
     );
   };
 
-  // If NOT mobile and NOT expanded, show the compact small search button (takes ~40px)
-  if (!isMobile && !isExpanded) {
+  // If NOT mobile and NOT mobileOverlay and NOT expanded, show the compact small search button (takes ~40px)
+  if (!isMobile && !isMobileOverlay && !isExpanded) {
     return (
       <button
         type="button"
@@ -202,16 +204,33 @@ export default function YouTubeSearchBar({
     <div
       ref={containerRef}
       className={`relative ${
-        isMobile
+        isMobileOverlay || isMobile
           ? "w-full"
           : "w-52 xs:w-64 sm:w-80 md:w-96 max-w-[calc(100vw-120px)] sm:max-w-full animate-in fade-in zoom-in-95 duration-150"
       }`}
     >
       {/* YouTube Style Search Bar Input Container */}
-      <div className="flex items-center gap-1.5 w-full">
+      <div className="flex items-center gap-1.5 sm:gap-2 w-full">
+        {/* On Mobile Overlay, show Back Arrow button to return to normal navbar */}
+        {isMobileOverlay && (
+          <button
+            type="button"
+            onClick={() => {
+              setQuery("");
+              setIsOpen(false);
+              if (onExpandChange) onExpandChange(false);
+            }}
+            aria-label="Back to navigation"
+            title="Back"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+        )}
+
         <form
           onSubmit={handleSubmit}
-          className="flex-1 flex items-center rounded-full border border-slate-300 bg-white shadow-xs hover:border-slate-400 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 transition-all duration-200 overflow-hidden"
+          className="flex-1 min-w-0 flex items-center rounded-full border border-slate-300 bg-white shadow-xs hover:border-slate-400 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 transition-all duration-200 overflow-hidden"
         >
           {/* Inner Search Icon */}
           <div className="pl-3.5 pr-1.5 text-slate-400 shrink-0">
@@ -230,7 +249,11 @@ export default function YouTubeSearchBar({
             }}
             onFocus={() => setIsOpen(true)}
             onKeyDown={handleKeyDown}
-            placeholder="Search services, products, visiting cards..."
+            placeholder={
+              isMobileOverlay
+                ? "Search services, sign boards, visiting cards..."
+                : "Search services, products, visiting cards..."
+            }
             aria-label="Search"
             className="w-full py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 bg-transparent focus:outline-none"
           />
@@ -262,18 +285,18 @@ export default function YouTubeSearchBar({
           </button>
         </form>
 
-        {/* Desktop Close Button to collapse search and restore WhatsApp & Get a Quote */}
-        {!isMobile && onExpandChange && (
+        {/* Close Button to collapse search and restore WhatsApp & Get a Quote */}
+        {(isMobileOverlay || (!isMobile && onExpandChange)) && (
           <button
             type="button"
             onClick={() => {
               setQuery("");
               setIsOpen(false);
-              onExpandChange(false);
+              if (onExpandChange) onExpandChange(false);
             }}
             aria-label="Close search"
             title="Close search"
-            className="h-9 w-9 flex items-center justify-center rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
@@ -282,7 +305,13 @@ export default function YouTubeSearchBar({
 
       {/* YouTube Style Suggestions Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-[calc(100vw-24px)] xs:w-[360px] sm:w-[420px] max-w-[440px] max-h-[75vh] overflow-y-auto rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-[999] animate-in fade-in zoom-in-95 duration-150">
+        <div
+          className={`absolute top-full mt-2 max-h-[75vh] overflow-y-auto rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-[999] animate-in fade-in zoom-in-95 duration-150 ${
+            isMobileOverlay
+              ? "left-0 right-0 w-full"
+              : "right-0 w-[calc(100vw-24px)] xs:w-[360px] sm:w-[420px] max-w-[440px]"
+          }`}
+        >
           {trimmed ? (
             results.length > 0 ? (
               <div className="py-1">
