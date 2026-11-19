@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ShieldCheck,
   Lock,
@@ -47,25 +46,10 @@ export default function PrivacyPolicyPage() {
       </nav>
 
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
-        {/* Full Banner Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/testimonials_top.png"
-            alt="Privacy Policy - Ravi Arts Enterprises"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-right select-none"
-            quality={95}
-          />
-          {/* Subtle gradient to ensure flawless text contrast on all devices */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
-        </div>
-
+      <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
         {/* Content Container */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-          <div className="max-w-xl md:max-w-2xl">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
+          <div className="max-w-2xl md:max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 LEGAL &amp; PRIVACY
@@ -78,7 +62,7 @@ export default function PrivacyPolicyPage() {
                 Policy
               </span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
               At Ravi Arts Enterprises, accessible from www.raviartsenterprises.com, we respect your
               privacy and are committed to protecting your personal information.
             </p>

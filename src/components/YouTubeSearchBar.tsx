@@ -285,8 +285,8 @@ export default function YouTubeSearchBar({
           </button>
         </form>
 
-        {/* Close Button to collapse search and restore WhatsApp & Get a Quote */}
-        {(isMobileOverlay || (!isMobile && onExpandChange)) && (
+        {/* Close Button to collapse search and restore WhatsApp & Get a Quote (Desktop only; mobile overlay uses the Back Arrow) */}
+        {!isMobile && !isMobileOverlay && onExpandChange && (
           <button
             type="button"
             onClick={() => {
