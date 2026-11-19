@@ -173,8 +173,8 @@ export default function PortfolioPage() {
   return (
     <div className="flex flex-col w-full bg-[#f8fafc]">
       {/* Dark Top Hero Banner matching Testimonials Page Design */}
-      <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
-        <div className="absolute inset-0 z-0">
+      <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
+        <div className="absolute inset-0 z-0 hidden md:block">
           <Image
             src="/images/our_work_top.png"
             alt="Ravi Arts Enterprises Our Portfolio Showcase"
@@ -187,8 +187,8 @@ export default function PortfolioPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-          <div className="max-w-xl md:max-w-2xl">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
+          <div className="max-w-2xl md:max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                 OUR PORTFOLIO &bull; RECENT WORK
@@ -201,7 +201,7 @@ export default function PortfolioPage() {
                 Work
               </span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
               Real storefront LED boards, heavy-duty flex installations, and commercial offset prints delivered by our Kasna workshop across Greater Noida &amp; Delhi NCR.
             </p>
           </div>

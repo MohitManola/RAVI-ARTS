@@ -149,8 +149,8 @@ export default function TestimonialsPage() {
 
       <div className="flex flex-col w-full">
         {/* Header Banner */}
-        <section className="relative overflow-hidden bg-[#020b1e] text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
-          <div className="absolute inset-0 z-0">
+        <section className="relative overflow-hidden hero-navy-gradient text-white min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex items-center">
+          <div className="absolute inset-0 z-0 hidden md:block">
             <Image
               src="/images/testimonials_top.png"
               alt="What Our Clients Say - Ravi Arts Enterprises Reviews"
@@ -163,8 +163,8 @@ export default function TestimonialsPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/95 via-[#020b1e]/75 to-transparent sm:via-[#020b1e]/50 sm:to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14">
-            <div className="max-w-xl md:max-w-2xl">
+          <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
+            <div className="max-w-2xl md:max-w-3xl">
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
                   100% GENUINE GOOGLE REVIEWS
@@ -177,11 +177,6 @@ export default function TestimonialsPage() {
                   Clients Say
                 </span>
               </h1>
-              <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg">
-                Read authentic Google reviews from real customers who trusted Ravi Arts Enterprises
-                for flex banners, glow signs, 3D acrylic letters, and business printing in Kasna,
-                Greater Noida.
-              </p>
             </div>
           </div>
         </section>
