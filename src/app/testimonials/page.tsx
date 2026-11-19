@@ -177,6 +177,11 @@ export default function TestimonialsPage() {
                   Clients Say
                 </span>
               </h1>
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
+                Read authentic Google reviews from real customers who trusted Ravi Arts Enterprises
+                for flex banners, glow signs, 3D acrylic letters, and business printing in Kasna,
+                Greater Noida.
+              </p>
             </div>
           </div>
         </section>
